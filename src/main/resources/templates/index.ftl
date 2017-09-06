@@ -1,3 +1,5 @@
+<#include "macro-head.ftl">
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,21 +7,14 @@
 <!-- Mirrored from telatkaya.com/stagb/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Apr 2017 15:51:53 GMT -->
 
 <head>
-    <title>Stagb Admin Template - Dashboard</title>
-    <link rel="icon" href="/static/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name=viewport content="width=device-width, initial-scale=1" />
-    <link href="/static/dist/semantic.min.css" rel="stylesheet" />
-    <link href="/static/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
-    <link href="/static/css/main.css" rel="stylesheet" />
-    <link href="/static/plugins/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
-    <link href="/static/plugins/weather-icons/css/weather-icons-wind.min.css" rel="stylesheet" />
-    <link href="/static/plugins/weather-icons/css/weather-icons.min.css" rel="stylesheet" />
-    <link href="/static/plugins/chartist/chartist.min.css" rel="stylesheet" />
-    <link href="/static/css/chat-page.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="/static/favicon.ico" />
-
+    <#if template??>
+    <#if template == 'index'>
+        <@head title="${adminTitle} - ${titleITBC}"></@head>
+    </#if>
+    <#if template == 'menu'>
+        <@head title="${menuTitle} - ${titleITBC}"></@head>
+    </#if>
+    </#if>
 </head>
 
 <body>
@@ -31,12 +26,12 @@
         </a>
         <div class="ui accordion inverted">
 
-            <a class="title item">
-                <i class="ion-speedometer titleIcon icon"></i> Dashboard <i class="dropdown icon"></i>
+            <a class="title item <#if template??><#if template == 'menu'>active</#if></#if>">
+                <i class="ion-speedometer titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
-            <div class="content">
-                <a class="item" href="index-2.html">
-                    Dashboard v1
+            <div class="content <#if template??><#if template == 'menu'>active</#if></#if>">
+                <a class="item <#if template??><#if template == 'menu'>transition visible</#if></#if>" href="/menu/menu">
+                    菜单管理
                 </a>
             </div>
 
@@ -1069,37 +1064,12 @@
             </div>
         </div>
     </div>
-    <#include "module/index.ftl">
+    <div class="pusher">
+    <#include "module/admin/${template}.ftl">
+    </div>
 </div>
-<!--jquery-->
-<script src="/static/js/jquery-2.1.4.min.js"></script>
-<!--jquery-->
-<!--semantic-->
-<script src="/static/dist/semantic.min.js"></script>
-<!--semantic-->
-<!--counter number-->
-<script src="/static/plugins/counterup/jquery.counterup.min.js"></script>
-<script src="/static/plugins/counterup/waypoints.min.js"></script>
-<!--counter number-->
-<!--flot chart-->
-<script src="/static/plugins/flot/jquery.flot.js"></script>
-<script src="/static/plugins/flot/jquery.flot.resize.min.js"></script>
-<script src="/static/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="/static/plugins/flot/curvedLines.js"></script>
-<script src="/static/plugins/cookie/js.cookie.js"></script>
-<!--flot chart-->
-<!--chartjs chart-->
-<script src="/static/plugins/chartjs/chart.min.js"></script>
-<!--chartjs chart-->
+<#include "macro-foot.ftl">
 
-<script src="/static/plugins/nicescrool/jquery.nicescroll.min.js"></script>
-
-<script data-pace-options='{ "ajax": false }' src="/static/plugins/pacejs/pace.js"></script>
-
-<script src="/static/plugins/chartist/chartist.min.js"></script>
-
-<script src="/static/js/dashboard2.js"></script>
-<script src="/static/js/main.js"></script>
 </body>
 
 

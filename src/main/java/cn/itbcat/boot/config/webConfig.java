@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 /**
  * Created by 860117030 on 2017/9/5.
+ * springboot 不加载Static文件解决办法
  */
 @EnableWebMvc
 @Configuration
