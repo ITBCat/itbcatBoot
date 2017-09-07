@@ -120,45 +120,42 @@ $('.ui.form4').form({
             identifier: 'name',
             rules: [{
                 type: 'empty',
-                prompt: 'Please enter your name'
+                prompt: '请填写菜单名称...'
             }]
         },
-        skills: {
-            identifier: 'skills',
-            rules: [{
-                type: 'minCount[2]',
-                prompt: 'Please select at least two skills'
-            }]
-        },
-        gender: {
-            identifier: 'gender',
+        url: {
+            identifier: 'url',
             rules: [{
                 type: 'empty',
-                prompt: 'Please select a gender'
+                prompt: '请填写菜单路径...'
             }]
         },
-        username: {
-            identifier: 'username',
+        perms: {
+            identifier: 'perms',
             rules: [{
                 type: 'empty',
-                prompt: 'Please enter a username'
+                prompt: '请填写授权标识...'
             }]
         },
-        password: {
-            identifier: 'password',
+        sort: {
+            identifier: 'sort',
             rules: [{
                 type: 'empty',
-                prompt: 'Please enter a password'
-            }, {
-                type: 'minLength[6]',
-                prompt: 'Your password must be at least {ruleValue} characters'
+                prompt: '请选择排序...'
             }]
         },
-        terms: {
-            identifier: 'terms',
+        icon: {
+            identifier: 'icon',
             rules: [{
-                type: 'checked',
-                prompt: 'You must agree to the terms and conditions'
+                type: 'empty',
+                prompt: '请选择图标...'
+            }]
+        },
+        isShow:{
+            identifier: 'isShow',
+            rules:[{
+                type: 'empty',
+                prompt: '请选择是否隐藏...'
             }]
         }
     }

@@ -1,8 +1,10 @@
 package cn.itbcat.boot.entity;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -21,14 +23,13 @@ public class Menu implements Serializable {
      * 主键
      */
     @Id
-    @GeneratedValue
-    private Long id;
+    private String id;
 
     /**
      *父菜单ID，一级菜单为0
      */
     @Column(name = "parentId")
-    private Long parentId;
+    private String parentId;
 
     /**
      * 父菜单名称
@@ -73,7 +74,7 @@ public class Menu implements Serializable {
     private Integer sort;
 
     /**
-     * 是否显示
+     * 是否显示 0:显示 1：隐藏
      */
     @Column(name = "isShow",nullable = false)
     private String isShow;

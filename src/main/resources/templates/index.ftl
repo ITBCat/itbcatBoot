@@ -7,13 +7,11 @@
 <!-- Mirrored from telatkaya.com/stagb/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Apr 2017 15:51:53 GMT -->
 
 <head>
-    <#if template??>
     <#if template == 'index'>
-        <@head title="${adminTitle} - ${titleITBC}"></@head>
+        <@head title="后台管理 - ITBC"></@head>
     </#if>
     <#if template == 'menu'>
-        <@head title="${menuTitle} - ${titleITBC}"></@head>
-    </#if>
+        <@head title="菜单管理 - ITBC"></@head>
     </#if>
 </head>
 
@@ -21,16 +19,16 @@
 <div id="contextWrap">
     <!--sidebar-->
     <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey" style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey">
-        <a class="item logo" href="index-2.html">
-            <img src="/static/img/logo.png" alt="stagblogo" /><img src="/static/img/thumblogo.png" alt="stagblogo" class="displaynone" />
+        <a class="item logo" href="/admin">
+            <img src="/static/logo.png" alt="ITBC Admin" /><img src="/static/thumblogo.png" alt="ITBC Admin" class="displaynone" />
         </a>
         <div class="ui accordion inverted">
 
-            <a class="title item <#if template??><#if template == 'menu'>active</#if></#if>">
+            <a class="title item <#if template == 'menu'>active</#if>">
                 <i class="ion-speedometer titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
-            <div class="content <#if template??><#if template == 'menu'>active</#if></#if>">
-                <a class="item <#if template??><#if template == 'menu'>transition visible</#if></#if>" href="/menu/menu">
+            <div class="content <#if template == 'menu'>active</#if>">
+                <a class="item <#if template == 'menu'>transition visible</#if>" href="/menu/menu">
                     菜单管理
                 </a>
             </div>

@@ -16,4 +16,7 @@
 <link href="/static/plugins/chartist/chartist.min.css" rel="stylesheet" />
 <link href="/static/css/chat-page.css" rel="stylesheet" />
 <link href="/static/plugins/pacejs/pace.css" rel="stylesheet" />
+<!--jquery-->
+<script src="/static/js/jquery-2.1.4.min.js"></script>
+<!--jquery-->
 </#macro>

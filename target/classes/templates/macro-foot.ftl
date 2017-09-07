@@ -1,11 +1,8 @@
-<!--jquery-->
-<script src="/static/js/jquery-2.1.4.min.js"></script>
-<!--jquery-->
 <!--semantic-->
 <script src="/static/dist/semantic.min.js"></script>
 <!--semantic-->
 <#--首页的JS-->
-<#if template?? && template=='index'>
+<#if template=='index'>
 <!--counter number-->
 <script src="/static/plugins/counterup/jquery.counterup.min.js"></script>
 <script src="/static/plugins/counterup/waypoints.min.js"></script>
@@ -26,8 +23,8 @@
 </#if>
 
 <#--菜单的Js-->
-<#if template?? && template=='menu'>
-<script src="js/customjs/custom-validation.js"></script>
+<#if template=='menu'>
+<script src="/static/js/customjs/custom-validation.js"></script>
 </#if>
 
 <script src="/static/plugins/cookie/js.cookie.js"></script>

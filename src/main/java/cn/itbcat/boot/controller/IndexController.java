@@ -1,6 +1,5 @@
 package cn.itbcat.boot.controller;
 
-import cn.itbcat.boot.config.ITBC;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +16,6 @@ public class IndexController {
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String index(Map<String, Object> dataModel){
 
-        //dataModel = ITBC.getDataModel();
         dataModel.put("template","index");
         return "index";
     }
