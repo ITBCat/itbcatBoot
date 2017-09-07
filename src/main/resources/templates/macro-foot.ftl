@@ -23,10 +23,13 @@
 </#if>
 
 <#--菜单的Js-->
-<#if template=='menu'>
+<#if template=='add-menu'>
 <script src="/static/js/customjs/custom-validation.js"></script>
 </#if>
-
+<#if template=='menu'>
+<script src="/static/plugins/datatable/jquery.dataTables.js"></script>
+<script src="/static/js/customjs/custom-datatable.js"></script>
+</#if>
 <script src="/static/plugins/cookie/js.cookie.js"></script>
 <script src="/static/plugins/nicescrool/jquery.nicescroll.min.js"></script>
 

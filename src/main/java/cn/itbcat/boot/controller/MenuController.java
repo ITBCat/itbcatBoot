@@ -24,12 +24,26 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
+    /**
+     * 菜单列表
+     * @param template
+     * @param request
+     * @param response
+     * @param dataModel 返回的数据
+     * @return
+     */
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToMenu(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
         return "index";
     }
 
+    /**
+     * 保存菜单
+     * @param menu
+     * @param dataModel
+     * @return
+     */
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public String save(@ModelAttribute Menu menu,Map<String,Object> dataModel){
         dataModel.put("template","menu");

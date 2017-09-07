@@ -7,9 +7,9 @@
         /* Set the defaults for DataTables initialisation */
         $.extend(true, DataTable.defaults, {
             dom:
-                "<'left aligned eight wide column'l><'right aligned eight wide column'f>" +
+                "<'left aligned eight wide column'l>" +
                 "<'sixteen wide column'tr>" +
-                "<'left aligned four wide column'i><'right aligned twelve wide column'p>",
+                "<'left aligned four wide column'i>",
             renderer: 'semantic'
         });
 
