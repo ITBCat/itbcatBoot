@@ -4,10 +4,13 @@ import cn.itbcat.boot.entity.Menu;
 import cn.itbcat.boot.repository.MenuRepository;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import java.util.List;
 
 /**
  * Created by 860117030 on 2017/9/7.
@@ -46,5 +49,12 @@ public class MenuService {
         }
 
         return menu;
+    }
+
+    public List<Menu> findAllMenu() {
+        //排序
+        Sort sort = new Sort(Sort.Direction.DESC, "sort");
+        List<Menu> list = menuRepository.findAll(sort);
+        return list;
     }
 }

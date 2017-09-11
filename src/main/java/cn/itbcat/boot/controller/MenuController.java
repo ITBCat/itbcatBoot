@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,7 +36,17 @@ public class MenuController {
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToMenu(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
+        if(template.equals("menu")){
+            dataModel.put("menus",getMenuList());
+        }
         return "index";
+    }
+
+    private List<Menu> getMenuList(){
+
+        List<Menu> list = menuService.findAllMenu();
+
+        return list;
     }
 
     /**
@@ -56,7 +67,7 @@ public class MenuController {
             dataModel.put("msg",e.toString());
             e.printStackTrace();
         }
-        return "index";
+        return "redirect:/menu/menu";
     }
 
 }

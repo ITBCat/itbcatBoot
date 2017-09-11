@@ -62,8 +62,8 @@
                         <div class="field">
                             <label>是否隐藏</label>
                             <div class="ui selection dropdown" tabindex="0">
-                                <input name="isShow" type="hidden" value="0">
-                                <div class="default text">是</div>
+                                <input name="isShow" type="hidden" value="1">
+                                <div class="default text">否</div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu" tabindex="-1">
                                     <div class="item" data-value="0">是</div>
