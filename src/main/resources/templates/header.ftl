@@ -61,7 +61,7 @@
                     <a class="item" href="settings.html">Settings</a>
                     <div class="ui divider"></div>
                     <a class="item">Need Help?</a>
-                    <a class="item" href="login.html">Sign Out</a>
+                    <a class="item" href="/logout">注 销</a>
                 </div>
             </div>
             <a class="item labeled rightsidebar computer only">
