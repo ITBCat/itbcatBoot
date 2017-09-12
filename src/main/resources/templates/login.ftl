@@ -15,6 +15,7 @@
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
     <link href="/static/css/main.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
     <div class="ui container" style="padding-top:10%">
@@ -22,13 +23,10 @@
             <div class="row">
                 <div class="sixteen wide tablet six wide computer column">
                     <div class="ui left aligned segment">
-
-                        <div id="form1" class="ui form">
-
                             <h1 class="ui header center aligned">
                                 <img src="/static/logo.png" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
                             </h1>
-                            <form action="/login" method="post">
+                            <form class="ui form form13" action="/login" method="post">
                                 <div class="field">
                                     <label>
                                         邮箱或用户名:
@@ -60,14 +58,15 @@
                                     </a>
                                 </div>
                             </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/static/js/jquery-2.1.4.min.js"></script>
 
+    <script src="/static/dist/semantic.min.js"></script>
+
+    <script src="/static/js/customjs/custom-validation.js"></script>
     <script>
         var colors = ["#F25F5C", "#247BA0", "#8e44ad", "#ED6A5A", "#32936F", "#2c3e50", "#E83F6F", "#32936F", "#2E294E"];
         var rand = Math.floor(Math.random() * colors.length);

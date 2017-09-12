@@ -27,10 +27,13 @@
         </a>
         <div class="ui accordion inverted">
 
-            <a class="title item <#if template == 'menu' || template == 'add-menu'>active</#if>">
+            <a class="title item <#if template == 'menu' || template == 'add-menu' || template == 'user' || template=='add-user'>active</#if>">
                 <i class="ion-speedometer titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
-            <div class="content <#if template == 'menu' || template == 'add-menu'>active</#if>">
+            <div class="content <#if template == 'menu' || template == 'add-menu' || template == 'user' || template=='add-user'>active</#if>">
+                <a class="item <#if template == 'user' || template=='add-user'>transition visible</#if>" href="/user/add-user">
+                    用户管理
+                </a>
                 <a class="item <#if template == 'menu' || template == 'add-menu'>transition visible</#if>" href="/menu/menu">
                     菜单管理
                 </a>

@@ -502,3 +502,17 @@ $('.ui.form12').form({
         ]
     }
 });
+$('.ui.form13').form({
+    fields: {
+        username: {
+            rules: [{
+                type: 'empty'
+            }]
+        },
+        password: {
+            rules: [{
+                type: 'empty'
+            }]
+        }
+    }
+});
