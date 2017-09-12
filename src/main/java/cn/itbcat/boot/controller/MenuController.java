@@ -1,7 +1,10 @@
 package cn.itbcat.boot.controller;
 
+import cn.itbcat.boot.config.webConfig;
 import cn.itbcat.boot.entity.Menu;
+import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.service.MenuService;
+import cn.itbcat.boot.utils.ITBC;
 import freemarker.template.utility.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

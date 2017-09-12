@@ -10,12 +10,16 @@
     <#if template == 'index'>
         <@head title="后台管理 - ITBC"></@head>
     </#if>
+    <#if template == 'add-user' >
+        <@head title='添加用户 - ITBC'></@head>
+    </#if>
     <#if template == 'menu'>
         <@head title="菜单管理 - ITBC"></@head>
     </#if>
     <#if template == 'add-menu' >
         <@head title='添加菜单 - ITBC'></@head>
     </#if>
+
 </head>
 
 <body>
@@ -27,11 +31,14 @@
         </a>
         <div class="ui accordion inverted">
 
-            <a class="title item <#if template == 'menu' || template == 'add-menu'>active</#if>">
+            <a class="title item <#if template == 'menu' || template == 'add-menu' || template == 'user' || template=='add-user'>active</#if>">
                 <i class="ion-speedometer titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
-            <div class="content <#if template == 'menu' || template == 'add-menu'>active</#if>">
-                <a class="item <#if template == 'menu' || template == 'add-menu'>transition visible</#if>" href="/menu/menu">
+            <div class="content <#if template == 'menu' || template == 'add-menu' || template == 'user' || template=='add-user'>active</#if>">
+                <a class="item <#if template == 'menu' || template == 'add-menu' ||template == 'user' || template=='add-user'>transition visible</#if>" href="/user/add-user">
+                    用户管理
+                </a>
+                <a class="item <#if template == 'menu' || template == 'add-menu' ||template == 'user' || template=='add-user'>transition visible</#if>" href="/menu/menu">
                     菜单管理
                 </a>
             </div>

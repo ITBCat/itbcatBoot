@@ -22,6 +22,15 @@
         <div class="ui grid center aligned">
             <div class="row">
                 <div class="sixteen wide tablet six wide computer column">
+                <#if msg??>
+                    <div class="ui error message">
+                        <i class="close icon" onclick="hideMsg()"></i>
+                        <div class="header">
+                            错误信息
+                        </div>
+                        ${msg}
+                    </div>
+                </#if>
                     <div class="ui left aligned segment">
                             <h1 class="ui header center aligned">
                                 <img src="/static/logo.png" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
@@ -71,6 +80,12 @@
         var colors = ["#F25F5C", "#247BA0", "#8e44ad", "#ED6A5A", "#32936F", "#2c3e50", "#E83F6F", "#32936F", "#2E294E"];
         var rand = Math.floor(Math.random() * colors.length);
         $('body').css("background-color", colors[rand]);
+        /**
+         * 隐藏消息
+         */
+        function hideMsg() {
+            $('.message').hide();
+        }
     </script>
 </body>
 
