@@ -37,13 +37,5 @@ public class ITBC {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    /**
-     * 获取当前用户
-     * @param request
-     * @return
-     */
-    public static User getCurrUser(HttpServletRequest request){
-        return (User) request.getSession().getAttribute(webConfig.SESSION_KEY);
-    }
 
 }

@@ -5,7 +5,11 @@ import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.service.UserService;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.MD5;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,32 +34,22 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String toLogin(String username, String password, HttpSession session, Map<String,Object> dataModel){
-
-        User user = userService.getUserByEmail(username);
-
-        if(user == null){
-            dataModel.put("msg","用户不存在");
-            return "login";
+    public String toLogin(String username, String password, Map<String,Object> dataModel){
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            subject.login(token);
+            return "redirect:/admin";
+        } catch (AuthenticationException e) {
+            dataModel.put("msg", e.getMessage());
         }
-
-        String pass = new Sha256Hash(password,MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
-
-        if (!pass.equals(user.getPassword())){
-            dataModel.put("msg","密码错误");
-            return "login";
-        }
-
-        // 设置session
-        session.setAttribute(webConfig.SESSION_KEY, userService.getUserByEmail(username));
-
-        return "redirect:/admin";
+        return "login";
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(HttpSession session) {
-        // 移除session
-        session.removeAttribute(webConfig.SESSION_KEY);
+    public String logout() {
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
         return "redirect:/login";
     }
 }
