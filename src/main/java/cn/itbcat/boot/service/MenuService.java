@@ -22,21 +22,6 @@ public class MenuService {
 
     @Transactional(rollbackFor = Exception.class)
     public void save(Menu menu){
-        String pid = menu.getParentId();
-        Menu parent = null;
-        if (!StringUtils.isEmpty(pid)){
-            parent = this.get(pid);
-            if(null != parent){
-                menu.setParentName(parent.getName());
-            }
-        }else{
-            menu.setParentName("顶级菜单");
-            menu.setParentId("0");
-        }
-        //ID
-        menu.setId(ITBC.getId());
-        //删除标记
-        menu.setDelFlag(ITBC.DEL_FLAG_NORMAL);
         menuRepository.save(menu);
     }
 

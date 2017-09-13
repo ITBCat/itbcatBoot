@@ -1,164 +1,227 @@
 package cn.itbcat.boot.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 /**
- * Created by 860117030 on 2017/9/11.
+ * 系统用户
+ * 
+ * @author chenshun
+ * @email sunlightcs@gmail.com
+ * @date 2016年9月18日 上午9:28:55
  */
 @Entity
 @Table(name = "sys_user")
-
 public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 用户ID
+	 */
+	@Id
+	@Column(name = "user_id",unique =true,nullable = false)
+	private String userId;
 
-    @Id
-    @Column(name = "id", unique = true, nullable = false,length = 20)
-    private String id;
+	/**
+	 * 用户名
+	 */
+	private String username;
 
-    @Column(name = "username",nullable = false,length = 255)
-    private String username;
+	/**
+	 * 密码
+	 */
+	private String password;
 
-    @Column(name = "password",nullable = false,length = 255)
-    private String password;
+	/**
+	 * 邮箱
+	 */
+	private String email;
 
-    @Column(name = "email",nullable = false,length = 50)
-    private String email;
+	/**
+	 * 手机号
+	 */
+	private String mobile;
 
-    @Column(name = "type",nullable = false,length = 1)
-    private String type;
+	/**
+	 * 状态  0：禁用   1：正常
+	 */
+	private Integer status;
 
-    @Column(name = "deptname",nullable = false,length = 255)
-    private String deptName;
+	
+	/**
+	 * 创建者ID
+	 */
+	private String createUserId;
 
-    @Column(name = "deptid",nullable = false,length = 20)
-    private String deptId;
+	/**
+	 * 创建时间
+	 */
+	@Column(name = "create_time")
+	private Date createTime;
 
-    @Column(name = "remarks")
-    protected String remarks;	// 备注
+	/**
+	 * 部门ID
+	 */
+	@Column(name = "dept_id")
+	private String deptId;
 
-    @Column(name = "createBy")
-    protected String createBy;	// 创建者
+	/**
+	 * 部门名称
+	 */
+	@Column(name = "dept_name")
+	private String deptName;
 
-    @Column(name = "createDate")
-    protected Date createDate;	// 创建日期
+	@Column(name = "del_flag")
+	private String delFlag;
 
-    @Column(name = "updateBy")
-    protected String updateBy;	// 更新者
+	public String getDelFlag() {
+		return delFlag;
+	}
 
-    @Column(name = "updateDate")
-    protected Date updateDate;	// 更新日期
+	public void setDelFlag(String delFlag) {
+		this.delFlag = delFlag;
+	}
+	/**
+	 * 设置：
+	 * @param userId 
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    @Column(name = "delFlag")
-    protected String delFlag; 	// 删除标记（0：正常；1：删除；2：审核）
+	/**
+	 * 获取：
+	 * @return Long
+	 */
+	public String getUserId() {
+		return userId;
+	}
+	
+	/**
+	 * 设置：用户名
+	 * @param username 用户名
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getId() {
-        return id;
-    }
+	/**
+	 * 获取：用户名
+	 * @return String
+	 */
+	public String getUsername() {
+		return username;
+	}
+	
+	/**
+	 * 设置：密码
+	 * @param password 密码
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	/**
+	 * 获取：密码
+	 * @return String
+	 */
+	public String getPassword() {
+		return password;
+	}
+	
+	/**
+	 * 设置：邮箱
+	 * @param email 邮箱
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	/**
+	 * 获取：邮箱
+	 * @return String
+	 */
+	public String getEmail() {
+		return email;
+	}
+	
+	/**
+	 * 设置：手机号
+	 * @param mobile 手机号
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	/**
+	 * 获取：手机号
+	 * @return String
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+	
+	/**
+	 * 设置：状态  0：禁用   1：正常
+	 * @param status 状态  0：禁用   1：正常
+	 */
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	/**
+	 * 获取：状态  0：禁用   1：正常
+	 * @return Integer
+	 */
+	public Integer getStatus() {
+		return status;
+	}
+	
+	/**
+	 * 设置：创建时间
+	 * @param createTime 创建时间
+	 */
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	/**
+	 * 获取：创建时间
+	 * @return Date
+	 */
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getCreateUserId() {
+		return createUserId;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public void setCreateUserId(String createUserId) {
+		this.createUserId = createUserId;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
-    public String getDeptName() {
-        return deptName;
-    }
+	public String getDeptId() {
+		return deptId;
+	}
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
 
-    public String getDeptId() {
-        return deptId;
-    }
+	public String getDeptName() {
+		return deptName;
+	}
 
-    public void setDeptId(String deptId) {
-        this.deptId = deptId;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(String delFlag) {
-        this.delFlag = delFlag;
-    }
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
 }
