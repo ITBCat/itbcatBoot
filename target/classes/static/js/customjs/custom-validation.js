@@ -116,7 +116,7 @@ $('.ui.form3').form({
 
 $('.ui.form4').form({
     fields: {
-        name: {
+        type: {
             identifier: 'name',
             rules: [{
                 type: 'empty',
@@ -138,24 +138,10 @@ $('.ui.form4').form({
             }]
         },
         sort: {
-            identifier: 'sort',
+            identifier: 'orderNum',
             rules: [{
                 type: 'empty',
                 prompt: '请选择排序...'
-            }]
-        },
-        icon: {
-            identifier: 'icon',
-            rules: [{
-                type: 'empty',
-                prompt: '请选择图标...'
-            }]
-        },
-        isShow:{
-            identifier: 'isShow',
-            rules:[{
-                type: 'empty',
-                prompt: '请选择是否隐藏...'
             }]
         }
     }

@@ -170,7 +170,7 @@ $(document).ready(function () {
             },
             sZeroRecords: "没有检索到数据"
         },
-        aoColumnDefs: [ { bSortable: false, aTargets: [ 5 ] }]
+        aoColumnDefs: [ { bSortable: false, aTargets: [ 0 ] }]
     });
 });
 

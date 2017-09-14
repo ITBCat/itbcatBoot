@@ -6,10 +6,11 @@ import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.service.MenuService;
 import cn.itbcat.boot.utils.ITBC;
 import freemarker.template.utility.StringUtil;
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,15 +40,19 @@ public class MenuController {
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToMenu(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
-        if(template.equals("menu")){
-            dataModel.put("menus",getMenuList());
+        String parentId = request.getParameter("parentId");
+        dataModel.put("menus",getMenuList(parentId));
+        if(StringUtils.isBlank(parentId)){
+            dataModel.put("parentName","一级菜单");
+        }else{
+            dataModel.put("parentName",menuService.get(parentId).getName());
         }
         return "index";
     }
 
-    private List<Menu> getMenuList(){
+    private List<Menu> getMenuList(String parentId){
 
-        List<Menu> list = menuService.findAllMenu();
+        List<Menu> list = menuService.findMenuByParentId(parentId);
 
         return list;
     }
@@ -70,6 +75,47 @@ public class MenuController {
             dataModel.put("msg",e.toString());
             e.printStackTrace();
         }
+        return "redirect:/menu/menu";
+    }
+
+    /**
+     * 删除菜单
+     * @param menuId
+     * @param dataModel
+     * @return
+     */
+    @RequestMapping(value = "/delete/{menuId}",method = RequestMethod.GET)
+    @RequiresPermissions("admin:menu:delete")
+    public String delete(@PathVariable String menuId,Map<String,Object> dataModel){
+
+        menuService.delete(menuId);
+
+        return "redirect:/menu/menu";
+    }
+
+    /**
+     * 修改菜单
+     * @param template
+     * @param dataModel
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
+    @RequiresPermissions("admin:menu:edit")
+    public String toEdit(@PathVariable String template,Map<String,Object> dataModel,HttpServletRequest request){
+        String menuId = request.getParameter("menuId");
+        dataModel.put("template",template);
+        dataModel.put("menus",getMenuList(null));
+        dataModel.put("menu",menuService.get(menuId));
+        return "index";
+    }
+
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    @RequiresPermissions("admin:menu:edit")
+    public String edit(@ModelAttribute Menu menu){
+
+        menuService.update(menu);
+
         return "redirect:/menu/menu";
     }
 

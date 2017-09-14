@@ -53,12 +53,14 @@ public class ShiroConfig {
 		shiroFilter.setSecurityManager(securityManager);
 		shiroFilter.setLoginUrl("/login");
 		shiroFilter.setSuccessUrl("/admin");
-		shiroFilter.setUnauthorizedUrl("/404");
+		shiroFilter.setUnauthorizedUrl("/admin/nopermissions");
 		Map<String, String> filterChainDefinitionMap = new HashMap<String, String>();
 		filterChainDefinitionMap.put("/static/**", "anon");
 		
 		filterChainDefinitionMap.put("/login", "anon");
 		filterChainDefinitionMap.put("/register", "anon");
+		filterChainDefinitionMap.put("/admin/nopermissions", "anon");
+
 
 		filterChainDefinitionMap.put("/**", "authc");
 		shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);

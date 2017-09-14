@@ -23,10 +23,10 @@
 </#if>
 
 <#--菜单的Js-->
-<#if template=='add-menu'>
+<#if template=='add-menu' || template=='add-user'||template=='add-dept'||template=='add-role'>
 <script src="/static/js/customjs/custom-validation.js"></script>
 </#if>
-<#if template=='menu'>
+<#if template=='menu'|| template == 'user'|| template == 'dept'|| template == 'role'>
 <script src="/static/plugins/datatable/jquery.dataTables.js"></script>
 <script src="/static/js/customjs/custom-datatable.js"></script>
 </#if>

@@ -1,5 +1,6 @@
 package cn.itbcat.boot.config.handler;
 
+import org.apache.shiro.authz.AuthorizationException;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -56,4 +57,5 @@ public class handler404 implements ErrorController {
         m.setViewName("error/500");
         return m;
     }
+
 }

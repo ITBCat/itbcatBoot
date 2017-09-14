@@ -16,62 +16,33 @@
                 <div class="ui segments">
                     <div class="ui segment">
                         <h5 class="ui header">
-                            添加菜单
+                            添加部门
                         </h5>
                     </div>
-                    <form  class="ui form segment form4" action="/menu/save" method="post">
+                    <form  class="ui form segment form4" action="/dept/save" method="post">
                         <div class="field">
-                            <label>菜单类型</label>
-                            <div class="ui selection dropdown" tabindex="0">
-                                <input name="type" type="hidden" value="1">
-                                <div class="default text">菜单</div>
-                                <i class="dropdown icon"></i>
-                                <div class="menu" tabindex="-1">
-                                    <div class="item" data-value="0">目录</div>
-                                    <div class="item" data-value="1">菜单</div>
-                                    <div class="item" data-value="2">按钮</div>
-                                </div>
-                            </div>
+                            <label>部门名称</label>
+                            <input name="name" type="text" placeholder="请填写部门名称...">
                         </div>
                         <div class="field">
-                            <label>菜单名称</label>
-                            <input name="name" type="text" placeholder="请填写菜单名称...">
-                        </div>
-                        <div class="field">
-                            <label>上级菜单</label>
+                            <label>上级部门</label>
                             <div class="ui selection dropdown" tabindex="0">
                                 <input name="parentId" type="hidden" value="0">
-                                <div class="default text">一级菜单</div>
+                                <div class="default text">一级部门</div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu" tabindex="-1">
-                                    <div class="item" data-value="0">一级菜单</div>
-                                    <#list menus as item>
-                                        <div class="item" data-value="${item.menuId}">${item.name}</div>
-                                    </#list>
+                                    <div class="item" data-value="0">一级部门</div>
+                                    <#if depts??>
+                                        <#list depts as item>
+                                            <div class="item" data-value="${item.deptId}">${item.name}</div>
+                                        </#list>
+                                    </#if>
                                 </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <label>菜单路径</label>
-                            <input placeholder="请填写菜单路径..." name="url" type="text">
-                        </div>
-                        <div class="field">
-                            <label>授权标识</label>
-                            <input name="perms" placeholder="请填写授权标识,多个请用逗号隔开..." type="text">
                         </div>
                         <div class="field">
                             <label>排序</label>
                             <input name="orderNum"  type="number">
-                        </div>
-                        <div class="field">
-                            <label>图标</label>
-                            <div class="ui fluid action input">
-                                <input name="icon" type="text" value="">
-                                <button type="button" onclick="showIcon()" class="ui teal right labeled icon button">
-                                    <i class="rocket icon"></i>
-                                    浏览
-                                </button>
-                            </div>
                         </div>
                         <input type="submit" class="ui green submit right large button"/>
                         <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>

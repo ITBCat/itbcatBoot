@@ -61,12 +61,13 @@ public class MyRealm extends AuthorizingRealm {
 		User user = userService.getUserByEmail(username);
 		
 		String password = new String((char[]) token.getCredentials());
+		String pass = new Sha256Hash(password, MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
 
 		// 账号不存在
 		if (user == null) {
-			throw new UnknownAccountException("账号或密码不正确");
+			throw new UnknownAccountException("用户不存在");
 		}
-		String pass = new Sha256Hash(password, MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
+
 		// 密码错误
 		if (!pass.equals(user.getPassword())) {
 			throw new IncorrectCredentialsException("账号或密码不正确");

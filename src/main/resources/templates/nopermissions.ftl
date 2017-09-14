@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon" />
     <!-- Site Properities -->
     <meta name="generator" content="Visual Studio 2015" />
-    <title>404 | ITBC Admin</title>
+    <title>Not Permissions | Stagb Admin</title>
     <meta name="description" content="Stagb Admin Template" />
     <meta name="keywords" content="html5, ,semantic,ui, library, framework, javascript,jquery,admin,template" />
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
 
                     <div class="ui container center aligned errorcontainer">
                         <h1 class="ui header inverted">
-                            Oooops! Sorry The Page Not Found :(
+                            你的权限太低了 :(
                         </h1>
                         <a class="ui button" href="/admin">
                             返回首页

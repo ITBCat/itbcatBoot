@@ -19,5 +19,9 @@ public class IndexController {
         dataModel.put("template","index");
         return "index";
     }
+    @RequestMapping(value = "/nopermissions")
+    public String nopermissions(){
+        return "nopermissions";
+    }
 
 }

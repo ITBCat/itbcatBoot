@@ -15,6 +15,5 @@ import java.util.List;
 @Transactional
 public interface UserRoleRepository extends JpaRepository<UserRole,String> {
 
-//    @Query("select m.perms from sys_user_role ur LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id LEFT JOIN sys_menu m on rm.menu_id = m.menu_id where ur.user_id = ?1")
-//    List<String> queryAllPerms(String userId);
+
 }

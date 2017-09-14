@@ -23,30 +23,28 @@ public class ShiroService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserRoleRepository userRoleRepository;
 
     public Set<String> getUserPermissions(String userId) {
         List<String> permsList;
 
         //系统管理员，拥有最高权限
-        if(userId == ITBC.SUPER_ADMIN){
+        if(userId.equals(ITBC.SUPER_ADMIN)){
             List<Menu> menuList = menuRepository.findAll();
             permsList = new ArrayList<>(menuList.size());
             for(Menu menu : menuList){
                 permsList.add(menu.getPerms());
             }
         }else{
-            //permsList = userRoleRepository.queryAllPerms(userId);
+            permsList = menuRepository.queryAllPerms(userId);
         }
         //用户权限列表
         Set<String> permsSet = new HashSet<>();
-//        for(String perms : permsList){
-//            if(StringUtils.isBlank(perms)){
-//                continue;
-//            }
-//            permsSet.addAll(Arrays.asList(perms.trim().split(",")));
-//        }
+        for(String perms : permsList){
+            if(StringUtils.isBlank(perms)){
+                continue;
+            }
+            permsSet.addAll(Arrays.asList(perms.trim().split(",")));
+        }
         return permsSet;
     }
 }
