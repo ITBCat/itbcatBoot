@@ -30,27 +30,19 @@
                         </div>
                         <div class="field">
                             <label>上级部门</label>
-                            <div class="ui selection dropdown" tabindex="0">
-                                <input name="parentId" type="hidden" value="0">
-                                <div class="default text">一级部门</div>
-                                <i class="dropdown icon"></i>
-                                <div class="menu" tabindex="-1">
-                                    <div class="item" data-value="0">一级部门</div>
-                                    <#if depts??>
-                                        <#list depts as item>
-                                            <div class="item" data-value="${item.deptId}">${item.name}</div>
-                                        </#list>
-                                    </#if>
-                                </div>
+                            <div class="ui fluid action input">
+                                <input name="parentId" hidden="hidden" type="text" id="parentId" value="">
+                                <input type="text" id="parentName" value="">
+                                <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
+                                    <i class="rocket icon"></i>
+                                    浏览
+                                </button>
                             </div>
                         </div>
                         <div class="field">
                             <label>排序</label>
                             <input name="orderNum"  type="number">
                         </div>
-
-
-                        <ul id="treeDemo" class="ztree"></ul>
 
 
 
@@ -65,12 +57,26 @@
     </div>
 </div>
 <!--maincontent-->
-
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+        选择部门
+    </div>
+    <div class="content">
+        <div class="ui equal width left aligned padded grid stackable">
+            <div class="row">
+                <div class="sixteen wide column">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     /*
     * 显示图标
     * */
-    function showIcon () {
+    function showDept () {
         $('.ui.modal').modal('show');
     }
 
@@ -83,12 +89,15 @@
 
     var setting = {
         view: {
-            addHoverDom: addHoverDom,
-            removeHoverDom: removeHoverDom,
-            selectedMulti: false
+            addHoverDom: false,
+            removeHoverDom: false,
+            selectedMulti: false,
+            showLine : false
         },
         check: {
-            enable: true
+            enable: true,
+            chkStyle:"radio",
+            radioType: "all"
         },
         data: {
             simpleData: {
@@ -96,7 +105,10 @@
             }
         },
         edit: {
-            enable: true
+            enable: false
+        },
+        callback:{
+            onCheck:onCheck
         }
     };
 
@@ -163,7 +175,9 @@
     ];
 
     $(document).ready(function(){
-        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        var zTreeObj =$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        //全部展开
+        zTreeObj.expandAll(true);
     });
 
     var newCount = 1;
@@ -183,5 +197,19 @@
     function removeHoverDom(treeId, treeNode) {
         $("#addBtn_"+treeNode.tId).unbind().remove();
     };
+
+    function onCheck(e,treeId,treeNode){
+        /*var treeObj=$.fn.zTree.getZTreeObj("treeDemo"),
+                nodes=treeObj.getCheckedNodes(true),
+                v="";*/
+        /*for(var i=0;i<nodes.length;i++){
+            v+=nodes[i].name + ",";
+            alert(treeNode.name); //获取选中节点的值*/
+            $("#parentName").val(treeNode.name);
+            $("#parentId").val(treeNode.id);
+        /*}*/
+
+
+    }
 
 </script>
