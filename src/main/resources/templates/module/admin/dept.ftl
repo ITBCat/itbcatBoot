@@ -41,6 +41,9 @@
                             </#list>
                             </tbody>
                         </table>
+                        <#if parentName != '一级部门'>
+                            <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>
+                        </#if>
                     </div>
                 </div>
             </div>
