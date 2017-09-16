@@ -32,7 +32,7 @@
                             <label>上级部门</label>
                             <div class="ui fluid action input">
                                 <input name="parentId" hidden="hidden" type="text" id="parentId" value="">
-                                <input type="text" id="parentName" value="">
+                                <input type="text" id="parentName" name="parentName" value="">
                                 <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
                                     <i class="rocket icon"></i>
                                     浏览

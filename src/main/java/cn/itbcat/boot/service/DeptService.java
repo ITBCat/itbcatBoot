@@ -25,7 +25,7 @@ public class DeptService {
 
     public List<Dept> findDeptByParentId(String parentId) {
         if(StringUtils.isBlank(parentId)){
-            parentId = "0";
+            parentId = "1";
         }
         return deptRepository.findByParentId(parentId);
     }
@@ -46,12 +46,13 @@ public class DeptService {
 
         List<Dept> list = null;
         //管理员显示全部部门
-        if(!user.getUserId().equals(ITBC.SUPER_ADMIN)){
+        if(user.getUserId().equals(ITBC.SUPER_ADMIN)){
             list = deptRepository.findAll();
             Dept dept = new Dept();
             dept.setDeptId("1");
             dept.setName("一级部门");
             dept.setParentId("0");
+            list.add(dept);
         }else{
             //不是Admin显示所在部门以及子部门
             Dept parent = deptRepository.findOne("1505377991704");

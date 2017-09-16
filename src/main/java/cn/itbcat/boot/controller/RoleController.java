@@ -1,6 +1,8 @@
 package cn.itbcat.boot.controller;
 
+import cn.itbcat.boot.service.RoleService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,9 @@ import java.util.Map;
 @RequestMapping("/role")
 public class RoleController {
 
+    @Autowired
+    private RoleService roleService;
+
     /**
      * 权限列表
      * @param template
@@ -28,6 +33,7 @@ public class RoleController {
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToRole(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
+        dataModel.put("roles",roleService.findAll());
         return "index";
     }
 

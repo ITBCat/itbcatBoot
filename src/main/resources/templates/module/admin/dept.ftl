@@ -32,7 +32,7 @@
                                 <td>${item.parentName}</td>
                                 <td class="center aligned" width="130px;">
                                     <div class="ui buttons clearfix" style="margin-top: 10px;">
-                                        <a class="ui teal mini button" href="/dept/edit/edit-dept?menuId=${item.deptId}">修改</a>
+                                        <a class="ui teal mini button" href="/dept/edit/edit-dept?deptId=${item.deptId}">修改</a>
                                         <div class="or"></div>
                                         <a class="ui orange mini button" href="/dept/delete/${item.deptId}">删除</a>
                                     </div>

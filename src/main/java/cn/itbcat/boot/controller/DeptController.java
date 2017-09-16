@@ -48,6 +48,11 @@ public class DeptController {
         return "index";
     }
 
+    /**
+     * 保存Dept
+     * @param dept
+     * @return
+     */
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public String save(@ModelAttribute Dept dept){
         try {
@@ -59,6 +64,10 @@ public class DeptController {
         return "redirect:/dept/dept";
     }
 
+    /**
+     * 部门树
+     * @return
+     */
     @RequestMapping(value = "/tree",method = RequestMethod.GET)
     @ResponseBody
     public List<Map<String,Object>> tree(){

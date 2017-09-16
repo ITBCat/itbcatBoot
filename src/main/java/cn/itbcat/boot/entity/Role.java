@@ -2,6 +2,7 @@ package cn.itbcat.boot.entity;
 
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,6 +60,7 @@ public class Role implements Serializable {
 	 * 创建时间
 	 */
 	@Column(name = "create_time")
+	@DateTimeFormat(pattern="yyyy-MM-ddHH")
 	private Date createTime;
 
 	@Column(name = "del_flag")
