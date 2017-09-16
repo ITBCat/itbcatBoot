@@ -2,6 +2,7 @@ package cn.itbcat.boot.utils;
 
 import cn.itbcat.boot.config.webConfig;
 import cn.itbcat.boot.entity.User;
+import org.apache.shiro.SecurityUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,5 +38,11 @@ public class ITBC {
         return String.valueOf(System.currentTimeMillis());
     }
 
+    /**
+     * 获取当前用户
+     */
+    public static User getCurrUser(){
+        return (User) SecurityUtils.getSubject().getPrincipal();
+    }
 
 }

@@ -49,6 +49,7 @@ public class LoginController {
     @RequestMapping(value = "/logout")
     public String logout() {
         Subject subject = SecurityUtils.getSubject();
+        User user = ITBC.getCurrUser();
         subject.logout();
         return "redirect:/login";
     }
