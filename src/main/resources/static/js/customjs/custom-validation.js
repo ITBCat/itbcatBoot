@@ -502,3 +502,32 @@ $('.ui.form13').form({
         }
     }
 });
+
+$('.ui.form14').form({
+    fields: {
+        name: {
+            rules: [{
+                type: 'empty',
+                prompt: '请填写角色名称!'
+            }]
+        },
+        parentId: {
+            rules: [{
+                type: 'empty',
+                prompt: '请选择归属部门!'
+            }]
+        },
+        deptList: {
+            rules: [{
+                type: 'empty',
+                prompt: '请选择功能权限!'
+            }]
+        },
+        menuList: {
+            rules: [{
+                type: 'empty',
+                prompt: '请选择数据权限!'
+            }]
+        }
+    }
+});

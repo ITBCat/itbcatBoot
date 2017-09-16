@@ -23,7 +23,7 @@
                             添加角色
                         </h5>
                     </div>
-                    <form  id="formid" class="ui form segment form4" action="/role/save" method="post">
+                    <form  id="formid" class="ui form segment form14" action="/role/save" method="post">
                         <div class="field">
                             <label>角色名称</label>
                             <input name="name" type="text" placeholder="请填写部门名称...">
@@ -43,7 +43,8 @@
                             <label>备注</label>
                             <input name="remark"  type="number">
                         </div>
-
+                        <input type="text" name="menuList" hidden="hidden" id="menuList">
+                        <input type="text" name="deptList" hidden="hidden" id="deptList">
 
                         <div class="ui error message"></div>
                     </form>
@@ -55,12 +56,22 @@
             <div class="eight wide column">
                 <div class="ui segments">
                     <div class="ui segment">
+                        <h5 class="ui header">
+                            功能权限
+                        </h5>
+                    </div>
+                    <div class="ui segment">
                         <ul id="menuTree" class="ztree"></ul>
                     </div>
                 </div>
             </div>
             <div class="eight wide column">
                 <div class="ui segments">
+                    <div class="ui segment">
+                        <h5 class="ui header">
+                            数据权限
+                        </h5>
+                    </div>
                     <div class="ui segment">
                         <ul id="deptTree" class="ztree"></ul>
                     </div>
@@ -267,9 +278,8 @@
                 v="";
         for(var i=0;i<nodes.length;i++){
             v+=nodes[i].id + ",";
-
         }
-        alert(v); //获取选中节点的值*/
+        $("#deptList").val(v);
     }
 
     function onMenuCheck(e,treeId,treeNode){
@@ -279,8 +289,7 @@
         for(var i=0;i<nodes.length;i++){
             v+=nodes[i].id + ",";
         }
-
-
+        $("#menuList").val(v);
     }
 
     function getTree() {
