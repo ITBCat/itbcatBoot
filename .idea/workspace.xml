@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0a2a9fd-61ed-462d-a8f6-cd7fcc5c1376" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleDeptRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleMenuRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/MenuController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/MenuController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/MenuService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/MenuService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/customjs/custom-validation.js" afterPath="$PROJECT_DIR$/target/classes/static/js/customjs/custom-validation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +31,18 @@
       <file leaf-file-name="role.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-172">
-              <caret line="6" column="145" lean-forward="false" selection-start-line="6" selection-start-column="145" selection-end-line="6" selection-end-column="145" />
+            <state relative-caret-position="332">
+              <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShiroService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ShiroService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -41,9 +51,11 @@
       <file leaf-file-name="add-role.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="47" column="75" lean-forward="false" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
-              <folding />
+            <state relative-caret-position="398">
+              <caret line="110" column="39" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,30 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="box.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/semantic/box.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="1287" column="30" lean-forward="true" selection-start-line="1287" selection-start-column="30" selection-end-line="1287" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Role.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="55" column="27" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="27" />
+            <state relative-caret-position="441">
+              <caret line="63" column="27" lean-forward="false" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RoleController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="540">
               <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
@@ -91,23 +93,9 @@
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="114" column="38" lean-forward="false" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="38" />
+            <state relative-caret-position="500">
+              <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/MenuService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="47" />
-              <folding>
-                <element signature="e#2601#2616#0" expanded="true" />
-                <element signature="e#2828#2849#0" expanded="true" />
-                <element signature="e#2930#2945#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -115,20 +103,8 @@
       <file leaf-file-name="RoleService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleRepositor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleRepositor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="92" lean-forward="false" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+            <state relative-caret-position="455">
+              <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,8 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/SysLogEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/FreeMarkerConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/shiroService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Dept.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Menu.java" />
@@ -207,7 +181,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/UserRoleRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/shiro/MyRealm.java" />
         <option value="$PROJECT_DIR$/src/main/resources/import.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ShiroService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-menu.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/MenuRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/IndexController.java" />
@@ -236,14 +209,17 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleRepositor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/dept.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-validation.js" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/MenuService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleDeptRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleMenuRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ShiroService.java" />
       </list>
     </option>
   </component>
@@ -266,8 +242,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="416" />
-    <option name="width" value="1504" />
+    <option name="x" value="84" />
+    <option name="width" value="1836" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -381,6 +357,96 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1222,14 +1288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1505570510878</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="role">
+      <created>1505620259642</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1505620259642</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167426000" />
+    <option name="totallyTimeSpent" value="171576000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="416" y="0" width="1504" height="1080" extended-state="6" />
+    <frame x="84" y="0" width="1836" height="1080" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1253,7 +1326,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845894" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12038304" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17001115" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1342,7 +1415,8 @@
     <MESSAGE value="tree" />
     <MESSAGE value="dept tree" />
     <MESSAGE value="role tree" />
-    <option name="LAST_COMMIT_MESSAGE" value="role tree" />
+    <MESSAGE value="role" />
+    <option name="LAST_COMMIT_MESSAGE" value="role" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1353,11 +1427,29 @@
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="64" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1366,29 +1458,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/handler/handler404.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/edit-menu.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="69" column="81" lean-forward="false" selection-start-line="69" selection-start-column="81" selection-end-line="69" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/user.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
@@ -1666,18 +1735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/DeptService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1746#1767#0" expanded="true" />
-            <element signature="e#1851#1866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/DeptController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1710,6 +1767,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleMenuRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/RoleDeptRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/DeptService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1851#1866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -1730,52 +1818,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="6" column="145" lean-forward="false" selection-start-line="6" selection-start-column="145" selection-end-line="6" selection-end-column="145" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="114" column="38" lean-forward="false" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="38" />
+        <state relative-caret-position="500">
+          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="55" column="27" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="27" />
+        <state relative-caret-position="441">
+          <caret line="63" column="27" lean-forward="false" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/role.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="47" column="75" lean-forward="false" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+        <state relative-caret-position="398">
+          <caret line="110" column="39" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/RoleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="540">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/RoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ShiroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
           <folding />
         </state>
       </provider>

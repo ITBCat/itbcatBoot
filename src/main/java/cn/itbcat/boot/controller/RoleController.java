@@ -40,10 +40,11 @@ public class RoleController {
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public void save(@ModelAttribute Role role,HttpServletRequest request){
-        String menulist = request.getParameter("menuList ");
-        String deptlist = request.getParameter("deptList ");
+    public String save(@ModelAttribute Role role,HttpServletRequest request){
+        String menulist = request.getParameter("menuList");
+        String deptlist = request.getParameter("deptList");
         roleService.save(role,menulist,deptlist);
+        return "redirect:/role/role";
     }
 
 }

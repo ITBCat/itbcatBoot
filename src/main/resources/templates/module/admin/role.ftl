@@ -26,10 +26,9 @@
                             <tbody>
                                 <#list roles as item>
                                     <tr>
-                                        <td>${item.name}</td>
+                                        <td>${item.roleName}</td>
                                         <td>${item.deptName}</td>
-                                        <td>${item.remarks}</td>
-                                        <td>${item.createTime}</td>
+                                        <td>${item.remark}</td>
                                         <td class="center aligned" width="130px;">
                                             <div class="ui buttons clearfix" style="margin-top: 10px;">
                                                 <a class="ui teal mini button" href="/role/edit/edit-role?roleId=${item.roleId}">修改</a>

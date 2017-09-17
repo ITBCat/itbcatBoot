@@ -46,8 +46,7 @@
 
                         <input name="menuList" id="menuList" hidden="hidden"/>
                         <input name="deptList" id="deptList" hidden="hidden"/>
-                        <input type="submit" class="ui green submit right large button"/>
-                        <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>
+
                         <div class="ui error message"></div>
                     </form>
                 </div>
@@ -80,6 +79,8 @@
                 </div>
             </div>
         </div>
+        <input type="submit" onclick="goSubmit()" class="ui green submit right large button" style="margin-left: 13px;"/>
+        <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>
     </div>
 </div>
 <!--maincontent-->
@@ -106,6 +107,9 @@
         $('.ui.modal').modal('show');
     }
 
+    function goSubmit() {
+        document.getElementById("formid").submit()
+    }
 
     /**
      * 隐藏消息tree.js
