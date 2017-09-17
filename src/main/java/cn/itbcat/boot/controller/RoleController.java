@@ -1,9 +1,11 @@
 package cn.itbcat.boot.controller;
 
+import cn.itbcat.boot.entity.Role;
 import cn.itbcat.boot.service.RoleService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +37,13 @@ public class RoleController {
         dataModel.put("template",template);
         dataModel.put("roles",roleService.findAll());
         return "index";
+    }
+
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    public void save(@ModelAttribute Role role,HttpServletRequest request){
+        String menulist = request.getParameter("menuList ");
+        String deptlist = request.getParameter("deptList ");
+        roleService.save(role,menulist,deptlist);
     }
 
 }

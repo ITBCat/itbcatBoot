@@ -22,4 +22,7 @@ public class RoleService {
 
         return roleRepositor.findAll();
     }
+
+    public void save(Role role,String menuList,String deptList) {
+    }
 }

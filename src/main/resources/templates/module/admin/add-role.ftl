@@ -26,13 +26,13 @@
                     <form  id="formid" class="ui form segment form14" action="/role/save" method="post">
                         <div class="field">
                             <label>角色名称</label>
-                            <input name="name" type="text" placeholder="请填写部门名称...">
+                            <input name="roleName" type="text" placeholder="请填写部门名称...">
                         </div>
                         <div class="field">
                             <label>所属部门</label>
                             <div class="ui fluid action input">
-                                <input name="parentId" hidden="hidden" type="text" id="parentId" value="">
-                                <input type="text" id="parentName" name="parentName" value="">
+                                <input name="deptId" hidden="hidden" type="text" id="deptId" value="">
+                                <input type="text" id="deptName" name="deptName" value="">
                                 <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
                                     <i class="rocket icon"></i>
                                     浏览
@@ -43,9 +43,11 @@
                             <label>备注</label>
                             <input name="remark"  type="number">
                         </div>
-                        <input type="text" name="menuList" hidden="hidden" id="menuList">
-                        <input type="text" name="deptList" hidden="hidden" id="deptList">
 
+                        <input name="menuList" id="menuList" hidden="hidden"/>
+                        <input name="deptList" id="deptList" hidden="hidden"/>
+                        <input type="submit" class="ui green submit right large button"/>
+                        <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>
                         <div class="ui error message"></div>
                     </form>
                 </div>
@@ -78,8 +80,6 @@
                 </div>
             </div>
         </div>
-        <input type="submit" onclick="submit()" class="ui green submit right large button" style="margin-left: 13px;"/>
-        <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>
     </div>
 </div>
 <!--maincontent-->
@@ -104,11 +104,6 @@
     * */
     function showDept () {
         $('.ui.modal').modal('show');
-    }
-
-
-    function submit() {
-        document.getElementById("formid").submit();
     }
 
 
@@ -252,24 +247,13 @@
     };
 
     $(document).ready(function(){
-        getTree();
-        var menuTree =$.fn.zTree.init($("#menuTree"), settingMenu, zNodes);
-
+        getTree();getMenuTree();
     });
 
 
     function onCheck(e,treeId,treeNode){
-        /*var treeObj=$.fn.zTree.getZTreeObj("treeDemo"),
-                nodes=treeObj.getCheckedNodes(true),
-                v="";*/
-        /*for(var i=0;i<nodes.length;i++){
-            v+=nodes[i].name + ",";
-            alert(treeNode.name); //获取选中节点的值*/
-            $("#parentName").val(treeNode.name);
-            $("#parentId").val(treeNode.id);
-        /*}*/
-
-
+        $("#deptName").val(treeNode.name);
+        $("#deptId").val(treeNode.id);
     }
 
     function onDeptCheck(e,treeId,treeNode){
@@ -305,6 +289,19 @@
                 var deptTree =$.fn.zTree.init($("#deptTree"), settingDept, result);
                 //全部展开
                 zTreeObj.expandAll(true);
+            }
+        });
+    }
+
+    function getMenuTree() {
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "/menu/tree",//路径
+            dataType : 'json',
+            async: false,
+            data : {},
+            success : function(result) {//返回数据根据结果进行相应的处理
+                var menuTree =$.fn.zTree.init($("#menuTree"), settingMenu, result);
             }
         });
     }

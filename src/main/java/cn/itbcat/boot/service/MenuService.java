@@ -1,6 +1,7 @@
 package cn.itbcat.boot.service;
 
 import cn.itbcat.boot.entity.Menu;
+import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.repository.MenuRepository;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 860117030 on 2017/9/7.
@@ -80,5 +84,27 @@ public class MenuService {
         }
         menu.setDelFlag("0");
         menuRepository.save(menu);
+    }
+
+    public List<Map<String,Object>> getMenuTree(User user) {
+
+        Map<String,Object> parent = new HashMap<String,Object>();
+        parent.put("id","0");
+        parent.put("pId","-1");
+        parent.put("name","一级菜单");
+
+        List<Menu> list = menuRepository.findAll();
+
+        List<Map<String,Object>> menuList = new ArrayList<Map<String, Object>>();
+        for (Menu menu :list){
+            Map<String,Object> m = new HashMap<String,Object>();
+            m.put("id",menu.getMenuId());
+            m.put("pId",menu.getParentId());
+            m.put("name",menu.getName());
+            menuList.add(m);
+        }
+        menuList.add(parent);
+
+        return menuList;
     }
 }

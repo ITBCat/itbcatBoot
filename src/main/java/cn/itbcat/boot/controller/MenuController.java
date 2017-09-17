@@ -119,4 +119,13 @@ public class MenuController {
         return "redirect:/menu/menu";
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/tree",method = RequestMethod.POST)
+    public List<Map<String,Object>> menuTree(){
+
+        User user = ITBC.getCurrUser();
+
+        return menuService.getMenuTree(user);
+    }
+
 }
