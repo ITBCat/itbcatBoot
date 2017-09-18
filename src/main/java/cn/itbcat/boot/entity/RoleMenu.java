@@ -20,19 +20,19 @@ public class RoleMenu implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id",unique = true,nullable = false)
+	@Column(name = "id",unique = true,nullable = false,length = 20)
 	private String id;
 
 	/**
 	 * 角色ID
 	 */
-	@Column(name = "role_id")
+	@Column(name = "role_id",length = 20)
 	private String roleId;
 
 	/**
 	 * 菜单ID
 	 */
-	@Column(name = "menu_id")
+	@Column(name = "menu_id",length = 20)
 	private String menuId;
 
 	@Column(name = "del_flag")

@@ -20,19 +20,20 @@
                 <div class="ui segments">
                     <div class="ui segment">
                         <h5 class="ui header">
-                            添加部门
+                            修改部门
                         </h5>
                     </div>
-                    <form  class="ui form segment form4" action="/dept/save" method="post">
+                    <form  class="ui form segment form4" action="/dept/edit" method="post">
+                        <input value="${dept.deptId}" name="deptId" hidden="hidden" type="text">
                         <div class="field">
                             <label>部门名称</label>
-                            <input name="name" type="text" placeholder="请填写部门名称...">
+                            <input name="name" value="${dept.name}" type="text" placeholder="请填写部门名称...">
                         </div>
                         <div class="field">
                             <label>上级部门</label>
                             <div class="ui fluid action input">
-                                <input name="parentId" hidden="hidden" type="text" id="parentId" value="">
-                                <input type="text" id="parentName" name="parentName" value="">
+                                <input name="parentId" hidden="hidden" type="text" id="parentId" value="${dept.parentId}">
+                                <input type="text" id="parentName" name="parentName" value="${dept.parentName}">
                                 <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
                                     <i class="rocket icon"></i>
                                     浏览
@@ -41,11 +42,8 @@
                         </div>
                         <div class="field">
                             <label>排序</label>
-                            <input name="orderNum" value="0" type="number">
+                            <input name="orderNum"  value="${dept.orderNum}" type="number">
                         </div>
-
-
-
 
                         <input type="submit" class="ui green submit right large button"/>
                         <button type="button" class="ui right orange labeled icon large button" onclick="history.go(-1);"><i class="left arrow icon"></i> 返回 </button>

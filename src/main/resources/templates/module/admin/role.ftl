@@ -18,8 +18,8 @@
                             <tr>
                                 <th>角色名称</th>
                                 <th>所属部门</th>
-                                <th>备注</th>
                                 <th>创建时间</th>
+                                <th>备注</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -28,6 +28,7 @@
                                     <tr>
                                         <td>${item.roleName}</td>
                                         <td>${item.deptName}</td>
+                                        <td>${item.createTime}</td>
                                         <td>${item.remark}</td>
                                         <td class="center aligned" width="130px;">
                                             <div class="ui buttons clearfix" style="margin-top: 10px;">

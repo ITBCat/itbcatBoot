@@ -22,10 +22,10 @@ public class Dept implements Serializable {
 	
 	//部门ID
 	@Id
-	@Column(name = "dept_id",unique = true,nullable = false)
+	@Column(name = "dept_id",unique = true,nullable = false,length = 20)
 	private String deptId;
 	//上级部门ID，一级部门为0
-	@Column(name = "parent_id")
+	@Column(name = "parent_id",length = 20)
 	private String parentId;
 	//部门名称
 	private String name;

@@ -72,4 +72,20 @@ public class DeptService {
 
         return depts;
     }
+
+    public void delete(String deptId) {
+        try {
+        List<Dept> list = findDeptByParentId(deptId);
+
+        //删除父级节点下的所有子节点
+        for(Dept dept : list){
+            deptRepository.delete(dept);
+        }
+
+        //删除父节点
+        deptRepository.delete(deptId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

@@ -61,7 +61,7 @@
                         </div>
                         <div class="field">
                             <label>排序</label>
-                            <input name="orderNum"  type="number">
+                            <input name="orderNum" value="0" type="number">
                         </div>
                         <div class="field">
                             <label>图标</label>

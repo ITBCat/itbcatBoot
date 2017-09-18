@@ -6,6 +6,7 @@ import cn.itbcat.boot.service.DeptService;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,7 @@ public class DeptController {
      * @return
      */
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
+    @RequiresPermissions("admin:dept:view")
     public String goToDept(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
         String parentId = request.getParameter("parentId");
@@ -54,6 +56,7 @@ public class DeptController {
      * @return
      */
     @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @RequiresPermissions("admin:dept:add")
     public String save(@ModelAttribute Dept dept){
         try {
             deptService.save(dept);
@@ -76,4 +79,25 @@ public class DeptController {
         return list;
     }
 
+    /**
+     * 删除部门
+     */
+    @RequestMapping(value = "/detele/{deptId}",method = RequestMethod.GET)
+    @RequiresPermissions("admin:dept:delete")
+    public String delete(@PathVariable String deptId){
+        try{
+            deptService.delete(deptId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "redirect:/dept/dept";
+    }
+
+    @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
+    @RequiresPermissions("admin:dept:edit")
+    public String toEdit(@PathVariable String template, HttpServletRequest request,Map<String,Object> dataModel){
+        dataModel.put("dept",deptService.get(request.getParameter("deptId")));
+        dataModel.put("template",template);
+        return "index";
+    }
 }

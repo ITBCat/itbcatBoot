@@ -4,13 +4,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+//MVC
 @EnableWebMvc
+//开启缓存
 @EnableCaching
+//开启servlet
+@ServletComponentScan
 @SpringBootApplication
 @PropertySources(value = { @PropertySource("classpath:messages.properties") })
 public class Application {

@@ -54,16 +54,20 @@ public class ShiroConfig {
 		shiroFilter.setLoginUrl("/login");
 		shiroFilter.setSuccessUrl("/admin");
 		shiroFilter.setUnauthorizedUrl("/admin/nopermissions");
-		Map<String, String> filterChainDefinitionMap = new HashMap<String, String>();
-		filterChainDefinitionMap.put("/static/**", "anon");
+		Map<String, String> filterMap = new HashMap<String, String>();
+		filterMap.put("/static/**", "anon");
 		
-		filterChainDefinitionMap.put("/login", "anon");
-		filterChainDefinitionMap.put("/register", "anon");
-		filterChainDefinitionMap.put("/admin/nopermissions", "anon");
+		filterMap.put("/login", "anon");
+		filterMap.put("/webjars/**", "anon");
+		filterMap.put("/swagger-ui.html", "anon");
+		filterMap.put("/swagger-resources/**", "anon");
+		filterMap.put("/register", "anon");
+		filterMap.put("/upload", "anon");
+		filterMap.put("/admin/nopermissions", "anon");
 
 
-		filterChainDefinitionMap.put("/**", "authc");
-		shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);
+		filterMap.put("/**", "authc");
+		shiroFilter.setFilterChainDefinitionMap(filterMap);
 		return shiroFilter;
 	}
 }

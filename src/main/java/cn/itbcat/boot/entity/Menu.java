@@ -24,13 +24,13 @@ public class Menu implements Serializable {
 	 * 菜单ID
 	 */
 	@Id
-	@Column(name = "menu_id",unique = true,nullable = false)
+	@Column(name = "menu_id",unique = true,nullable = false,length = 20)
 	private String menuId;
 
 	/**
 	 * 父菜单ID，一级菜单为0
 	 */
-	@Column(name = "parent_id")
+	@Column(name = "parent_id",length = 20,nullable = false)
 	private String parentId;
 	
 	/**
@@ -52,6 +52,7 @@ public class Menu implements Serializable {
 	/**
 	 * 授权(多个用逗号分隔，如：user:list,user:create)
 	 */
+	@Column(length = 128)
 	private String perms;
 
 	/**

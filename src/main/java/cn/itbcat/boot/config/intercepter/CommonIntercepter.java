@@ -20,7 +20,7 @@ public class CommonIntercepter implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-			request.setAttribute("ctx", request.getContextPath());
+			request.setAttribute("", request.getContextPath());
 	}
 
 	@Override

@@ -51,7 +51,7 @@
                                     </td>
                                     <td class="center aligned" width="130px;">
                                         <div class="ui buttons clearfix" style="margin-top: 10px;">
-                                            <a class="ui teal mini button" href="/edit-menu/${item.menuId}">修改</a>
+                                            <a class="ui teal mini button" href="/menu/edit/edit-menu?menuId=${item.menuId}">修改</a>
                                             <div class="or"></div>
                                             <a class="ui orange mini button" href="/menu/delete/${item.menuId}">删除</a>
                                         </div>

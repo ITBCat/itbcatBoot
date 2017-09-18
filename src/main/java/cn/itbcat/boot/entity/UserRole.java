@@ -20,19 +20,19 @@ public class UserRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id",unique = true,nullable = false)
+	@Column(name = "id",unique = true,nullable = false,length = 20)
 	private String id;
 
 	/**
 	 * 用户ID
 	 */
-	@Column(name = "user_id")
+	@Column(name = "user_id",length = 20)
 	private String userId;
 
 	/**
 	 * 角色ID
 	 */
-	@Column(name = "role_id")
+	@Column(name = "role_id",length = 20)
 	private String roleId;
 
 	@Column(name = "del_flag")

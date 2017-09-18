@@ -25,7 +25,7 @@ public class User implements Serializable {
 	 * 用户ID
 	 */
 	@Id
-	@Column(name = "user_id",unique =true,nullable = false)
+	@Column(name = "user_id",unique =true,nullable = false,length = 20)
 	private String userId;
 
 	/**

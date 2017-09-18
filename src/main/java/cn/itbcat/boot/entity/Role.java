@@ -29,7 +29,7 @@ public class Role implements Serializable {
 	 * 角色ID
 	 */
 	@Id
-	@Column(name = "role_id",unique = true,nullable = false)
+	@Column(name = "role_id",unique = true,nullable = false,length = 20)
 	private String roleId;
 
 	/**
@@ -46,7 +46,7 @@ public class Role implements Serializable {
 	/**
 	 * 部门ID
 	 */
-	@Column(name = "dept_id")
+	@Column(name = "dept_id",length = 20)
 	private String deptId;
 
 	/**

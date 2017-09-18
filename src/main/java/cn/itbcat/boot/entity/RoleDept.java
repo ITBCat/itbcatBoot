@@ -20,19 +20,19 @@ public class RoleDept implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id",unique = true,nullable = false)
+	@Column(name = "id",unique = true,nullable = false,length = 20)
 	private String id;
 
 	/**
 	 * 角色ID
 	 */
-	@Column(name = "role_id")
+	@Column(name = "role_id",length = 20)
 	private String roleId;
 
 	/**
 	 * 部门ID
 	 */
-	@Column(name = "dept_id")
+	@Column(name = "dept_id",length = 20)
 	private String deptId;
 
 	@Column(name = "del_flag")

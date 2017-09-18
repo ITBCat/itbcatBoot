@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
+
+    @RequiresPermissions("admin:user:view")
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String toUser(@PathVariable String template, Map<String,Object> dataModel){
         dataModel.put("template",template);

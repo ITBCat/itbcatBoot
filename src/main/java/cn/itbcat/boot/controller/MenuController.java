@@ -37,6 +37,7 @@ public class MenuController {
      * @param dataModel 返回的数据
      * @return
      */
+    @RequiresPermissions("admin:menu:view")
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToMenu(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
@@ -64,6 +65,7 @@ public class MenuController {
      * @return
      */
     @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @RequiresPermissions("admin:menu:add")
     public String save(@ModelAttribute Menu menu,Map<String,Object> dataModel){
         dataModel.put("template","menu");
         if(null == menu){
