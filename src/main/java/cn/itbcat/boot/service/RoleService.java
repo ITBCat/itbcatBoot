@@ -91,8 +91,17 @@ public class RoleService {
         return menuIds;
     }
 
-    public List<Map<String,Object>> getDeptList(String roleId) {
+    public JSONArray getDeptList(String roleId) {
 
-        return null;
+        List<RoleDept> list = roleDeptRepository.findByRoleId(roleId);
+        JSONArray deptIds = new JSONArray();
+
+        for(RoleDept roleDept : list){
+            JSONObject rd = new JSONObject();
+            rd.put("id",roleDept.getDeptId());
+            deptIds.add(rd);
+        }
+
+        return deptIds;
     }
 }

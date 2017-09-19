@@ -46,7 +46,7 @@
                         </div>
 
                         <input name="menuList" value="${menuIds}" id="menuList" hidden="hidden"/>
-                        <input name="deptList" id="deptList" hidden="hidden"/>
+                        <input name="deptList" value="${deptIds}" id="deptList" hidden="hidden"/>
 
                         <div class="ui error message"></div>
                     </form>
@@ -235,6 +235,17 @@
                 var deptTree =$.fn.zTree.init($("#deptTree"), settingDept, result);
                 //全部展开
                 zTreeObj.expandAll(true);
+                var list = JSON.parse('${deptIds}');
+                for(var i = 0 ;i < list.length ;i++){
+                    //根据后台选中的id获取node对象
+                    var node = deptTree.getNodeByParam("id",list[i].id);
+                    //展开父节点
+                    deptTree.selectNode(node.getParentNode());
+                    //展开子节点
+                    deptTree.selectNode(node);
+                    //选中节点
+                    deptTree.checkNode(node, true, true);
+                }
             }
         });
     }

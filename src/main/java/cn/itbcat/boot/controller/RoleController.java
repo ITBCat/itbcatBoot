@@ -59,7 +59,7 @@ public class RoleController {
         if(StringUtils.isNotBlank(roleId)){
             dataModel.put("role",roleService.get(roleId));
             dataModel.put("menuIds",roleService.getMenuList(roleId).toString());
-            dataModel.put("deptList",roleService.getDeptList(roleId));
+            dataModel.put("deptIds",roleService.getDeptList(roleId).toString());
         }
         return "index";
     }
