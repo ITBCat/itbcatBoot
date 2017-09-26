@@ -16,6 +16,9 @@
     <#if template == 'add-user' >
         <@head title='添加用户 - ITBC'></@head>
     </#if>
+    <#if template == 'edit-user' >
+        <@head title='修改用户 - ITBC'></@head>
+    </#if>
     <#if template == 'menu'>
         <@head title="菜单管理 - ITBC"></@head>
     </#if>
@@ -41,7 +44,7 @@
         <@head title='添加角色 - ITBC'></@head>
     </#if>
     <#if template == 'edit-role' >
-        <@head title='添加角色 - ITBC'></@head>
+        <@head title='修改角色 - ITBC'></@head>
     </#if>
 
 </head>
@@ -55,27 +58,27 @@
         </a>
         <div class="ui accordion inverted">
 
-            <a class="title item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' || template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'>active</#if>">
+            <a class="title item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' || template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>active</#if>">
                 <i class="ion-speedometer titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
-            <div class="content <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' || template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'>active</#if>">
+            <div class="content <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' || template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>active</#if>">
                 <@shiro.hasPermission name="admin:user:view">
-                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'>transition visible</#if>" href="/user/user">
+                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>transition visible</#if>" href="/user/user">
                         用户管理
                     </a>
                 </@shiro.hasPermission>
                 <@shiro.hasPermission name="admin:menu:view">
-                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'>transition visible</#if>" href="/menu/menu">
+                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>transition visible</#if>" href="/menu/menu">
                         菜单管理
                     </a>
                 </@shiro.hasPermission>
                     <@shiro.hasPermission name="admin:dept:view">
-                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user' || template == 'role'|| template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'>transition visible</#if>" href="/dept/dept">
+                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user' || template == 'role'|| template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>transition visible</#if>" href="/dept/dept">
                         部门管理
                     </a>
                 </@shiro.hasPermission>
                 <@shiro.hasPermission name="admin:role:view">
-                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user' || template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'    >transition visible</#if>" href="/role/role">
+                    <a class="item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' ||template == 'user' || template=='add-user' || template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role' ||template == 'edit-user'>transition visible</#if>" href="/role/role">
                         角色管理
                     </a>
                 </@shiro.hasPermission>

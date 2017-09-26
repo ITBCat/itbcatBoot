@@ -2,6 +2,8 @@ package cn.itbcat.boot.repository;
 
 import cn.itbcat.boot.entity.RoleDept;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
@@ -13,4 +15,8 @@ import java.util.List;
 @Transactional
 public interface RoleDeptRepository extends JpaRepository<RoleDept,String>,CrudRepository<RoleDept,String> {
     List<RoleDept> findByRoleId(String roleId);
+
+    @Modifying
+    @Query(value = "delete from sys_role_dept where role_id=?1", nativeQuery = true)
+    void deleteByRoleId(String roleId);
 }

@@ -64,4 +64,31 @@ public class RoleController {
         return "index";
     }
 
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    @RequiresPermissions("admin:role:edit")
+    public String edit(@ModelAttribute Role role,HttpServletRequest request){
+
+        if (null != role && StringUtils.isNotBlank(role.getRoleId())){
+            String menuIds = request.getParameter("menuList");
+            if(StringUtils.isNotBlank(menuIds)){
+                roleService.updateMenuIds(role.getRoleId(),menuIds);
+            }
+            String deptIds = request.getParameter("deptList");
+            if(StringUtils.isNotBlank(deptIds)){
+                roleService.updateDeptIds(role.getRoleId(),deptIds);
+            }
+        }
+
+        roleService.update(role);
+
+        return "redirect:/role/role";
+    }
+
+    @RequiresPermissions("admin:role:delete")
+    @RequestMapping(value = "/delete/{roleId}",method = RequestMethod.GET)
+    public String delete(@PathVariable String roleId){
+        roleService.delete(roleId);
+        return "redirect:/role/role";
+    }
+
 }

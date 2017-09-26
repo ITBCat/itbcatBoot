@@ -196,6 +196,7 @@
     function onCheck(e,treeId,treeNode){
         $("#deptName").val(treeNode.name);
         $("#deptId").val(treeNode.id);
+        $('.ui.modal').modal('hide');
     }
 
     function onDeptCheck(e,treeId,treeNode){

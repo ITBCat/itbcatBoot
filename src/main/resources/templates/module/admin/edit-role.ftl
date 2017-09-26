@@ -24,7 +24,7 @@
                         </h5>
                     </div>
                     <form  id="formid" class="ui form segment form14" action="/role/edit" method="post">
-                        <input type="text" value="${role.roleId}" hidden="hidden">
+                        <input type="text" name="roleId" value="${role.roleId}" hidden="hidden">
                         <div class="field">
                             <label>角色名称</label>
                             <input name="roleName" value="${role.roleName}" type="text" placeholder="请填写部门名称...">
@@ -45,8 +45,8 @@
                             <input name="remark" value="${role.remark}" type="number">
                         </div>
 
-                        <input name="menuList" value="${menuIds}" id="menuList" hidden="hidden"/>
-                        <input name="deptList" value="${deptIds}" id="deptList" hidden="hidden"/>
+                        <input name="menuList" value="" id="menuList" hidden="hidden"/>
+                        <input name="deptList" value="" id="deptList" hidden="hidden"/>
 
                         <div class="ui error message"></div>
                     </form>
@@ -105,7 +105,7 @@
 
 
     /*
-    * 显示图标
+    * 显示部门
     * */
     function showDept () {
         $('.ui.modal').modal('show');

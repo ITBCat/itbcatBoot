@@ -12,6 +12,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -20,6 +21,7 @@ import java.util.*;
  */
 
 @Service
+@Transactional
 public class RoleService {
 
     @Autowired
@@ -103,5 +105,70 @@ public class RoleService {
         }
 
         return deptIds;
+    }
+
+    /**
+     * 修改角色
+     * @param role
+     */
+    public void update(Role role) {
+        try {
+
+            roleRepositor.save(role);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 更新role_menu
+     * @param roleId
+     * @param menuIds
+     */
+    public void updateMenuIds(String roleId,String menuIds) {
+        roleMenuRepository.deleteByRoleId(roleId);
+        String[] Ids = menuIds.split(",");
+        try {
+            for (String id :Ids){
+                if(!"0".equals(id)){
+                    RoleMenu roleMenu = new RoleMenu();
+                    roleMenu.setDelFlag("0");
+                    roleMenu.setId(ITBC.getId());
+                    roleMenu.setMenuId(id);
+                    roleMenu.setRoleId(roleId);
+                    roleMenuRepository.save(roleMenu);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void updateDeptIds(String roleId,String deptIds) {
+        roleDeptRepository.deleteByRoleId(roleId);
+        String[] Ids = deptIds.split(",");
+        try {
+            for (String id :Ids){
+                if(!"0".equals(id)){
+                    RoleDept roleDept = new RoleDept();
+                    roleDept.setDelFlag("0");
+                    roleDept.setId(ITBC.getId());
+                    roleDept.setDeptId(id);
+                    roleDept.setRoleId(roleId);
+                    roleDeptRepository.save(roleDept);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(String roleId) {
+        roleRepositor.delete(roleId);
+        roleMenuRepository.deleteByRoleId(roleId);
+        roleDeptRepository.deleteByRoleId(roleId);
     }
 }

@@ -20,27 +20,25 @@
                 <div class="ui segments">
                     <div class="ui segment">
                         <h5 class="ui header">
-                            添加用户
+                            修改用户
                         </h5>
                     </div>
-                    <form  class="ui form segment form14" action="/user/save" method="post">
+                    <form  class="ui form segment form14" action="/user/edit" method="post">
+                        <input type="text" hidden="hidden" name="userId" value="${user.userId}">
                         <div class="field">
                             <label>邮箱</label>
-                            <input placeholder="请输入邮箱(登录账户)..." name="email" type="email">
+                            <input placeholder="请输入邮箱(登录账户)..." value="${user.email}" name="email" type="email">
                         </div>
                         <div class="field">
                             <label>用户名</label>
-                            <input placeholder="请输入用户名(昵称)..." name="username" type="text">
+                            <input placeholder="请输入用户名(昵称)..." value="${user.username}" name="username" type="text">
                         </div>
-                        <div class="field">
-                            <label>密码</label>
-                            <input placeholder="请输入密码..." name="password" type="text">
-                        </div>
+                        <input value="${user.password}" hidden="hidden" name="password" type="text">
                         <div class="field">
                             <label>所属部门</label>
                             <div class="ui fluid action input">
-                                <input name="deptId" hidden="hidden" type="text" id="deptId">
-                                <input type="text" id="deptName" name="deptName">
+                                <input name="deptId" value="${user.deptId}" hidden="hidden" type="text" id="deptId">
+                                <input type="text" value="${user.deptName}" id="deptName" name="deptName">
                                 <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
                                     <i class="rocket icon"></i>
                                     浏览
@@ -50,7 +48,7 @@
                         <div class="field">
                             <label>选择角色</label>
                             <div class="ui selection dropdown" tabindex="0">
-                                <input name="roleId" type="hidden" value="0">
+                                <input name="roleId"  type="hidden" value="${roleId}">
                                 <div class="default text"></div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu" tabindex="-1">
@@ -62,7 +60,7 @@
                         </div>
                         <div class="field">
                             <label>手机号</label>
-                            <input type="text" name="mobile" placeholder="请输入手机号...">
+                            <input type="text" name="mobile" value="${user.mobile}" placeholder="请输入手机号...">
                         </div>
                         <div class="field">
                             <label>状态</label>
@@ -70,13 +68,13 @@
                                 <div class="inline fields">
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" name="status" value="0" checked="checked">
+                                            <input type="radio" name="status" value="0" <#if user.status == 0>checked="checked"</#if>>
                                             <label>正常</label>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" value="1" name="status">
+                                            <input type="radio" value="1" name="status" <#if user.status == 1>checked="checked"</#if>>
                                             <label>禁用</label>
                                         </div>
                                     </div>

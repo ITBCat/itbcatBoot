@@ -200,7 +200,7 @@ public class User implements Serializable {
 	}
 
 
-	public String getCreateUserId() {
+	public String getCreateUserId(String s) {
 		return createUserId;
 	}
 
