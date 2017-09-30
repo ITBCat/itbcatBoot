@@ -25,42 +25,67 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="column">
                 <div class="ui segments">
-                    <div class="ui segment inverted greenli">
+                    <div class="ui segment inverted redli">
                         <h3 class="ui header">
                             Header
                         </h3>
                     </div>
                     <div class="ui segment">
-
+                            <div class="column">
+                                <div class="ui segments">
+                                    <div class="ui segment inverted redli">
+                                        <h3 class="ui header">
+                                            Header
+                                        </h3>
+                                    </div>
+                                    <div class="ui segment">
+                                        Box with Colorful Top Attached Header
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="ui segments">
+                                    <div class="ui segment inverted greenli">
+                                        <h3 class="ui header">
+                                            Header
+                                        </h3>
+                                    </div>
+                                    <div class="ui segment">
+                                        Box with Colorful Top Attached Header
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="ui segments">
+                                    <div class="ui segment inverted pinkli">
+                                        <h3 class="ui header">
+                                            Header
+                                        </h3>
+                                    </div>
+                                    <div class="ui segment">
+                                        Box with Colorful Top Attached Header
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="ui segments">
+                                    <div class="ui segment inverted blueli">
+                                        <h3 class="ui header">
+                                            Header
+                                        </h3>
+                                    </div>
+                                    <div class="ui segment">
+                                        Box with Colorful Top Attached Header
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
-            </div>
-            <div class="column">
-                <div class="ui segments">
-                    <div class="ui segment inverted pinkli">
-                        <h3 class="ui header">
-                            Header
-                        </h3>
-                    </div>
-                    <div class="ui segment">
-                        Box with Colorful Top Attached Header
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui segments">
-                    <div class="ui segment inverted blueli">
-                        <h3 class="ui header">
-                            Header
-                        </h3>
-                    </div>
-                    <div class="ui segment">
-                        Box with Colorful Top Attached Header
-                    </div>
-                </div>
-            </div>
+            <div>
         </div>
     </div>
 </div>
