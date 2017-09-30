@@ -61,6 +61,7 @@
                     <a class="item" href="settings.html">Settings</a>
                     <div class="ui divider"></div>
                     <a class="item">Need Help?</a>
+                    <a class="item" href="/lock">Lock Me</a>
                     <a class="item" href="/logout">注 销</a>
                 </div>
             </div>

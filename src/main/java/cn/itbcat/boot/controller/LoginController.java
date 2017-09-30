@@ -53,4 +53,16 @@ public class LoginController {
         subject.logout();
         return "redirect:/login";
     }
+
+    @RequestMapping(value = "/lock",method = RequestMethod.GET)
+    public String lockMe(Map<String,Object> dataModel) {
+        Subject subject = SecurityUtils.getSubject();
+        User user = ITBC.getCurrUser();
+        if(null == user){
+            return "redirect:/login";
+        }
+        dataModel.put("username",user.getEmail());
+        subject.logout();
+        return "lockme";
+    }
 }
