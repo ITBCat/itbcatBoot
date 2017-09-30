@@ -89,7 +89,7 @@ public class webConfig extends WebMvcConfigurerAdapter {
     public FilterRegistrationBean registFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new OpenEntityManagerInViewFilter());
-        registration.addUrlPatterns("/**");
+        registration.addUrlPatterns("/*");
         registration.setOrder(1);
         return registration;
     }
