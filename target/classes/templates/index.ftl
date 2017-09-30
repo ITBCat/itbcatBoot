@@ -60,7 +60,12 @@
             <img src="/static/logo.png" alt="ITBC Admin" /><img src="/static/thumblogo.png" alt="ITBC Admin" class="displaynone" />
         </a>
         <div class="ui accordion inverted">
-
+            <@shiro.hasPermission name="admin:health:view">
+                <a class="title item" href="/healths">
+                    <i class="ion-speedometer titleIcon icon"></i>
+                    系统监控
+                </a>
+            </@shiro.hasPermission>
             <a class="title item <#if template == 'menu' || template == 'add-menu' || template == 'edit-menu' || template == 'user' || template=='add-user'|| template == 'role' || template == 'dept'|| template == 'add-dept'|| template == 'add-role'||template == 'edit-dept'||template == 'edit-role'||template == 'edit-user'>active</#if>">
                 <i class="ion-flag titleIcon icon"></i> 系统管理 <i class="dropdown icon"></i>
             </a>
@@ -86,13 +91,6 @@
                     </a>
                 </@shiro.hasPermission>
             </div>
-            <@shiro.hasPermission name="admin:health:view">
-            <a class="title item" href="/healths">
-                <i class="ion-speedometer titleIcon icon"></i>
-                系统监控
-            </a>
-            </@shiro.hasPermission>
-
             <div class="title item">
                 <i class="ion-ios-lightbulb titleIcon icon"></i>
 

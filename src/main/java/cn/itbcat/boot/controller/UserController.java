@@ -3,6 +3,7 @@ package cn.itbcat.boot.controller;
 import cn.itbcat.boot.entity.Role;
 import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.service.UserService;
+import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,11 @@ public class UserController {
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public String add(@ModelAttribute User user, HttpServletRequest request){
         String roleId = request.getParameter("roleId");
+        if(ITBC.ROLE_ADMIN.equals(roleId)){
+            user.setIsAdmin("1");
+        }else {
+            user.setIsAdmin("0");
+        }
         userService.save(roleId,user);
         return "redirect:/user/user";
     }
@@ -72,6 +78,11 @@ public class UserController {
         String roleId = request.getParameter("roleId");
 
         try {
+            if(ITBC.ROLE_ADMIN.equals(roleId)){
+                user.setIsAdmin("1");
+            }else {
+                user.setIsAdmin("0");
+            }
             userService.update(roleId,user);
         }catch (Exception e){
             e.printStackTrace();

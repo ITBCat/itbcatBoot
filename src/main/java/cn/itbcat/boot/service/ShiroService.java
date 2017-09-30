@@ -1,6 +1,7 @@
 package cn.itbcat.boot.service;
 
 import cn.itbcat.boot.entity.Menu;
+import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.repository.MenuRepository;
 import cn.itbcat.boot.repository.UserRepository;
 import cn.itbcat.boot.repository.UserRoleRepository;
@@ -26,9 +27,9 @@ public class ShiroService {
 
     public Set<String> getUserPermissions(String userId) {
         List<String> permsList;
-
+        User u =userRepository.findOne(userId);
         //系统管理员，拥有最高权限
-        if(userId.equals(ITBC.SUPER_ADMIN)){
+        if(u.getIsAdmin().equals(ITBC.SUPER_ADMIN)){
             List<Menu> menuList = menuRepository.findAll();
             permsList = new ArrayList<>(menuList.size());
             for(Menu menu : menuList){

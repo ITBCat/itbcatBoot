@@ -54,6 +54,7 @@
                                 <div class="default text"></div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu" tabindex="-1">
+                                    <div class="item" data-value="admin">超级管理员</div>
                                 <#list roles as item>
                                     <div class="item" data-value="${item.roleId}">${item.roleName}</div>
                                 </#list>

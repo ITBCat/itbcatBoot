@@ -53,7 +53,16 @@ public class User implements Serializable {
 	 */
 	private Integer status;
 
-	
+	private String isAdmin;
+
+	public String getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(String isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
 	/**
 	 * 创建者ID
 	 */

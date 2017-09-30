@@ -24,6 +24,11 @@ public class ITBC {
     public static final String SUPER_ADMIN = "1";
 
     /**
+     * ROLE_ADMIN
+     */
+    public static final String ROLE_ADMIN="admin";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";
