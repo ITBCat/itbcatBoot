@@ -37,7 +37,7 @@
                     <div class="ui segment">
                         <div class="ui grid">
                             <div class="stretched row">
-                                <div class="sixteen wide tablet eight wide computer column">
+                                <div class="sixteen wide tablet four wide computer column">
                                     <#--<div class="ui segment">-->
                                         <div class="ui grey icon fluid big label">
                                             <i class="yellow info icon"></i>状态 :
@@ -53,7 +53,7 @@
                                         </div>
                                     <#--</div>-->
                                 </div>
-                                <div class="sixteen wide tablet eight wide computer column">
+                                <div class="sixteen wide tablet four wide computer column">
                                     <#--<div class="ui segment">-->
                                         <div class="ui grey icon fluid big label">
                                             <i class="yellow info icon"></i>状态 :
@@ -68,6 +68,38 @@
                                             </div>
                                         </div>
                                     <#--</div>-->
+                                </div>
+                                <div class="sixteen wide tablet four wide computer column">
+                                <#--<div class="ui segment">-->
+                                    <div class="ui grey icon fluid big label">
+                                        <i class="yellow info icon"></i>状态 :
+                                        <div class="detail" id="status">
+
+                                        </div>
+                                    </div>
+                                    <div class="ui grey icon fluid big label">
+                                        <i class="yellow info icon"></i>描述 :
+                                        <div class="detail" id="desc">
+
+                                        </div>
+                                    </div>
+                                <#--</div>-->
+                                </div>
+                                <div class="sixteen wide tablet four wide computer column">
+                                <#--<div class="ui segment">-->
+                                    <div class="ui grey icon fluid big label">
+                                        <i class="yellow info icon"></i>状态 :
+                                        <div class="detail" id="status">
+
+                                        </div>
+                                    </div>
+                                    <div class="ui grey icon fluid big label">
+                                        <i class="yellow info icon"></i>描述 :
+                                        <div class="detail" id="desc">
+
+                                        </div>
+                                    </div>
+                                <#--</div>-->
                                 </div>
                             </div>
                         </div>
