@@ -53,7 +53,7 @@
 </head>
 
 <body>
-<div id="contextWrap">
+<div id="contextWrap" style="height: 100%;">
     <!--sidebar-->
     <div class="ui sidebar vertical left menu overlay  borderless visible sidemenu inverted  grey" style="-webkit-transition-duration: 0.1s; transition-duration: 0.1s;" data-color="grey">
         <a class="item logo" href="/admin">

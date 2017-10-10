@@ -2,6 +2,8 @@ package cn.itbcat.boot.controller;
 
 import cn.itbcat.boot.entity.User;
 import cn.itbcat.boot.utils.ITBC;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +26,12 @@ public class IndexController {
             return "index";
         }
     }
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String front(Map<String,Object> date){
+        return "front";
+    }
+
+
     @RequestMapping(value = "/nopermissions")
     public String nopermissions(){
         return "nopermissions";

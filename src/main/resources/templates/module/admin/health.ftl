@@ -37,69 +37,37 @@
                     <div class="ui segment">
                         <div class="ui grid">
                             <div class="stretched row">
-                                <div class="sixteen wide tablet four wide computer column">
+                                <div class="sixteen wide tablet eight wide computer column">
                                     <#--<div class="ui segment">-->
                                         <div class="ui grey icon fluid big label">
                                             <i class="yellow info icon"></i>状态 :
-                                            <div class="detail" id="status">
+                                            <div class="detail" id="status_disk">
 
                                             </div>
                                         </div>
                                         <div class="ui grey icon fluid big label">
-                                            <i class="yellow info icon"></i>描述 :
-                                            <div class="detail" id="desc">
+                                            <i class="yellow info icon"></i>总容量 :
+                                            <div class="detail" id="disk_total">
 
                                             </div>
                                         </div>
                                     <#--</div>-->
                                 </div>
-                                <div class="sixteen wide tablet four wide computer column">
+                                <div class="sixteen wide tablet eight wide computer column">
                                     <#--<div class="ui segment">-->
                                         <div class="ui grey icon fluid big label">
-                                            <i class="yellow info icon"></i>状态 :
-                                            <div class="detail" id="status">
+                                            <i class="yellow info icon"></i>未用 :
+                                            <div class="detail" id="disk_free">
 
                                             </div>
                                         </div>
                                         <div class="ui grey icon fluid big label">
-                                            <i class="yellow info icon"></i>描述 :
-                                            <div class="detail" id="desc">
+                                            <i class="yellow info icon"></i>已用 :
+                                            <div class="detail" id="disk_threshold">
 
                                             </div>
                                         </div>
                                     <#--</div>-->
-                                </div>
-                                <div class="sixteen wide tablet four wide computer column">
-                                <#--<div class="ui segment">-->
-                                    <div class="ui grey icon fluid big label">
-                                        <i class="yellow info icon"></i>状态 :
-                                        <div class="detail" id="status">
-
-                                        </div>
-                                    </div>
-                                    <div class="ui grey icon fluid big label">
-                                        <i class="yellow info icon"></i>描述 :
-                                        <div class="detail" id="desc">
-
-                                        </div>
-                                    </div>
-                                <#--</div>-->
-                                </div>
-                                <div class="sixteen wide tablet four wide computer column">
-                                <#--<div class="ui segment">-->
-                                    <div class="ui grey icon fluid big label">
-                                        <i class="yellow info icon"></i>状态 :
-                                        <div class="detail" id="status">
-
-                                        </div>
-                                    </div>
-                                    <div class="ui grey icon fluid big label">
-                                        <i class="yellow info icon"></i>描述 :
-                                        <div class="detail" id="desc">
-
-                                        </div>
-                                    </div>
-                                <#--</div>-->
                                 </div>
                             </div>
                         </div>
@@ -122,10 +90,13 @@
             async: false,
             data : {},
             success : function(result) {//返回数据根据结果进行相应的处理
-                //alert(result.details.diskSpace.status.code);
+                alert(JSON.stringify(result));
                 $('#status').html(result.status.code=='UP'?'正在运行':'已关闭');
                 $('#desc').html(result.status.description);
                 $('#status_disk').html(result.details.diskSpace.status.code == 'UP'?'空间充足':'空间不足');
+                $('#disk_total').html(Math.ceil(result.details.diskSpace.details.total/1073741824)+" M");
+                $('#disk_free').html(Math.ceil(result.details.diskSpace.details.free/1073741824)+" M");
+                $('#disk_threshold').html(Math.ceil(result.details.diskSpace.details.threshold/1073741824)+" M");
             }
         });
     }

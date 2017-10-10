@@ -52,8 +52,8 @@ public class ShiroConfig {
 		ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
 		shiroFilter.setSecurityManager(securityManager);
 		shiroFilter.setLoginUrl("/login");
-		shiroFilter.setSuccessUrl("/admin");
-		shiroFilter.setUnauthorizedUrl("/admin/nopermissions");
+		shiroFilter.setSuccessUrl("/");
+
 		Map<String, String> filterMap = new HashMap<String, String>();
 		filterMap.put("/static/**", "anon");
 		
@@ -66,7 +66,8 @@ public class ShiroConfig {
 		filterMap.put("/admin/nopermissions", "anon");
 
 
-		filterMap.put("/**", "authc");
+		//filterMap.put("/**", "authc");
+		shiroFilter.setUnauthorizedUrl("/login");
 		shiroFilter.setFilterChainDefinitionMap(filterMap);
 		return shiroFilter;
 	}

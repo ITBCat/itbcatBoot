@@ -1,5 +1,9 @@
 package cn.itbcat.boot.config.intercepter;
 
+import cn.itbcat.boot.entity.User;
+import cn.itbcat.boot.utils.ITBC;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +24,14 @@ public class CommonIntercepter implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-			request.setAttribute("", request.getContextPath());
+		request.setAttribute("", request.getContextPath());
+		Subject subject = SecurityUtils.getSubject();
+		User user = ITBC.getCurrUser();
+		String flag = "false";
+		if(null==user){
+			flag = "true";
+		}
+		modelAndView.addObject("isLogin",flag);
 	}
 
 	@Override
