@@ -27,9 +27,9 @@ public class CommonIntercepter implements HandlerInterceptor {
 		request.setAttribute("", request.getContextPath());
 		Subject subject = SecurityUtils.getSubject();
 		User user = ITBC.getCurrUser();
-		String flag = "false";
+		boolean flag = false;
 		if(null==user){
-			flag = "true";
+			flag = true;
 		}
 		modelAndView.addObject("isLogin",flag);
 	}

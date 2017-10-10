@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                         </div>
+                        <#if isLogin>
                         <div class="ui dropdown item">
                             <img class="ui mini circular image" src="/static/img/avatar/people/enid.png" alt="label-image" />
                             <div class="menu">
@@ -69,6 +70,9 @@
                                 <a class="item" href="/logout">注销</a>
                             </div>
                         </div>
+                        <#else>
+
+                        </#if>
                         <@shiro.hasPermission name="admin:admin:view">
                         <a class="item labeled rightsidebar computer only" href="/admin">
                             <i class="ion-wrench large icon"></i>
@@ -81,7 +85,7 @@
             <!--maincontent-->
         <div class="mainWrap">
             <div class="ui equal width left aligned padded grid stackable">
-            ${isLogin}
+
             </div>
         </div>
         <!--maincontent-->
