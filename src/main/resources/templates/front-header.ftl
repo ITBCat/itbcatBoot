@@ -1,23 +1,27 @@
 <!--navbar-->
 <div class="navwrap" style="width: 100%;">
     <div class="ui menu icon borderless grid" data-color="inverted white">
-        <img src="/static/logo.svg" alt="stagblogo">
-        <div class="ui secondary stackable right menu fourteen column">
+        <img src="/static/logo.svg" alt="">
+        <div class="ui secondary stackable right menu fourteen column" style="font-size: larger;font-weight: bold;">
             <a class="active item icon">
                 <i class="home icon"></i>
                 &nbsp;首 页
             </a>
             <a class="item">
-                News
+                <i class="home icon"></i>
+                &nbsp;首 页
             </a>
             <a class="item">
-                About
+                <i class="home icon"></i>
+                &nbsp;首 页
             </a>
             <a class="item">
-                Portfolio
+                <i class="home icon"></i>
+                &nbsp;首 页
             </a>
             <a class="item">
-                Portfolio
+                <i class="home icon"></i>
+                &nbsp;首 页
             </a>
         </div>
 

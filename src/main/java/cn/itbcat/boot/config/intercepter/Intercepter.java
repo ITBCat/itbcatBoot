@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class CommonIntercepter implements HandlerInterceptor {
+public class Intercepter implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
@@ -30,6 +30,7 @@ public class CommonIntercepter implements HandlerInterceptor {
 		boolean flag = false;
 		if(null!=user){
 			flag = true;
+			modelAndView.addObject("user",user);
 		}
 		modelAndView.addObject("isLogin",flag);
 	}

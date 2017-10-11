@@ -90,7 +90,7 @@
             async: false,
             data : {},
             success : function(result) {//返回数据根据结果进行相应的处理
-                alert(JSON.stringify(result));
+                //alert(JSON.stringify(result));
                 $('#status').html(result.status.code=='UP'?'正在运行':'已关闭');
                 $('#desc').html(result.status.description);
                 $('#status_disk').html(result.details.diskSpace.status.code == 'UP'?'空间充足':'空间不足');

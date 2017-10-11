@@ -10,6 +10,7 @@
 <script data-pace-options='{ "ajax": false }' src="/static/plugins/pacejs/pace.js"></script>
 
 <script src="/static/js/main.js"></script>
+<script src="/static/js/customjs/custom-tooltip.js"></script>
 <script>
     $(document)
             .ready(function() {
@@ -24,4 +25,32 @@
                 .siblings()
                 .removeClass('active');
     })
+
+</script>
+<script>
+    //Tooltip page and some tooltip trigger function
+    function popupactions() {
+        $("input").popup({
+            on: "focus"
+        });
+
+        $("a").popup({
+            on: "hover"
+        });
+
+        $(".ui.button").popup({
+            on: "click"
+        });
+        $(".ui.image").popup();
+        $(".ui.card").popup();
+        $(".icon.link").popup();
+        $(".avt").popup({
+            position: "top center"
+        });
+        $('.custom.button').popup({
+            popup: $('.custom.popup'),
+            on: 'click'
+        });
+    }
+    //Tooltip page and some tooltip trigger function
 </script>

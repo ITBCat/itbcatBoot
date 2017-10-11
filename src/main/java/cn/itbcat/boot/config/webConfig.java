@@ -1,6 +1,6 @@
 package cn.itbcat.boot.config;
 
-import cn.itbcat.boot.config.intercepter.CommonIntercepter;
+import cn.itbcat.boot.config.intercepter.Intercepter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
@@ -13,11 +13,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +26,7 @@ import java.util.List;
 public class webConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
-    private CommonIntercepter commonIntercepter;
+    private Intercepter commonIntercepter;
 
     /**
      * fastJson相关设置
