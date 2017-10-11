@@ -39,7 +39,7 @@ public class LoginController {
             Subject subject = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
-            return "redirect:/admin";
+            return "redirect:/";
         } catch (AuthenticationException e) {
             dataModel.put("msg", e.getMessage());
         }

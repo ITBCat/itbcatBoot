@@ -40,7 +40,7 @@ public class handler404 implements ErrorController {
     public ModelAndView processException(RuntimeException exception) {
         ModelAndView m = new ModelAndView();
         m.addObject("roncooException", exception.getMessage());
-        m.setViewName("404");
+        m.setViewName("login");
         return m;
     }
 
