@@ -8,20 +8,20 @@
                 &nbsp;首 页
             </a>
             <a class="item">
-                <i class="home icon"></i>
-                &nbsp;首 页
+                <i class="coffee icon"></i>
+                &nbsp;JAVA
             </a>
             <a class="item">
-                <i class="home icon"></i>
-                &nbsp;首 页
+                <i class="Record icon"></i>
+                &nbsp;VIDEO
             </a>
             <a class="item">
-                <i class="home icon"></i>
-                &nbsp;首 页
+                <i class="Music icon"></i>
+                &nbsp;MUSIC
             </a>
             <a class="item">
-                <i class="home icon"></i>
-                &nbsp;首 页
+                <i class="sound icon"></i>
+                &nbsp;ABOUT
             </a>
         </div>
 
@@ -73,6 +73,17 @@
                     <a class="item" href="/logout">注销</a>
                 </div>
             </div>
+            <@shiro.hasPermission name="admin:admin:view">
+                <a class="item labeled rightsidebar computer only" href="/admin">
+                    <i class="ion-wrench large icon"></i>
+                </a>
+            </@shiro.hasPermission>
+            <a class="ui item" href="/put">
+                <button class="ui active redli button">
+                    <i class="paint brush icon"></i>
+                    发 布
+                </button>
+            </a>
         <#else>
             <a class="ui item" href="/login">
                 <label style="font-weight: bold;font-size: larger;">登 录</label>
@@ -81,11 +92,7 @@
                 <label style="font-weight: bold;font-size: larger;">注 册</label>
             </a>
         </#if>
-        <@shiro.hasPermission name="admin:admin:view">
-            <a class="item labeled rightsidebar computer only" href="/admin">
-                <i class="ion-wrench large icon"></i>
-            </a>
-        </@shiro.hasPermission>
+
         </div>
     </div>
 </div>
