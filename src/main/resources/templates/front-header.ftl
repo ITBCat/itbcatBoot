@@ -80,7 +80,7 @@
                     <i class="ion-wrench large icon"></i>
                 </a>
             </@shiro.hasPermission>
-            <a class="ui item" href="/put">
+            <a class="ui item" href="/f/put">
                 <button class="ui active redli button">
                     <i class="paint brush icon"></i>
                     发 布

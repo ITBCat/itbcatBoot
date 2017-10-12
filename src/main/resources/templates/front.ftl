@@ -13,7 +13,7 @@
             <#include "front-header.ftl">
             <!--maincontent-->
             <div class="mainWrap" style="background-color: #FFFFFF;">
-                <#include "module/front/index.ftl">
+                <#include "module/front/${template}.ftl">
             </div>
             <!--maincontent-->
             <#include "front-footer.ftl">

@@ -28,6 +28,7 @@ public class IndexController {
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String front(Map<String,Object> date){
+        date.put("template","index");
         return "front";
     }
 
