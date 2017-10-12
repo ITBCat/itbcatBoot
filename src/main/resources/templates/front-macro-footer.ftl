@@ -1,6 +1,3 @@
-<!--jquery-->
-<script src="/static/js/jquery-2.1.4.min.js"></script>
-<!--jquery-->
 <!--semantic-->
 <script src="/static/dist/semantic.min.js"></script>
 <!--semantic-->

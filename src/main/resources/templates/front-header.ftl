@@ -1,8 +1,10 @@
 <!--navbar-->
 <div class="navwrap" style="width: 100%;">
-    <div class="ui menu icon borderless grid" data-color="inverted white">
-        <img src="/static/logo.svg" alt="">
-        <div class="ui secondary stackable menu fourteen column" style="font-size: larger;font-weight: bold;margin-left: 5%;">
+    <div class="ui menu icon borderless four column grid" style="width: 100%;height: 54px;" data-color="inverted white">
+        <div class="three wide column" style="margin-top: -1em;">
+            <img src="/static/logo.svg" alt="">
+        </div>
+        <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon">
                 <i class="home icon"></i>
                 &nbsp;首 页
@@ -23,46 +25,46 @@
                 <i class="sound icon"></i>
                 &nbsp;ABOUT
             </a>
-        </div>
-
-        <div class="right menu colhidden">
             <div class="ui right aligned category search item">
                 <div class="ui icon input">
                     <input type="text" placeholder="Search...">
                     <i class="search link icon"></i>
                 </div>
             </div>
+        </div>
+
+        <div class="right menu colhidden four wide column">
         <#if isLogin>
-            <div class="ui dropdown item">
+            <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
                 <i class="bell big icon"></i>
                 <div class="menu">
                     <div class="header">
                         People You Might Know
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/enid.png" alt="label-image" /> Janice Robinson
+                        <img class="ui avatar image" src="/static/img/avatar/people/enid.png" alt="label-image" /> Janice Robinson
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/Hershell.png" alt="label-image" /> Cynthia May
+                        <img class="ui avatar image" src="/static/img/avatar/people/Hershell.png" alt="label-image" /> Cynthia May
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/Rick.png" alt="label-image" /> Hugh Carter
+                        <img class="ui avatar image" src="/static/img/avatar/people/Rick.png" alt="label-image" /> Hugh Carter
                     </div>
                     <div class="header">
                         Your Friends' Friends
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/Meggie.png" alt="label-image" /> Pauline Cain
+                        <img class="ui avatar image" src="/static/img/avatar/people/Meggie.png" alt="label-image" /> Pauline Cain
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/Glenn.png" alt="label-image" /> Marco Beck
+                        <img class="ui avatar image" src="/static/img/avatar/people/Glenn.png" alt="label-image" /> Marco Beck
                     </div>
                     <div class="item">
-                        <img class="ui avatar image" src="img/avatar/people/Daryl.png" alt="label-image" /> Sue Quinn
+                        <img class="ui avatar image" src="/static/img/avatar/people/Daryl.png" alt="label-image" /> Sue Quinn
                     </div>
                 </div>
             </div>
-            <div class="ui dropdown item">
+            <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
                 <img class="ui mini circular image" src="/static/img/avatar/people/enid.png" alt="label-image" />
                 <div class="menu">
                     <a class="item" href="mail.html">Inbox</a>
@@ -92,7 +94,6 @@
                 <label style="font-weight: bold;font-size: larger;">注 册</label>
             </a>
         </#if>
-
         </div>
     </div>
 </div>
