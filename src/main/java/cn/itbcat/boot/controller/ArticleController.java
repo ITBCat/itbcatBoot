@@ -17,6 +17,6 @@ public class ArticleController {
     public String toPut(Map<String,Object> data){
 
         data.put("template","put");
-        return "front";
+        return "module/front/put";
     }
 }
