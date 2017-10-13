@@ -1124,7 +1124,7 @@
     <#include "module/admin/${template}.ftl">
     </div>
 </div>
-<#include "macro-foot.ftl">
+<#include "macro-footer.ftl">
 
 </body>
 

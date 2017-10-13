@@ -21,6 +21,15 @@
         <div class="ui grid center aligned">
             <div class="row">
                 <div class="sixteen wide tablet six wide computer column">
+                <#if msg??>
+                    <div class="ui error message">
+                        <i class="close icon" onclick="hideMsg()"></i>
+                        <div class="header">
+                            错误信息
+                        </div>
+                    ${msg}
+                    </div>
+                </#if>
                     <div class="ui left aligned segment">
 
                         <div id="form1" class="ui form">
@@ -28,7 +37,7 @@
                             <h1 class="ui header center aligned">
                                 <img src="/static/logo.png" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
                             </h1>
-                            <form action="/register" method="post">
+                            <form action="/register" class="ui form form15" method="post">
                                 <div class="field">
                                     <label>
                                         邮箱:
@@ -52,7 +61,7 @@
                                         确认密码:
                                     </label>
                                     <div class="ui fluid icon input">
-                                        <input name="password" id="u_pass" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                        <input name="repassword" id="u_pass" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
                                         <i class="icon key"></i>
                                     </div>
                                 </div>
@@ -70,11 +79,18 @@
         </div>
     </div>
     <script src="/static/js/jquery-2.1.4.min.js"></script>
-
+    <script src="/static/dist/semantic.min.js"></script>
+    <script src="/static/js/customjs/custom-validation.js"></script>
     <script>
         var colors = ["#F25F5C", "#247BA0", "#8e44ad", "#ED6A5A", "#32936F", "#2c3e50", "#E83F6F", "#32936F", "#2E294E"];
         var rand = Math.floor(Math.random() * colors.length);
         $('body').css("background-color", colors[rand]);
+        /**
+         * 隐藏消息
+         */
+        function hideMsg() {
+            $('.message').hide();
+        }
     </script>
 </body>
 

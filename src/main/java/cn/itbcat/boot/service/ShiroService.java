@@ -36,6 +36,7 @@ public class ShiroService {
                 permsList.add(menu.getPerms());
             }
         }else{
+            //不是超级管理员
             permsList = menuRepository.queryAllPerms(userId);
         }
         //用户权限列表

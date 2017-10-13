@@ -58,7 +58,7 @@
 					name       : dialogName,
 					title      : dialogLang.title,
 					width      : 800,
-					height     : 475,
+					height     : 425,
 					mask       : settings.dialogShowMask,
 					drag       : settings.dialogDraggable,
 					content    : dialogContent,
@@ -66,19 +66,6 @@
 					maskStyle  : {
 						opacity         : settings.dialogMaskOpacity,
 						backgroundColor : settings.dialogMaskBgColor
-					},
-					buttons    : {
-						enter  : [lang.buttons.enter, function() {							
-							cm.replaceSelection(selecteds.join(" "));
-							this.hide().lockScreen(false).hideMask();
-							
-							return false;
-						}],
-						cancel : [lang.buttons.cancel, function() {                           
-							this.hide().lockScreen(false).hideMask();
-							
-							return false;
-						}]
 					}
 				});
 			}
@@ -121,6 +108,9 @@
 					if ($(this).hasClass("selected")) 
 					{
 						selecteds.push($(this).attr("value"));
+                        cm.replaceSelection(selecteds.join(" "));
+                        dialog.hide().lockScreen(false).hideMask();
+                        return false;
 					}
 				});
 			};

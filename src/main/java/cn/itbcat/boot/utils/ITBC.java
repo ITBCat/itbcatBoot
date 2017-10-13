@@ -21,7 +21,27 @@ public class ITBC {
     /**
      * SUPER_ADMIN
      */
-    public static final String SUPER_ADMIN = "1";
+    public static final String SUPER_ADMIN = "0";
+
+    /**
+     * SUPER_ADMIN
+     */
+    public static final String IS_ADMIN = "0";
+
+    /**
+     * SUPER_ADMIN
+     */
+    public static final String NOT_ADMIN = "1";
+
+    /**
+     * SUPER_ADMIN
+     */
+    public static final String MEMBER_ROLE = "1";
+
+    /**
+     * SUPER_ADMIN
+     */
+    public static final String MEMBER_ROLE_ID = "1";
 
     /**
      * ROLE_ADMIN

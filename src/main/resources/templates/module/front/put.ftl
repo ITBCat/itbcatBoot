@@ -15,16 +15,48 @@
 </head>
 
 <body>
-    <div class="ui fluid container">
-        <div id="editormd">
-            <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;"></textarea>
-            <!-- 注意：name属性的值-->
-            <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>
+    <div class="ui fluid whiteli container">
+        <form class="ui form" >
+            <div class="ui left action fluid big input" style="margin: 0 ;">
+                <button class="ui blueli labeled icon big button">
+                    <i class="plug icon"></i>
+                    标&nbsp;&nbsp;题
+                </button>
+                <input type="text" placeholder="Please enter a title...">
+            </div>
+            <div class="ui left action fluid big input" style="margin: 0 ;">
+                <button class="ui greenli2 labeled icon big button">
+                    <i class="tags icon"></i>
+                    标&nbsp;&nbsp;签
+                </button>
+                <input type="text" placeholder="Enter tags...">
+            </div>
+            <div id="editormd" style="border-top: none;">
+                <textarea id="editormd-markdown-doc" name="editormd-markdown-doc" style="display:none;"></textarea>
+                <textarea id="editormd-html-code" name="editormd-html-code" style="display:none;"></textarea>
+            </div>
+        </form>
+
+        <div class="ui fluid content">
+            <div class="ui right floated big buttons" style="margin-right: 50px;">
+                <button class="ui yellowli labeled icon button" onclick="history.go(-1)">
+                    <i class="left chevron icon"></i>
+                    首页
+                </button>
+                <button class="ui green labeled icon button">
+                    <i class="save icon"></i>
+                    保存
+                </button>
+                <button class="ui brown labeled icon button">
+                    <i class="cloud icon"></i>
+                    草稿
+                </button>
+            </div>
         </div>
     </div>
 
 
-    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/plugins/editor.md/plugins/jquery.min.js"></script>
     <script src="/static/plugins/editor.md/editormd.js"></script>
     <!--semantic-->
     <script src="/static/dist/semantic.min.js"></script>

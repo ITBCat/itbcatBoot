@@ -48,9 +48,9 @@ public class UserController {
     public String add(@ModelAttribute User user, HttpServletRequest request){
         String roleId = request.getParameter("roleId");
         if(ITBC.ROLE_ADMIN.equals(roleId)){
-            user.setIsAdmin("1");
+            user.setIsAdmin(ITBC.NOT_ADMIN);
         }else {
-            user.setIsAdmin("0");
+            user.setIsAdmin(ITBC.IS_ADMIN);
         }
         userService.save(roleId,user);
         return "redirect:/user/user";
@@ -79,9 +79,9 @@ public class UserController {
 
         try {
             if(ITBC.ROLE_ADMIN.equals(roleId)){
-                user.setIsAdmin("1");
+                user.setIsAdmin(ITBC.NOT_ADMIN);
             }else {
-                user.setIsAdmin("0");
+                user.setIsAdmin(ITBC.IS_ADMIN);
             }
             userService.update(roleId,user);
         }catch (Exception e){

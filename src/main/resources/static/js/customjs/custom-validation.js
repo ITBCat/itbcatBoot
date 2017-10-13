@@ -531,3 +531,23 @@ $('.ui.form14').form({
         }
     }
 });
+
+$('.ui.form15').form({
+    fields: {
+        username: {
+            rules: [{
+                type: 'empty'
+            }]
+        },
+        password: {
+            rules: [{
+                type: 'empty'
+            }]
+        },
+        repassword: {
+            rules: [{
+                type: 'empty'
+            }]
+        }
+    }
+});

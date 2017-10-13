@@ -109,20 +109,8 @@
 					maskStyle  : {
 						opacity         : settings.dialogMaskOpacity,
 						backgroundColor : settings.dialogMaskBgColor
-					},
-					buttons    : {
-						enter  : [lang.buttons.enter, function() {							
-							cm.replaceSelection(selecteds.join(" "));
-							this.hide().lockScreen(false).hideMask();
-							
-							return false;
-						}],
-						cancel : [lang.buttons.cancel, function() {                           
-							this.hide().lockScreen(false).hideMask();
-							
-							return false;
-						}]
 					}
+
 				});
 			}
 			
