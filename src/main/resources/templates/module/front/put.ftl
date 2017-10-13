@@ -17,23 +17,15 @@
 <body>
     <div class="ui fluid whiteli container">
         <form class="ui form" >
-            <div class="ui left action fluid big input" style="margin: 0 ;">
-                <button class="ui blueli labeled icon big button">
-                    <i class="plug icon"></i>
-                    标&nbsp;&nbsp;题
-                </button>
+            <div class="ui left fluid massive input" style="margin: 0 ;">
                 <input type="text" placeholder="Please enter a title...">
             </div>
-            <div class="ui left action fluid big input" style="margin: 0 ;">
-                <button class="ui greenli2 labeled icon big button">
-                    <i class="tags icon"></i>
-                    标&nbsp;&nbsp;签
-                </button>
-                <input type="text" placeholder="Enter tags...">
-            </div>
-            <div id="editormd" style="border-top: none;">
+            <div id="editormd" style="border: none;margin: 0 ;">
                 <textarea id="editormd-markdown-doc" name="editormd-markdown-doc" style="display:none;"></textarea>
                 <textarea id="editormd-html-code" name="editormd-html-code" style="display:none;"></textarea>
+            </div>
+            <div class="ui left fluid big input" >
+                <input type="text" placeholder="Enter tags...">
             </div>
         </form>
 
