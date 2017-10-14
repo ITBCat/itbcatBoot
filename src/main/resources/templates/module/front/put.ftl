@@ -12,21 +12,22 @@
     <link href="/static/css/main.css" rel="stylesheet" />
     <link href="/static/plugins/pacejs/pace.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="/static/plugins/tageditor/fm.tagator.jquery.css" />
 </head>
-
 <body>
     <div class="ui fluid whiteli container">
         <form class="ui form" >
             <div class="ui left fluid massive input" style="margin: 0 ;">
-                <input type="text" placeholder="Please enter a title...">
+                <input type="text" placeholder="标题">
             </div>
             <div id="editormd" style="border: none;margin: 0 ;">
                 <textarea id="editormd-markdown-doc" name="editormd-markdown-doc" style="display:none;"></textarea>
                 <textarea id="editormd-html-code" name="editormd-html-code" style="display:none;"></textarea>
             </div>
-            <div class="ui left fluid big input" >
-                <input type="text" placeholder="Enter tags...">
+            <div class="ui left fluid input" >
+                <input type="text" id="inputTagator" placeholder="标签" style="padding: 0;">
             </div>
+            <input type="text" name="tags" id="tags" hidden="hidden">
         </form>
 
         <div class="ui fluid content">
@@ -55,6 +56,7 @@
     <!--semantic-->
     <script src="/static/plugins/cookie/js.cookie.js"></script>
     <script src="/static/plugins/nicescrool/jquery.nicescroll.min.js"></script>
+    <script src="/static/plugins/tageditor/fm.tagator.jquery.js"></script>
 
     <script data-pace-options='{ "ajax": false }' src="/static/plugins/pacejs/pace.js"></script>
 
@@ -63,12 +65,18 @@
         var Editor;
 
         $(function() {
+            $('#inputTagator').tagator({
+                autocomplete: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', '��ǩ']
+            });
             Editor = editormd("editormd", {
                 width: "100%",
                 height: 740,
                 path: '/static/plugins/editor.md/lib/',
                 codeFold: true,
-                //syncScrolling : false,
+                toolbarIcons : function() {
+                    return ["undo", "redo", "|", "bold", "del", "italic", "quote", "|", "list-ul", "list-ol", "hr", "|", "image", "emoji", "table", "datetime",
+                        "|", "watch", "search", "fullscreen", "|", "help"]
+                },
                 saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
                 searchReplace: true,
                 //watch : false,                // 关闭实时预览

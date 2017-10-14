@@ -71,13 +71,13 @@
                                 <div class="inline fields">
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" name="status" value="0" checked="checked">
+                                            <input type="radio" name="status" value="1" checked="checked">
                                             <label>正常</label>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" value="1" name="status">
+                                            <input type="radio" value="0" name="status">
                                             <label>禁用</label>
                                         </div>
                                     </div>

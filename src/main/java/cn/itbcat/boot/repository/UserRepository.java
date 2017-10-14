@@ -15,4 +15,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User,String>,CrudRepository<User,String> {
 
     User findUserByEmail(String username);
+
+    User findUserByToken(String token);
 }

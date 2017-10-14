@@ -15,7 +15,6 @@ public class ArticleController {
 
     @RequestMapping(value = "/put",method = RequestMethod.GET)
     public String toPut(Map<String,Object> data){
-
         data.put("template","put");
         return "module/front/put";
     }

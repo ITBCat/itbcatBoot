@@ -49,7 +49,7 @@ public class User implements Serializable {
 	private String mobile;
 
 	/**
-	 * 状态  0：禁用   1：正常
+	 * 状态  0：禁用   1：正常  2:未激活
 	 */
 	private Integer status;
 
@@ -89,6 +89,9 @@ public class User implements Serializable {
 	@Column(name = "del_flag")
 	private String delFlag;
 
+	@Column(name= "token")
+	private String token;
+
 	public String getDelFlag() {
 		return delFlag;
 	}
@@ -96,7 +99,17 @@ public class User implements Serializable {
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
 	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	/**
+
 	 * 设置：
 	 * @param userId 
 	 */
@@ -178,14 +191,14 @@ public class User implements Serializable {
 	
 	/**
 	 * 设置：状态  0：禁用   1：正常
-	 * @param status 状态  0：禁用   1：正常
+	 * @param status 状态  0：禁用   1：正常  2:未激活
 	 */
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
 	/**
-	 * 获取：状态  0：禁用   1：正常
+	 * 获取：状态  0：禁用   1：正常  2:未激活
 	 * @return Integer
 	 */
 	public Integer getStatus() {

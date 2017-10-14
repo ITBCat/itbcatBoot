@@ -85,7 +85,7 @@ public class MailRepository implements IMailService {
 		helper.setSubject(mail.getSubject());
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("content", mail.getContent());
-		Template template = configuration.getTemplate(mail.getTemplate()+".flt");
+		Template template = configuration.getTemplate(mail.getTemplate()+".ftl");
 		String text = FreeMarkerTemplateUtils.processTemplateIntoString(
 				template, model);
 		helper.setText(text, true);

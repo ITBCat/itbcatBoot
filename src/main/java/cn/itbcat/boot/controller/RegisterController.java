@@ -1,6 +1,8 @@
 package cn.itbcat.boot.controller;
 
+import cn.itbcat.boot.entity.Email;
 import cn.itbcat.boot.entity.User;
+import cn.itbcat.boot.service.IMailService;
 import cn.itbcat.boot.service.UserService;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
@@ -23,6 +25,9 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private IMailService mailService;
+
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register(){
         return "register";
@@ -35,6 +40,12 @@ public class RegisterController {
         String password = request.getParameter("password");
         String repassword = request.getParameter("repassword");
 
+        User u = userService.getUserByEmail(username);
+        if(null != u){
+            data.put("msg","该用户已存在");
+            return "register";
+        }
+
         if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password) && StringUtils.isNotBlank(repassword)){
             if(!password.equals(repassword)){
                 data.put("msg","密码不一致");
@@ -46,12 +57,44 @@ public class RegisterController {
             user.setIsAdmin(ITBC.NOT_ADMIN);
             user.setDeptName("");
             user.setMobile("");
-            user.setStatus(0);
+            user.setStatus(2);
             user.setPassword(password);
 
-            userService.save(ITBC.MEMBER_ROLE_ID,user);
+            try{
+                String token = userService.save(ITBC.MEMBER_ROLE_ID,user);
+
+                if(StringUtils.isNotBlank(token)){
+                    Email mail = new Email();
+                    mail.setEmail(new String[]{username});
+                    mail.setSubject("ITBC-注册验证邮件");
+                    mail.setContent(token);
+                    mail.setTemplate("mail");
+                    mailService.sendFreemarker(mail);
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
         }
 
         return "redirect:/admin";
+    }
+
+    @RequestMapping(value = "/mail",method = RequestMethod.GET)
+    public String mail(){
+        return "mail";
+    }
+
+    @RequestMapping(value = "/mail/{token}",method = RequestMethod.GET)
+    public String valmail(@PathVariable String token){
+        User user = userService.getUserByToken(token);
+        if (null != user)
+            user.setStatus(1);
+        userService.save(user.getUserId(),user);
+        System.out.print(token);
+        return "login";
     }
 }

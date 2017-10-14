@@ -50,7 +50,9 @@ public class UserService {
         return roleRepositor.findAll();
     }
 
-    public void save(String roleId, User user) {
+    public String save(String roleId, User user) {
+
+        String token = null;
 
         if(StringUtils.isNotBlank(roleId)){
             try {
@@ -61,19 +63,22 @@ public class UserService {
                 user.setCreateTime(new Date());
                 String pass = new Sha256Hash(user.getPassword(), MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
                 user.setPassword(pass);
+                token = MD5.encodeSHAString("ITBC"+user.getUserId()+user.getUsername());
+                user.setToken(token);
                 userRepository.save(user);
 
                 UserRole userRole = new UserRole();
                 userRole.setId(ITBC.getId());
                 userRole.setRoleId(roleId);
                 userRole.setUserId(userId);
-
                 userRoleRepository.save(userRole);
+
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
 
+        return token;
     }
 
     public List<User> findAll() {
@@ -110,6 +115,10 @@ public class UserService {
     public void delete(String userId) {
         userRoleRepository.deleteByUserId(userId);
         userRepository.delete(userId);
+    }
+
+    public User getUserByToken(String token) {
+        return userRepository.findUserByToken(token);
     }
 }
 

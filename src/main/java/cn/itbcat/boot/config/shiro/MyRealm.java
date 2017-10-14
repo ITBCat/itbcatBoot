@@ -64,6 +64,8 @@ public class MyRealm extends AuthorizingRealm {
 		String password = new String((char[]) token.getCredentials());
 		String pass = new Sha256Hash(password, MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
 
+		if(user.getStatus()==2)
+			throw new UnknownAccountException("该账号未激活");
 		// 账号不存在
 		if (user == null) {
 			throw new UnknownAccountException("用户不存在");

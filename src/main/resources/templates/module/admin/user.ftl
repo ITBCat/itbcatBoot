@@ -32,7 +32,15 @@
                                             <td>${item.deptName}</td>
                                             <td>${item.email}</td>
                                             <td>${item.mobile}</td>
-                                            <td>${(item.status == 0)?string('正常','禁用')}</td>
+                                            <td>
+                                                <#if item.status == 0>
+                                                    <div class="ui redli horizontal label"> 禁用</div>
+                                                <#elseif item.status == 1>
+                                                    <div class="ui greenli horizontal label">正常</div>
+                                                <#else>
+                                                    <div class="ui yellowli horizontal label">未激活</div>
+                                                </#if>
+                                            </td>
                                             <td class="center aligned" width="130px;">
                                                 <div class="ui buttons clearfix" style="margin-top: 10px;">
                                                     <a class="ui teal mini button" href="/user/edit/edit-user?userId=${item.userId}">修改</a>
