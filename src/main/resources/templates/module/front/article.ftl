@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.preview.css" />
+<link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.min.css" />
 <div class="ui right floated" style="width: 30%; ">
     <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
 </div>
@@ -7,7 +8,7 @@
         ${article.title}
     </h1>
 
-    <div id="editormd-view" class="markdown-body editormd-preview-container">
+    <div id="editormd-view" class="editormd-preview-theme-dark">
         <textarea style="display:none;">${article.md}</textarea>
     </div>
 </div>

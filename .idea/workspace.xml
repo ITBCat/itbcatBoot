@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0a2a9fd-61ed-462d-a8f6-cd7fcc5c1376" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/ArticleController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/ArticleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ArticleService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ArticleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/front/index.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/index.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,9 +49,10 @@
       <file leaf-file-name="article.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+            <state relative-caret-position="220">
+              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -730,7 +727,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../smart-api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jcalaBlog" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -1441,7 +1438,7 @@
       <workItem from="1507770297880" duration="25006000" />
       <workItem from="1507856639271" duration="1494000" />
       <workItem from="1507858547376" duration="24024000" />
-      <workItem from="1507942443703" duration="28671000" />
+      <workItem from="1507942443703" duration="28846000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1504604086246</created>
@@ -1737,11 +1734,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507963863467</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="article view">
+      <created>1507974133964</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1507974133964</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349751000" />
+    <option name="totallyTimeSpent" value="349926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="0" width="1936" height="1056" extended-state="0" />
@@ -1845,9 +1849,9 @@
     <MESSAGE value="article editor.md" />
     <MESSAGE value="register" />
     <MESSAGE value="mail" />
-    <MESSAGE value="article view" />
     <MESSAGE value="readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme" />
+    <MESSAGE value="article view" />
+    <option name="LAST_COMMIT_MESSAGE" value="article view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2334,9 +2338,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+        <state relative-caret-position="220">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
