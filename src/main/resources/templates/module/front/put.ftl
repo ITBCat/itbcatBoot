@@ -2,27 +2,27 @@
 <html lang="zh">
 
 <head>
-    <title>ITBC - Front</title>
+    <title>ITBC - 文章发布</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/static/b.png" />
+    <link rel="icon" type="image/png" href="/static/i.png" />
     <link href="/static/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="/static/css/main.css" rel="stylesheet" />
     <link href="/static/plugins/pacejs/pace.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.min.css" />
     <link rel="stylesheet" href="/static/plugins/tageditor/fm.tagator.jquery.css" />
 </head>
 <body>
     <div class="ui fluid whiteli container">
-        <form class="ui form" >
+        <form class="ui form" action="/f/put" method="post" id="formid">
             <div class="ui left fluid massive input" style="margin: 0 ;">
-                <input type="text" placeholder="标题">
+                <input type="text" placeholder="标题" name="title">
             </div>
             <div id="editormd" style="border: none;margin: 0 ;">
-                <textarea id="editormd-markdown-doc" name="editormd-markdown-doc" style="display:none;"></textarea>
-                <textarea id="editormd-html-code" name="editormd-html-code" style="display:none;"></textarea>
+                <textarea class="editormd-markdown-textarea" name="md"></textarea>
+                <textarea class="editormd-html-textarea" name="html"></textarea>
             </div>
             <div class="ui left fluid input" >
                 <input type="text" id="inputTagator" placeholder="标签" style="padding: 0;">
@@ -36,7 +36,7 @@
                     <i class="left chevron icon"></i>
                     首页
                 </button>
-                <button class="ui green labeled icon button">
+                <button class="ui green labeled icon button" onclick="goSubmit()">
                     <i class="save icon"></i>
                     保存
                 </button>
@@ -64,6 +64,10 @@
     <script type="text/javascript">
         var Editor;
 
+        function goSubmit() {
+            document.getElementById("formid").submit();
+        }
+        
         $(function() {
             $('#inputTagator').tagator({
                 autocomplete: ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', '��ǩ']
@@ -91,7 +95,8 @@
                 imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                 onload: function() {
                     console.log('onload', this);
-                }
+                },
+                previewTheme : "dark"
             });
         });
     </script>

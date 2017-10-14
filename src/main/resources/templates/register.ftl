@@ -14,7 +14,7 @@
     <meta name="keywords" content="html5, ,semantic,ui, library, framework, javascript,jquery,template,blog,stagb,template" />
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
     <link href="/static/css/main.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link rel="icon" type="image/png" href="/static/i.png" />
 </head>
 <body>
     <div class="ui container" style="padding-top:10%">
@@ -35,7 +35,7 @@
                         <div id="form1" class="ui form">
 
                             <h1 class="ui header center aligned">
-                                <img src="/static/logo.png" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
+                                <img src="/static/i.svg" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
                             </h1>
                             <form action="/register" class="ui form form15" method="post">
                                 <div class="field">

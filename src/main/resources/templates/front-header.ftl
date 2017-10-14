@@ -2,7 +2,7 @@
 <div class="navwrap" style="width: 100%;">
     <div class="ui menu icon borderless four column grid" style="width: 100%;height: 54px;" data-color="inverted white">
         <div class="three wide column" style="margin-top: -1em;">
-            <img src="/static/logo.svg" alt="">
+            <img src="/static/i.svg" alt="">
         </div>
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon">
