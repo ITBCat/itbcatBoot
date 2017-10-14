@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.preview.css" />
 <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.min.css" />
-<div class="ui right floated" style="width: 30%; ">
+<#--<div class="ui right floated" style="width: 30%; ">
     <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
-</div>
+</div>-->
 <div class="ui main container left floated" style="padding-top: 20px; ">
     <h1 class="ui header">
         ${article.title}
