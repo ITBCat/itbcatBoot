@@ -39,9 +39,6 @@
             titleAsText: true
 
         });
-
-
-
     });
 
 </script>

@@ -45,7 +45,7 @@
                         <div class="meta">
                             <a>14th Ago</a>
                         </div>
-                        <a class="title" style="font-size: 22px;color: black;">
+                        <a class="title" style="font-size: 22px;color: black;" href="/f/article/1507964935407">
                             A description which may
                         </a>
                         <div class="ui grid" style="padding-top: 1em;">

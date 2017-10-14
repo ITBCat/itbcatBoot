@@ -5,6 +5,7 @@ import cn.itbcat.boot.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,9 +23,11 @@ public class ArticleController {
     private ArticleService articleService;
 
 
-    @RequestMapping(value = "/article",method = RequestMethod.GET)
-    private String article(){
-        return "module/front/article";
+    @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
+    private String article(Map<String,Object> data, @PathVariable String id){
+        data.put("article",articleService.get(id));
+        data.put("template","article");
+        return "front";
     }
 
     @RequestMapping(value = "/put",method = RequestMethod.GET)

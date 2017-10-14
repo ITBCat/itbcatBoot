@@ -25,4 +25,8 @@ public class ArticleService {
         article.setDate(new Date());
         articleRepository.save(article);
     }
+
+    public Article get(String articleId) {
+        return articleRepository.findOne(articleId);
+    }
 }
