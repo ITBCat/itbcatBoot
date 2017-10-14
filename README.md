@@ -1,5 +1,3 @@
 # itbcatBoot
 
-renren-fastplus
-
-springboot_authority
+spring boot 练习框架。

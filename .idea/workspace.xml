@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0a2a9fd-61ed-462d-a8f6-cd7fcc5c1376" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/i.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Article.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/ArticleRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ArticleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/i.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/ArticleController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/ArticleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/plugins/editor.md/css/editormd.min.css" afterPath="$PROJECT_DIR$/src/main/resources/static/plugins/editor.md/css/editormd.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/front-header.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/front-header.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/login.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/macro-head.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/macro-head.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/front/put.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/put.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/register.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -167,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/CommonIntercepter.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/front-footer.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/health.ftl" />
@@ -218,6 +205,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/ArticleRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/ArticleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/ArticleController.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -1251,7 +1239,7 @@
       <workItem from="1507770297880" duration="25006000" />
       <workItem from="1507856639271" duration="1494000" />
       <workItem from="1507858547376" duration="24024000" />
-      <workItem from="1507942443703" duration="18341000" />
+      <workItem from="1507942443703" duration="18448000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1504604086246</created>
@@ -1533,11 +1521,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507957653938</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="article view">
+      <created>1507963769032</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1507963769032</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339421000" />
+    <option name="totallyTimeSpent" value="339528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="0" width="1936" height="1056" extended-state="0" />
@@ -1641,7 +1636,8 @@
     <MESSAGE value="article editor.md" />
     <MESSAGE value="register" />
     <MESSAGE value="mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="mail" />
+    <MESSAGE value="article view" />
+    <option name="LAST_COMMIT_MESSAGE" value="article view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1695,18 +1691,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/macro-footer.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-validation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="545" column="10" lean-forward="true" selection-start-line="545" selection-start-column="10" selection-end-line="545" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2100,6 +2089,17 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="44">
+            <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
