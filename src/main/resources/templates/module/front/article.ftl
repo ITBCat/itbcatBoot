@@ -28,8 +28,7 @@
 <script src="/static/plugins/editor.md/editormd.js"></script>
 <script type="text/javascript">
     $(function() {
-        var Editormd;
-        Editormd = editormd.markdownToHTML("editormd-view", {
+        var Editormd = editormd.markdownToHTML("editormd-view", {
             htmlDecode      : "style,script,iframe",  // you can filter tags decode
             //toc             : false,
             tocm: true, // Using [TOCM]
