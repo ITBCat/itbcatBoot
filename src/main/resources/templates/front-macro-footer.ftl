@@ -25,6 +25,12 @@
 
 </script>
 <script>
+    $('.ui.reward').click( function () {
+        $('.ui.modal').modal({
+            inverted: true,
+            blurring: false
+        }).modal('show');
+    })
     //Tooltip page and some tooltip trigger function
     function popupactions() {
         $("input").popup({
