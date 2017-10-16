@@ -37,8 +37,8 @@
                         <div class="field">
                             <label>所属部门</label>
                             <div class="ui fluid action input">
-                                <input name="deptId" value="${user.deptId}" hidden="hidden" type="text" id="deptId">
-                                <input type="text" value="${user.deptName}" id="deptName" name="deptName">
+                                <input value="${user.deptId}" name="deptId" hidden="hidden" type="text" id="deptId">
+                                <input value="${user.deptName}" name="deptName" type="text" id="deptName">
                                 <button type="button" onclick="showDept()" class="ui teal right labeled icon button">
                                     <i class="rocket icon"></i>
                                     浏览

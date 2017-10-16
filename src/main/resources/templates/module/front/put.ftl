@@ -82,6 +82,7 @@
                         "|", "watch", "search", "fullscreen", "|", "help"]
                 },
                 saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
+                placeholder: '遨遊在文字的海洋中吧~',
                 searchReplace: true,
                 //watch : false,                // 关闭实时预览
                 htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启

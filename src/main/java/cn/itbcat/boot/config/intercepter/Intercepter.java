@@ -30,7 +30,7 @@ public class Intercepter implements HandlerInterceptor {
 		boolean flag = false;
 		if(null!=user){
 			flag = true;
-			modelAndView.addObject("user",user);
+			modelAndView.addObject("_user",user);
 		}
 		modelAndView.addObject("isLogin",flag);
 	}
