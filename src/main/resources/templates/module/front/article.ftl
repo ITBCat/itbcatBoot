@@ -28,24 +28,78 @@
         </div>
         <div class="row">
             <div class="center aligned column">
-                <button class="ui orange button big reward">Overlay Inverted</button>
+                <button class="ui orange button big reward">打 赏</button>
             </div>
         </div>
     </div>
-    <div class="ui container">
+    <div class="ui container" style="margin-top: 20px;">
         <div id="editormd" style="border-radius: 8px;">
             <textarea class="editormd-markdown-textarea" name="md" hidden="hidden"></textarea>
             <textarea class="editormd-html-textarea" name="html" hidden="hidden"></textarea>
         </div>
+        <div class="ui fluid content">
+            <button class="ui right floated greenli labeled submit icon button">
+                <i class="icon edit"></i> 评论
+            </button>
+        </div>
     </div>
+    <#include "comment.ftl"/>
 </div>
 
 <div class="ui small modal">
     <div class="ui header" style="text-align: center;">
-        打赏
+        <img class="ui mini circular image" src="/static/img/avatar/people/enid.png" alt="label-image"> 打赏
     </div>
     <div class="content">
-
+        <div class="ui two column doubling grid container">
+            <div class="column">
+                <div class="ui horizontal center aligned big segment">
+                    <i class="like red icon"></i>
+                    2 元
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui horizontal center aligned big segment">
+                    <i class="like red icon"></i>
+                    3 元
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui horizontal center aligned big segment">
+                    <i class="like red icon"></i>
+                    5 元
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui horizontal center aligned big segment">
+                    <i class="like red icon"></i>
+                    8 元
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui horizontal center aligned big segment">
+                    <i class="like red icon"></i>
+                    10 元
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui horizontal center aligned big segment" style="padding: 0;">
+                    <i class="like red icon"></i>
+                    <div class="ui right labeled mini input" style="width: 20%;padding-top: 10px;">
+                        <input type="text" placeholder="自定义">
+                        <div class="ui basic label" >元 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="center aligned column">
+                    <button class="ui orange button big reward">支 付</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- <script src="js/zepto.min.js"></script>

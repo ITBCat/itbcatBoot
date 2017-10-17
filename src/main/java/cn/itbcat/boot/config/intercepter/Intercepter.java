@@ -24,15 +24,18 @@ public class Intercepter implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-		request.setAttribute("", request.getContextPath());
+		request.setAttribute("ITBCServer", request.getContextPath());
 		Subject subject = SecurityUtils.getSubject();
 		User user = ITBC.getCurrUser();
-		boolean flag = false;
-		if(null!=user){
-			flag = true;
-			modelAndView.addObject("_user",user);
+		if(null != modelAndView){
+			boolean flag = false;
+			if(null!=user){
+				flag = true;
+				modelAndView.addObject("_user",user);
+			}
+			modelAndView.addObject("isLogin",flag);
 		}
-		modelAndView.addObject("isLogin",flag);
+
 	}
 
 	@Override

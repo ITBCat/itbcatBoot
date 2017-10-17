@@ -7,7 +7,7 @@
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon">
                 <i class="home icon"></i>
-                &nbsp;首 页
+                &nbsp;首页
             </a>
             <a class="item">
                 <i class="coffee icon"></i>

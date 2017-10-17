@@ -19,12 +19,13 @@ public class IndexController {
     @RequestMapping(value = "/admin",method = RequestMethod.GET)
     public String index(Map<String, Object> dataModel){
         User user = ITBC.getCurrUser();
-        if(ITBC.SUPER_ADMIN.equals(user.getIsAdmin())){
+        if(null != user && ITBC.SUPER_ADMIN.equals(user.getIsAdmin())){
             return "redirect:/healths";
         } else {
             dataModel.put("template","index");
             return "index";
         }
+
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String front(Map<String,Object> date){
