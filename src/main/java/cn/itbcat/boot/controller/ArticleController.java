@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +27,9 @@ public class ArticleController {
     @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
     private String article(Map<String,Object> data, @PathVariable String id){
         data.put("article",articleService.get(id));
+        List<Article> articles = articleService.findAll();
+        data.put("data",articles);
+        data.put("length",articles.size());
         data.put("template","article");
         return "front";
     }

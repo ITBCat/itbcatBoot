@@ -1,7 +1,15 @@
 <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.preview.css" />
 <link rel="stylesheet" href="/static/plugins/editor.md/css/editormd.min.css" />
-
-<div class="ui main container" style="padding-top: 20px; ">
+<div class="ui text container" id="loading">
+    <img class="wireframe" src="/static/img/wireframe/media-paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+    <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
+</div>
+<div class="ui main container" style="padding-top: 20px;">
     <h1 class="ui fluid header" style="text-align: center;">
         ${article.title}
     </h1>
@@ -141,6 +149,7 @@
             flowChart       : true,  // 默认不解析
             sequenceDiagram : true,  // 默认不解析
         });
+
         var Editor = editormd("editormd", {
             width: "100%",
             height: 200,
@@ -169,4 +178,7 @@
             previewTheme : "dark"
         });
     });
+    window.onload=function () {
+        $('#loading').hide();
+    }
 </script>

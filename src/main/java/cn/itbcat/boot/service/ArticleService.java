@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 860117030 on 2017/10/14.
@@ -28,5 +29,9 @@ public class ArticleService {
 
     public Article get(String articleId) {
         return articleRepository.findOne(articleId);
+    }
+
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 }
