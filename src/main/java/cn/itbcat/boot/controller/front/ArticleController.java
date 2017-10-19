@@ -1,4 +1,4 @@
-package cn.itbcat.boot.controller;
+package cn.itbcat.boot.controller.front;
 
 import cn.itbcat.boot.entity.Article;
 import cn.itbcat.boot.service.ArticleService;
@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/10/12.
  */
 @Controller
-@RequestMapping(value = "/f")
+@RequestMapping(value = "/itbc")
 public class ArticleController {
 
     @Autowired
@@ -29,7 +29,8 @@ public class ArticleController {
         data.put("article",articleService.get(id));
         List<Article> articles = articleService.findAll();
         data.put("data",articles);
-        data.put("length",articles.size());
+        data.put("parents",articles.size());
+        data.put("comments",articles.size());
         data.put("template","article");
         return "front";
     }

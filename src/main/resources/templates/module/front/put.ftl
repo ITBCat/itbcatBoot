@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="ui fluid whiteli container">
-        <form class="ui form" action="/f/put" method="post" id="formid">
+        <form class="ui form" action="${ITBCFront}/put" method="post" id="formid">
             <div class="ui left fluid massive input" style="margin: 0 ;">
                 <input type="text" placeholder="标题" name="title">
             </div>

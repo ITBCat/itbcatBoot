@@ -1,4 +1,4 @@
-package cn.itbcat.boot.controller;
+package cn.itbcat.boot.controller.admin;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;

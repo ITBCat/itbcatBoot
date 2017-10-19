@@ -1,4 +1,4 @@
-package cn.itbcat.boot.controller;
+package cn.itbcat.boot.controller.admin;
 
 import cn.itbcat.boot.entity.Role;
 import cn.itbcat.boot.entity.User;

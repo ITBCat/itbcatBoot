@@ -146,4 +146,7 @@
     window.onload=function () {
         $('#loading').hide();
     }
+    var ITBC = {
+        serverName:'${ITBCFront}'
+    }
 </script>

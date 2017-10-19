@@ -1,11 +1,11 @@
 <div class="ui container" style="margin-top: 20px;" >
     <div class="content" style="margin-bottom: 1em;" hidden="hidden" id="replyAuthor"></div>
     <div id="editormd" style="border-radius: 8px;">
-        <textarea class="editormd-markdown-textarea" name="commentMd"></textarea>
-        <textarea class="editormd-html-textarea" name="html" ></textarea>
+        <textarea class="editormd-markdown-textarea" name="commentMd" hidden="hidden"></textarea>
+        <textarea class="editormd-html-textarea" name="html" hidden="hidden"></textarea>
     </div>
     <div class="ui fluid content">
-        <button class="ui right floated greenli labeled submit icon button" onclick="reply('${article.userid}','${article.id}')">
+        <button class="ui right floated greenli labeled submit icon button" onclick="Comment.add('${article.userid}','${article.id}')">
             <i class="icon edit"></i> 评论
         </button>
     </div>
@@ -120,56 +120,12 @@ alert("script");
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/static/js/common/comment.js"></script>
 <script type="text/javascript">
-    var Editor;
-    $(function() {
-        var comments = '${length}';
-        Editor = editormd("editormd", {
-            width: "100%",
-            height: 200,
-            path: '/static/plugins/editor.md/lib/',
-            codeFold: true,
-            toolbarIcons : function() {
-                return ["undo", "redo", "|", "bold", "del", "italic", "quote", "|", "list-ul", "list-ol", "hr", "|", "image", "emoji", "table", "datetime",
-                    "|", "watch", "search", "fullscreen", "|", "help"]
-            },
-            saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
-            searchReplace: true,
-            //watch : false,                // 关闭实时预览
-            htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启
-            emoji: true,
-            taskList: true,
-            tocm: true, // Using [TOCM]
-            tex: true, // 开启科学公式TeX语言支持，默认关闭
-            flowChart: true, // 开启流程图支持，默认关闭
-            sequenceDiagram: true, // 开启时序/序列图支持，默认关闭
-            imageUpload: true,
-            placeholder:'写一下你的评论吧...',
-            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            onload: function() {
-                console.log('onload', this);
-            },
-            previewTheme : "dark"
-        });
-        for (var i = 0;i<comments;i++){
-            editormd.markdownToHTML("editormd-view"+i, {
-                htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                emoji           : true,
-                taskList        : true,
-                tex             : true,  // 默认不解析
-                flowChart       : true,  // 默认不解析
-                sequenceDiagram : true,  // 默认不解析
-            });
-        }
-        editormd.markdownToHTML("editormd-view7", {
-            htmlDecode      : "style,script,iframe",  // you can filter tags decode
-            emoji           : true,
-            taskList        : true,
-            tex             : true,  // 默认不解析
-            flowChart       : true,  // 默认不解析
-            sequenceDiagram : true,  // 默认不解析
-        });
+    $(function () {
+        Comment.init('${parents}','${comments}');
     });
+
     function replyAuthor() {
         $('#replyAuthor').html('<i class="share icon"></i>'
                 +'<a class="ui big image label" style="height: 33.42px;">'
@@ -177,10 +133,5 @@ alert("script");
                 +'Glenn'
                 +'</a>');
         $('#replyAuthor').show();
-    }
-    function reply(userId,articleId) {
-        alert(Editor.getMarkdown());
-        alert(userId);
-        alert(articleId);
     }
 </script>

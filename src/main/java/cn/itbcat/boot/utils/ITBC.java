@@ -3,6 +3,7 @@ package cn.itbcat.boot.utils;
 import cn.itbcat.boot.config.webConfig;
 import cn.itbcat.boot.entity.User;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -54,6 +55,18 @@ public class ITBC {
     public static final String DEL_FLAG_NORMAL="0";
     public static final String DEL_FLAG_DELETE="1";
     public static final String DEL_FLAG_CHECK="2";
+
+    /**
+     * SERVER NAME FRONT
+     */
+    @Value("${itbc.server.front}")
+    public static String SERVER_NAME_FRONT;
+
+    /**
+     * SERVER NAME ADMIN
+     */
+    @Value("${itbc.server.front}")
+    public static String SERVER_NAME_ADMIN;
 
     /**
      * 生成ID
