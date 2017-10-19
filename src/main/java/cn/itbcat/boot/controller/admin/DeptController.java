@@ -23,7 +23,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/14.
  */
 @Controller
-@RequestMapping("/dept")
+@RequestMapping(ITBC.SERVER_NAME_ADMIN+"/dept")
 public class DeptController {
 
     @Autowired
@@ -64,7 +64,7 @@ public class DeptController {
             e.printStackTrace();
         }
 
-        return "redirect:/dept/dept";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/dept/dept";
     }
 
     /**
@@ -90,7 +90,7 @@ public class DeptController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/dept/dept";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/dept/dept";
     }
 
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)

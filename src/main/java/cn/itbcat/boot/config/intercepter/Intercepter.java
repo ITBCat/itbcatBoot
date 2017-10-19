@@ -15,11 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class Intercepter implements HandlerInterceptor {
 
-	@Value("${itbc.server.front}")
-	private String front;
-	@Value("${itbc.server.admin}")
-	private String admin;
-
 	@Override
 	public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
@@ -38,8 +33,8 @@ public class Intercepter implements HandlerInterceptor {
 				flag = true;
 				modelAndView.addObject("_user",user);
 			}
-			modelAndView.addObject("ITBCFront",front);
-			modelAndView.addObject("ITBCAdmin",admin);
+			modelAndView.addObject("ITBCFront",ITBC.SERVER_NAME_FRONT);
+			modelAndView.addObject("ITBCAdmin",ITBC.SERVER_NAME_ADMIN);
 			modelAndView.addObject("isLogin",flag);
 		}
 

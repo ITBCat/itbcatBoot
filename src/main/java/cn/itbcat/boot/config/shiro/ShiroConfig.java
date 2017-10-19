@@ -1,5 +1,6 @@
 package cn.itbcat.boot.config.shiro;
 
+import cn.itbcat.boot.utils.ITBC;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -66,7 +67,7 @@ public class ShiroConfig {
 		filterMap.put("/register", "anon");
 		filterMap.put("/upload", "anon");
 		filterMap.put("/admin/nopermissions", "anon");
-
+		filterMap.put(ITBC.SERVER_NAME_ADMIN+"/**", "authc");
 
 		//filterMap.put("/**", "authc");
 		shiroFilter.setUnauthorizedUrl("/login");

@@ -76,7 +76,7 @@
                 </div>
             </div>
             <@shiro.hasPermission name="admin:admin:view">
-                <a class="item labeled rightsidebar computer only" href="/admin">
+                <a class="item labeled rightsidebar computer only" href="${ITBCAdmin}/admin">
                     <i class="ion-wrench large icon"></i>
                 </a>
             </@shiro.hasPermission>

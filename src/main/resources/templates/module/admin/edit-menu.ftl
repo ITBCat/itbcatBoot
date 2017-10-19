@@ -19,7 +19,7 @@
                             修改菜单
                         </h5>
                     </div>
-                    <form  class="ui form segment form4" action="/menu/edit" method="post">
+                    <form  class="ui form segment form4" action="${ITBCAdmin}/menu/edit" method="post">
                         <input name="menuId" value="${menu.menuId}" type="hidden">
                         <div class="field">
                             <label>菜单类型</label>

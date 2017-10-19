@@ -4,7 +4,7 @@
         <div class="row">
             <div class="sixteen wide column">
                 <@shiro.hasPermission name="admin:role:add">
-                    <a class="ui left aligned green icon button" href="/menu/add-role" style="margin-left: 10px;"><i class="write icon"></i> 添加角色 </a>
+                    <a class="ui left aligned green icon button" href="${ITBCAdmin}/menu/add-role" style="margin-left: 10px;"><i class="write icon"></i> 添加角色 </a>
                 </@shiro.hasPermission>
                 <div class="ui segments">
                     <div class="ui segment">
@@ -32,9 +32,9 @@
                                         <td>${item.remark}</td>
                                         <td class="center aligned" width="130px;">
                                             <div class="ui buttons clearfix" style="margin-top: 10px;">
-                                                <a class="ui teal mini button" href="/role/edit/edit-role?roleId=${item.roleId}">修改</a>
+                                                <a class="ui teal mini button" href="${ITBCAdmin}/role/edit/edit-role?roleId=${item.roleId}">修改</a>
                                                 <div class="or"></div>
-                                                <a class="ui orange mini button" href="/role/delete/${item.roleId}">删除</a>
+                                                <a class="ui orange mini button" href="${ITBCAdmin}/role/delete/${item.roleId}">删除</a>
                                             </div>
                                         </td>
                                     </tr>

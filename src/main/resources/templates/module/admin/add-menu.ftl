@@ -19,7 +19,7 @@
                             添加菜单
                         </h5>
                     </div>
-                    <form  class="ui form segment form4" action="/menu/save" method="post">
+                    <form  class="ui form segment form4" action="${ITBCAdmin}/menu/save" method="post">
                         <div class="field">
                             <label>菜单类型</label>
                             <div class="ui selection dropdown" tabindex="0">

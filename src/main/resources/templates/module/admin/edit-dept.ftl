@@ -23,7 +23,7 @@
                             修改部门
                         </h5>
                     </div>
-                    <form  class="ui form segment form4" action="/dept/edit" method="post">
+                    <form  class="ui form segment form4" action="${ITBCAdmin}/dept/edit" method="post">
                         <input value="${dept.deptId}" name="deptId" hidden="hidden" type="text">
                         <div class="field">
                             <label>部门名称</label>
@@ -150,7 +150,7 @@
     function getTree() {
         $.ajax({
             type : "GET",  //提交方式
-            url : "/dept/tree",//路径
+            url : "${ITBCAdmin}/dept/tree",//路径
             dataType : 'json',
             async: false,
             data : {},

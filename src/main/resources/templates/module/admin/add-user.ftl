@@ -23,7 +23,7 @@
                             添加用户
                         </h5>
                     </div>
-                    <form  class="ui form segment form14" action="/user/save" method="post">
+                    <form  class="ui form segment form14" action="${ITBCAdmin}/user/save" method="post">
                         <div class="field">
                             <label>邮箱</label>
                             <input placeholder="请输入邮箱(登录账户)..." name="email" type="email">
@@ -159,7 +159,7 @@
     function getTree() {
         $.ajax({
             type : "GET",  //提交方式
-            url : "/dept/tree",//路径
+            url : "${ITBCAdmin}/dept/tree",//路径
             dataType : 'json',
             async: false,
             data : {},

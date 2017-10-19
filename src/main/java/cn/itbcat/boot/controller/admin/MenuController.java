@@ -23,7 +23,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/6.
  */
 @Controller
-@RequestMapping(value = "/menu")
+@RequestMapping(value = ITBC.SERVER_NAME_ADMIN+"/menu")
 public class MenuController {
 
     @Autowired
@@ -77,7 +77,7 @@ public class MenuController {
             dataModel.put("msg",e.toString());
             e.printStackTrace();
         }
-        return "redirect:/menu/menu";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/menu/menu";
     }
 
     /**
@@ -92,7 +92,7 @@ public class MenuController {
 
         menuService.delete(menuId);
 
-        return "redirect:/menu/menu";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/menu/menu";
     }
 
     /**
@@ -118,7 +118,7 @@ public class MenuController {
 
         menuService.update(menu);
 
-        return "redirect:/menu/menu";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/menu/menu";
     }
 
     @ResponseBody

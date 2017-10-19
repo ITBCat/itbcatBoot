@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/12.
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping(ITBC.SERVER_NAME_ADMIN+"/user")
 public class UserController {
 
     @Autowired
@@ -53,7 +53,7 @@ public class UserController {
             user.setIsAdmin(ITBC.IS_ADMIN);
         }
         userService.save(roleId,user);
-        return "redirect:/user/user";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/user/user";
     }
 
     @RequiresPermissions("admin:user:edit")
@@ -88,7 +88,7 @@ public class UserController {
             e.printStackTrace();
         }
 
-        return "redirect:/user/user";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/user/user";
     }
 
     @RequiresPermissions("admin:user:delete")
@@ -99,7 +99,7 @@ public class UserController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/user/user";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/user/user";
     }
 
 }

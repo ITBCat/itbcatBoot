@@ -23,7 +23,7 @@
                             添加角色
                         </h5>
                     </div>
-                    <form  id="formid" class="ui form segment form14" action="/role/save" method="post">
+                    <form  id="formid" class="ui form segment form14" action="${ITBCAdmin}/role/save" method="post">
                         <div class="field">
                             <label>角色名称</label>
                             <input name="roleName" type="text" placeholder="请填写部门名称...">
@@ -222,7 +222,7 @@
     function getTree() {
         $.ajax({
             type : "GET",  //提交方式
-            url : "/dept/tree",//路径
+            url : "${ITBCAdmin}/dept/tree",//路径
             dataType : 'json',
             async: false,
             data : {},
@@ -239,7 +239,7 @@
     function getMenuTree() {
         $.ajax({
             type : "POST",  //提交方式
-            url : "/menu/tree",//路径
+            url : "${ITBCAdmin}/menu/tree",//路径
             dataType : 'json',
             async: false,
             data : {},

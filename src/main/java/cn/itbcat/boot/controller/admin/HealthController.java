@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.admin;
 
+import cn.itbcat.boot.utils.ITBC;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/30.
  */
 @Controller
+@RequestMapping(ITBC.SERVER_NAME_ADMIN)
 public class HealthController {
 
     @RequestMapping(value = "/healths",method = RequestMethod.GET)

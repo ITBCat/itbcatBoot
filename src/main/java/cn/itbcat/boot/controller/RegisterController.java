@@ -80,7 +80,7 @@ public class RegisterController {
 
         }
 
-        return "redirect:/admin";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/admin";
     }
 
     @RequestMapping(value = "/mail",method = RequestMethod.GET)

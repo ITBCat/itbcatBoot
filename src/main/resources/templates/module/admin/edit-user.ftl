@@ -23,7 +23,7 @@
                             修改用户
                         </h5>
                     </div>
-                    <form  class="ui form segment form14" action="/user/edit" method="post">
+                    <form  class="ui form segment form14" action="${ITBCAdmin}/user/edit" method="post">
                         <input type="text" hidden="hidden" name="userId" value="${user.userId}">
                         <div class="field">
                             <label>邮箱</label>
@@ -157,7 +157,7 @@
     function getTree() {
         $.ajax({
             type : "GET",  //提交方式
-            url : "/dept/tree",//路径
+            url : "${ITBCAdmin}/dept/tree",//路径
             dataType : 'json',
             async: false,
             data : {},

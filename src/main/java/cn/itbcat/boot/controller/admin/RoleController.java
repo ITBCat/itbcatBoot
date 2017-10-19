@@ -2,6 +2,7 @@ package cn.itbcat.boot.controller.admin;
 
 import cn.itbcat.boot.entity.Role;
 import cn.itbcat.boot.service.RoleService;
+import cn.itbcat.boot.utils.ITBC;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -20,7 +21,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/14.
  */
 @Controller
-@RequestMapping("/role")
+@RequestMapping(ITBC.SERVER_NAME_ADMIN+"/role")
 public class RoleController {
 
     @Autowired
@@ -48,7 +49,7 @@ public class RoleController {
         String menulist = request.getParameter("menuList");
         String deptlist = request.getParameter("deptList");
         roleService.save(role,menulist,deptlist);
-        return "redirect:/role/role";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/role/role";
     }
 
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
@@ -81,14 +82,14 @@ public class RoleController {
 
         roleService.update(role);
 
-        return "redirect:/role/role";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/role/role";
     }
 
     @RequiresPermissions("admin:role:delete")
     @RequestMapping(value = "/delete/{roleId}",method = RequestMethod.GET)
     public String delete(@PathVariable String roleId){
         roleService.delete(roleId);
-        return "redirect:/role/role";
+        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/role/role";
     }
 
 }

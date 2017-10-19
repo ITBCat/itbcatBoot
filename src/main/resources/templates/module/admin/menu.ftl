@@ -4,7 +4,7 @@
         <div class="row">
             <div class="sixteen wide column">
                 <@shiro.hasPermission name="admin:menu:add">
-                    <a class="ui left aligned green icon button" href="/menu/add-menu" style="margin-left: 10px;"><i class="write icon"></i> 添加菜单 </a>
+                    <a class="ui left aligned green icon button" href="${ITBCAdmin}/menu/add-menu" style="margin-left: 10px;"><i class="write icon"></i> 添加菜单 </a>
                 </@shiro.hasPermission>
                 <div class="ui segments">
                     <div class="ui segment">
@@ -30,7 +30,7 @@
                                 <tr>
                                     <td>
                                         <#if item.parentId == "0">
-                                        <a class="ui right greenli icon label" href="/menu/menu?parentId=${item.menuId}"> ${item.name}
+                                        <a class="ui right greenli icon label" href="${ITBCAdmin}/menu/menu?parentId=${item.menuId}"> ${item.name}
                                             <i class="right arrow icon"></i>
                                         </a>
                                         <#else >
@@ -51,9 +51,9 @@
                                     </td>
                                     <td class="center aligned" width="130px;">
                                         <div class="ui buttons clearfix" style="margin-top: 10px;">
-                                            <a class="ui teal mini button" href="/menu/edit/edit-menu?menuId=${item.menuId}">修改</a>
+                                            <a class="ui teal mini button" href="${ITBCAdmin}/menu/edit/edit-menu?menuId=${item.menuId}">修改</a>
                                             <div class="or"></div>
-                                            <a class="ui orange mini button" href="/menu/delete/${item.menuId}">删除</a>
+                                            <a class="ui orange mini button" href="${ITBCAdmin}/menu/delete/${item.menuId}">删除</a>
                                         </div>
                                     </td>
                                 </tr>

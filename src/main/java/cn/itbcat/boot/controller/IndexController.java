@@ -10,17 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
+
+
+
 /**
  * Created by 860117030 on 2017/9/5.
  */
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "/admin",method = RequestMethod.GET)
+    @RequestMapping(value = ITBC.SERVER_NAME_ADMIN+"/admin",method = RequestMethod.GET)
     public String index(Map<String, Object> dataModel){
         User user = ITBC.getCurrUser();
         if(null != user && ITBC.SUPER_ADMIN.equals(user.getIsAdmin())){
-            return "redirect:/healths";
+            return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/healths";
         } else {
             dataModel.put("template","index");
             return "index";
