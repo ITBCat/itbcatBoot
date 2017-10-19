@@ -1,17 +1,13 @@
 package cn.itbcat.boot.controller.admin;
 
-import cn.itbcat.boot.config.webConfig;
-import cn.itbcat.boot.entity.Menu;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.service.MenuService;
+import cn.itbcat.boot.entity.admin.Menu;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.service.admin.MenuService;
 import cn.itbcat.boot.utils.ITBC;
-import freemarker.template.utility.StringUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

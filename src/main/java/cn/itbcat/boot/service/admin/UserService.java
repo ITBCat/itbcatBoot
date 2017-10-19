@@ -1,16 +1,15 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.admin;
 
-import cn.itbcat.boot.entity.Role;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.entity.UserRole;
-import cn.itbcat.boot.repository.RoleRepositor;
-import cn.itbcat.boot.repository.UserRepository;
-import cn.itbcat.boot.repository.UserRoleRepository;
+import cn.itbcat.boot.entity.admin.Role;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.entity.admin.UserRole;
+import cn.itbcat.boot.repository.admin.RoleRepositor;
+import cn.itbcat.boot.repository.admin.UserRepository;
+import cn.itbcat.boot.repository.admin.UserRoleRepository;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.MD5;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package cn.itbcat.boot.entity;
+package cn.itbcat.boot.entity.front;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

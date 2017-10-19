@@ -1,8 +1,8 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.front;
 
-import cn.itbcat.boot.entity.Article;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.repository.ArticleRepository;
+import cn.itbcat.boot.entity.front.Article;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.repository.front.ArticleRepository;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

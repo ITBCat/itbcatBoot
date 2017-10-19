@@ -52,18 +52,17 @@ var Comment = {
             sequenceDiagram : true,  // 默认不解析
         });
     },
-    add: function(userId,articleId){
+    add: function(articleId){
         if(!Editor.getMarkdown()){
             return;
         }
         var comment = {
-            "userId":userId,
             "articleId":articleId,
             "content":Editor.getMarkdown().toString()
         }
 
         $.ajax({
-            url:ITBC.serverName+'/add',
+            url:ITBC.serverName+'/comment/add',
             type:'POST', //GET
             async:true,    //或false,是否异步
             data:comment,

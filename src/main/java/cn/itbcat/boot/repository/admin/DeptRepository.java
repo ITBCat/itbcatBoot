@@ -1,6 +1,6 @@
-package cn.itbcat.boot.repository;
+package cn.itbcat.boot.repository.admin;
 
-import cn.itbcat.boot.entity.Dept;
+import cn.itbcat.boot.entity.admin.Dept;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,8 +1,7 @@
 package cn.itbcat.boot.utils;
 
-import cn.itbcat.boot.entity.User;
+import cn.itbcat.boot.entity.admin.User;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Value;
 
 /**
  * 工具类

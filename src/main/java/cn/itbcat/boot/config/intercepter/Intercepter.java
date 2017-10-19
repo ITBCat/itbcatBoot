@@ -1,10 +1,9 @@
 package cn.itbcat.boot.config.intercepter;
 
-import cn.itbcat.boot.entity.User;
+import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

@@ -1,21 +1,17 @@
 package cn.itbcat.boot.controller.admin;
 
-import cn.itbcat.boot.entity.Dept;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.service.DeptService;
+import cn.itbcat.boot.entity.admin.Dept;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.service.admin.DeptService;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

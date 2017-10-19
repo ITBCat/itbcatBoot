@@ -1,15 +1,14 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.admin;
 
-import cn.itbcat.boot.entity.Menu;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.repository.MenuRepository;
+import cn.itbcat.boot.entity.admin.Menu;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.repository.admin.MenuRepository;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.HashMap;

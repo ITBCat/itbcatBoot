@@ -1,9 +1,9 @@
 package cn.itbcat.boot.config.shiro;
 
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.service.UserService;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.service.admin.UserService;
 
-import cn.itbcat.boot.service.ShiroService;
+import cn.itbcat.boot.service.admin.ShiroService;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.MD5;
 import org.apache.shiro.authc.*;
@@ -12,7 +12,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.admin;
 
-import cn.itbcat.boot.entity.Dept;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.repository.DeptRepository;
+import cn.itbcat.boot.entity.admin.Dept;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.repository.admin.DeptRepository;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package cn.itbcat.boot.entity;
+package cn.itbcat.boot.entity.admin;
 
 
 import org.hibernate.validator.constraints.NotBlank;

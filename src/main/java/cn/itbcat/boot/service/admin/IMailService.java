@@ -1,7 +1,7 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.admin;
 
 
-import cn.itbcat.boot.entity.Email;
+import cn.itbcat.boot.entity.admin.Email;
 
 public interface IMailService {
 	 /**

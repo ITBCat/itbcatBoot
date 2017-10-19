@@ -1,8 +1,8 @@
-package cn.itbcat.boot.repository;
+package cn.itbcat.boot.repository.admin;
 
 
-import cn.itbcat.boot.entity.Email;
-import cn.itbcat.boot.service.IMailService;
+import cn.itbcat.boot.entity.admin.Email;
+import cn.itbcat.boot.service.admin.IMailService;
 import cn.itbcat.boot.utils.Constants;
 import cn.itbcat.boot.utils.MailUtil;
 import cn.itbcat.boot.utils.queue.MailQueue;

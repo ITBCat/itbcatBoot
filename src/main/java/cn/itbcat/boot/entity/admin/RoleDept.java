@@ -1,4 +1,4 @@
-package cn.itbcat.boot.entity;
+package cn.itbcat.boot.entity.admin;
 
 
 import javax.persistence.Column;
@@ -8,15 +8,15 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * 用户与角色对应关系
- * 
+ * 角色与部门对应关系
+ *
  * @author chenshun
  * @email sunlightcs@gmail.com
- * @date 2016年9月18日 上午9:28:39
+ * @date 2017年6月21日 23:28:13
  */
 @Entity
-@Table(name = "sys_user_role")
-public class UserRole implements Serializable {
+@Table(name = "sys_role_dept")
+public class RoleDept implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,16 +24,16 @@ public class UserRole implements Serializable {
 	private String id;
 
 	/**
-	 * 用户ID
-	 */
-	@Column(name = "user_id",length = 20)
-	private String userId;
-
-	/**
 	 * 角色ID
 	 */
 	@Column(name = "role_id",length = 20)
 	private String roleId;
+
+	/**
+	 * 部门ID
+	 */
+	@Column(name = "dept_id",length = 20)
+	private String deptId;
 
 	@Column(name = "del_flag")
 	private String delFlag;
@@ -62,22 +62,6 @@ public class UserRole implements Serializable {
 	}
 	
 	/**
-	 * 设置：用户ID
-	 * @param userId 用户ID
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	/**
-	 * 获取：用户ID
-	 * @return Long
-	 */
-	public String getUserId() {
-		return userId;
-	}
-	
-	/**
 	 * 设置：角色ID
 	 * @param roleId 角色ID
 	 */
@@ -91,6 +75,22 @@ public class UserRole implements Serializable {
 	 */
 	public String getRoleId() {
 		return roleId;
+	}
+	
+	/**
+	 * 设置：部门ID
+	 * @param deptId 部门ID
+	 */
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+
+	/**
+	 * 获取：部门ID
+	 * @return Long
+	 */
+	public String getDeptId() {
+		return deptId;
 	}
 	
 }

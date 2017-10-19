@@ -1,14 +1,10 @@
-package cn.itbcat.boot.repository;
+package cn.itbcat.boot.repository.admin;
 
-import cn.itbcat.boot.entity.Role;
-import cn.itbcat.boot.entity.UserRole;
+import cn.itbcat.boot.entity.admin.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * Created by 860117030 on 2017/9/12.

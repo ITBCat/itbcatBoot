@@ -1,7 +1,7 @@
 package cn.itbcat.boot.utils.queue;
 
 
-import cn.itbcat.boot.entity.Email;
+import cn.itbcat.boot.entity.admin.Email;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

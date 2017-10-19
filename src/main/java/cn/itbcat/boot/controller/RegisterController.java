@@ -1,9 +1,9 @@
 package cn.itbcat.boot.controller;
 
-import cn.itbcat.boot.entity.Email;
-import cn.itbcat.boot.entity.User;
-import cn.itbcat.boot.service.IMailService;
-import cn.itbcat.boot.service.UserService;
+import cn.itbcat.boot.entity.admin.Email;
+import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.service.admin.IMailService;
+import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**

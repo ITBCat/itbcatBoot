@@ -1,9 +1,8 @@
 package cn.itbcat.boot.controller.admin;
 
-import cn.itbcat.boot.entity.Role;
-import cn.itbcat.boot.service.RoleService;
+import cn.itbcat.boot.entity.admin.Role;
+import cn.itbcat.boot.service.admin.RoleService;
 import cn.itbcat.boot.utils.ITBC;
-import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;

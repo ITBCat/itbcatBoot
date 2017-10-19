@@ -1,9 +1,7 @@
 package cn.itbcat.boot.controller;
 
-import cn.itbcat.boot.entity.User;
+import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.utils.ITBC;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

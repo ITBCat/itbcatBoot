@@ -1,7 +1,8 @@
 package cn.itbcat.boot.controller.front;
 
-import cn.itbcat.boot.entity.Article;
-import cn.itbcat.boot.service.ArticleService;
+import cn.itbcat.boot.entity.front.Article;
+import cn.itbcat.boot.service.front.ArticleService;
+import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +18,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/10/12.
  */
 @Controller
-@RequestMapping(value = "/itbc")
+@RequestMapping(ITBC.SERVER_NAME_FRONT)
 public class ArticleController {
 
     @Autowired

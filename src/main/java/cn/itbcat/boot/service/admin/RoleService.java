@@ -1,11 +1,11 @@
-package cn.itbcat.boot.service;
+package cn.itbcat.boot.service.admin;
 
-import cn.itbcat.boot.entity.Role;
-import cn.itbcat.boot.entity.RoleDept;
-import cn.itbcat.boot.entity.RoleMenu;
-import cn.itbcat.boot.repository.RoleDeptRepository;
-import cn.itbcat.boot.repository.RoleMenuRepository;
-import cn.itbcat.boot.repository.RoleRepositor;
+import cn.itbcat.boot.entity.admin.Role;
+import cn.itbcat.boot.entity.admin.RoleDept;
+import cn.itbcat.boot.entity.admin.RoleMenu;
+import cn.itbcat.boot.repository.admin.RoleDeptRepository;
+import cn.itbcat.boot.repository.admin.RoleMenuRepository;
+import cn.itbcat.boot.repository.admin.RoleRepositor;
 import cn.itbcat.boot.utils.ITBC;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

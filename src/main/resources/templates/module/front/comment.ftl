@@ -5,7 +5,7 @@
         <textarea class="editormd-html-textarea" name="html" hidden="hidden"></textarea>
     </div>
     <div class="ui fluid content">
-        <button class="ui right floated greenli labeled submit icon button" onclick="Comment.add('${article.userid}','${article.id}')">
+        <button class="ui right floated greenli labeled submit icon button" onclick="Comment.add('${article.id}')">
             <i class="icon edit"></i> 评论
         </button>
     </div>
