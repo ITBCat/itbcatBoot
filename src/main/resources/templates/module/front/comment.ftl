@@ -17,7 +17,7 @@
         <button class="ui labeled icon button" style="border: none;"><i class="yellow long arrow down icon" style="background-color: #ffffff"></i>按时间倒序</button>
     </div>
     <h2 class="ui horizontal divider header">6条 评论 </h2>
-    <div class="ui fluid threaded big comments" >
+    <div class="ui fluid threaded big comments" id="_commentId">
         <#list comments as item>
             <div class="comment" style="width: 1100px;">
                 <a class="avatar" style="height: 38.56px;">
@@ -51,36 +51,38 @@
                 </div>
                 <#if item.comments??>
                     <div class="comments">
-                        <div class="comment">
-                            <a class="avatar" style="height: 38.56px;">
-                                <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
-                            </a>
-                            <div class="content">
-                                <a class="author">Ufuoma Tómasson</a>
-                                <div class="metadata">
-                                    <span class="date">Just now</span>
-                                </div>
-                                <div class="description" style="font-size: 14px;color: #C1C1C1;">
-                                    签名：一生放荡不羁爱自由。
-                                </div>
-                                <div class="text">
-                                    <div id="editormd-view7" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;">
-                                        <textarea style="display:none;"></textarea>
+                        <#list item.comments as child>
+                            <div class="comment">
+                                <a class="avatar" style="height: 38.56px;">
+                                    <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Ufuoma Tómasson</a>
+                                    <div class="metadata">
+                                        <span class="date">Just now</span>
+                                    </div>
+                                    <div class="description" style="font-size: 14px;color: #C1C1C1;">
+                                        签名：一生放荡不羁爱自由。
+                                    </div>
+                                    <div class="text">
+                                        <div id="editormd-view7" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">
+                                            <textarea style="display:none;">${child.content}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="actions" style="margin-top: 1em;">
+                                        <a data-content="赞" data-variation="inverted">
+                                            <i class="heart icon"></i>
+                                        </a>
+                                        <a data-content="收藏" data-variation="inverted">
+                                            <i class="star icon"></i>
+                                        </a>
+                                        <a data-content="转发" data-variation="inverted">
+                                            <i class="retweet icon"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="actions" style="margin-top: 1em;">
-                                    <a data-content="赞" data-variation="inverted">
-                                        <i class="heart icon"></i>
-                                    </a>
-                                    <a data-content="收藏" data-variation="inverted">
-                                        <i class="star icon"></i>
-                                    </a>
-                                    <a data-content="转发" data-variation="inverted">
-                                        <i class="retweet icon"></i>
-                                    </a>
-                                </div>
                             </div>
-                        </div>
+                        </#list>
                     </div>
                 </#if>
             </div>

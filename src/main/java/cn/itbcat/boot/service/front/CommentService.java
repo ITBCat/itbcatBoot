@@ -5,6 +5,7 @@ import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.repository.front.CommentRepositoty;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,10 +40,15 @@ public class CommentService {
     }
 
     public List<Comment> findCommentByArticleId(String id) {
-        List<Comment> comments = commentRepositoty.findCommentByArticleId(id);
+        Sort sort = new Sort(Sort.Direction.DESC, "updateTime");
+        List<Comment> comments = commentRepositoty.findCommentByArticleId(id,sort);
         for(Comment comment : comments){
             List<Comment> childs = commentRepositoty.findCommentByParentId(comment.getId());
-            comment.setComments(childs);
+            if(childs.size()==0){
+                comment.setComments(null);
+            }else{
+                comment.setComments(childs);
+            }
         }
         return comments;
     }
