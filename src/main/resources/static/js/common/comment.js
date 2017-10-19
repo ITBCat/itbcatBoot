@@ -76,6 +76,9 @@ var Comment = {
                 console.log(data)
                 console.log(textStatus)
                 console.log(jqXHR)
+                if(data.code != 1){
+
+                }
             },
             error:function(xhr,textStatus){
                 console.log('错误')

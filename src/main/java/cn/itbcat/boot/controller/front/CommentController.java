@@ -1,8 +1,11 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.service.front.CommentService;
 import cn.itbcat.boot.utils.ITBC;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,9 +23,12 @@ import java.util.Map;
 @RequestMapping(ITBC.SERVER_NAME_FRONT+"/comment")
 public class CommentController {
 
+    @Autowired
+    private CommentService commentService;
+
     @RequestMapping("/add")
     @ResponseBody
-    public Map<String,Object> add(HttpServletRequest request, HttpServletResponse response,Map<String,Object> data){
+    public Result add(HttpServletRequest request, HttpServletResponse response){
         String content = request.getParameter("content");
         String articleId = request.getParameter("articleId");
         User user = ITBC.getCurrUser();
@@ -33,8 +39,7 @@ public class CommentController {
         comment.setContent(content);
         comment.setCreateTime(new Date());
         comment.setUpdateTime(new Date());
-
-        return data;
+        return commentService.save(comment);
     }
 
 

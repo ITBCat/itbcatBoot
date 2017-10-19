@@ -1,7 +1,9 @@
 package cn.itbcat.boot.controller.front;
 
 import cn.itbcat.boot.entity.front.Article;
+import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.service.front.ArticleService;
+import cn.itbcat.boot.service.front.CommentService;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,15 +25,15 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
-
+    @Autowired
+    private CommentService commentService;
 
     @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
     private String article(Map<String,Object> data, @PathVariable String id){
         data.put("article",articleService.get(id));
-        List<Article> articles = articleService.findAll();
-        data.put("data",articles);
-        data.put("parents",articles.size());
-        data.put("comments",articles.size());
+        List<Comment> comments = commentService.findCommentByArticleId(id);
+        data.put("comments",comments);
+        data.put("parents",comments.size());
         data.put("template","article");
         return "front";
     }

@@ -45,7 +45,7 @@
                         <div class="meta">
                             <a>14th Ago</a>
                         </div>
-                        <a class="title" style="font-size: 22px;color: black;" href="${ITBCFront}/article/1507964935407">
+                        <a class="title" style="font-size: 22px;color: black;" target="_blank" href="${ITBCFront}/article/1507964935407">
                             A description which may
                         </a>
                         <div class="ui grid" style="padding-top: 1em;">
@@ -233,8 +233,7 @@
                 <h5 class="ui right floated header" style="color: #c0c0c0;cursor:pointer;"><a>我要投放</a></h5>
                 <h3 class="ui left floated meta header" style="color: #676767">广告栏</h3>
                 <div class="ui medium rectangle ad">
-                    <a id="aw0" target="_blank" href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C5Trh9__eWf-rKYKe8wWFsL7QDo7q7LBMmqaJ7_4FlI-Z6-ACEAEg_9bBIWCd0dmByAWgAZSkgdIDyAECqQJ0W1NnFmGEPqgDAcgDyQSqBKoBT9AL9TXSjfOOF0Rw_2kZaopW-UE7-9UFUuPydX_QqMZBdo6t2kuBHClh8ZmI2xGtHitUlPXuTfOGMGIe97sAwmGURmdV0YfzNDxTj4NAWKlax8of_DfyT0vbnFpdgqaJb9Nh7HiOSh4pVNfW6rBGrC49qWwFDzLuTE-KECu_OWqTwCGYp9TL0v7DqSNU5NqJ47Wcg0bduBD5YPa3UhapmyIXO5_pUpD9dCGgBgKAB9Tb_i2oB6a-G9gHAdIIBwiAYRABGAKxCS6AV12QJwiT2BMC&amp;num=1&amp;cid=CAASEuRo7AaTZ637U5IdOAcQHc9WhQ&amp;sig=AOD64_1HEkgyEoxLlCwK29cxUP_o5rZ9tg&amp;client=ca-pub-4591861188995436&amp;nm=2&amp;nx=70&amp;ny=195&amp;mb=1&amp;bg=!2dql2sJEIW0_YtqacSUCAAAA41IAAAAKmQGNCKeAOjCULk8Q04HuyU3sVz35cIFpbgvFfaaM6E9lgadamP84oxrzg35ZilCunE0k_wDjhjTT4GldWRbYxmJqOMiuhwxyrm3NusaUWOpYVpURXWoz6F2Hv1xclBGLGGAq5TWGqMUHVPQEllmQBLV99bKuixSttxlhXsm9jBSGFfmtyd4T9XrTMqbv19qOgOucm42LL2zAeBVjmLOeyT2eK2qMvDiaNETmy-YCC9Y5uMGP7ChqaLgLV5C3lz1UTB2xhlFII0Y6CAAbtKPrVlqFZXWUaLI9XFarxQxJ5qA5vsGTnI5XrJ1-mGCdb_LzyP_dDBfK4KTgYScadUm3ck_F0RuPQsdliOPS1lIyBp7sG6QFdgw0VDk8G5ADqj5sT8mv9HFDisPOs8dqVHGjyZw_RK9pHL6YKkmvybjIZL4NS4Ywoj_CcqFntT6m7sug6XcpdwhsFilOx-ZlzCnUcOzlCPDTgs4Odk1DGhxAbRQGyH8YUt71ozJEL6NCkzWdNtJS4n-C2WzhCXj-IyqwZQ&amp;adurl=http://click.aliyun.com/se/800164/" data-original-click-url="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C5Trh9__eWf-rKYKe8wWFsL7QDo7q7LBMmqaJ7_4FlI-Z6-ACEAEg_9bBIWCd0dmByAWgAZSkgdIDyAECqQJ0W1NnFmGEPqgDAcgDyQSqBKoBT9AL9TXSjfOOF0Rw_2kZaopW-UE7-9UFUuPydX_QqMZBdo6t2kuBHClh8ZmI2xGtHitUlPXuTfOGMGIe97sAwmGURmdV0YfzNDxTj4NAWKlax8of_DfyT0vbnFpdgqaJb9Nh7HiOSh4pVNfW6rBGrC49qWwFDzLuTE-KECu_OWqTwCGYp9TL0v7DqSNU5NqJ47Wcg0bduBD5YPa3UhapmyIXO5_pUpD9dCGgBgKAB9Tb_i2oB6a-G9gHAdIIBwiAYRABGAKxCS6AV12QJwiT2BMC&amp;num=1&amp;cid=CAASEuRo7AaTZ637U5IdOAcQHc9WhQ&amp;sig=AOD64_1HEkgyEoxLlCwK29cxUP_o5rZ9tg&amp;client=ca-pub-4591861188995436&amp;adurl=http://click.aliyun.com/se/800164/"><div data-a7n=""><img src="https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCrmKCXHBCsAhj6ATIIk8Y63Cb0tpY" border="0" width="300" alt="" class="img_ad"></div></a>
-                    <img src="https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKCrmKCXHBCsAhj6ATIIk8Y63Cb0tpY" border="0" width="300" alt="" class="img_ad">
+                    <img src="/static/ad.png" border="0" width="300" alt="" class="img_ad">
                 </div>
             </div>
             <h3 class="ui dividing header" style="color: #676767">近期热议</h3>

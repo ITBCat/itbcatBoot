@@ -18,7 +18,7 @@
     </div>
     <h2 class="ui horizontal divider header">6条 评论 </h2>
     <div class="ui fluid threaded big comments" >
-        <#list data as item>
+        <#list comments as item>
             <div class="comment" style="width: 1100px;">
                 <a class="avatar" style="height: 38.56px;">
                     <img src="/static/img/avatar/people/Abraham.png">
@@ -31,24 +31,8 @@
                     <div class="description" style="font-size: 14px;color: #C1C1C1;">
                         签名：一生放荡不羁爱自由。
                     </div>
-                    <div class="text">
-                        <div id="editormd-view${item_index}" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;">
-                            <textarea style="display:none;">
-##### 代码块里包含的过滤标签及属性不会被过滤
-
-```html
-&lt;style type="text/style"&gt;
-body{background:red;}
-&lt;/style&gt;
-
-&lt;script type="text/javscript"&gt;
-alert("script");
-&lt;/script&gt;
-
-&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XMzA0MzIwMDgw" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;
-```
-                            </textarea>
-                        </div>
+                    <div id="editormd-view${item_index}" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">
+                        <textarea style="display:none;" class="fullheight">${item.content}</textarea>
                     </div>
                     <div class="actions" style="margin-top: 1em;">
                         <a data-content="赞" data-variation="inverted">
@@ -65,51 +49,40 @@ alert("script");
                         </a>
                     </div>
                 </div>
-                <div class="comments">
-                    <div class="comment">
-                        <a class="avatar" style="height: 38.56px;">
-                            <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
-                        </a>
-                        <div class="content">
-                            <a class="author">Ufuoma Tómasson</a>
-                            <div class="metadata">
-                                <span class="date">Just now</span>
-                            </div>
-                            <div class="description" style="font-size: 14px;color: #C1C1C1;">
-                                签名：一生放荡不羁爱自由。
-                            </div>
-                            <div class="text">
-                                <div id="editormd-view7" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;">
-                                    <textarea style="display:none;">
-##### 代码块里包含的过滤标签及属性不会被过滤
-
-```html
-&lt;style type="text/style"&gt;
-body{background:red;}
-&lt;/style&gt;
-
-&lt;script type="text/javscript"&gt;
-alert("script");
-&lt;/script&gt;
-
-&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XMzA0MzIwMDgw" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;
-```</textarea>
+                <#if item.comments??>
+                    <div class="comments">
+                        <div class="comment">
+                            <a class="avatar" style="height: 38.56px;">
+                                <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
+                            </a>
+                            <div class="content">
+                                <a class="author">Ufuoma Tómasson</a>
+                                <div class="metadata">
+                                    <span class="date">Just now</span>
                                 </div>
-                            </div>
-                            <div class="actions" style="margin-top: 1em;">
-                                <a data-content="赞" data-variation="inverted">
-                                    <i class="heart icon"></i>
-                                </a>
-                                <a data-content="收藏" data-variation="inverted">
-                                    <i class="star icon"></i>
-                                </a>
-                                <a data-content="转发" data-variation="inverted">
-                                    <i class="retweet icon"></i>
-                                </a>
+                                <div class="description" style="font-size: 14px;color: #C1C1C1;">
+                                    签名：一生放荡不羁爱自由。
+                                </div>
+                                <div class="text">
+                                    <div id="editormd-view7" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;">
+                                        <textarea style="display:none;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="actions" style="margin-top: 1em;">
+                                    <a data-content="赞" data-variation="inverted">
+                                        <i class="heart icon"></i>
+                                    </a>
+                                    <a data-content="收藏" data-variation="inverted">
+                                        <i class="star icon"></i>
+                                    </a>
+                                    <a data-content="转发" data-variation="inverted">
+                                        <i class="retweet icon"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </#if>
             </div>
         </#list>
     </div>
@@ -123,7 +96,7 @@ alert("script");
 <script type="text/javascript" src="/static/js/common/comment.js"></script>
 <script type="text/javascript">
     $(function () {
-        Comment.init('${parents}','${comments}');
+        Comment.init('${parents}');
     });
 
     function replyAuthor() {

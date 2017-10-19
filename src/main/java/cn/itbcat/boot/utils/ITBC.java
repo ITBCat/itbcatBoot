@@ -46,6 +46,16 @@ public class ITBC {
     public static final String ROLE_ADMIN="admin";
 
     /**
+     * success code ：0
+     */
+    public static final String SUCCESS_CODE="0";
+
+    /**
+     * error code : 1
+     */
+    public static final String ERROR_CODE="1";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";
