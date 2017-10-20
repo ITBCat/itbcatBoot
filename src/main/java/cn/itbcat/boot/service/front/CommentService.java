@@ -27,25 +27,17 @@ public class CommentService {
     private UserRepository userRepository;
 
     public Result save(Comment comment) {
-        Result result = new Result();
         try {
             Comment it = commentRepositoty.save(comment);
             if(null != it){
                 User user = userRepository.findOne(comment.getUserId());
                 it.setAnthro(user);
-                result.setCode(ITBC.SUCCESS_CODE);
-                result.setData(it);
-                result.setMessage("success");
-            }else {
-                result.setCode(ITBC.ERROR_CODE);
-                result.setMessage("error");
+                return new Result(ITBC.SUCCESS_CODE,it,"success");
             }
         }catch (Exception e){
             e.printStackTrace();
-            result.setCode(ITBC.ERROR_CODE);
-            result.setMessage(e.getCause().getMessage().toString());
         }
-        return result;
+        return new Result(ITBC.ERROR_CODE,null,"error");
     }
 
     public List<Comment> findCommentByArticleId(String id) {

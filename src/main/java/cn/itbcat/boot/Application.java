@@ -26,6 +26,7 @@ import javax.servlet.MultipartConfigElement;
 @PropertySources(value = { @PropertySource("classpath:messages.properties") })
 public class Application {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -38,11 +39,11 @@ public class Application {
 			}
 		};
 	}
-	@Bean
+	/*@Bean
 	MultipartConfigElement multipartConfigElement() {
 		MultipartConfigFactory factory = new MultipartConfigFactory();
 		factory.setLocation("");
 		return factory.createMultipartConfig();
-	}
+	}*/
 
 }

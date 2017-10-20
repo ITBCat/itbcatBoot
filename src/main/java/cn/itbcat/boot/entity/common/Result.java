@@ -47,4 +47,10 @@ public class Result {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public Result(String code, Object data, String message) {
+        this.code = code;
+        this.data = data;
+        this.message = message;
+    }
 }
