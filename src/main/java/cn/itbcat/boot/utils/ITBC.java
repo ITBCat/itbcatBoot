@@ -90,4 +90,15 @@ public class ITBC {
         return (User) SecurityUtils.getSubject().getPrincipal();
     }
 
+    /**
+     * 获取当前用户Id
+     */
+    public static String getCurrUserId(){
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        if(null == null){
+            return null;
+        }
+        return user.getUserId();
+    }
+
 }

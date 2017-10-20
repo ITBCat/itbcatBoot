@@ -26,9 +26,9 @@
                     <img src="/static/img/avatar/people/Abraham.png">
                 </a>
                 <div class="ui fluid content">
-                    <a class="author">Yin Hightower</a>
+                    <a class="author">${item.anthro.username}</a>
                     <div class="metadata">
-                        <span class="date">Today at 5:42PM</span>
+                        <span class="date">${item.ago}</span>
                     </div>
                     <div class="description" style="font-size: 14px;color: #C1C1C1;">
                         签名：一生放荡不羁爱自由。
@@ -46,9 +46,11 @@
                         <a data-content="转发" data-variation="inverted">
                             <i class="retweet icon"></i>
                         </a>
-                        <a href="#comment" onclick="Comment.add('${article.id}','${item.id}')" data-content="回复" data-variation="inverted">
-                            <i class="reply icon"></i>
-                        </a>
+                        <#if item.isMine != isLogin>
+                            <a onclick="Comment.add('${article.id}','${item.id}')" data-content="回复" data-variation="inverted">
+                                <i class="reply icon"></i>
+                            </a>
+                        </#if>
                     </div>
                 </div>
                 <#if item.comments??>
@@ -59,9 +61,9 @@
                                     <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
                                 </a>
                                 <div class="content">
-                                    <a class="author">Ufuoma Tómasson</a>
+                                    <a class="author">${child.anthro.username}</a>
                                     <div class="metadata">
-                                        <span class="date">Just now</span>
+                                        <span class="date">${child.ago}</span>
                                     </div>
                                     <div class="description" style="font-size: 14px;color: #C1C1C1;">
                                         签名：一生放荡不羁爱自由。

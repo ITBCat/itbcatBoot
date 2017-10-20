@@ -143,7 +143,14 @@
             sequenceDiagram : true,  // 默认不解析
         });
     });
-    var ITBC = {
-        serverName:'${ITBCFront}'
-    }
+    var ITBC={
+        serverName:'${ITBCFront}',
+        <#if isLogin>
+        isLogin:true,
+        <#else >
+        isLogin:false,
+        </#if>
+
+    };
+
 </script>

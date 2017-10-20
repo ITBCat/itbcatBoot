@@ -2,7 +2,7 @@
 
 spring boot 练习框架。
 
-![](https://github.com/ITBCat/itbcatBoot/blob/master/src/main/resources/static/i_b.png)
+![](https://github.com/ITBCat/itbcatBoot/blob/master/src/main/resources/static/i_b%20.png?raw=true)
 
 ## plan
 1. 文章列表（前、后）

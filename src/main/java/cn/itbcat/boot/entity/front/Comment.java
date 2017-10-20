@@ -39,17 +39,31 @@ public class Comment {
     private Date updateTime;
 
     @Transient
+    private boolean isMine;
+
+    @Transient
     private List<Comment> comments;
 
     @Transient
-    private User user;
+    private User anthro;
 
-    public User getUser() {
-        return user;
+    @Transient
+    private String ago;
+
+    public String getAgo() {
+        return ago;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAgo(String ago) {
+        this.ago = ago;
+    }
+
+    public User getAnthro() {
+        return anthro;
+    }
+
+    public void setAnthro(User anthro) {
+        this.anthro = anthro;
     }
 
     public String getId() {
@@ -114,5 +128,13 @@ public class Comment {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public boolean getIsMine() {
+        return isMine;
+    }
+
+    public void setIsMine(boolean mine) {
+        this.isMine = mine;
     }
 }

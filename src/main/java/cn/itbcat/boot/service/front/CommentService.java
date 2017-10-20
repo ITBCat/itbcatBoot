@@ -5,6 +5,7 @@ import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.repository.front.CommentRepositoty;
+import cn.itbcat.boot.utils.DateUtils;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -31,7 +32,7 @@ public class CommentService {
             Comment it = commentRepositoty.save(comment);
             if(null != it){
                 User user = userRepository.findOne(comment.getUserId());
-                it.setUser(user);
+                it.setAnthro(user);
                 result.setCode(ITBC.SUCCESS_CODE);
                 result.setData(it);
                 result.setMessage("success");
@@ -52,13 +53,25 @@ public class CommentService {
         for(Comment comment : comments){
             List<Comment> childs = commentRepositoty.findCommentByParentId(comment.getId());
             User user = userRepository.findOne(comment.getUserId());
-            comment.setUser(user);
+            if(ITBC.getCurrUserId()==null || user.getUserId().equals(ITBC.getCurrUserId())){
+                comment.setIsMine(true);
+            }else {
+                comment.setIsMine(false);
+            }
+            comment.setAgo(DateUtils.fromToday(comment.getCreateTime()));
+            comment.setAnthro(user);
             if(childs.size()==0){
                 comment.setComments(null);
             }else{
                 for(Comment child : childs){
                     User u = userRepository.findOne(child.getUserId());
-                    child.setUser(u);
+                    if(ITBC.getCurrUserId()==null || user.getUserId().equals(ITBC.getCurrUserId())){
+                        child.setIsMine(true);
+                    }else {
+                        child.setIsMine(false);
+                    }
+                    child.setAgo(DateUtils.fromToday(child.getCreateTime()));
+                    child.setAnthro(u);
                 }
                 comment.setComments(childs);
             }
