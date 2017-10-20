@@ -1,5 +1,8 @@
 package cn.itbcat.boot.entity.front;
 
+import cn.itbcat.boot.entity.admin.User;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +40,17 @@ public class Comment {
 
     @Transient
     private List<Comment> comments;
+
+    @Transient
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getId() {
         return id;

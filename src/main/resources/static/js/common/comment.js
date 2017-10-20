@@ -4,7 +4,7 @@
  */
 var Editor;
 var Comment = {
-    init:function (parents,comments) {
+    init:function (commentIds) {
         var comments = '${length}';
         Editor = editormd("editormd", {
             width: "100%",
@@ -33,8 +33,14 @@ var Comment = {
             },
             previewTheme : "dark"
         });
-        for (var i = 0;i < parents;i++){
-            editormd.markdownToHTML("editormd-view"+i, {
+        var ids = JSON.parse(commentIds);
+        if(ids.length == 0){
+            $('#_commentContent').hide();
+            $('#loading').hide();
+            return;
+        }
+        for (var i = 0;i < ids.length;i++){
+            editormd.markdownToHTML("editormd-view"+ids[i], {
                 htmlDecode      : "style,script,iframe",  // you can filter tags decode
                 emoji           : true,
                 taskList        : true,
@@ -43,116 +49,143 @@ var Comment = {
                 sequenceDiagram : true,  // 默认不解析
             });
         }
+        window.onload=function () {
+            $('#loading').hide();
+        }
     },
-    add: function(articleId){
-        $('#_commentId').prepend(
-            '<div class="comment" style="width: 1100px;">'
-            +'<a class="avatar" style="height: 38.56px;">'
-            +'<img src="/static/img/avatar/people/Abraham.png">'
-            +'</a>'
-            +'<div class="ui fluid content">'
-            +'<a class="author">Yin Hightower</a>'
-            +'<div class="metadata">'
-            +'<span class="date">Today at 5:42PM</span>'
-            +'</div>'
-            +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
-            +'签名：一生放荡不羁爱自由。'
-            +'</div>'
-            +'<div id="1234567890" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
-            +'<textarea style="display:none;" class="fullheight">fff</textarea>'
-            +'</div>'
-            +'<div class="actions" style="margin-top: 1em;">'
-            +'<a data-content="赞" data-variation="inverted">'
-            +'<i class="heart icon"></i>'
-            +'</a>'
-            +'<a data-content="收藏" data-variation="inverted">'
-            +'<i class="star icon"></i>'
-            +'</a>'
-            +'<a data-content="转发" data-variation="inverted">'
-            +'<i class="retweet icon"></i>'
-            +'</a>'
-            +'<a href="#comment" onclick="replyAuthor()" data-content="回复" data-variation="inverted">'
-            +'<i class="reply icon"></i>'
-            +'</a>'
-            +'</div>'
-            +'</div>'
-            +'</div>'
-        );
-        drawcommet('1234567890')
-        if(!Editor.getMarkdown()){
-            return;
-        }
-        var comment = {
-            "articleId":articleId,
-            "content":Editor.getMarkdown().toString()
-        }
-
-        $.ajax({
-            url:ITBC.serverName+'/comment/add',
-            type:'POST', //GET
-            async:true,    //或false,是否异步
-            data:comment,
-            timeout:15000,    //超时时间
-            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
-            beforeSend:function(xhr){
-                console.log(xhr)
-                console.log('发送前')
-            },
-            success:function(data,textStatus,jqXHR){
-                console.log(data)
-                console.log(textStatus)
-                console.log(jqXHR)
-                if(data.code == 0){
-                    $('#_commentId').prepend(
-                        '<div class="comment" style="width: 1100px;">'
-                        +'<a class="avatar" style="height: 38.56px;">'
-                        +'<img src="/static/img/avatar/people/Abraham.png">'
-                        +'</a>'
-                        +'<div class="ui fluid content">'
-                        +'<a class="author">Yin Hightower</a>'
-                        +'<div class="metadata">'
-                        +'<span class="date">Today at 5:42PM</span>'
-                        +'</div>'
-                        +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
-                        +'签名：一生放荡不羁爱自由。'
-                        +'</div>'
-                        +'<div id="editormd-view${item_index}" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
-                        +'<textarea style="display:none;" class="fullheight">fff</textarea>'
-                        +'</div>'
-                        +'<div class="actions" style="margin-top: 1em;">'
-                        +'<a data-content="赞" data-variation="inverted">'
-                        +'<i class="heart icon"></i>'
-                        +'</a>'
-                        +'<a data-content="收藏" data-variation="inverted">'
-                        +'<i class="star icon"></i>'
-                        +'</a>'
-                        +'<a data-content="转发" data-variation="inverted">'
-                        +'<i class="retweet icon"></i>'
-                        +'</a>'
-                        +'<a href="#comment" onclick="replyAuthor()" data-content="回复" data-variation="inverted">'
-                        +'<i class="reply icon"></i>'
-                        +'</a>'
-                        +'</div>'
-                        +'</div>'
-                        +'</div>'
-                    );
-                }
-            },
-            error:function(xhr,textStatus){
-                console.log('错误')
-                console.log(xhr)
-                console.log(textStatus)
-            },
-            complete:function(){
-                console.log('结束')
+    add: function(articleId,commentId){
+        /**
+         * 根据评论id判断是新增还是回复
+         */
+        if(!commentId){
+            if(!Editor.getMarkdown()){
+                return;
             }
-        })
+            commentId = $('#_replyId').val();
+            //新增
+            var comment = {
+                "articleId":articleId,
+                "parentId":commentId,
+                "content":Editor.getMarkdown().toString()
+            }
 
+            $.ajax({
+                url:ITBC.serverName+'/comment/add',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:comment,
+                timeout:15000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                beforeSend:function(xhr){
+                    console.log(xhr)
+                    console.log('发送前')
+                },
+                success:function(data,textStatus,jqXHR){
+                    if(data.code == 0){
+                        if(!data.data.parentId){
+                            $('#_commentId').prepend(
+                                '<div class="comment" style="width: 1100px;">'
+                                +'<a class="avatar" style="height: 38.56px;">'
+                                +'<img src="/static/img/avatar/people/Abraham.png">'
+                                +'</a>'
+                                +'<div class="ui fluid content">'
+                                +'<a class="author">Yin Hightower</a>'
+                                +'<div class="metadata">'
+                                +'<span class="date">Today at 5:42PM</span>'
+                                +'</div>'
+                                +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
+                                +'签名：一生放荡不羁爱自由。'
+                                +'</div>'
+                                +'<div id="editormd-view'+data.data.id+'" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
+                                +'<textarea style="display:none;" class="fullheight">'+data.data.content+'</textarea>'
+                                +'</div>'
+                                +'<div class="actions" style="margin-top: 1em;">'
+                                +'<a data-content="赞" data-variation="inverted">'
+                                +'<i class="heart icon"></i>'
+                                +'</a>'
+                                +'<a data-content="收藏" data-variation="inverted">'
+                                +'<i class="star icon"></i>'
+                                +'</a>'
+                                +'<a data-content="转发" data-variation="inverted">'
+                                +'<i class="retweet icon"></i>'
+                                +'</a>'
+                                +'<a href="#comment" onclick="Comment.add('+data.data.articleId+','+data.data.id+')" data-content="回复" data-variation="inverted">'
+                                +'<i class="reply icon"></i>'
+                                +'</a>'
+                                +'</div>'
+                                +'</div>'
+                                +'<div class="comments" id="'+data.data.id+'" style="display: none;">'
+                                +'</div>'
+                                +'</div>'
+                            );
+                        }else {
+                            $('#'+data.data.parentId).show();
+                            $('#'+data.data.parentId).prepend(
+                                '<div class="comment">'
+                                +'<a class="avatar" style="height: 38.56px;">'
+                                +'<img src="/static/img/avatar/people/Michonne.png" alt="label-image">'
+                                +'</a>'
+                                +'<div class="content">'
+                                +'<a class="author">Ufuoma Tómasson</a>'
+                                +'<div class="metadata">'
+                                +'<span class="date">Just now</span>'
+                                +'</div>'
+                                +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
+                                +'签名：一生放荡不羁爱自由。'
+                                +'</div>'
+                                +'<div class="text">'
+                                +'<div id="editormd-view'+data.data.id+'" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
+                                +'<textarea style="display:none;">'+data.data.content+'</textarea>'
+                                +'</div>'
+                                +'</div>'
+                                +'<div class="actions" style="margin-top: 1em;">'
+                                +'<a data-content="赞" data-variation="inverted">'
+                                +'<i class="heart icon"></i>'
+                                +'</a>'
+                                +'<a data-content="收藏" data-variation="inverted">'
+                                +'<i class="star icon"></i>'
+                                +'</a>'
+                                +'<a data-content="转发" data-variation="inverted">'
+                                +'<i class="retweet icon"></i>'
+                                +'</a>'
+                                +'</div>'
+                                +'</div>'
+                                +'</div>'
+                            );
+                            $('#_reply').hide();
+                            $('#_reply').html('');
+
+                        }
+                        $('#_commentContent').show();
+                        Editor.clear();
+                        drawcommet(data.data.id);
+                        $('#_length_header').html((parseInt($('#_length').val())+1)+'条评论');
+                    }
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误')
+                    console.log(xhr)
+                    console.log(textStatus)
+                },
+                complete:function(){
+                    console.log('结束')
+                }
+            })
+        }else{
+            //回复
+            $('#_reply').html('<i class="share icon"></i>'
+                +'<a class="ui big image label" style="height: 33.42px;">'
+                +'<img src="/static/img/avatar/people/Glenn.png" alt="label-image">'
+                +'Glenn'
+                +'</a>'
+                + '<input type="text" value="'+commentId+'" id="_replyId" hidden="hidden"/>');
+            $('#_reply').show();
+        }
     }
 }
 
 function drawcommet(_id) {
-    editormd.markdownToHTML(_id, {
+    editormd.markdownToHTML("editormd-view"+_id, {
         htmlDecode      : "style,script,iframe",  // you can filter tags decode
         emoji           : true,
         taskList        : true,

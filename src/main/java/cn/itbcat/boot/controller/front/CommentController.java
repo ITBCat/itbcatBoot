@@ -5,6 +5,10 @@ import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.front.CommentService;
 import cn.itbcat.boot.utils.ITBC;
+import freemarker.template.utility.StringUtil;
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,15 +32,22 @@ public class CommentController {
 
     @RequestMapping("/add")
     @ResponseBody
+    @RequiresPermissions("user:login:comment")
     public Result add(HttpServletRequest request, HttpServletResponse response){
         String content = request.getParameter("content");
         String articleId = request.getParameter("articleId");
+        String parentId = request.getParameter("parentId");
         User user = ITBC.getCurrUser();
         Comment comment = new Comment();
         comment.setId(ITBC.getId());
         comment.setUserId(user.getUserId());
         comment.setArticleId(articleId);
         comment.setContent(content);
+        if(StringUtils.isNotBlank(parentId)){
+            comment.setParentId(parentId);
+        }else{
+            comment.setParentId(null);
+        }
         comment.setCreateTime(new Date());
         comment.setUpdateTime(new Date());
         return commentService.save(comment);

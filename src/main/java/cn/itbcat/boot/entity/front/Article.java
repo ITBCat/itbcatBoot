@@ -1,10 +1,10 @@
 package cn.itbcat.boot.entity.front;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import cn.itbcat.boot.entity.admin.User;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 860117030 on 2017/10/14.
@@ -33,6 +33,28 @@ public class Article {
 
     @Column(name="article_html",columnDefinition="text")
     private String html;
+
+    @Transient
+    private User anthor;
+
+    @Transient
+    private List<Comment> comments;
+
+    public User getAnthor() {
+        return anthor;
+    }
+
+    public void setAnthor(User anthor) {
+        this.anthor = anthor;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public String getId() {
         return id;

@@ -143,9 +143,6 @@
             sequenceDiagram : true,  // 默认不解析
         });
     });
-    window.onload=function () {
-        $('#loading').hide();
-    }
     var ITBC = {
         serverName:'${ITBCFront}'
     }

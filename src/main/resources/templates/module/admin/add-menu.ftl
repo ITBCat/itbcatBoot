@@ -30,6 +30,7 @@
                                     <div class="item" data-value="0">目录</div>
                                     <div class="item" data-value="1">菜单</div>
                                     <div class="item" data-value="2">按钮</div>
+                                    <div class="item" data-value="3">Ajax</div>
                                 </div>
                             </div>
                         </div>

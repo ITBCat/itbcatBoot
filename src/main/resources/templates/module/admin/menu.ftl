@@ -45,8 +45,10 @@
                                             <div class="ui blueli horizontal label">目录</div>
                                         <#elseif item.type == 1>
                                             <div class="ui redli horizontal label">菜单</div>
-                                        <#else>
+                                        <#elseif item.type == 2>
                                             <div class="ui greenli2 horizontal label">按钮</div>
+                                        <#else >
+                                            <div class="ui yellowli horizontal label">Ajax</div>
                                         </#if>
                                     </td>
                                     <td class="center aligned" width="130px;">
