@@ -20,6 +20,6 @@ public class HealthController {
     @RequiresPermissions("admin:health:view")
     public String index(Map<String, Object> dataModel){
         dataModel.put("template","health");
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 }

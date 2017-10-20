@@ -1,6 +1,6 @@
 ﻿<#include "front-macro-header.ftl">
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
 
 <!-- Mirrored from telatkaya.com/stagb/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Apr 2017 16:00:22 GMT -->
 <head>

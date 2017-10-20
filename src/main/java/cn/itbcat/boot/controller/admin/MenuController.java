@@ -44,7 +44,7 @@ public class MenuController {
         }else{
             dataModel.put("parentName",menuService.get(parentId).getName());
         }
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     private List<Menu> getMenuList(String parentId){
@@ -105,7 +105,7 @@ public class MenuController {
         dataModel.put("template",template);
         dataModel.put("menus",getMenuList(null));
         dataModel.put("menu",menuService.get(menuId));
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)

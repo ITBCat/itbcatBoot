@@ -43,7 +43,7 @@ public class DeptController {
         }else{
             dataModel.put("parentName",deptService.get(parentId).getName());
         }
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     /**
@@ -94,6 +94,6 @@ public class DeptController {
     public String toEdit(@PathVariable String template, HttpServletRequest request,Map<String,Object> dataModel){
         dataModel.put("dept",deptService.get(request.getParameter("deptId")));
         dataModel.put("template",template);
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 }

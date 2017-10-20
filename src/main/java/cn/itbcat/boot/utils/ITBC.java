@@ -55,6 +55,21 @@ public class ITBC {
      */
     public static final String ERROR_CODE="1";
 
+    /***
+     * system front template
+     */
+    public static final String SYSTEM_FRONT_TEMPLATE="front";
+
+    /***
+     * system admin template
+     */
+    public static final String SYSTEM_ADMIN_TEMPLATE="index";
+
+    /**
+     * template name
+     */
+    public static final String TEMPLATE="template";
+
     /**
      * 删除标记（0：正常；1：删除；2：审核）
      */

@@ -39,7 +39,7 @@ public class RoleController {
     public String goToRole(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
         dataModel.put("template",template);
         dataModel.put("roles",roleService.findAll());
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
@@ -61,7 +61,7 @@ public class RoleController {
             dataModel.put("menuIds",roleService.getMenuList(roleId).toString());
             dataModel.put("deptIds",roleService.getDeptList(roleId).toString());
         }
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)

@@ -46,7 +46,7 @@ public class ArticleController {
             data.put("commentIds", commentIds.toString());
             data.put("length", commentIds.size());
             data.put("template", "article");
-            return "front";
+            return ITBC.SYSTEM_FRONT_TEMPLATE;
         }else {
             return "404";
         }

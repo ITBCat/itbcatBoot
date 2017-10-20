@@ -36,7 +36,7 @@ public class UserController {
 
         dataModel.put("roles",getAllRole());
 
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     public List<Role> getAllRole(){
@@ -68,7 +68,7 @@ public class UserController {
         dataModel.put("roles",getAllRole());
         dataModel.put("template",template);
 
-        return "index";
+        return ITBC.SYSTEM_ADMIN_TEMPLATE;
     }
 
     @RequiresPermissions("admin:user:edit")

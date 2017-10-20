@@ -2,7 +2,7 @@
 <div class="navwrap" style="width: 100%;">
     <div class="ui menu icon borderless four column grid" style="width: 100%;height: 54px;" data-color="inverted white">
         <div class="three wide column" style="margin-top: -1em;">
-            <img src="/static/i.svg" alt="">
+            <a href="/"><img src="/static/i.svg" alt=""></a>
         </div>
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon">
@@ -64,17 +64,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
-                <img class="ui mini circular image" src="/static/img/avatar/people/enid.png" alt="label-image" />
-                <div class="menu">
-                    <a class="item" href="mail.html">Inbox</a>
-                    <a class="item" href="profile.html">Profile</a>
-                    <a class="item" href="settings.html">Settings</a>
-                    <div class="ui divider"></div>
-                    <a class="item">Need Help?</a>
-                    <a class="item" href="/logout">注销</a>
-                </div>
-            </div>
+
             <@shiro.hasPermission name="admin:admin:view">
                 <a class="item labeled rightsidebar computer only" href="${ITBCAdmin}/admin">
                     <i class="ion-wrench large icon"></i>
@@ -86,6 +76,17 @@
                     发 布
                 </button>
             </a>
+            <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
+                <img class="ui mini rounded image" src="/static/img/avatar/people/enid.png" alt="label-image" />
+                <div class="menu">
+                    <a class="item" href="mail.html">Inbox</a>
+                    <a class="item" href="profile.html">Profile</a>
+                    <a class="item" href="${ITBCFront}/settings">个人信息</a>
+                    <div class="ui divider"></div>
+                    <a class="item">Need Help?</a>
+                    <a class="item" href="/logout">注销</a>
+                </div>
+            </div>
         <#else>
             <a class="ui item" href="/login">
                 <label style="font-weight: bold;font-size: larger;">登 录</label>
