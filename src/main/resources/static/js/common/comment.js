@@ -172,6 +172,10 @@ var Comment = {
                 }
             })
         }else{
+            if(!ITBC.isLogin){
+                window.location.href="/login";
+                return;
+            }
             //回复
             $('#_reply').html('<i class="share icon"></i>'
                 +'<a class="ui big image label" style="height: 33.42px;">'
@@ -180,6 +184,7 @@ var Comment = {
                 +'</a>'
                 + '<input type="text" value="'+commentId+'" id="_replyId" hidden="hidden"/>');
             $('#_reply').show();
+            location.href='#comment';
         }
     }
 }
