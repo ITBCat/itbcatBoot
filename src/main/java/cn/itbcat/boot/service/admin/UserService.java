@@ -21,7 +21,6 @@ import java.util.List;
  * Created by 860117030 on 2017/9/12.
  */
 @Service
-@Transactional
 public class UserService {
 
     @Autowired
@@ -109,6 +108,14 @@ public class UserService {
             e.printStackTrace();
         }
 
+    }
+
+    public void updateAvatar(User user){
+        try {
+            userRepository.save(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void delete(String userId) {

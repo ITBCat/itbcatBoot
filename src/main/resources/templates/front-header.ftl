@@ -77,7 +77,7 @@
                 </button>
             </a>
             <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
-                <img class="ui mini rounded image" src="/static/img/avatar/people/enid.png" alt="label-image" />
+                <img id="_avatar_heard" class="ui mini rounded image" src="${ITBCNginx}/${_user.avatar}" alt="label-image" />
                 <div class="menu">
                     <a class="item" href="mail.html">Inbox</a>
                     <a class="item" href="profile.html">Profile</a>

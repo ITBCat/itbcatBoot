@@ -71,6 +71,30 @@ public class ITBC {
     public static final String TEMPLATE="template";
 
     /**
+     * ITBCFront
+     */
+    public static final String ITBC_FRONT="ITBCFront";
+
+    /**
+     * ITBCFront
+     */
+    public static final String ITBC_ADMIN="ITBCAdmin";
+
+    /**
+     * ITBCFront
+     */
+    public static final String ITBC_NGINX="ITBCNginx";
+
+    /**
+     * IS_Login
+     */
+    public static final String IS_LOGIN="isLogin";
+    /**
+     * _user
+     */
+    public static final String _USER="_user";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";
@@ -110,7 +134,7 @@ public class ITBC {
      */
     public static String getCurrUserId(){
         User user = (User) SecurityUtils.getSubject().getPrincipal();
-        if(null == null){
+        if(null == user){
             return null;
         }
         return user.getUserId();

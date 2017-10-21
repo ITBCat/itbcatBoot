@@ -4,7 +4,9 @@ import cn.itbcat.boot.config.intercepter.Intercepter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +26,9 @@ import java.util.List;
 @EnableWebMvc
 @Configuration
 public class webConfig extends WebMvcConfigurerAdapter {
+
+    @Value("${itbc.server.upload.dir}")
+    private String mImagesPath;
 
     @Autowired
     private Intercepter commonIntercepter;
@@ -92,6 +97,20 @@ public class webConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        if(mImagesPath.equals("") || mImagesPath.equals("${cbs.imagesPath}")){
+            String imagesPath = webConfig.class.getClassLoader().getResource("").getPath();
+            if(imagesPath.indexOf(".jar")>0){
+                imagesPath = imagesPath.substring(0, imagesPath.indexOf(".jar"));
+            }else if(imagesPath.indexOf("classes")>0){
+                imagesPath = "file:"+imagesPath.substring(0, imagesPath.indexOf("classes"));
+            }
+            imagesPath = imagesPath.substring(0, imagesPath.lastIndexOf("/"))+"/images/";
+            mImagesPath = imagesPath;
+        }
+        LoggerFactory.getLogger(webConfig.class).info("imagesPath="+mImagesPath);
+        registry.addResourceHandler("/images/**").addResourceLocations(mImagesPath);
+        // TODO Auto-generated method stub
 
         registry.addResourceHandler("/templates/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/templates/",ResourceUtils.CLASSPATH_URL_PREFIX+"/image/");
         registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");

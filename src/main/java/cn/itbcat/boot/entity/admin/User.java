@@ -49,6 +49,12 @@ public class User implements Serializable {
 	private String mobile;
 
 	/**
+	 * 头像
+	 */
+	private String avatar;
+
+
+	/**
 	 * 状态  0：禁用   1：正常  2:未激活
 	 */
 	private Integer status;
@@ -245,5 +251,17 @@ public class User implements Serializable {
 
 	public void setDeptName(String deptName) {
 		this.deptName = deptName;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getCreateUserId() {
+		return createUserId;
 	}
 }

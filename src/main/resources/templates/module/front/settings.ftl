@@ -29,9 +29,11 @@
                     <div class="row">
                         <div class="fourteen wide column">
                             <div class="ui images">
-                                <img id="_mini" class="ui mini rounded image" src="/static/img/avatar/people/Abraham.png" style="margin-left: 15em;width: 35px;height: 35px;">
-                                <img id="_small" class="ui small rounded image" src="/static/img/avatar/people/Abraham.png" style="margin-left: 15em;width: 150px;height: 150px;">
-                                <img id="_medium" class="ui medium rounded image" src="/static/img/avatar/people/Abraham.png" style="margin-left: 15em;width: 300px;height: 300px;">
+                                <#if _user.avatar??>
+                                    <img id="_mini" class="ui mini rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 35px;height: 35px;">
+                                    <img id="_small" class="ui small rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 150px;height: 150px;">
+                                    <img id="_medium" class="ui medium rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 300px;height: 300px;">
+                                </#if>
                             </div>
                         </div>
                         <div class="two wide column">
@@ -273,11 +275,12 @@
             processData: false,
             contentType: false,
             success: function(data) {
-                console.log(data);
-                if (data.code == 200) {
-                    console.log("success");
-                    // _self.$router.push('/');
-                } else {
+                if(data.code == 0){
+                    $('#_mini').attr("src",'${ITBCNginx}/'+data.data);
+                    $('#_small').attr("src",'${ITBCNginx}/'+data.data);
+                    $('#_medium').attr("src",'${ITBCNginx}/'+data.data);
+                    $('#_avatar_heard').attr("src",'${ITBCNginx}/'+data.data);
+                }else{
                     alert(data.message);
                 }
             }

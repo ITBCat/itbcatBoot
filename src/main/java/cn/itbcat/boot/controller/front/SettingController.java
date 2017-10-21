@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
@@ -12,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 import java.util.UUID;
 
@@ -56,12 +56,20 @@ public class SettingController {
             dest.getParentFile().mkdirs();
         }
         try {
-            file.transferTo(dest);
-            return new Result(ITBC.SUCCESS_CODE,null,"文件成功");
-        } catch (IllegalStateException e) {
+            BufferedOutputStream out = new BufferedOutputStream(
+                    new FileOutputStream(dest));//保存图片到目录下
+            out.write(file.getBytes());
+            out.flush();
+            out.close();
+            User user = userService.get(ITBC.getCurrUserId());
+            user.setAvatar(fileName);
+            userService.updateAvatar(user);
+            return new Result(ITBC.SUCCESS_CODE,fileName,"success");
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+
         }
         return new Result(ITBC.ERROR_CODE,null,"文件上传失败");
     }

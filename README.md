@@ -9,3 +9,21 @@ spring boot 练习框架。
 2. 各个列表的分页
 3. 跟人信息详情页
 
+## nginx 代理
+```
+    server {
+        listen       9008;
+        server_name  localhost;
+
+		location ~* \.(html|css|js|png|jpg|gif|ico)$ {
+         	root /Users/BrickCat/IdeaProjects/itbcatBoot/upload/;
+     	}
+
+        location = /50x.html {
+            root   html;
+        }
+
+    }
+
+```
+
