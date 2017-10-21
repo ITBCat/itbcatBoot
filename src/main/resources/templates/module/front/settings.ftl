@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="fourteen wide column">
                             <div class="ui images">
-                                <#if _user.avatar??>
+                                <#if _user?? && _user.avatar??>
                                     <img id="_mini" class="ui mini rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 35px;height: 35px;">
                                     <img id="_small" class="ui small rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 150px;height: 150px;">
                                     <img id="_medium" class="ui medium rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src=/static/img/wireframe/text-image.png" style="margin-left: 15em;width: 300px;height: 300px;">
