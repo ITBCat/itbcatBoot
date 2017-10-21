@@ -5,7 +5,7 @@
             <a href="/"><img src="/static/i.svg" alt=""></a>
         </div>
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
-            <a class="active item icon">
+            <a class="active item icon" href="/">
                 <i class="home icon"></i>
                 &nbsp;首页
             </a>
