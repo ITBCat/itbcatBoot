@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 import java.util.Map;
-
-
+import java.util.Random;
 
 
 /**
@@ -40,11 +39,15 @@ public class IndexController {
 
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String front(Map<String,Object> date){
+    public String front(Map<String,Object> data){
+
+        Random r1 = new Random();
+
+        data.put("spanner",r1.nextBoolean());
 
         List<Article> articles = articleService.findAll();
-        date.put("articles",articles);
-        date.put("template","index");
+        data.put("articles",articles);
+        data.put("template","index");
         return "front";
     }
 

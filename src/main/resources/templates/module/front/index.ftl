@@ -1,72 +1,73 @@
 <div class="ui container">
-    <link rel="stylesheet" type="text/css" href="/static/plugins/jquerySFQ/index.css"/>
-    <div class="pic" style="width: 100%;">
-        <ul>
-            <li class="pic1" style="background-image: url('/static/img/bg/1.png');border-bottom-left-radius: 4px;">
-                <a href="javascript:;">
-                    <div class="txt" style="border-bottom-left-radius: 4px;">
-                        <p class="p1">雨红了枫叶 ，枫叶红了山头 ，山头红了整个秋</p>
-                    </div>
-                </a>
-            </li>
+    <#if spanner>
+        <link rel="stylesheet" type="text/css" href="/static/plugins/jquerySFQ/index.css"/>
+        <div class="pic" style="width: 100%;">
+            <ul>
+                <li class="pic1" style="background-image: url('/static/img/bg/1.png');border-bottom-left-radius: 4px;">
+                    <a href="javascript:;">
+                        <div class="txt" style="border-bottom-left-radius: 4px;">
+                            <p class="p1">雨红了枫叶 ，枫叶红了山头 ，山头红了整个秋</p>
+                        </div>
+                    </a>
+                </li>
 
-            <li class="pic2" style="background-image: url('/static/img/bg/2.png')">
-                <a href="javascript:;">
-                    <div class="txt">
-                        <p class="p1">莫愁前路无知己 ,天下谁人不识君 。</p>
-                    </div>
-                </a>
-            </li>
+                <li class="pic2" style="background-image: url('/static/img/bg/2.png')">
+                    <a href="javascript:;">
+                        <div class="txt">
+                            <p class="p1">莫愁前路无知己 ,天下谁人不识君 。</p>
+                        </div>
+                    </a>
+                </li>
 
-            <li class="pic3" style="background-image: url('/static/img/bg/3.png');">
-                <a href="javascript:;">
-                    <div class="txt">
-                        <p class="p1">你能看到多远的过去 ，就能看到多远的未来。</p>
-                    </div>
-                </a>
-            </li>
+                <li class="pic3" style="background-image: url('/static/img/bg/3.png');">
+                    <a href="javascript:;">
+                        <div class="txt">
+                            <p class="p1">你能看到多远的过去 ，就能看到多远的未来。</p>
+                        </div>
+                    </a>
+                </li>
 
-            <li class="pic4" style="background-image: url('/static/img/bg/4.png')">
-                <a href="javascript:;">
-                    <div class="txt" style="border-radius: 0 0 4px 0;">
-                        <p class="p1">编不下去了 。 。 。 。  。</p>
-                    </div>
-                </a>
-            </li>
+                <li class="pic4" style="background-image: url('/static/img/bg/4.png')">
+                    <a href="javascript:;">
+                        <div class="txt" style="border-radius: 0 0 4px 0;">
+                            <p class="p1">编不下去了 。 。 。 。  。</p>
+                        </div>
+                    </a>
+                </li>
 
-        </ul>
-    </div>
-    <script>
-        $(".pic ul li").hover(function(){
-            $(this).stop(true).animate({width:"825px"},1000).siblings().stop(true).animate({width:"100px"},1000);
-        });
-    </script>
-    <#--<link rel="stylesheet" type="text/css" href="/static/plugins/spanner/jPicture.min.css">
-    <!-- spanner &ndash;&gt;
-    <style>
-        #imgBox{  height: 300px; margin-left: auto; margin-right: auto;border-radius: 0 0 5px 5px;}
-    </style>
-    <div id="imgBox">
-        <div>
-            <div><a href="#1"><img src="/static/img/bg/1.png"></a></div>
-            <div><a href="#2"><img src="/static/img/bg/2.png"></a></div>
-            <div><a href="#3"><img src="/static/img/bg/3.png"></a></div>
-            <div><a href="#4"><img src="/static/img/bg/4.png"></a></div>
-            <div><a href="#5"><img src="/static/img/bg/5.png"></a></div>
-            <div><a href="#6"><img src="/static/img/bg/6.png"></a></div>
+            </ul>
         </div>
-    </div>
-    <!-- spanner &ndash;&gt;
-    <script src="/static/plugins/spanner/jPicture.min.js"></script>
-    <script>
+        <script>
+            $(".pic ul li").hover(function(){
+                $(this).stop(true).animate({width:"825px"},1000).siblings().stop(true).animate({width:"100px"},1000);
+            });
+        </script>
+    <#else >
+        <link rel="stylesheet" type="text/css" href="/static/plugins/spanner/jPicture.min.css">
+        <style>
+            #imgBox{  height: 300px; margin-left: auto; margin-right: auto;border-radius: 0 0 5px 5px;}
+        </style>
+        <div id="imgBox">
+            <div>
+                <div><a href="#1"><img src="/static/img/bg/1.png"></a></div>
+                <div><a href="#2"><img src="/static/img/bg/2.png"></a></div>
+                <div><a href="#3"><img src="/static/img/bg/3.png"></a></div>
+                <div><a href="#4"><img src="/static/img/bg/4.png"></a></div>
+                <div><a href="#5"><img src="/static/img/bg/5.png"></a></div>
+                <div><a href="#6"><img src="/static/img/bg/6.png"></a></div>
+            </div>
+        </div>
+        <script src="/static/plugins/spanner/jPicture.min.js"></script>
+        <script>
 
-        // Javascript 代码
-        jPicture("#imgBox", {
-            type: "fade",
-            autoplay: 5000
-        });
+            // Javascript 代码
+            jPicture("#imgBox", {
+                type: "fade",
+                autoplay: 5000
+            });
 
-    </script>-->
+        </script>
+    </#if>
     <div class="ui two column grid" style="margin-top: 3em;">
         <div class="eleven wide column">
             <div class="ui items">
