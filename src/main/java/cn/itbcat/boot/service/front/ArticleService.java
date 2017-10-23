@@ -34,7 +34,10 @@ public class ArticleService {
     }
 
     public Article get(String articleId) {
-        return articleRepository.findOne(articleId);
+        Article article = articleRepository.findOne(articleId);
+        article.setAnthor(userRepository.findOne(article.getUserid()));
+        article.setAgo(DateUtils.fromToday(article.getDate()));
+        return article;
     }
 
     public List<Article> findAll() {

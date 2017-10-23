@@ -16,14 +16,56 @@
     <h1 class="ui fluid header" style="text-align: center;">
         ${article.title}
     </h1>
+    <div class="ui items">
+        <div class="item" style="border-left: 5px solid #BABABA;padding-top: 5px;padding-bottom: 5px;">
+            <div class="ui two column middle aligned stackable grid" style="width: 100%;">
+                <div class="eleven wide column">
+                    <a class="ui avatar image" style="height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
+                    <#if article.anthor.avatar??>
+                        <img style="height: 60px;width: 60px;" src="${ITBCNginx}/${article.anthor.avatar}" onerror="this.src='/static/img/avatar/people/Abraham.png'">
+                    <#else >
+                        <img  style="height: 60px;width: 60px;" src="/static/img/avatar/people/Abraham.png">
+                    </#if>
+                    </a>
+                    <div class="content" style="float: left;margin-left: 1em;">
+                        <a class="header">
+                            ${article.anthor.username}
+                        </a>
+                        <div class="meta">
+                            <a>${article.ago}</a>
+                            <a class="ui mini yellow basic label" style="margin: 0 auto;">feed</a>
+                        </div>
+                        <div class="description">
+                            A description which may flow for several lines and give context to the content.
+                        </div>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="center aligned column">
+                        <div class="meta">
+                            <a class="like" data-content="赞" data-variation="inverted">
+                                <i class="heart red icon"></i> 8 Likes
+                            </a>
+                            <a class="like"  data-content="评论" data-variation="inverted">
+                                <i class="comment red icon"></i> 8 comments
+                            </a>
+                            <a class="like"  data-content="收藏" data-variation="inverted">
+                                <i class="star red icon"></i> 8 stars
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="ui two column fluid grid">
         <div class="twelve wide column">
             <div id="editormd-view" class="editormd-preview-theme-dark">
                 <textarea style="display:none;">${article.md}</textarea>
             </div>
         </div>
-        <div class="four wide column">
-            <div class="content">
+        <div class="four wide column" style="margin-top: 2em;">
+            <div class="content" id="_toc">
                 <div class="ui header">
                     TOC
                 </div>
@@ -142,6 +184,14 @@
             flowChart       : true,  // 默认不解析
             sequenceDiagram : true,  // 默认不解析
         });
+
+        var toc = $('#custom-toc-container').html();
+        var f = '<div class="markdown-toc editormd-markdown-toc"><ul class="markdown-toc-list"></ul></div>';
+        if(toc==f){
+            $('#_toc').hide();
+        }else {
+            $('#_toc').show();
+        }
     });
     var ITBC={
         serverName:'${ITBCFront}',

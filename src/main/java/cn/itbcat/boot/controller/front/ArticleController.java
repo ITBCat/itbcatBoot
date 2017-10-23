@@ -39,8 +39,6 @@ public class ArticleController {
         if(null != article) {
             List<Comment> comments = commentService.findCommentByArticleId(id);
             article.setComments(comments);
-            User anthor = userService.get(article.getUserid());
-            article.setAnthor(anthor);
             data.put("article", article);
             List<String> commentIds = commentService.findAllCommentByArticleId(id);
             data.put("commentIds", commentIds.toString());
