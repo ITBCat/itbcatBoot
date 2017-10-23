@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+    *{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    .pic{
+        overflow: hidden;/*隐藏溢出*/
+        width: 100%;
+        height: 300px;
+        margin: 0 auto;
+        padding-top: 0px;
+       
+    }
+    .pic ul li{
+        float: left;
+        height: 300px;
+        width: 100px;
+    }
+   
+
+    .pic ul .pic1{
+        background-position: center center;  /*图片居中  等比例*/
+        background-repeat: no-repeat;  /*图片不平铺*/
+
+    }
+    .pic ul .pic2{
+        background-position: center center;
+        background-repeat: no-repeat;
+
+    }
+    .pic ul .pic3{
+        background-position: center center;
+        background-repeat: no-repeat;
+
+    }
+    .pic ul .pic4{
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 825px;
+        border-radius: 0 0 4px 0;
+    }
+   
+	
+    .txt{
+        background-color: #000;
+        background: rgba(0, 0, 0, .5);
+        height: 300px;
+        width: 100px;
+
+    }
+    .txt p{
+        float: left;
+        color: #fff;
+    }
+    .txt .p1{
+        font-size: 13px;
+        width: 13px;
+        padding: 25px 25px 0px 20px;
+    }

@@ -2,9 +2,12 @@ package cn.itbcat.boot.service.front;
 
 import cn.itbcat.boot.entity.front.Article;
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.repository.front.ArticleRepository;
+import cn.itbcat.boot.utils.DateUtils;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -19,6 +22,9 @@ public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public void save(Article article) {
         User user = ITBC.getCurrUser();
         article.setId(ITBC.getId());
@@ -32,6 +38,13 @@ public class ArticleService {
     }
 
     public List<Article> findAll() {
-        return articleRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.DESC,"date");
+        List<Article> articles = articleRepository.findAll(sort);
+        for (Article article : articles){
+            User user = userRepository.findOne(article.getUserid());
+            article.setAnthor(user);
+            article.setAgo(DateUtils.fromToday(article.getDate()));
+        }
+        return articles;
     }
 }

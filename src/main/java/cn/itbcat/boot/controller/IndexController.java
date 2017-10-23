@@ -1,11 +1,16 @@
 package cn.itbcat.boot.controller;
 
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.entity.front.Article;
+import cn.itbcat.boot.service.admin.UserService;
+import cn.itbcat.boot.service.front.ArticleService;
 import cn.itbcat.boot.utils.ITBC;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -16,6 +21,12 @@ import java.util.Map;
  */
 @Controller
 public class IndexController {
+
+    @Autowired
+    private ArticleService articleService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = ITBC.SERVER_NAME_ADMIN+"/admin",method = RequestMethod.GET)
     public String index(Map<String, Object> dataModel){
@@ -30,6 +41,9 @@ public class IndexController {
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String front(Map<String,Object> date){
+
+        List<Article> articles = articleService.findAll();
+        date.put("articles",articles);
         date.put("template","index");
         return "front";
     }

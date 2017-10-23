@@ -40,6 +40,17 @@ public class Article {
     @Transient
     private List<Comment> comments;
 
+    @Transient
+    private String ago;
+
+    public String getAgo() {
+        return ago;
+    }
+
+    public void setAgo(String ago) {
+        this.ago = ago;
+    }
+
     public User getAnthor() {
         return anthor;
     }

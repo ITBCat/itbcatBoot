@@ -23,7 +23,7 @@
         <#list article.comments as item>
             <div class="comment" style="width: 1100px;">
                 <a class="avatar" style="height: 38.56px;">
-                    <img src="/static/img/avatar/people/Abraham.png">
+                    <img style="height: 35px;width: 35px;" src="${ITBCNginx}/${item.anthro.avatar}" onerror="this.src='/static/i.png'">
                 </a>
                 <div class="ui fluid content">
                     <a class="author">${item.anthro.username}</a>
@@ -46,19 +46,19 @@
                         <a data-content="转发" data-variation="inverted">
                             <i class="retweet icon"></i>
                         </a>
-                        <#if item.isMine != isLogin>
+                        <#if true<#--item.isMine != isLogin-->>
                             <a onclick="Comment.add('${article.id}','${item.id}')" data-content="回复" data-variation="inverted">
                                 <i class="reply icon"></i>
                             </a>
                         </#if>
                     </div>
                 </div>
-                <#if item.comments??>
-                    <div class="comments" id="${item.id}">
+                <div class="comments" id="${item.id}">
+                    <#if item.comments??>
                         <#list item.comments as child>
                             <div class="comment">
                                 <a class="avatar" style="height: 38.56px;">
-                                    <img src="/static/img/avatar/people/Michonne.png" alt="label-image">
+                                    <img style="height: 35px;width: 35px;" src="${ITBCNginx}/${child.anthro.avatar}" onerror="this.src='/static/i.png'" alt="label-image">
                                 </a>
                                 <div class="content">
                                     <a class="author">${child.anthro.username}</a>
@@ -87,8 +87,8 @@
                                 </div>
                             </div>
                         </#list>
-                    </div>
-                </#if>
+                    </#if>
+                </div>
             </div>
         </#list>
     </div>

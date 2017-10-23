@@ -86,17 +86,17 @@ var Comment = {
                             $('#_commentId').prepend(
                                 '<div class="comment" style="width: 1100px;">'
                                 +'<a class="avatar" style="height: 38.56px;">'
-                                +'<img src="/static/img/avatar/people/Abraham.png">'
+                                +'<img src="'+ITBC.ITBCNginx +'/'+ data.data.anthro.avatar +'" style="height: 35px;width: 35px;">'
                                 +'</a>'
                                 +'<div class="ui fluid content">'
-                                +'<a class="author">Yin Hightower</a>'
+                                +'<a class="author">'+data.data.anthro.username+'</a>'
                                 +'<div class="metadata">'
-                                +'<span class="date">Today at 5:42PM</span>'
+                                +'<span class="date">刚刚</span>'
                                 +'</div>'
                                 +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
                                 +'签名：一生放荡不羁爱自由。'
                                 +'</div>'
-                                +'<div id="editormd-view'+data.data.id+'" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
+                                +'<div id="editormd-view'+ data.data.id +'" class="editormd-preview-theme-dark" style="margin: 0;padding: 0;overflow:visible;">'
                                 +'<textarea style="display:none;" class="fullheight">'+data.data.content+'</textarea>'
                                 +'</div>'
                                 +'<div class="actions" style="margin-top: 1em;">'
@@ -109,9 +109,9 @@ var Comment = {
                                 +'<a data-content="转发" data-variation="inverted">'
                                 +'<i class="retweet icon"></i>'
                                 +'</a>'
-                                +'<a href="#comment" onclick="Comment.add('+data.data.articleId+','+data.data.id+')" data-content="回复" data-variation="inverted">'
+                                /*+'<a href="#comment" onclick="Comment.add('+data.data.articleId+','+data.data.id+')" data-content="回复" data-variation="inverted">'
                                 +'<i class="reply icon"></i>'
-                                +'</a>'
+                                +'</a>'*/
                                 +'</div>'
                                 +'</div>'
                                 +'<div class="comments" id="'+data.data.id+'" style="display: none;">'
@@ -123,12 +123,12 @@ var Comment = {
                             $('#'+data.data.parentId).prepend(
                                 '<div class="comment">'
                                 +'<a class="avatar" style="height: 38.56px;">'
-                                +'<img src="/static/img/avatar/people/Michonne.png" alt="label-image">'
+                                +'<img src="'+ITBC.ITBCNginx +'/'+ data.data.anthro.avatar +'" style="height: 35px;width: 35px;" alt="label-image">'
                                 +'</a>'
                                 +'<div class="content">'
-                                +'<a class="author">Ufuoma Tómasson</a>'
+                                +'<a class="author">'+data.data.anthro.username+'</a>'
                                 +'<div class="metadata">'
-                                +'<span class="date">Just now</span>'
+                                +'<span class="date">刚刚</span>'
                                 +'</div>'
                                 +'<div class="description" style="font-size: 14px;color: #C1C1C1;">'
                                 +'签名：一生放荡不羁爱自由。'
@@ -176,15 +176,39 @@ var Comment = {
                 window.location.href="/login";
                 return;
             }
-            //回复
-            $('#_reply').html('<i class="share icon"></i>'
-                +'<a class="ui big image label" style="height: 33.42px;">'
-                +'<img src="/static/img/avatar/people/Glenn.png" alt="label-image">'
-                +'Glenn'
-                +'</a>'
-                + '<input type="text" value="'+commentId+'" id="_replyId" hidden="hidden"/>');
-            $('#_reply').show();
-            location.href='#comment';
+            $.ajax({
+                url:ITBC.serverName+'/comment/user?commentId='+commentId,
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{},
+                timeout:15000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                beforeSend:function(xhr){
+                    console.log(xhr)
+                    console.log('发送前')
+                },
+                success:function(data,textStatus,jqXHR){
+                    if(data.code==0){
+                        //回复
+                        $('#_reply').html('<i class="share icon"></i>'
+                            +'<a class="ui big image label" style="height: 33.42px;width: 33.42px;">'
+                            +'<img src="'+ITBC.ITBCNginx+'/'+data.data.avatar+'" style="height: 33.42px;width: 33.42px;" alt="label-image">'
+                            +data.data.username
+                            +'</a>'
+                            + '<input type="text" value="'+commentId+'" id="_replyId" hidden="hidden"/>');
+                        $('#_reply').show();
+                        location.href='#comment';
+                    }
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误')
+                    console.log(xhr)
+                    console.log(textStatus)
+                },
+                complete:function(){
+                    console.log('结束')
+                }
+            });
         }
     }
 }

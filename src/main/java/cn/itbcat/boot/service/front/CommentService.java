@@ -80,4 +80,8 @@ public class CommentService {
         }
         return commentIds;
     }
+
+    public Comment get(String commentId) {
+        return commentRepositoty.findOne(commentId);
+    }
 }
