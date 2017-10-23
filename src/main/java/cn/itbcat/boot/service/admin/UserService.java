@@ -11,6 +11,9 @@ import cn.itbcat.boot.utils.MD5;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +25,9 @@ import java.util.List;
  */
 @Service
 public class UserService {
+
+    //这里的单引号不能少，否则会报错，被识别是一个对象;
+    public static final String CACHE_KEY = "'CACHE_USER'";
 
     @Autowired
     private UserRepository userRepository;
@@ -48,6 +54,7 @@ public class UserService {
         return roleRepositor.findAll();
     }
 
+    @CacheEvict(value=ITBC.CACHE_NAME,key=CACHE_KEY)
     public String save(String roleId, User user) {
 
         String token = null;
@@ -83,6 +90,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_USER_'+#userId")
     public User get(String userId) {
         return userRepository.findOne(userId);
     }
@@ -92,6 +100,7 @@ public class UserService {
         return userRole.getRoleId();
     }
 
+    @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#user.getUserId()")
     public void update(String roleId, User user) {
         try {
             userRoleRepository.deleteByUserId(user.getUserId());
@@ -110,6 +119,7 @@ public class UserService {
 
     }
 
+    @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#user.getUserId()")
     public void updateAvatar(User user){
         try {
             userRepository.save(user);
@@ -118,6 +128,7 @@ public class UserService {
         }
     }
 
+    @CacheEvict(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#userId")//这是清除缓存.
     public void delete(String userId) {
         userRoleRepository.deleteByUserId(userId);
         userRepository.delete(userId);

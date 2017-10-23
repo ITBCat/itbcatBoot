@@ -24,6 +24,17 @@ spring boot 练习框架。
         }
 
     }
+    
+    location /Image{
+           #当访问Image 文件夹的时候指定映射到真正的物理地址
+        alias J:\FTPFinCloud;
+            #默认的图片
+        index default.png;
+        }
+    #缓存图片
+    location ~.*.(gif|jpg|jpeg|png|bmp|swf)${
+        expires 10d;
+    }
 
 ```
 

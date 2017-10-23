@@ -95,6 +95,11 @@ public class ITBC {
     public static final String _USER="_user";
 
     /**
+     * cache name
+     */
+    public static final String CACHE_NAME="ITBC";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";
