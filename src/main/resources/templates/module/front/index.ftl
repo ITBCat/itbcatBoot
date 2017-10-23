@@ -1,6 +1,48 @@
 <div class="ui container">
-    <link rel="stylesheet" type="text/css" href="/static/plugins/spanner/jPicture.min.css">
-    <!-- spanner -->
+    <link rel="stylesheet" type="text/css" href="/static/plugins/jquerySFQ/index.css"/>
+    <div class="pic" style="width: 100%;">
+        <ul>
+            <li class="pic1" style="background-image: url('/static/img/bg/1.png');border-bottom-left-radius: 4px;">
+                <a href="javascript:;">
+                    <div class="txt" style="border-bottom-left-radius: 4px;">
+                        <p class="p1">雨红了枫叶 ，枫叶红了山头 ，山头红了整个秋</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="pic2" style="background-image: url('/static/img/bg/2.png')">
+                <a href="javascript:;">
+                    <div class="txt">
+                        <p class="p1">莫愁前路无知己 ,天下谁人不识君 。</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="pic3" style="background-image: url('/static/img/bg/3.png');">
+                <a href="javascript:;">
+                    <div class="txt">
+                        <p class="p1">你能看到多远的过去 ，就能看到多远的未来。</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="pic4" style="background-image: url('/static/img/bg/4.png')">
+                <a href="javascript:;">
+                    <div class="txt" style="border-radius: 0 0 4px 0;">
+                        <p class="p1">编不下去了 。 。 。 。  。</p>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        $(".pic ul li").hover(function(){
+            $(this).stop(true).animate({width:"825px"},1000).siblings().stop(true).animate({width:"100px"},1000);
+        });
+    </script>
+    <#--<link rel="stylesheet" type="text/css" href="/static/plugins/spanner/jPicture.min.css">
+    <!-- spanner &ndash;&gt;
     <style>
         #imgBox{  height: 300px; margin-left: auto; margin-right: auto;border-radius: 0 0 5px 5px;}
     </style>
@@ -14,7 +56,7 @@
             <div><a href="#6"><img src="/static/img/bg/6.png"></a></div>
         </div>
     </div>
-    <!-- spanner -->
+    <!-- spanner &ndash;&gt;
     <script src="/static/plugins/spanner/jPicture.min.js"></script>
     <script>
 
@@ -24,7 +66,7 @@
             autoplay: 5000
         });
 
-    </script>
+    </script>-->
     <div class="ui two column grid" style="margin-top: 3em;">
         <div class="eleven wide column">
             <div class="ui items">
@@ -35,197 +77,63 @@
                     <div class="divider"> / </div>
                     <div class="section" style="color: #676767;">最新回复</div>
                 </div>
-                <div class="ui divider"></div>
-                <div class="item">
-                    <a class="ui mini avatar image">
-                        <img  src="/static/img/avatar/people/Michonne.png">
-                    </a>
-                    <div class="content">
-                        <a class="header">Enid</a>
-                        <div class="meta">
-                            <a>14th Ago</a>
-                        </div>
-                        <a class="title" style="font-size: 22px;color: black;" target="_blank" href="${ITBCFront}/article/1507964935407">
-                            A description which may
-                        </a>
-                        <div class="ui grid" style="padding-top: 1em;">
-                            <div class="stretched row">
-                                <div class="sixteen wide tablet twelve wide computer column">
-                                    <div class="description" style="font-size: 16px;">
-                                        A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
-                                    </div>
-                                </div>
-                                <div class="sixteen wide tablet four wide computer column">
-                                    <div class="ui small image">
-                                        <img  src="/static/img/avatar/people/Glenn.png" style="border-radius: 4px;" class="transition visible">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="meta" style="padding-top: 1em;">
-                            <a class="ui yellow basic label">feed</a>
-                            <a class="like" data-content="赞" data-variation="inverted">
-                                <i class="heart red icon"></i> 8 Likes
-                            </a>
-                            <a class="like"  data-content="评论" data-variation="inverted">
-                                <i class="comment red icon"></i> 8 comments
-                            </a>
-                            <a class="like"  data-content="收藏" data-variation="inverted">
-                                <i class="star red icon"></i> 8 stars
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-                <div class="item">
-                    <a class="ui mini avatar image">
-                        <img  src="/static/img/avatar/people/Michonne.png">
-                    </a>
-                    <div class="content">
-                        <a class="header">Enid</a>
-                        <div class="meta">
-                            <a>14th Ago</a>
-                        </div>
-                        <a class="title" style="font-size: 22px;color: black;">
-                            A description which may
-                        </a>
-                        <div class="ui grid" style="padding-top: 1em;">
-                            <div class="stretched row">
-                                <div class="sixteen wide tablet sixteen wide computer column">
-                                    <div class="description" style="font-size: 16px;">
-                                        A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="meta" style="padding-top: 1em;">
-                            <a class="ui yellow basic label">feed</a>
-                            <a class="like" data-content="赞" data-variation="inverted">
-                                <i class="heart red icon"></i> 8 Likes
-                            </a>
-                            <a class="comment" data-content="评论" data-variation="inverted">
-                                <i class="comment red icon"></i> 8 comments
-                            </a>
-                            <a class="like" data-content="收藏" data-variation="inverted">
-                                <i class="star red icon"></i> 8 stars
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-                <div class="item">
-                    <a class="ui mini avatar image">
-                        <img  src="/static/img/avatar/people/Michonne.png">
-                    </a>
-                    <div class="content">
-                        <a class="header">Enid</a>
-                        <div class="meta">
-                            <a>14th Ago</a>
-                        </div>
-                        <a class="title" style="font-size: 22px;color: black;">
-                            A description which may
-                        </a>
-                        <div class="ui grid" style="padding-top: 1em;">
-                            <div class="stretched row">
-                                <div class="sixteen wide tablet sixteen wide computer column">
-                                    <div class="description" style="font-size: 16px;">
-                                        A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="meta" style="padding-top: 1em;">
-                            <a class="ui red basic label">article</a>
-                            <a class="like" data-content="赞" data-variation="inverted">
-                                <i class="heart red icon"></i> 8 Likes
-                            </a>
-                            <a class="comment" data-content="评论" data-variation="inverted">
-                                <i class="comment red icon"></i> 8 comments
-                            </a>
-                            <a class="like" data-content="收藏" data-variation="inverted">
-                                <i class="star red icon"></i> 8 stars
-                            </a>
+                <#list articles as item>
+                    <div class="ui divider"></div>
+                    <div class="item">
+                        <a class="ui mini avatar image">
+                            <#if item.anthor.avatar??>
+                                <img style="35px;height: 35px;" src="${ITBCNginx}/${item.anthor.avatar}">
+                            <#else >
+                                <img  src="/static/img/avatar/people/Abraham.png">
+                            </#if>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-                <div class="item">
-                    <a class="ui mini avatar image">
-                        <img  src="/static/img/avatar/people/Michonne.png">
-                    </a>
-                    <div class="content">
-                        <a class="header">Enid</a>
-                        <div class="meta">
-                            <a>14th Ago</a>
-                        </div>
-                        <a class="title" style="font-size: 22px;color: black;">
-                            A description which may
                         </a>
-                        <div class="ui grid" style="padding-top: 1em;">
-                            <div class="stretched row">
-                                <div class="sixteen wide tablet sixteen wide computer column">
-                                    <div class="description" style="font-size: 16px;">
-                                        A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
-                                    </div>
+                        <div class="content">
+                            <a class="header">${item.anthor.username}</a>
+                            <div class="meta">
+                                <a>${item.ago}</a>
+                            </div>
+                            <a class="title" style="font-size: 22px;color: black;" target="_blank" href="${ITBCFront}/article/${item.id}">
+                                ${item.title}
+                            </a>
+                            <div class="ui grid" style="padding-top: 1em;">
+                                <div class="stretched row">
+                                    <#if true>
+                                        <div class="sixteen wide tablet twelve wide computer column">
+                                            <div class="description" style="font-size: 16px;">
+                                                A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide tablet four wide computer column">
+                                            <div class="ui small image">
+                                                <img  src="/static/img/avatar/people/Glenn.png" style="border-radius: 4px;" class="transition visible">
+                                            </div>
+                                        </div>
+                                    <#else >
+                                        <div class="sixteen wide tablet sixteen wide computer column">
+                                            <div class="description" style="font-size: 16px;">
+                                                A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
+                                            </div>
+                                        </div>
+                                    </#if>
                                 </div>
                             </div>
-                        </div>
-                        <div class="meta" style="padding-top: 1em;">
-                            <a class="ui blue basic label">video</a>
-                            <a class="like" data-content="赞" data-variation="inverted">
-                                <i class="heart red icon" ></i> 8 Likes
-                            </a>
-                            <a class="comment" data-content="评论" data-variation="inverted">
-                                <i class="comment red icon"></i> 8 comments
-                            </a>
-                            <a class="like" data-content="收藏" data-variation="inverted">
-                                <i class="star red icon"></i> 8 stars
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-                <div class="item">
-                    <a class="ui mini avatar image">
-                        <img  src="/static/img/avatar/people/Michonne.png">
-                    </a>
-                    <div class="content">
-                        <a class="header">Enid</a>
-                        <div class="meta">
-                            <a>14th Ago</a>
-                        </div>
-                        <a class="title" style="font-size: 22px;color: black;">
-                            A description which may
-                        </a>
-                        <div class="ui grid" style="padding-top: 1em;">
-                            <div class="stretched row">
-                                <div class="sixteen wide tablet twelve wide computer column">
-                                    <div class="description" style="font-size: 16px;">
-                                        A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
-                                    </div>
-                                </div>
-                                <div class="sixteen wide tablet four wide computer column">
-                                    <div class="ui small image">
-                                        <img  src="/static/img/avatar/people/Glenn.png" style="border-radius: 4px;" class="transition visible">
-                                    </div>
-                                </div>
+                            <div class="meta" style="padding-top: 1em;">
+                                <a class="ui yellow basic label">feed</a>
+                                <a class="like" data-content="赞" data-variation="inverted">
+                                    <i class="heart red icon"></i> 8 Likes
+                                </a>
+                                <a class="like"  data-content="评论" data-variation="inverted">
+                                    <i class="comment red icon"></i> 8 comments
+                                </a>
+                                <a class="like"  data-content="收藏" data-variation="inverted">
+                                    <i class="star red icon"></i> 8 stars
+                                </a>
                             </div>
                         </div>
-                        <div class="meta" style="padding-top: 1em;">
-                            <a class="ui yellow basic label">feed</a>
-                            <a class="like" data-content="赞" data-variation="inverted">
-                                <i class="heart red icon"></i> 8 Likes
-                            </a>
-                            <a class="like"  data-content="评论" data-variation="inverted">
-                                <i class="comment red icon"></i> 8 comments
-                            </a>
-                            <a class="like"  data-content="收藏" data-variation="inverted">
-                                <i class="star red icon"></i> 8 stars
-                            </a>
-                        </div>
                     </div>
-                </div>
+                </#list>
+                <div class="ui divider"></div>
             </div>
         </div>
         <div class="five wide column" >
