@@ -3,7 +3,7 @@ package cn.itbcat.boot.config.intercepter;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;

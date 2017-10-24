@@ -102,7 +102,7 @@
                                     <#if true>
                                         <div class="sixteen wide tablet twelve wide computer column">
                                             <div class="description" style="font-size: 16px;">
-                                                A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.A description which may flow for several lines and give context to the content.
+                                                ${item.desc}
                                             </div>
                                         </div>
                                         <div class="sixteen wide tablet four wide computer column">

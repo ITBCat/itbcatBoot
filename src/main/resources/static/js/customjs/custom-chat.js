@@ -24,8 +24,8 @@
             this.$chatHistoryList = this.$chatHistory.find('ul');
         },
         bindEvents: function () {
-            this.$button.on('click', this.addMessage.bind(this));
-            this.$textarea.on('keyup', this.addMessageEnter.bind(this));
+            //this.$button.on('click', this.addMessage.bind(this));
+            //this.$textarea.on('keyup', this.addMessageEnter.bind(this));
         },
         render: function () {
             this.scrollToBottom();

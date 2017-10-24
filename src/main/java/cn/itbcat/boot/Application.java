@@ -12,6 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.MultipartConfigElement;
@@ -22,6 +23,8 @@ import javax.servlet.MultipartConfigElement;
 @EnableCaching
 //开启servlet
 @ServletComponentScan
+//开启socket
+@EnableWebSocket
 @SpringBootApplication
 @PropertySources(value = { @PropertySource("classpath:messages.properties") })
 public class Application {

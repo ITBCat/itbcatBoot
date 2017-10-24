@@ -5,7 +5,13 @@
 <script src="/static/plugins/nicescrool/jquery.nicescroll.min.js"></script>
 
 <script data-pace-options='{ "ajax": false }' src="/static/plugins/pacejs/pace.js"></script>
-
+<#if template??>
+    <#if template == 'chat'>
+        <script src='/static/js/handlebars.min.js'></script>
+        <script src='/static/js/list.min.js'></script>
+        <script src="/static/js/customjs/custom-chat.js"></script>
+    </#if>
+</#if>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/customjs/custom-tooltip.js"></script>
 <script>

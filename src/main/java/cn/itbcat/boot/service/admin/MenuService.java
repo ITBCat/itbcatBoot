@@ -4,7 +4,7 @@ import cn.itbcat.boot.entity.admin.Menu;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.repository.admin.MenuRepository;
 import cn.itbcat.boot.utils.ITBC;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

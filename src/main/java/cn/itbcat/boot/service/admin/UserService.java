@@ -8,7 +8,7 @@ import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.repository.admin.UserRoleRepository;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.MD5;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -101,7 +101,7 @@ public class UserService {
     }
 
     @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#user.getUserId()")
-    public void update(String roleId, User user) {
+    public User update(String roleId, User user) {
         try {
             userRoleRepository.deleteByUserId(user.getUserId());
             UserRole userRole = new UserRole();
@@ -112,20 +112,21 @@ public class UserService {
             user.setCreateTime(new Date());
             User currUser = ITBC.getCurrUser();
             user.setCreateUserId(user.getUserId());
-            userRepository.save(user);
+            return userRepository.save(user);
         }catch (Exception e){
             e.printStackTrace();
         }
-
+        return null;
     }
 
     @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#user.getUserId()")
-    public void updateAvatar(User user){
+    public User updateAvatar(User user){
         try {
-            userRepository.save(user);
+            return userRepository.save(user);
         }catch (Exception e){
             e.printStackTrace();
         }
+        return null;
     }
 
     @CacheEvict(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#userId")//这是清除缓存.

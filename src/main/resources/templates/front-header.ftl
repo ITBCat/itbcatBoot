@@ -84,7 +84,7 @@
                 </#if>
                 <div class="menu">
                     <a class="item" href="mail.html">Inbox</a>
-                    <a class="item" href="profile.html">Profile</a>
+                    <a class="item" href="${ITBCFront}/chat">IChat</a>
                     <a class="item" href="${ITBCFront}/settings">个人信息</a>
                     <div class="ui divider"></div>
                     <a class="item">Need Help?</a>

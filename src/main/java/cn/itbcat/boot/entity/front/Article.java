@@ -43,6 +43,17 @@ public class Article {
     @Transient
     private String ago;
 
+    @Transient
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public String getAgo() {
         return ago;
     }

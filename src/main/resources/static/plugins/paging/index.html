@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div value="1 0"></div>
+    <div id="page" class="page_div">
+    </div>
+
+</body>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/paging.js"></script>
+<script>
+    //分页
+    $("#page").paging({
+        pageNo: 5,
+        totalPage: 9,
+        totalSize: 300,
+        callback: function(num) {
+            alert(num)
+        }
+    })
+</script>
+
+</html>

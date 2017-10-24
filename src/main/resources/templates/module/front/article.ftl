@@ -13,9 +13,6 @@
     <img class="wireframe" style="margin-top: 1em;" src="/static/img/wireframe/paragraph.png">
 </div>
 <div class="ui main container" style="padding-top: 20px;" id="loaded">
-    <h1 class="ui fluid header" style="text-align: center;">
-        ${article.title}
-    </h1>
     <div class="ui items">
         <div class="item" style="border-left: 5px solid #BABABA;padding-top: 5px;padding-bottom: 5px;">
             <div class="ui two column middle aligned stackable grid" style="width: 100%;">
@@ -29,14 +26,17 @@
                     </a>
                     <div class="content" style="float: left;margin-left: 1em;">
                         <a class="header">
-                            ${article.anthor.username}
+                        ${article.anthor.username}
                         </a>
                         <div class="meta">
+                            <a>Feed</a> ·
+                            <a>${length} 评论</a> ·
+                            <a>78 浏览</a> ·
                             <a>${article.ago}</a>
-                            <a class="ui mini yellow basic label" style="margin: 0 auto;">feed</a>
+
                         </div>
-                        <div class="description">
-                            A description which may flow for several lines and give context to the content.
+                        <div class="meta">
+                            真理惟一可靠的标准就是永远自相符合。
                         </div>
                     </div>
                 </div>
@@ -58,6 +58,9 @@
             </div>
         </div>
     </div>
+    <h1 class="ui fluid header" style="text-align: center;">
+        ${article.title}
+    </h1>
     <div class="ui two column fluid grid">
         <div class="twelve wide column">
             <div id="editormd-view" class="editormd-preview-theme-dark">
