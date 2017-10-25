@@ -24,7 +24,7 @@ import javax.servlet.MultipartConfigElement;
 //开启servlet
 @ServletComponentScan
 //开启socket
-@EnableWebSocket
+//@EnableWebSocket
 @SpringBootApplication
 @PropertySources(value = { @PropertySource("classpath:messages.properties") })
 public class Application {

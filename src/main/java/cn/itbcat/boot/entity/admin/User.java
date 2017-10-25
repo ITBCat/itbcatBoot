@@ -1,6 +1,8 @@
 package cn.itbcat.boot.entity.admin;
 
 
+import cn.itbcat.boot.entity.socket.UserStatus;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -60,6 +62,30 @@ public class User implements Serializable {
 	private Integer status;
 
 	private String isAdmin;
+
+	/**
+	 * 用户状态
+	 */
+	@Column(name = "chat_status")
+	private UserStatus chatStatus;
+
+	private Date leaveTime;
+
+	public Date getLeaveTime() {
+		return leaveTime;
+	}
+
+	public void setLeaveTime(Date leaveTime) {
+		this.leaveTime = leaveTime;
+	}
+
+	public UserStatus getChatStatus() {
+		return chatStatus;
+	}
+
+	public void setChatStatus(UserStatus chatStatus) {
+		this.chatStatus = chatStatus;
+	}
 
 	public String getIsAdmin() {
 		return isAdmin;

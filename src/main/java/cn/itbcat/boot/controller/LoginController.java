@@ -6,6 +6,7 @@ import cn.itbcat.boot.utils.ITBC;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,8 @@ public class LoginController {
             Subject subject = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
+            Session session = subject.getSession();
+            session.setAttribute("userId", userService.getUserByEmail(username).getUserId());
             return "redirect:/";
         } catch (AuthenticationException e) {
             dataModel.put("msg", e.getMessage());
