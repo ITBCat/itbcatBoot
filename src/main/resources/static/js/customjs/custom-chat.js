@@ -24,8 +24,8 @@
             this.$chatHistoryList = this.$chatHistory.find('ul');
         },
         bindEvents: function () {
-            //this.$button.on('click', this.addMessage.bind(this));
-            //this.$textarea.on('keyup', this.addMessageEnter.bind(this));
+            this.$button.on('click', this.addMessage.bind(this));
+            this.$textarea.on('keyup', this.addMessageEnter.bind(this));
         },
         render: function () {
             this.scrollToBottom();
@@ -51,7 +51,24 @@
         },
         addMessage: function () {
             this.messageToSend = this.$textarea.val();
-            this.render();
+
+            if (websocketTool && websocketTool.onlineStatus == 1) {
+                var tp =  0;
+                var sendName = 'ITBC';
+                var message = {
+                    userId: websocketTool.user.userId,
+                    userName: websocketTool.user.username,
+                    type: tp,
+                    content: this.messageToSend,
+                    sendId: '1',
+                    sendName: sendName
+                };
+                websocketTool.sendMessage(message);
+                this.render();
+            } else {
+                $("#text" + type + sendId).val(content);
+                layer.msg("已离线，发送失败！");
+            }
         },
         addMessageEnter: function (event) {
             if (event.keyCode === 13) {
