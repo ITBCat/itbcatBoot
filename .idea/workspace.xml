@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java" line="11" mnemonic="2" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c0a2a9fd-61ed-462d-a8f6-cd7fcc5c1376" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_2_10_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_websocket_1_5_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_4_3_10_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_websocket_4_3_10_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMassistWS.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SocketMessage.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/front/settings.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/settings.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java" afterPath="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-chat.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-chat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/front-macro-footer.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/front-macro-footer.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/module/front/chat.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/module/front/chat.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,43 +52,75 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.ftl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/settings.ftl">
+      <file leaf-file-name="IMSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+            <state relative-caret-position="111">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SettingController.java">
+      <file leaf-file-name="custom-chat.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+            <state relative-caret-position="-465">
+              <caret line="182" column="8" lean-forward="false" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.ftl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/chat.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="246" column="31" lean-forward="false" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2366#2367#0" expanded="true" />
+                <element signature="e#2406#2407#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file leaf-file-name="front-macro-footer.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-macro-footer.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="154">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="front-header.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-header.ftl">
+      <file leaf-file-name="front-macro-header.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="177">
+              <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1233">
+              <caret line="87" column="49" lean-forward="false" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -78,26 +129,9 @@
       <file leaf-file-name="Intercepter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            <state relative-caret-position="308">
+              <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="504">
-                <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-                <folding>
-                  <marker date="1508596647000" expanded="true" signature="205:461" ph="{...}" />
-                  <marker date="1508596647000" expanded="true" signature="314:387" ph="{...}" />
-                  <marker date="1508596647000" expanded="true" signature="418:454" ph="{...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -116,15 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>modalinverted</find>
-      <find>showIcon</find>
-      <find>actionmodal</find>
-      <find>comment</find>
-      <find>500</find>
-      <find>sidebarbtn5</find>
-      <find>sidebar5</find>
-      <find>、</find>
-      <find>/</find>
       <find>/f</find>
       <find>/f/</find>
       <find>//</find>
@@ -146,6 +171,15 @@
       <find>${itbc.server.admin}</find>
       <find>清空</find>
       <find>clear</find>
+      <find>分钟前</find>
+      <find>_commentContent</find>
+      <find>10:31 AM, Today</find>
+      <find>message-template</find>
+      <find>——user</find>
+      <find>—user</find>
+      <find>user</find>
+      <find>_user</find>
+      <find>messageOutput</find>
     </findStrings>
     <replaceStrings>
       <replace>ITBC</replace>
@@ -162,57 +196,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/edit-role.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/edit-menu.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/edit-dept.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/dept.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-user.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-role.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-dept.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/CommentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/CommentRepositoty.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/UserRoleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/UserRole.java" />
-        <option value="$PROJECT_DIR$/.gitattributes" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/front/CommentRepositoty.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/Article.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/add-menu.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/admin/menu.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/CommentController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/Times.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/DateUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/article.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/common/comment.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/comment.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/setting.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/html/semantic/settings.html" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/ArticleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/DeptController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/HealthController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/front.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/dist/semantic.min.css" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/common/Result.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/front/CommentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/webConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/shiro/ShiroConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SettingController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/admin/MenuService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/admin/RoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/admin/ShiroService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/admin/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/Article.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/index.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/front/ArticleService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/html/semantic/chat.html" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/ChatController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/front.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/DateUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/plugins/socket/stomp.js" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/BaseMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/Greeting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/shiro/ShiroConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SocketController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/DeptRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/MailRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/MenuRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleDeptRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleMenuRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleRepositor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/UserRoleRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/front/ArticleRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/front/CommentRepositoty.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/PageJpa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/UserStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SocketUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SendType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/IMManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/socket/ChatRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/socket/ChatService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SocketMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMassistWS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/front-header.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/settings.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/front-macro-footer.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-chat.js" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/module/front/chat.ftl" />
       </list>
     </option>
   </component>
@@ -263,10 +297,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
-    <option name="y" value="23" />
-    <option name="width" value="1916" />
-    <option name="height" value="1057" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -311,6 +345,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -354,17 +391,232 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="itbcatBoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../symphony" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fujiPortals" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -376,18 +628,18 @@
       <recent name="cn.itbcat.boot" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static" />
-      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static\plugins\higlight.js\styles" />
-      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\templates\module\front" />
-      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static\plugins\editor.md\css" />
-      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static\plugins\tageditor" />
+      <recent name="D:\ideaProject\itbcatBoot\src\main\java\cn\itbcat\boot\entity\socket" />
+      <recent name="D:\ideaProject\itbcatBoot\src\main\java\cn\itbcat\boot\utils" />
+      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static\plugins\socket" />
+      <recent name="D:\ideaProject\itbcatBoot\src\main\java\cn\itbcat\boot\entity\front" />
+      <recent name="D:\ideaProject\itbcatBoot\src\main\resources\static\plugins\paging" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.itbcat.boot.config.socket" />
+      <recent name="cn.itbcat.boot.entity.socket" />
+      <recent name="cn.itbcat.boot.entity.front" />
+      <recent name="cn.itbcat.boot.config" />
       <recent name="cn.itbcat.boot.utils" />
-      <recent name="cn.itbcat.boot.repository" />
-      <recent name="cn.itbcat.boot.service" />
-      <recent name="cn.itbcat.boot.entity" />
-      <recent name="cn.itbcat.boot.config.intercepter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ideaProject\itbcatBoot\src\main\resources\templates" />
@@ -1084,55 +1336,9 @@
       <workItem from="1508461015810" duration="26094000" />
       <workItem from="1508565537395" duration="6529000" />
       <workItem from="1508596849857" duration="228000" />
-    </task>
-    <task id="LOCAL-00016" summary="tree">
-      <created>1505475449930</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1505475449931</updated>
-    </task>
-    <task id="LOCAL-00017" summary="tree">
-      <created>1505488760584</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1505488760584</updated>
-    </task>
-    <task id="LOCAL-00018" summary="dept tree">
-      <created>1505542302644</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1505542302644</updated>
-    </task>
-    <task id="LOCAL-00019" summary="role tree">
-      <created>1505569271394</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1505569271394</updated>
-    </task>
-    <task id="LOCAL-00020" summary="role tree">
-      <created>1505570510878</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1505570510878</updated>
-    </task>
-    <task id="LOCAL-00021" summary="role">
-      <created>1505620259642</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1505620259642</updated>
-    </task>
-    <task id="LOCAL-00022" summary="role">
-      <created>1505630400033</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1505630400033</updated>
+      <workItem from="1508806947422" duration="25348000" />
+      <workItem from="1508893758484" duration="18332000" />
+      <workItem from="1508979966377" duration="15835000" />
     </task>
     <task id="LOCAL-00023" summary="系统监控">
       <created>1506750035344</created>
@@ -1428,14 +1634,63 @@
       <option name="project" value="LOCAL" />
       <updated>1508596883337</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary=":neckbeard: 更换轮播图">
+      <created>1508743956059</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1508743956059</updated>
+    </task>
+    <task id="LOCAL-00066" summary=":feet: 添加缓存配置">
+      <created>1508744059717</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1508744059717</updated>
+    </task>
+    <task id="LOCAL-00067" summary=":runner: 完善评论、回复">
+      <created>1508744124706</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1508744124706</updated>
+    </task>
+    <task id="LOCAL-00068" summary=":point_up: 随机轮播图">
+      <created>1508746658907</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1508746658907</updated>
+    </task>
+    <task id="LOCAL-00069" summary=":smile: 完善article详情">
+      <created>1508751620032</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1508751620033</updated>
+    </task>
+    <task id="LOCAL-00070" summary=":fire: websocket --">
+      <created>1508837587849</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1508837587849</updated>
+    </task>
+    <task id="LOCAL-00071" summary=":fire: websocket 未完待续">
+      <created>1508924043881</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1508924043882</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481678000" />
+    <option name="totallyTimeSpent" value="563032000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="23" width="1916" height="1057" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1448,30 +1703,30 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.314164" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31383577" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845894" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22838847" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15811966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1489,7 +1744,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31496063" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31383577" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845894" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1502,7 +1757,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32845894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22061966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23337156" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1518,13 +1773,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dept tree" />
-    <MESSAGE value="role tree" />
-    <MESSAGE value="role" />
-    <MESSAGE value="系统监控" />
-    <MESSAGE value="lock me" />
-    <MESSAGE value="完善权限" />
-    <MESSAGE value="health" />
     <MESSAGE value="front" />
     <MESSAGE value="front index" />
     <MESSAGE value="article put" />
@@ -1543,7 +1791,14 @@
     <MESSAGE value=":star:  新增完善个人信息-&gt;自定义头像" />
     <MESSAGE value=":moon:  新增完善个人信息-&gt;自定义头像-&gt;完善" />
     <MESSAGE value=":sun: nginx 配置" />
-    <option name="LAST_COMMIT_MESSAGE" value=":sun: nginx 配置" />
+    <MESSAGE value=":neckbeard: 更换轮播图" />
+    <MESSAGE value=":feet: 添加缓存配置" />
+    <MESSAGE value=":runner: 完善评论、回复" />
+    <MESSAGE value=":point_up: 随机轮播图" />
+    <MESSAGE value=":smile: 完善article详情" />
+    <MESSAGE value=":fire: websocket --" />
+    <MESSAGE value=":fire: websocket 未完待续" />
+    <option name="LAST_COMMIT_MESSAGE" value=":fire: websocket 未完待续" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1572,11 +1827,23 @@
           <properties />
           <option name="timeStamp" value="116" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SettingController.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="166" />
+      <option name="time" value="189" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1585,359 +1852,420 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/CommentController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/DateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="103" column="25" lean-forward="true" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/ArticleController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/ChatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="48" column="45" lean-forward="false" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+        <state relative-caret-position="362">
+          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/DeptController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/plugins/socket/stomp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="96" column="42" lean-forward="false" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+        <state relative-caret-position="538">
+          <caret line="487" column="14" lean-forward="false" selection-start-line="487" selection-start-column="14" selection-end-line="487" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/HealthController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.3.10.RELEASE/spring-messaging-4.3.10.RELEASE.jar!/org/springframework/messaging/simp/annotation/support/SimpAnnotationMethodMessageHandler.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        <state relative-caret-position="238">
+          <caret line="365" column="0" lean-forward="false" selection-start-line="365" selection-start-column="0" selection-end-line="365" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/MenuController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.3.10.RELEASE/spring-messaging-4.3.10.RELEASE.jar!/org/springframework/messaging/handler/invocation/AbstractMethodMessageHandler.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="107" column="42" lean-forward="false" selection-start-line="107" selection-start-column="42" selection-end-line="107" selection-end-column="42" />
+        <state relative-caret-position="194">
+          <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/RoleController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/security/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141">
-          <caret line="63" column="42" lean-forward="false" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+        <state relative-caret-position="-813">
+          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/admin/UserController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.2.6/shiro-core-1.2.6.jar!/org/apache/shiro/SecurityUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+        <state relative-caret-position="132">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.3.10.RELEASE/spring-messaging-4.3.10.RELEASE.jar!/org/springframework/messaging/simp/SimpMessagingTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="115" column="16" lean-forward="false" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/BaseMessage.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/front/Greeting.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/shiro/ShiroConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="60" column="28" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/carol.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/deana.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/enid.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Hershell.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Glenn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Abraham.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Tara.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Rick.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Michonne.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/avatar/people/Meggie.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/plugins/socket/sockjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-400">
+          <caret line="759" column="0" lean-forward="false" selection-start-line="759" selection-start-column="0" selection-end-line="759" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        <state relative-caret-position="308">
+          <caret line="37" column="51" lean-forward="false" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/dist/semantic.min.css">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="547993" lean-forward="false" selection-start-line="10" selection-start-column="547993" selection-end-line="10" selection-end-column="547993" />
+        <state relative-caret-position="345">
+          <caret line="96" column="21" lean-forward="false" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/4.3.10.RELEASE/spring-messaging-4.3.10.RELEASE.jar!/org/springframework/messaging/handler/invocation/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SocketController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/common/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="50" column="11" lean-forward="false" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/front/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        <state relative-caret-position="176">
+          <caret line="26" column="2" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/webConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1953">
-          <caret line="110" column="21" lean-forward="false" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+        <state relative-caret-position="172">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Settings/maven_repository/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/DeptRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2226">
-          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        <state relative-caret-position="154">
+          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/shiro/ShiroConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/MailRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+        <state relative-caret-position="110">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/MenuRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding>
-            <element signature="e#1888#1904#0" expanded="false" />
+            <marker date="1508921417717" expanded="true" signature="589:765" ph="select m.per... sys_user_role" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/html/semantic/dist/components/state.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleDeptRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="325" column="23" lean-forward="false" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="23" />
+        <state relative-caret-position="154">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.16/tomcat-embed-core-8.5.16.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleMenuRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="154">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/RoleRepositor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="475" column="0" lean-forward="false" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="405" column="0" lean-forward="false" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.10.RELEASE/spring-webmvc-4.3.10.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="94" column="31" lean-forward="false" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.6.RELEASE/spring-data-commons-1.13.6.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="241" column="5" lean-forward="true" selection-start-line="241" selection-start-column="5" selection-end-line="241" selection-end-column="5" />
-          <folding>
-            <element signature="e#3567#3568#0" expanded="true" />
-            <element signature="e#3587#3588#0" expanded="true" />
-            <element signature="e#3628#3629#0" expanded="true" />
-            <element signature="e#3655#3656#0" expanded="true" />
-            <element signature="e#3691#3692#0" expanded="true" />
-            <element signature="e#3717#3718#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="154">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/admin/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/admin/UserRoleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/controller/front/SettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        <state relative-caret-position="154">
+          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1508921457700" expanded="true" signature="607:649" ph="delete from " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/centered-paragraph.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/text-image.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/image.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/media-paragraph.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/paragraph.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/short-paragraph.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/wireframe/square-image.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/front/ArticleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        <state relative-caret-position="154">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/front/CommentRepositoty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="504">
-            <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-            <folding>
-              <marker date="1508596647000" expanded="true" signature="205:461" ph="{...}" />
-              <marker date="1508596647000" expanded="true" signature="314:387" ph="{...}" />
-              <marker date="1508596647000" expanded="true" signature="418:454" ph="{...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/PageJpa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1301#1302#0" expanded="false" />
+            <element signature="e#1318#1319#0" expanded="false" />
+            <element signature="e#1348#1349#0" expanded="false" />
+            <element signature="e#1369#1370#0" expanded="false" />
+            <element signature="e#1396#1397#0" expanded="false" />
+            <element signature="e#1415#1416#0" expanded="false" />
+            <element signature="e#1443#1444#0" expanded="false" />
+            <element signature="e#1461#1462#0" expanded="false" />
+            <element signature="e#1506#1507#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1613#1614#0" expanded="false" />
+            <element signature="e#1657#1658#0" expanded="false" />
+            <element signature="e#1688#1689#0" expanded="false" />
+            <element signature="e#1734#1735#0" expanded="false" />
+            <element signature="e#1767#1768#0" expanded="false" />
+            <element signature="e#1800#1801#0" expanded="false" />
+            <element signature="e#1824#1825#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="false" />
+            <element signature="e#1875#1876#0" expanded="false" />
+            <element signature="e#1907#1908#0" expanded="false" />
+            <element signature="e#1929#1930#0" expanded="false" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#1985#1986#0" expanded="false" />
+            <element signature="e#2022#2023#0" expanded="false" />
+            <element signature="e#2047#2048#0" expanded="false" />
+            <element signature="e#2085#2086#0" expanded="false" />
+            <element signature="e#2108#2109#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/UserStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SendType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/service/socket/ChatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="75" lean-forward="false" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SocketMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="32" column="31" lean-forward="false" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/IMManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="121" column="55" lean-forward="false" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/repository/socket/ChatRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="124" lean-forward="false" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/SocketUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="42" column="64" lean-forward="false" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMassistWS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/admin/edit-role.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="261" column="37" lean-forward="false" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/intercepter/Intercepter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/utils/ITBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="99" column="49" lean-forward="false" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-macro-header.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-header.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        <state relative-caret-position="183">
+          <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/settings.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+        <state relative-caret-position="1760">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/front-macro-footer.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/socket/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2366#2367#0" expanded="true" />
+            <element signature="e#2406#2407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/entity/admin/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1233">
+          <caret line="87" column="49" lean-forward="false" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/itbcat/boot/config/socket/IMSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/customjs/custom-chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="182" column="8" lean-forward="false" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/module/front/chat.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="246" column="31" lean-forward="false" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
           <folding />
         </state>
       </provider>

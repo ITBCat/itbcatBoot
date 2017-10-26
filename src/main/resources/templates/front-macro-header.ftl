@@ -19,6 +19,10 @@
 <script type="text/javascript" src="/static/plugins/jquerygroup/jquery.goup.js"></script>
 
 <script type="text/javascript">
+    var user;
+    <#if _J_user??>
+     user= JSON.parse('${_J_user}');
+    </#if>
 
     $(document).ready(function () {
 

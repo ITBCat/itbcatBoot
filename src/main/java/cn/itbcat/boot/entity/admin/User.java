@@ -83,9 +83,13 @@ public class User implements Serializable {
 		return chatStatus;
 	}
 
-	public void setChatStatus(UserStatus chatStatus) {
-		this.chatStatus = chatStatus;
+	public void setChatStatus(UserStatus userStatus) {
+		this.chatStatus = userStatus;
+		if(UserStatus.NotOnline.equals(userStatus)){
+			this.leaveTime = new Date();
+		}
 	}
+
 
 	public String getIsAdmin() {
 		return isAdmin;

@@ -194,7 +194,7 @@
                             <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
                             <i class="fa fa-file-image-o"></i>
 
-                            <button id="send"><i class="send icon"></i></button>
+                            <button id="send" onclick="sendMessage('Friend','1')"><i class="send icon"></i></button>
                         </div> <!-- end chat-message -->
                     </div> <!-- end chat -->
                 </div>
@@ -203,6 +203,9 @@
     </div>
 <!--Site Content-->
 </div>
+<script src='/static/js/handlebars.min.js'></script>
+<script src='/static/js/list.min.js'></script>
+<script src="/static/js/customjs/custom-chat.js"></script>
 <script id="message-template" type="text/x-handlebars-template">
     <li class="clearfix">
         <div class="message-data align-right">
@@ -225,4 +228,27 @@
             {{response}}
         </div>
     </li>
+</script>
+
+<script type="text/javascript">
+    function sendMessage(type, sendId) {
+        var content = $('#message-to-send').val().replace(/[\r\n]/g, "");
+        if (websocketTool && websocketTool.onlineStatus == 1) {
+            var tp =  0;
+            var sendName = 'ITBC';
+            var message = {
+                userId: websocketTool.user.userId,
+                userName: websocketTool.user.username,
+                type: tp,
+                content: content,
+                sendId: sendId,
+                sendName: sendName
+            };
+            websocketTool.sendMessage(message);
+
+        } else {
+            $("#text" + type + sendId).val(content);
+            layer.msg("已离线，发送失败！");
+        }
+    }
 </script>

@@ -1,25 +1,24 @@
 package cn.itbcat.boot.config.socket;
 
 import cn.itbcat.boot.entity.admin.User;
-import cn.itbcat.boot.entity.socket.Chat;
-import cn.itbcat.boot.entity.socket.MessageType;
-import cn.itbcat.boot.entity.socket.SendType;
-import cn.itbcat.boot.entity.socket.UserStatus;
+import cn.itbcat.boot.entity.socket.*;
 import cn.itbcat.boot.repository.socket.ChatRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.service.socket.ChatService;
 import cn.itbcat.boot.utils.IMManager;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import static jdk.nashorn.internal.objects.Global.print;
@@ -71,4 +70,75 @@ public class IMSocket {
         }
     }
 
+    @OnMessage
+    public void onMessage(String message,Session session){
+        Chat chat = null;
+        try{
+            //解析前台传过来的数据 chat & User
+            SocketMessage sm = JSON.parseObject(message,SocketMessage.class);
+            User user = sm.getUser();
+            chat = sm.getMessage();
+            if(user != null && StringUtils.isNotEmpty(user.getUserId())){
+                IMManager.addUser(user, session);
+            }
+            if (chat == null || StringUtils.isEmpty(chat.getSendId())) {
+                chat = null;
+            } else {
+                print("the tm:" + chat.toString());
+                chat.setSendType(SendType.UNSENT);
+                chat.setTimeStamp(new Date());
+                if (MessageType.FRIEND == chat.getType()) {
+                    SocketUser su = IMManager.getSocketUserByUserId(chat.getSendId());
+                    if (su != null && su.getSession() != null && su.getSession().isOpen()) {
+                        su.getSession().getBasicRemote().sendText(JSON.toJSONString(chat));
+                        System.out.println("send message to "+chat.getSendName());
+                        chat.setSendType(SendType.SENT);
+                    }
+                } else if (MessageType.GROUP == chat.getType()) {
+                    List<String> ids = sm.getGroupIds();
+                    if(ids != null && ids.size() > 0){
+                        for (String sendId : ids) {
+                            if(chat.getUserId().equals(sendId)){
+                                continue;
+                            }
+                            SocketUser su = IMManager.getSocketUserByUserId(sendId);
+                            if(su != null && su.getSession()!= null && su.getSession().isOpen()){
+                                try {
+                                    su.getSession().getBasicRemote().sendText(JSON.toJSONString(chat));
+                                } catch (IOException ie) {
+                                    ie.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    chat.setSendType(SendType.SENT);
+                }
+            }
+            if (chat != null && chatService != null) {
+                chatService.save(chat);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @OnError
+    public void error(Throwable t) {
+        print("连接错误:" + t.getMessage());
+        t.printStackTrace();
+    }
+
+    @OnClose
+    public void close(Session session) {
+        SocketUser su = IMManager.getSocketUserBySeesionId(session.getId());
+        if (su != null) {
+            su.getUser().setChatStatus(UserStatus.NotOnline);
+            print(su.getUser().getUsername() + "用户掉线");
+        }
+        //print("当前在线用户："+LayIMFactory.createManager().getOnlineCount());
+
+    }
+
+    private void print(String message) {
+        System.out.println(message);
+    }
 }

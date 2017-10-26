@@ -95,6 +95,11 @@ public class ITBC {
     public static final String _USER="_user";
 
     /**
+     * J_user
+     */
+    public static final String JSON_USER="_J_user";
+
+    /**
      * cache name
      */
     public static final String CACHE_NAME="ITBC";

@@ -3,12 +3,15 @@ package cn.itbcat.boot.config.intercepter;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,7 +46,10 @@ public class Intercepter implements HandlerInterceptor {
 			boolean flag = false;
 			if(null!=user){
 				flag = true;
-				modelAndView.addObject(ITBC._USER,user);
+				String _userString = JSON.toJSONString(user);
+				JSONObject _user = JSONObject.parseObject(_userString);
+				modelAndView.addObject(ITBC._USER,_user);
+				modelAndView.addObject(ITBC.JSON_USER,_userString);
 			}
 			modelAndView.addObject(ITBC.ITBC_FRONT,ITBC.SERVER_NAME_FRONT);
 			modelAndView.addObject(ITBC.ITBC_ADMIN,ITBC.SERVER_NAME_ADMIN);

@@ -18,12 +18,21 @@ public class Chat {
     @Column(unique = true,nullable = false,length = 20)
     private String id;
 
-    @Column(name = "username")
-    private String username;
-
+    /**
+     * 发送者Id
+     */
     @Column(name = "user_id")
     private String userId;
 
+    /**
+     * 发送者姓名
+     */
+    @Column(name = "username")
+    private String userName;
+
+    /**
+     * 发送内容
+     */
     @Column(length = 4000)
     private String content;
 
@@ -35,18 +44,27 @@ public class Chat {
      * 发送类型
      */
     private SendType sendType;
+
     /**
-     * 目标id（用户或群组）
+     * 消息类型
+     */
+    private MessageType type;
+
+    /**
+     * 接收人id（用户或群组）
      */
     private String sendId;
     /**
-     * 目标姓名（用户或群组）
+     * 接收人姓名（用户或群组）
      */
     private String sendName;
 
-    public Chat(SendType sendType) {
-        // TODO Auto-generated method stub
-        this.sendType = sendType;
+    public MessageType getType() {
+        return type;
+    }
+
+    public void setType(MessageType type) {
+        this.type = type;
     }
 
     public String getId() {
@@ -58,11 +76,11 @@ public class Chat {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
 
     public String getUserId() {
@@ -111,5 +129,28 @@ public class Chat {
 
     public void setSendName(String sendName) {
         this.sendName = sendName;
+    }
+
+    public Chat() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public Chat(SendType sendType){
+        this.sendType = sendType;
+    }
+
+    @Override
+    public String toString() {
+        return "TextMessage{" +
+                "id='" + id + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userId='" + userId + '\'' +
+                ", type=" + type +
+                ", content='" + content + '\'' +
+                ", timeStamp=" + timeStamp +
+                ", sendType=" + sendType +
+                ", sendId='" + sendId + '\'' +
+                ", sendName='" + sendName + '\'' +
+                '}';
     }
 }
