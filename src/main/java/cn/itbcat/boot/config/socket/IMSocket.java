@@ -6,6 +6,7 @@ import cn.itbcat.boot.repository.socket.ChatRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.service.socket.ChatService;
 import cn.itbcat.boot.utils.IMManager;
+import cn.itbcat.boot.utils.ITBC;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
@@ -57,6 +58,7 @@ public class IMSocket {
             if(list != null && list.size() > 0){
                 list.stream().forEach(chat -> {
                     try {
+                        chat.setUserAvatar(userService.get(chat.getUserId()).getAvatar());
                         session.getBasicRemote().sendText(JSON.toJSONString(chat));
                         chat.setSendType(SendType.SENT);
                         chatService.save(chat);
@@ -81,27 +83,28 @@ public class IMSocket {
             if(user != null && StringUtils.isNotEmpty(user.getUserId())){
                 IMManager.addUser(user, session);
             }
-            if (chat == null || StringUtils.isEmpty(chat.getSendId())) {
+            if (chat == null || StringUtils.isEmpty(chat.getReceiveId())) {
                 chat = null;
             } else {
                 print("the tm:" + chat.toString());
                 chat.setSendType(SendType.UNSENT);
                 chat.setTimeStamp(new Date());
+                chat.setUserAvatar(user.getAvatar());
                 if (MessageType.FRIEND == chat.getType()) {
-                    SocketUser su = IMManager.getSocketUserByUserId(chat.getSendId());
+                    SocketUser su = IMManager.getSocketUserByUserId(chat.getReceiveId());
                     if (su != null && su.getSession() != null && su.getSession().isOpen()) {
                         su.getSession().getBasicRemote().sendText(JSON.toJSONString(chat));
-                        System.out.println("send message to "+chat.getSendName());
+                        System.out.println("send message to "+chat.getReceiveName());
                         chat.setSendType(SendType.SENT);
                     }
                 } else if (MessageType.GROUP == chat.getType()) {
                     List<String> ids = sm.getGroupIds();
                     if(ids != null && ids.size() > 0){
-                        for (String sendId : ids) {
-                            if(chat.getUserId().equals(sendId)){
+                        for (String receiveId : ids) {
+                            if(chat.getUserId().equals(receiveId)){
                                 continue;
                             }
-                            SocketUser su = IMManager.getSocketUserByUserId(sendId);
+                            SocketUser su = IMManager.getSocketUserByUserId(receiveId);
                             if(su != null && su.getSession()!= null && su.getSession().isOpen()){
                                 try {
                                     su.getSession().getBasicRemote().sendText(JSON.toJSONString(chat));
@@ -115,6 +118,7 @@ public class IMSocket {
                 }
             }
             if (chat != null && chatService != null) {
+                chat.setId(ITBC.getId());
                 chatService.save(chat);
             }
         }catch (Exception e){

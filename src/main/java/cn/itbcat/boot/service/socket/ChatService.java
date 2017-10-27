@@ -22,8 +22,8 @@ public class ChatService {
         return chatRepository.save(chat);
     }
 
-    public List<Chat> getList(String sendId, SendType sendType, MessageType type){
-        return chatRepository.getListByParam(sendId, sendType, type);
+    public List<Chat> getList(String receiveId, SendType sendType, MessageType type){
+        return chatRepository.getListByParam(receiveId, sendType, type);
     }
 
 }

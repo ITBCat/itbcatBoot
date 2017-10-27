@@ -80,7 +80,7 @@
                 <#if _user?? && _user.avatar??>
                     <img id="_avatar_heard" class="ui mini rounded image" style="height: 35px;width: 35px;" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'   " alt="label-image" />
                 <#else >
-                    <img id="_avatar_heard" class="ui mini rounded image" style="height: 35px;width: 35px;" src="${ITBCNginx}/${_user.avatar}" alt="label-image" />
+                    <img id="_avatar_heard" class="ui mini rounded image" style="height: 35px;width: 35px;" src="/static/i.png" alt="label-image" />
                 </#if>
                 <div class="menu">
                     <a class="item" href="mail.html">Inbox</a>

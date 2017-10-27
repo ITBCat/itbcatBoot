@@ -53,11 +53,14 @@ public class Chat {
     /**
      * 接收人id（用户或群组）
      */
-    private String sendId;
+    private String receiveId;
     /**
      * 接收人姓名（用户或群组）
      */
-    private String sendName;
+    private String receiveName;
+
+    @Transient
+    private String userAvatar;
 
     public MessageType getType() {
         return type;
@@ -115,20 +118,28 @@ public class Chat {
         this.sendType = sendType;
     }
 
-    public String getSendId() {
-        return sendId;
+    public String getReceiveId() {
+        return receiveId;
     }
 
-    public void setSendId(String sendId) {
-        this.sendId = sendId;
+    public void setReceiveId(String receiveId) {
+        this.receiveId = receiveId;
     }
 
-    public String getSendName() {
-        return sendName;
+    public String getReceiveName() {
+        return receiveName;
     }
 
-    public void setSendName(String sendName) {
-        this.sendName = sendName;
+    public void setReceiveName(String receiveName) {
+        this.receiveName = receiveName;
+    }
+
+    public String getUserAvatar() {
+        return userAvatar;
+    }
+
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
     public Chat() {
@@ -149,8 +160,8 @@ public class Chat {
                 ", content='" + content + '\'' +
                 ", timeStamp=" + timeStamp +
                 ", sendType=" + sendType +
-                ", sendId='" + sendId + '\'' +
-                ", sendName='" + sendName + '\'' +
+                ", receiveId='" + receiveId + '\'' +
+                ", receiveName='" + receiveName + '\'' +
                 '}';
     }
 }

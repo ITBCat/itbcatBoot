@@ -19,6 +19,6 @@ import java.util.List;
 @Transactional
 public interface ChatRepository extends JpaRepository<Chat,String>,JpaSpecificationExecutor<Chat> {
 
-    @Query("select ic from Chat ic where sendId=:sendId and sendType=:sendType and type=:type ")
-    List<Chat> getListByParam(@Param("sendId")String sendId, @Param("sendType")SendType sendType, @Param("type") MessageType type);
+    @Query("select ic from Chat ic where receiveId=:receiveId and sendType=:sendType and type=:type ")
+    List<Chat> getListByParam(@Param("receiveId")String receiveId, @Param("sendType")SendType sendType, @Param("type") MessageType type);
 }

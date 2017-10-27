@@ -4,108 +4,33 @@
     <div class="stretched row">
         <div class="sixteen wide tablet three wide computer column">
             <div class="ui segments">
-                <div class="ui segment">
-                    <h5 class="ui header">
-                        People List
+                <div class="ui segment" style="height: 40px;">
+                    <h5 class="ui left floated header">
+                        好友列表
                     </h5>
+                    <a style="float: right;" data-content="添加好友" data-variation="inverted"><i style="font-size: large;" class="add user icon"></i></a>
                 </div>
                 <div class="ui segment no-padding">
                     <div class="people-list" id="people-list">
                         <div class="search">
-                            <input type="text" placeholder="search">
-                            <i class="fa fa-search"></i>
+                            <input type="text" placeholder="搜索...">
                         </div>
                         <ul class="list">
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/enid.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Vincent Porter</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
+                            <#list friends as item>
+                                <li class="clearfix" onclick="chat.choseFriend('${item.friend.userId}','${item.friend.username}'<#if item.friend.avatar??>,'${item.friend.avatar}'</#if>)" style="cursor:pointer;">
+                                    <#if item.friend.avatar??>
+                                        <img class="ui circular image" src="${ITBCNginx}/${item.friend.avatar}" onerror="this.src='/static/i.png'   " alt="label-image" />
+                                    <#else >
+                                        <img class="ui circular image" src="/static/i.png" alt="label-image" />
+                                    </#if>
+                                    <div class="about">
+                                        <div class="name">${item.friend.username}</div>
+                                        <div class="status">
+                                            <i class="icon circle online"></i> online
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Glenn.png"  alt="avatar">
-                                <div class="about">
-                                    <div class="name">Aiden Chavez</div>
-                                    <div class="status">
-                                        <i class="icon circle offline"></i> left 7 mins ago
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Hershell.png" alt="label-image"  alt="avatar">
-                                <div class="about">
-                                    <div class="name">Mike Thomas</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Abraham.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Erica Hughes</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/carol.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Ginger Johnston</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/deana.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Tracy Carpenter</div>
-                                    <div class="status">
-                                        <i class="icon circle offline"></i> left 30 mins ago
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Hershell.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Christian Kelly</div>
-                                    <div class="status">
-                                        <i class="icon circle offline"></i> left 10 hours ago
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Rick.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Monica Ward</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Tara.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Dean Henry</div>
-                                    <div class="status">
-                                        <i class="icon circle offline"></i> offline since Oct 28
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <img class="ui circular image" src="/static/img/avatar/people/Michonne.png" alt="avatar"/>
-                                <div class="about">
-                                    <div class="name">Peyton Mckinney</div>
-                                    <div class="status">
-                                        <i class="icon circle online"></i> online
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            </#list>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -118,17 +43,16 @@
             <div class="ui segments">
                 <div class="ui segment">
                     <h5 class="ui header">
-                        Chat
+                        聊天室
                     </h5>
                 </div>
                 <div class="ui segment">
 
                     <div class="chat">
-                        <div class="chat-header clearfix">
-                            <img class="ui circular image" src="/static/img/avatar/people/Meggie.png" alt="avatar"/>
-
+                        <div id="_chat_header" class="chat-header clearfix" style="display: none;background:#444753;border-radius: 4px 4px 0 0; ">
+                            <img id="_chat_from_avatar" class="ui circular image" src="" alt="avatar"/>
                             <div class="chat-about">
-                                <div class="chat-with">Chat with Vincent Porter</div>
+                                <div class="chat-with" style="color: white;">Chat with . . .</div>
                                 <div class="chat-num-messages">already 1 902 messages</div>
                             </div>
                             <i class="fa fa-star"></i>
@@ -136,65 +60,17 @@
 
                         <div class="chat-history">
                             <ul>
-                                <li class="clearfix">
-                                    <div class="message-data align-right">
-                                        <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
-                                        <span class="message-data-name">Olia</span> <i class="icon circle me"></i>
-                                    </div>
-                                    <div class="message other-message float-right">
-                                        Hi Vincent, how are you? How is the project coming along?
-                                    </div>
-                                </li>
 
-                                <li>
-                                    <div class="message-data">
-                                        <span class="message-data-name"><i class="icon circle online"></i> Vincent</span>
-                                        <span class="message-data-time">10:12 AM, Today</span>
-                                    </div>
-                                    <div class="message my-message">
-                                        Are we meeting today? Project has been already finished and I have results to show you.
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="message-data align-right">
-                                        <span class="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
-                                        <span class="message-data-name">Olia</span> <i class="icon circle me"></i>
-                                    </div>
-                                    <div class="message other-message float-right">
-                                        Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="message-data">
-                                        <span class="message-data-name"><i class="icon circle online"></i> Vincent</span>
-                                        <span class="message-data-time">10:20 AM, Today</span>
-                                    </div>
-                                    <div class="message my-message">
-                                        Actually everything was fine. I'm very excited to show this to our team.
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="message-data">
-                                        <span class="message-data-name"><i class="icon circle online"></i> Vincent</span>
-                                        <span class="message-data-time">10:31 AM, Today</span>
-                                    </div>
-                                    <i class="icon circle online"></i>
-                                    <i class="icon circle online" style="color: #AED2A6"></i>
-                                    <i class="icon circle online" style="color:#DAE9DA"></i>
-                                </li>
                             </ul>
                         </div> <!-- end chat-history -->
 
-                        <div class="chat-message clearfix">
-                            <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                        <div class="chat-message clearfix" style="background-color: #EEEEEE;">
+                            <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3" style="border: 2px solid #94C2ED;"></textarea>
 
                             <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
                             <i class="fa fa-file-image-o"></i>
 
-                            <button id="send" onclick="sendMessage('Friend','1')"><i class="send icon"></i></button>
+                            <button id="send"><i class="send icon"></i>发送</button>
                         </div> <!-- end chat-message -->
                     </div> <!-- end chat -->
                 </div>
@@ -209,10 +85,10 @@
 <script id="message-template" type="text/x-handlebars-template">
     <li class="clearfix">
         <div class="message-data align-right">
-            <span class="message-data-time">{{time}}, Today</span> &nbsp; &nbsp;
-            <span class="message-data-name">Olia</span> <i class="icon circle me"></i>
+            <span class="message-data-time">{{time}}</span> &nbsp; &nbsp;
+            <span class="message-data-name">{{name}}</span> <i class="icon circle me"></i>
         </div>
-        <div class="message other-message float-right">
+        <div class="message other-message float-right" style="white-space: normal;word-break: break-all;word-wrap: break-word;">
             {{messageOutput}}
         </div>
     </li>
@@ -221,34 +97,21 @@
 <script id="message-response-template" type="text/x-handlebars-template">
     <li>
         <div class="message-data">
-            <span class="message-data-name"><i class="icon circle online"></i> Vincent</span>
-            <span class="message-data-time">{{time}}, Today</span>
+            <span class="message-data-name"><i class="icon circle online"></i> {{name}}</span>
+            <span class="message-data-time">{{time}}</span>
         </div>
-        <div class="message my-message">
+        <div class="message my-message" style="white-space: normal;word-break: break-all;word-wrap: break-word;">
             {{response}}
         </div>
     </li>
 </script>
-
 <script type="text/javascript">
-    function sendMessage(type, sendId) {
-        var content = $('#message-to-send').val().replace(/[\r\n]/g, "");
-        if (websocketTool && websocketTool.onlineStatus == 1) {
-            var tp =  0;
-            var sendName = 'ITBC';
-            var message = {
-                userId: websocketTool.user.userId,
-                userName: websocketTool.user.username,
-                type: tp,
-                content: content,
-                sendId: sendId,
-                sendName: sendName
-            };
-            websocketTool.sendMessage(message);
-
-        } else {
-            $("#text" + type + sendId).val(content);
-            layer.msg("已离线，发送失败！");
-        }
+    var ITBC = {
+        ITBCNginx:'${ITBCNginx}'
     }
+    $(function () {
+        chat.init();
+        searchFilter.init();
+        websocketTool.init(user);
+    });
 </script>
