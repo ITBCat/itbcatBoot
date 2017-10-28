@@ -30,7 +30,7 @@ public class ShiroService {
         //系统管理员，拥有最高权限
         if(u.getIsAdmin().equals(ITBC.SUPER_ADMIN)){
             List<Menu> menuList = menuRepository.findAll();
-            permsList = new ArrayList<>(menuList.size());
+            permsList = new ArrayList<String>(menuList.size());
             for(Menu menu : menuList){
                 permsList.add(menu.getPerms());
             }
@@ -39,7 +39,7 @@ public class ShiroService {
             permsList = menuRepository.queryAllPerms(userId);
         }
         //用户权限列表
-        Set<String> permsSet = new HashSet<>();
+        Set<String> permsSet = new HashSet<String>();
         for(String perms : permsList){
             if(StringUtils.isBlank(perms)){
                 continue;

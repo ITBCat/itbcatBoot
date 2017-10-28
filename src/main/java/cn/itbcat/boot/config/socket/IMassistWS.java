@@ -28,7 +28,7 @@ public class IMassistWS {
     @OnMessage
     public void onMessage(String id, Session session) {
         String re = "offline";
-        Map<String, String> result = new HashMap<>();
+        Map<String, String> result = new HashMap<String, String>();
         result.put("id", id);
         if (StringUtils.isNotEmpty(id)) {
             SocketUser su = IMManager.getSocketUserByUserId(id);

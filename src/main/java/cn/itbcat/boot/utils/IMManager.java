@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
  * Description:
  */
 public class IMManager {
-    private final static List<SocketUser> list = new ArrayList<>();
+    private final static List<SocketUser> list = new ArrayList<SocketUser>();
     //SynchronizedMap类是定义在Collections中的一个静态内部类。它实现了Map接口，并对其中的每一个方法实现，通过synchronized 关键字进行了同步控制
  // Collections.synchronizedMap 返回的是一个线程安全的hashMap(原hashMap为线程不安全的，需要手动在线程中处理，synchronizedMap省去这一步骤)
-    private final static Map<String, SocketUser> map = Collections.synchronizedMap(new HashMap<>());
-    private final static Map<String, SocketUser> sessionMap = Collections.synchronizedMap(new HashMap<>());
+    private final static Map<String, SocketUser> map = Collections.synchronizedMap(new HashMap<String, SocketUser>());
+    private final static Map<String, SocketUser> sessionMap = Collections.synchronizedMap(new HashMap<String, SocketUser>());
     private final static Chat exitMessage = new Chat(SendType.LEAVE);
 
     /**
