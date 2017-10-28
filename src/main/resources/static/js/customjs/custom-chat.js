@@ -77,6 +77,7 @@ var chat = {
     choseFriend:function (receiveId,receiveName,avatar) {
         chat.receiveId = receiveId;
         chat.receiveName = receiveName;
+        window.location.href= ITBC.ITBCFront+'/chat?rid='+receiveId;
         $('.chat-with').html(' '+receiveName);
         if(avatar){
             $('#_chat_from_avatar').attr('src',ITBC.ITBCNginx+'/'+avatar);
@@ -174,26 +175,21 @@ var websocketTool = {
                 that.notOnlineEvent();
             } else {
                 console.log('onmessage.message:', message);
-                $('.chat-with').html(' '+message.username);
-                if(message.userAvatar){
-                    $("#_chat_from_avatar").attr("src", ITBC.ITBCNginx+'/'+message.userAvatar);
-                }else{
-                    $("#_chat_from_avatar").attr("src", "/static/i.png");
-                }
-                $('#_chat_header').show();
-                chat.receiveId=message.userId;
-                chat.receiveName=message.userName;
-                var templateResponse = Handlebars.compile($('#message-response-template').html());
-                var contextResponse = {
-                    name: message.username,
-                    response: message.content,
-                    time: timestampFormat(message.timeStamp)
-                };
+                if(message.receiveId==user.userId){
+                    chat.receiveId=message.userId;
+                    chat.receiveName=message.userName;
+                    var templateResponse = Handlebars.compile($('#message-response-template').html());
+                    var contextResponse = {
+                        name: message.username,
+                        response: message.content,
+                        time: timestampFormat(message.timeStamp)
+                    };
 
-                setTimeout(function () {
-                    chat.$chatHistoryList.append(templateResponse(contextResponse));
-                    chat.scrollToBottom();
-                }.bind(chat), 1500);
+                    setTimeout(function () {
+                        chat.$chatHistoryList.append(templateResponse(contextResponse));
+                        chat.scrollToBottom();
+                    }.bind(chat), 1500);
+                }
             }
         };
     },

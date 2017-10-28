@@ -21,4 +21,10 @@ public interface ChatRepository extends JpaRepository<Chat,String>,JpaSpecificat
 
     @Query("select ic from Chat ic where receiveId=:receiveId and sendType=:sendType and type=:type ")
     List<Chat> getListByParam(@Param("receiveId")String receiveId, @Param("sendType")SendType sendType, @Param("type") MessageType type);
+
+    List<Chat> findChatByReceiveIdAndUserId(String receiveId, String currUserId);
+
+    List<Chat> findChatByReceiveId(String receiveId);
+
+    List<Chat> findChatByUserId(String receiveId);
 }

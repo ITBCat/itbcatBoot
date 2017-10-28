@@ -110,6 +110,11 @@ public class ITBC {
     public static final String CHAT_FRIENDS="friends";
 
     /**
+     * Messages Key
+     */
+    public static final String CHAT_FMESSAGES="messages";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";

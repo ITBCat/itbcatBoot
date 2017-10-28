@@ -62,6 +62,9 @@ public class Chat {
     @Transient
     private String userAvatar;
 
+    @Transient
+    private String positon;
+
     public MessageType getType() {
         return type;
     }
@@ -140,6 +143,14 @@ public class Chat {
 
     public void setUserAvatar(String userAvatar) {
         this.userAvatar = userAvatar;
+    }
+
+    public String getPositon() {
+        return positon;
+    }
+
+    public void setPositon(String positon) {
+        this.positon = positon;
     }
 
     public Chat() {

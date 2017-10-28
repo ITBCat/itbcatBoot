@@ -39,43 +39,70 @@
                 </div>
             </div>
         </div>
-        <div class="sixteen wide tablet thirteen wide computer column">
-            <div class="ui segments">
-                <div class="ui segment">
-                    <h5 class="ui header">
-                        聊天室
-                    </h5>
-                </div>
-                <div class="ui segment">
+        <#if messages??>
+            <div class="sixteen wide tablet thirteen wide computer column">
+                <div class="ui segments">
+                    <div class="ui segment">
+                        <h5 class="ui header">
+                            聊天室
+                        </h5>
+                    </div>
+                    <div class="ui segment">
+                        <div class="chat">
+                            <div id="_chat_header" class="chat-header clearfix" style="background:#444753;border-radius: 4px 4px 0 0; ">
+                                <#if receiver.avatar??>
+                                    <img id="_chat_from_avatar" class="ui circular image" src="${ITBCNginx}/${receiver.avatar}" onerror="this.src='/static/i.png'" alt="avatar"/>
+                                <#else >
+                                    <img id="_chat_from_avatar" class="ui circular image" src="/static/i.png" alt="avatar"/>
+                                </#if>
+                                <div class="chat-about">
+                                    <div class="chat-with" style="color: white;">${receiver.username}</div>
+                                    <div class="chat-num-messages">already 1 902 messages</div>
+                                </div>
+                                <i class="fa fa-star"></i>
+                            </div> <!-- end chat-header -->
 
-                    <div class="chat">
-                        <div id="_chat_header" class="chat-header clearfix" style="display: none;background:#444753;border-radius: 4px 4px 0 0; ">
-                            <img id="_chat_from_avatar" class="ui circular image" src="" alt="avatar"/>
-                            <div class="chat-about">
-                                <div class="chat-with" style="color: white;">Chat with . . .</div>
-                                <div class="chat-num-messages">already 1 902 messages</div>
-                            </div>
-                            <i class="fa fa-star"></i>
-                        </div> <!-- end chat-header -->
+                            <div class="chat-history">
+                                <ul>
+                                    <#list messages as item>
+                                        <#if item.positon == 'r'>
+                                            <li class="clearfix">
+                                                <div class="message-data align-right">
+                                                    <span class="message-data-time">${item.timeStamp}</span> &nbsp; &nbsp;
+                                                    <span class="message-data-name"> ${item.username}</span> <i class="icon circle me"></i>
+                                                </div>
+                                                <div class="message other-message float-right" style="white-space: normal;word-break: break-all;word-wrap: break-word;">
+                                                    ${item.content}
+                                                </div>
+                                            </li>
+                                        <#else >
+                                            <li>
+                                                <div class="message-data">
+                                                    <span class="message-data-name"><i class="icon circle online"></i> ${receiver.username}</span>
+                                                    <span class="message-data-time">${item.timeStamp}</span>
+                                                </div>
+                                                <div class="message my-message" style="white-space: normal;word-break: break-all;word-wrap: break-word;">
+                                                    ${item.content}
+                                                </div>
+                                            </li>
+                                        </#if>
+                                    </#list>
+                                </ul>
+                            </div> <!-- end chat-history -->
 
-                        <div class="chat-history">
-                            <ul>
+                            <div class="chat-message clearfix" style="background-color: #EEEEEE;">
+                                <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3" style="border: 2px solid #94C2ED;"></textarea>
 
-                            </ul>
-                        </div> <!-- end chat-history -->
+                                <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-file-image-o"></i>
 
-                        <div class="chat-message clearfix" style="background-color: #EEEEEE;">
-                            <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3" style="border: 2px solid #94C2ED;"></textarea>
-
-                            <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-file-image-o"></i>
-
-                            <button id="send"><i class="send icon"></i>发送</button>
-                        </div> <!-- end chat-message -->
-                    </div> <!-- end chat -->
+                                <button id="send"><i class="send icon"></i>发送</button>
+                            </div> <!-- end chat-message -->
+                        </div> <!-- end chat -->
+                    </div>
                 </div>
             </div>
-        </div>
+        </#if>
     </div>
 <!--Site Content-->
 </div>
@@ -106,12 +133,19 @@
     </li>
 </script>
 <script type="text/javascript">
-    var ITBC = {
-        ITBCNginx:'${ITBCNginx}'
-    }
+
     $(function () {
+    <#if messages??>
         chat.init();
+        chat.receiveId='${receiver.userId}';
+        chat.receiveName='${receiver.username}';
+    </#if>
         searchFilter.init();
         websocketTool.init(user);
     });
+
+    var ITBC = {
+        ITBCNginx:'${ITBCNginx}',
+        ITBCFront:'${ITBCFront}'
+    }
 </script>
