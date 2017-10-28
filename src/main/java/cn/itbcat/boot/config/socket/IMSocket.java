@@ -56,7 +56,7 @@ public class IMSocket {
         try {
             List<Chat> list = chatService.getList(uid, SendType.UNSENT, MessageType.FRIEND);
             if(list != null && list.size() > 0){
-                for(Chat chat : list) {
+                list.stream().forEach(chat -> {
                     try {
                         chat.setUserAvatar(userService.get(chat.getUserId()).getAvatar());
                         session.getBasicRemote().sendText(JSON.toJSONString(chat));
@@ -65,7 +65,7 @@ public class IMSocket {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
+                });
             }
         } catch (Exception e) {
             // TODO: handle exception
