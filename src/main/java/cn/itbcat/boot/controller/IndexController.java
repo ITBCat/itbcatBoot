@@ -57,8 +57,7 @@ public class IndexController {
         Page<Article> articles = articleService.findAll(pageable);
         data.put("articles",articles.getContent());
         data.put("curNum",articles.getTotalPages());
-        data.put("pageSize",articles.getTotalElements());
-        data.put("page",articles.toString());
+        data.put("paginationPageCount",articles.getTotalElements());
         data.put("template","index");
         return "front";
     }

@@ -1,3 +1,4 @@
+<#include "../../common/macro-pagination.ftl" as>
 <div class="ui container">
     <#if spanner>
         <link rel="stylesheet" type="text/css" href="/static/plugins/jquerySFQ/index.css"/>
@@ -78,7 +79,6 @@
                     <div class="divider"> / </div>
                     <div class="section" style="color: #676767;">最新回复</div>
                 </div>
-                ${page.}
                 <#list articles as item>
                     <div class="ui divider"></div>
                     <div class="item">
@@ -136,6 +136,7 @@
                     </div>
                 </#list>
                 <div class="ui divider"></div>
+            <@pagination url="${ITBCFront}/"/>
             </div>
         </div>
         <div class="five wide column" >

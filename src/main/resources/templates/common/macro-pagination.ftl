@@ -1,19 +1,23 @@
-<#macro pagination url, pjaxTitle="">
+<#macro pagination url>
 <#if paginationPageCount?? && paginationPageCount!=0 && paginationPageCount!=1>
-    <div class="pagination">
-        <#if paginationFirstPageNum!=1>
-        <a  rel="prev" href="${url}">1</a>
-        </#if>
-        <#list paginationPageNums as nums>
-        <#if nums=paginationCurrentPageNum>
-        <span class="current">${nums}</span>
+    <ul class="pagination">
+        <#if (cur > 1)>
+            <li><a href="/course/list?c=${c!"all"}&page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
         <#else>
-        <a href="${url}?p=${nums}">${nums}</a>
+            <li class="disabled"><a href="/course/list&c=${c!"all"}?page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
         </#if>
+        <#list 1..count as t>
+            <#if cur == t>
+                <li class="active"><a href="/course/list?c=${c!"all"}&page=${t - 1}">${t}</a></li>
+            <#else>
+                <li><a href="/course/list?c=${c!"all"}&page=${t - 1}"></a></li>
+            </#if>
         </#list>
-        <#if paginationLastPageNum!=paginationPageCount>
-        <a rel="next" href="${url}?p=${paginationPageCount}">${paginationPageCount}</a>
+        <#if (cur < count)>
+            <li><a href="/course/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
+        <#else>
+            <li class="disabled"><a href="/course/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
         </#if>
-    </div>
+    </ul>
 </#if>
 </#macro>
