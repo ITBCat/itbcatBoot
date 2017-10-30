@@ -68,7 +68,7 @@
                 语言 <i class="dropdown icon"></i>
                 <div class="menu transition hidden" tabindex="-1">
                     <a class="item" href="/changeSessionLanauage?lang=en"><i class="united kingdom flag"></i>English</a>
-                    <a class="item"><i class="china flag"></i>简体中文</a>
+                    <a class="item" href="/changeSessionLanauage?lang=zh"><i class="china flag"></i>简体中文</a>
                 </div>
             </div>
             <@shiro.hasPermission name="admin:admin:view">

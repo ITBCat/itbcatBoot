@@ -9,6 +9,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +37,10 @@ public class LoginController {
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
             Session session = subject.getSession();
-            session.setAttribute("userId", userService.getUserByEmail(username).getUserId());
+            if(null != userService.getUserByEmail(username))
+            session.setAttribute("currentUser",userService.getUserByEmail(username));
+            //设置会话的过期时间--ms,默认是30分钟，设置负数表示永不过期
+            session.setTimeout(-1001);
             return "redirect:/";
         } catch (AuthenticationException e) {
             dataModel.put("msg", e.getMessage());

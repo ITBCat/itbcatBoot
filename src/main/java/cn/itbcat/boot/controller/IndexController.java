@@ -65,7 +65,6 @@ public class IndexController {
     @RequestMapping("/changeSessionLanauage")
     public String changeSessionLanauage(HttpServletRequest request, HttpServletResponse response,
                                         String lang){
-        System.out.println(lang);
         LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(request);
         if("zh".equals(lang)){
             localeResolver.setLocale(request, response, new Locale("zh", "CN"));

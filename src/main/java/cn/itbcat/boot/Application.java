@@ -1,9 +1,12 @@
 package cn.itbcat.boot;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
@@ -16,6 +19,8 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.MultipartConfigElement;
+import java.util.HashMap;
+import java.util.Map;
 
 //MVC
 @EnableWebMvc
@@ -26,22 +31,23 @@ import javax.servlet.MultipartConfigElement;
 //开启socket
 //@EnableWebSocket
 @SpringBootApplication
-@PropertySources(value = { @PropertySource("classpath:messages.properties") })
 public class Application {
 
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	@Bean
-	public EmbeddedServletContainerCustomizer containerCustomizer(){
-		return new EmbeddedServletContainerCustomizer() {
-			@Override
-			public void customize(ConfigurableEmbeddedServletContainer container) {
-				container.setSessionTimeout(3600);//单位为S
-			}
-		};
-	}
+
+
+//	@Bean
+//	public EmbeddedServletContainerCustomizer containerCustomizer(){
+//		return new EmbeddedServletContainerCustomizer() {
+//			@Override
+//			public void customize(ConfigurableEmbeddedServletContainer container) {
+//				container.setSessionTimeout(36000);//单位为S
+//			}
+//		};
+//	}
 	/*@Bean
 	MultipartConfigElement multipartConfigElement() {
 		MultipartConfigFactory factory = new MultipartConfigFactory();

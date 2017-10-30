@@ -83,66 +83,11 @@ public class webConfig extends WebMvcConfigurerAdapter {
     }
 
     /**
-     * session区域解析器
-     * @return
-     */
-    @Bean(name = "localeResolver")
-    public LocaleResolver localeResolver() {
-        SessionLocaleResolver resolver = new SessionLocaleResolver();
-        resolver.setDefaultLocale(Locale.CHINA);
-        return resolver;
-    }
-
-    /**
-     * cookie区域解析器
-     * @return
-     */
-//    @Bean
-//    public LocaleResolver localeResolver() {
-//        CookieLocaleResolver slr = new CookieLocaleResolver();
-//        //设置默认区域,
-//        slr.setDefaultLocale(Locale.CHINA);
-//        slr.setCookieMaxAge(3600);//设置cookie有效期.
-//        return slr;
-//    }
-
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        return lci;
-    }
-
-
-    /**
-     * AbstractApplicationContext.initMessageSource
-     * 国际化bean必须定义成MESSAGE_SOURCE_BEAN_NAME
-     *
-     * @return
-     */
-    @Bean(name = "messageSource")
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
-        resourceBundleMessageSource.setBasenames("i18n/message");
-        resourceBundleMessageSource.setUseCodeAsDefaultMessage(true);
-        resourceBundleMessageSource.setDefaultEncoding("UTF-8");
-        return resourceBundleMessageSource;
-    }
-
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        super.addViewControllers(registry);
-        registry.addViewController("/").setViewName("front");
-    }
-
-    /**
      * 添加拦截器
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(commonIntercepter).addPathPatterns("/**");
-        registry.addInterceptor(localeChangeInterceptor());
         super.addInterceptors(registry);
     }
 
@@ -158,7 +103,7 @@ public class webConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        if(mImagesPath.equals("") || mImagesPath.equals("${cbs.imagesPath}")){
+        if(mImagesPath.equals("") || mImagesPath.equals("${itbc.server.upload.dir}")){
             String imagesPath = webConfig.class.getClassLoader().getResource("").getPath();
             if(imagesPath.indexOf(".jar")>0){
                 imagesPath = imagesPath.substring(0, imagesPath.indexOf(".jar"));
