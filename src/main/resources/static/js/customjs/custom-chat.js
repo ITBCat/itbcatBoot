@@ -167,6 +167,7 @@ var websocketTool = {
         };
         this.socket.onmessage = function (event) {
             var message = JSON.parse(event.data);
+            console.log("messages："+message);
             if (message.sendType == "LEAVE") {
                 that.socket.close();
                 that.checkSocket.close();
@@ -175,7 +176,7 @@ var websocketTool = {
                 that.notOnlineEvent();
             } else {
                 console.log('onmessage.message:', message);
-                if(message.receiveId==user.userId){
+                if(message.userId==chat.receiveId){
                     chat.receiveId=message.userId;
                     chat.receiveName=message.userName;
                     var templateResponse = Handlebars.compile($('#message-response-template').html());

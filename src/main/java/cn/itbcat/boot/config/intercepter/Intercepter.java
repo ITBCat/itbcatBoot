@@ -11,6 +11,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,8 +36,8 @@ public class Intercepter implements HandlerInterceptor {
 
 	@Override
 	public void postHandle(HttpServletRequest request,
-                           HttpServletResponse response, Object handler,
-                           ModelAndView modelAndView) throws Exception {
+						   HttpServletResponse response, Object handler,
+						   ModelAndView modelAndView) throws Exception {
 		User user = null;
 		if(StringUtils.isNotBlank(ITBC.getCurrUserId())){
 			user = userService.get(ITBC.getCurrUserId());
