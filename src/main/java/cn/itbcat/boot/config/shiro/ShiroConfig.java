@@ -55,8 +55,9 @@ public class ShiroConfig {
 		simpleCookie.setMaxAge(7 * 24 * 60 * 60);//7天
 		return simpleCookie;
 	}
+
 	/**
-	 * @see DefaultWebSessionManager
+	 * 添加session管理器
 	 * @return
 	 */
 	@Bean(name="sessionManager")

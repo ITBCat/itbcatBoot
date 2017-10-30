@@ -6,6 +6,10 @@ import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.service.front.ArticleService;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,14 +48,17 @@ public class IndexController {
 
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String front(Map<String,Object> data){
+    public String front(Map<String,Object> data,@PageableDefault(sort = {"id"},size = 20,direction = Sort.Direction.DESC) Pageable pageable){
 
         Random r1 = new Random();
 
         data.put("spanner",r1.nextBoolean());
 
-        List<Article> articles = articleService.findAll();
-        data.put("articles",articles);
+        Page<Article> articles = articleService.findAll(pageable);
+        data.put("articles",articles.getContent());
+        data.put("curNum",articles.getTotalPages());
+        data.put("pageSize",articles.getTotalElements());
+        data.put("page",articles.toString());
         data.put("template","index");
         return "front";
     }

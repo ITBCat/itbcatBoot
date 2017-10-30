@@ -10,6 +10,8 @@ import cn.itbcat.boot.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -49,9 +51,8 @@ public class ArticleService {
     }
 
     @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
-    public List<Article> findAll() {
-        Sort sort = new Sort(Sort.Direction.DESC,"date");
-        List<Article> articles = articleRepository.findAll(sort);
+    public Page<Article> findAll(Pageable pageable) {
+        Page<Article> articles = articleRepository.findAll(pageable);
         for (Article article : articles){
             User user = userRepository.findOne(article.getUserid());
             article.setAnthor(user);

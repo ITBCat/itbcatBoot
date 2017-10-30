@@ -62,7 +62,7 @@
                                 <i class="fa fa-star"></i>
                             </div> <!-- end chat-header -->
 
-                            <div class="chat-history">
+                            <div class="chat-history" style="overflow-x: hidden;">
                                 <ul>
                                     <#list messages as item>
                                         <#if item.positon == 'r'>

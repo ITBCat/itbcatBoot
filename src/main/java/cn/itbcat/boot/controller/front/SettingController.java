@@ -4,6 +4,7 @@ import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -50,6 +51,10 @@ public class SettingController {
         String filePath = upload;
         // 解决中文问题，liunx下中文路径，图片显示问题
         fileName = UUID.randomUUID() + suffix;
+//        User currUser = userService.get(ITBC.getCurrUserId());
+//        if(StringUtils.isNotBlank(currUser.getAvatar())){
+//            fileName = currUser.getAvatar();
+//        }
         File dest = new File(filePath + fileName);
         // 检测是否存在目录
         if (!dest.getParentFile().exists()) {

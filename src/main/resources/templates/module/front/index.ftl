@@ -78,6 +78,7 @@
                     <div class="divider"> / </div>
                     <div class="section" style="color: #676767;">最新回复</div>
                 </div>
+                ${page.}
                 <#list articles as item>
                     <div class="ui divider"></div>
                     <div class="item">
