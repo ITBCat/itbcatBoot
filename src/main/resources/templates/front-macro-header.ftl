@@ -7,6 +7,8 @@
 <link href="/static/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
 <link href="/static/css/main.css" rel="stylesheet" />
 <link href="/static/plugins/pacejs/pace.css" rel="stylesheet" />
+
+<link href="/static/plugins/lobibox/css/lobibox.css" rel="stylesheet" />
 <!--jquery-->
 <script src="/static/js/jquery-2.1.4.min.js"></script>
 <!--jquery-->

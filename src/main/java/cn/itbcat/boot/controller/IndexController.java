@@ -6,11 +6,16 @@ import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.service.front.ArticleService;
 import cn.itbcat.boot.utils.ITBC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -55,6 +60,19 @@ public class IndexController {
     @RequestMapping(value = "/nopermissions")
     public String nopermissions(){
         return "nopermissions";
+    }
+
+    @RequestMapping("/changeSessionLanauage")
+    public String changeSessionLanauage(HttpServletRequest request, HttpServletResponse response,
+                                        String lang){
+        System.out.println(lang);
+        LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(request);
+        if("zh".equals(lang)){
+            localeResolver.setLocale(request, response, new Locale("zh", "CN"));
+        }else if("en".equals(lang)){
+            localeResolver.setLocale(request, response, new Locale("en", "US"));
+        }
+        return "redirect:/";
     }
 
 }

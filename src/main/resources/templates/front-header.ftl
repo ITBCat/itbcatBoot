@@ -64,7 +64,13 @@
                     </div>
                 </div>
             </div>
-
+            <div class="ui dropdown item" tabindex="0">
+                语言 <i class="dropdown icon"></i>
+                <div class="menu transition hidden" tabindex="-1">
+                    <a class="item" href="/changeSessionLanauage?lang=en"><i class="united kingdom flag"></i>English</a>
+                    <a class="item"><i class="china flag"></i>简体中文</a>
+                </div>
+            </div>
             <@shiro.hasPermission name="admin:admin:view">
                 <a class="item labeled rightsidebar computer only" href="${ITBCAdmin}/admin">
                     <i class="ion-wrench large icon"></i>

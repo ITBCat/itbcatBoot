@@ -1,4 +1,5 @@
 ﻿<#include "front-macro-header.ftl">
+<#import "common/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 

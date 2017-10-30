@@ -57,6 +57,7 @@ public class ShiroConfig {
 
 		Map<String, String> filterMap = new HashMap<String, String>();
 		filterMap.put("/static/**", "anon");
+		filterMap.put("/i18n/**", "anon");
 		filterMap.put("/images/**", "anon");
 		filterMap.put("/send", "anon");
 
