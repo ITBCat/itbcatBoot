@@ -48,16 +48,15 @@ public class IndexController {
 
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String front(Map<String,Object> data,@PageableDefault(sort = {"id"},size = 20,direction = Sort.Direction.DESC) Pageable pageable){
+    public String front(Map<String,Object> data){
 
         Random r1 = new Random();
 
         data.put("spanner",r1.nextBoolean());
 
-        Page<Article> articles = articleService.findAll(pageable);
-        data.put("articles",articles.getContent());
-        data.put("curNum",articles.getTotalPages());
-        data.put("paginationPageCount",articles.getTotalElements());
+        List<Article> articles = articleService.findAll();
+        long count = articleService.count();
+        data.put("articles",articles);
         data.put("template","index");
         return "front";
     }

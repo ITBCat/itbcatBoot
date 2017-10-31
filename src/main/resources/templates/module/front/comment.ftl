@@ -20,7 +20,7 @@
     <h2 class="ui horizontal divider header" id="_length_header">${length}条评论</h2>
     <input id="_length" type="text" value="${length}" hidden="hidden"/>
     <div class="ui fluid threaded big comments" id="_commentId">
-        <#list article.comments as item>
+        <#list comments as item>
             <div class="comment" style="width: 1100px;">
                 <a class="avatar" style="height: 38.56px;">
                     <img style="height: 35px;width: 35px;" src="${ITBCNginx}/${item.anthro.avatar}" onerror="this.src='/static/i.png'">

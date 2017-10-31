@@ -50,9 +50,29 @@ public class ArticleService {
         return article;
     }
 
-    @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
-    public Page<Article> findAll(Pageable pageable) {
-        Page<Article> articles = articleRepository.findAll(pageable);
+//    @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
+//    public Page<Article> findAll(Pageable pageable) {
+//        Page<Article> articles = articleRepository.findAll(pageable);
+//        for (Article article : articles){
+//            User user = userRepository.findOne(article.getUserid());
+//            article.setAnthor(user);
+//            article.setAgo(DateUtils.fromToday(article.getDate()));
+//            int length = article.getHtml().length();
+//            if(length > 450){
+//                length = 450;
+//            }
+//            article.setDesc(StringUtils.abbr(article.getHtml(),length));
+//        }
+//        return articles;
+//    }
+
+    public long count() {
+        return articleRepository.count();
+    }
+
+    public List<Article> findAll() {
+        Sort sort = new Sort(Sort.Direction.DESC,"id");
+        List<Article> articles = articleRepository.findAll(sort);
         for (Article article : articles){
             User user = userRepository.findOne(article.getUserid());
             article.setAnthor(user);

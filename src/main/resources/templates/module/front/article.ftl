@@ -89,7 +89,7 @@
         </div>
     </div>
     <#--评论-->
-    <#include "comment.ftl"/>
+    <#include "comment.ftl">
 </div>
 
 <div class="ui small modal">
@@ -196,15 +196,4 @@
             $('#_toc').show();
         }
     });
-    var ITBC={
-        serverName:'${ITBCFront}',
-        ITBCNginx:'${ITBCNginx}',
-        <#if isLogin>
-        isLogin:true,
-        <#else >
-        isLogin:false,
-        </#if>
-
-    };
-
 </script>

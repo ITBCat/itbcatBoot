@@ -32,41 +32,59 @@
                     </div>
                 </#if>
                     <div class="ui left aligned segment">
-                            <h1 class="ui header center aligned">
-                                <img src="/static/i.svg" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
-                            </h1>
-                            <form class="ui form form13" action="/login" method="post">
-                                <div class="field">
-                                    <label>
-                                        邮箱或用户名:
-                                    </label>
-                                    <div class="ui fluid icon input">
-                                        <input name="username" id="u_name" value="549595297@qq.com" type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
-                                        <i class="icon mail outline"></i>
-                                    </div>
+                        <h1 class="ui header center aligned">
+                            <img src="/static/i.svg" alt="ITBC" style="width: 224px;height: 60px;" class="ui image">
+                        </h1>
+                        <form class="ui form form13" action="/login" method="post">
+                            <div class="field">
+                                <label>
+                                    邮箱或用户名:
+                                </label>
+                                <div class="ui fluid icon input">
+                                    <input name="username" id="u_name" value="549595297@qq.com" type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                    <i class="icon mail outline"></i>
                                 </div>
-                                <div class="field">
-                                    <label>
-                                        密码:
-                                    </label>
-                                    <div class="ui fluid icon input">
-                                        <input name="password" id="u_pass" value="admin" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
-                                        <i class="icon key"></i>
-                                    </div>
+                            </div>
+                            <div class="field">
+                                <label>
+                                    密码:
+                                </label>
+                                <div class="ui fluid icon input">
+                                    <input name="password" id="u_pass" value="admin" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                    <i class="icon key"></i>
                                 </div>
-                                <div class="field">
-                                    <button type="submit" class="ui teal right labeled icon button fluid">
-                                        登录
-                                        <i class="icon sign in"></i>
-                                    </button>
+                            </div>
+                            <div class="field">
+                                <button type="submit" class="ui teal right labeled icon button fluid">
+                                    登录
+                                    <i class="icon sign in"></i>
+                                </button>
 
-                                    <a class="ui blue right labeled icon button fluid" href="/register">
-                                        注册
-                                        <i class="icon spy"></i>
-                                    </a>
-                                </div>
-                            </form>
+                                <a class="ui blue right labeled icon button fluid" href="/register">
+                                    注册
+                                    <i class="icon spy"></i>
+                                </a>
+                            </div>
+                        </form>
                     </div>
+                    <#if oAuthServices??>
+                        <div class="ui segments">
+                            <div class="ui segment">
+                                <h5 class="ui header">
+                                    快捷登录
+                                </h5>
+                            </div>
+                            <div class="ui center aligned segment">
+                                <#list oAuthServices as oauth>
+                                    <#if oauth.oAuthType=='github'>
+                                        <a href="${oauth.authorizationUrl}">
+                                            <img class="ui centered mini wireframe image" src="/static/github.png">
+                                        </a>
+                                    </#if>
+                                </#list>
+                            </div>
+                        </div>
+                    </#if>
                 </div>
             </div>
         </div>

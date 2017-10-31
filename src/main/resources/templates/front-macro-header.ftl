@@ -46,5 +46,13 @@
 
         });
     });
-
+    var ITBC={
+        serverName:'${ITBCFront}',
+        ITBCNginx:'${ITBCNginx}',
+    <#if isLogin>
+        isLogin:true,
+    <#else >
+        isLogin:false,
+    </#if>
+    };
 </script>

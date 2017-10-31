@@ -1,19 +1,30 @@
 package cn.itbcat.boot.controller;
 
+
+import cn.itbcat.boot.api.github.service.CustomOAuthService;
+import cn.itbcat.boot.api.github.service.OAuthServiceDeractor;
+import cn.itbcat.boot.api.github.service.OAuthServices;
+import cn.itbcat.boot.entity.admin.OAuthUser;
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.entity.common.Result;
+import cn.itbcat.boot.repository.admin.OauthUserRepository;
+import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
+import cn.itbcat.boot.utils.SslUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.scribe.model.Token;
+import org.scribe.model.Verifier;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -25,9 +36,40 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    OAuthServices oAuthServices;
+    @Autowired
+    OauthUserRepository oauthUserRepository;
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping(value = {"/login"},method = RequestMethod.GET)
-    public String login(){
+    public String login(Map<String,Object> data){
+        data.put("oAuthServices", oAuthServices.getAllOAuthServices());
         return "login";
+    }
+
+    @RequestMapping(value = {"/info-steps"},method = RequestMethod.GET)
+    public String info(Map<String,Object> data){
+        return "/module/front/info-steps";
+    }
+
+    @RequestMapping(value = "/oauth/{type}/callback", method=RequestMethod.GET)
+    public String claaback(@RequestParam(value = "code", required = true) String code,
+                           @PathVariable(value = "type") String type,
+                           HttpServletRequest request, Model model) throws Exception {
+        CustomOAuthService oAuthService = oAuthServices.getOAuthService(type);
+        SslUtils.ignoreSsl();
+        Token accessToken = oAuthService.getAccessToken(null, new Verifier(code));
+        OAuthUser oAuthInfo = oAuthService.getOAuthUser(accessToken);
+        OAuthUser oAuthUser = oauthUserRepository.findByOAuthTypeAndOAuthId(oAuthInfo.getoAuthType(),
+                oAuthInfo.getoAuthId());
+        if(oAuthUser == null){
+            model.addAttribute("oAuthInfo", oAuthInfo);
+            return "/module/front/info-steps";
+        }
+        request.getSession().setAttribute("oauthUser", oAuthUser);
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
@@ -66,5 +108,13 @@ public class LoginController {
         dataModel.put("username",user.getEmail());
         subject.logout();
         return "lockme";
+    }
+
+    @RequestMapping(value = "/oauth/mail",method = RequestMethod.POST)
+    @ResponseBody
+    public Result oauthemail(HttpServletRequest request){
+
+
+        return new Result(ITBC.ERROR_CODE,null,"");
     }
 }

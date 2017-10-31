@@ -1170,7 +1170,7 @@ $.fn.search.settings = {
   // whether to select first result after searching automatically
   selectFirstResult : false,
 
-  // API config
+  // API github
   apiSettings       : false,
 
   // object to search

@@ -1,4 +1,4 @@
-<#include "../../common/macro-pagination.ftl" as>
+<#include "../../common/macro-pagination.ftl">
 <div class="ui container">
     <#if spanner>
         <link rel="stylesheet" type="text/css" href="/static/plugins/jquerySFQ/index.css"/>
@@ -136,7 +136,6 @@
                     </div>
                 </#list>
                 <div class="ui divider"></div>
-            <@pagination url="${ITBCFront}/"/>
             </div>
         </div>
         <div class="five wide column" >

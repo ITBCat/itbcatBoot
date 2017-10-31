@@ -1707,7 +1707,7 @@
             if($.isPlainObject(rule))
                 rule = $.extend({}, rule);
             else
-                throw Error("wrong validation config specified");
+                throw Error("wrong validation github specified");
 
             if($.isFunction(rule.validator))
                 return rule;

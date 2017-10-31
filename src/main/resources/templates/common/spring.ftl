@@ -111,7 +111,7 @@
  *
  * @param path : the path (string value) of the value required to bind to.
  *   Spring defaults to a command name of "command" but this can be overridden
- *   by user config.
+ *   by user github.
  -->
 <#macro bind path>
     <#if htmlEscape?exists>

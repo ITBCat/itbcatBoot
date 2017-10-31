@@ -708,7 +708,7 @@
             }
             else {
                 // data-timer and data-date were both not set
-                // use config date
+                // use github date
                 this.data.attributes.ref_date = this.config.ref_date;
             }
         }
@@ -778,7 +778,7 @@
             else {
                 // If it's a string, but neither of the above, user screwed up.
                 this.data.total_duration = secondsIn["Years"];
-                console.error("Valid values for TimeCircles config.total_duration are either numeric, or (string) Years, Months, Days, Hours, Minutes, Auto");
+                console.error("Valid values for TimeCircles github.total_duration are either numeric, or (string) Years, Months, Days, Hours, Minutes, Auto");
             }
         }
     };

@@ -1,22 +1,22 @@
 <#macro pagination url>
-<#if paginationPageCount?? && paginationPageCount!=0 && paginationPageCount!=1>
+<#if PageCount?? && PageCount!=0 && PageCount!=1>
     <ul class="pagination">
-        <#if (cur > 1)>
-            <li><a href="/course/list?c=${c!"all"}&page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
+        <#if (curNum > 1)>
+            <li><a href="${url}?page=${curNum - 1}"><i class="fa fa-angle-left"></i></a></li>
         <#else>
-            <li class="disabled"><a href="/course/list&c=${c!"all"}?page=${cur - 1}"><i class="fa fa-angle-left"></i></a></li>
+            <li class="disabled"><a href="${url}?page=${curNum - 1}"><i class="fa fa-angle-left"></i></a></li>
         </#if>
-        <#list 1..count as t>
-            <#if cur == t>
-                <li class="active"><a href="/course/list?c=${c!"all"}&page=${t - 1}">${t}</a></li>
+        <#list 1..PageCount as t>
+            <#if curNum == t>
+                <li class="active"><a href="${url}?page=${t - 1}">${t}</a></li>
             <#else>
-                <li><a href="/course/list?c=${c!"all"}&page=${t - 1}"></a></li>
+                <li><a href="${url}?page=${t - 1}"></a></li>
             </#if>
         </#list>
-        <#if (cur < count)>
-            <li><a href="/course/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
+        <#if (curNum < PageCount)>
+            <li><a href="${url}?page=${curNum + 1}"><i class="fa fa-angle-right"></i></a></li>
         <#else>
-            <li class="disabled"><a href="/course/list?c=${c!"all"}&page=${cur + 1}"><i class="fa fa-angle-right"></i></a></li>
+            <li class="disabled"><a href="${url}?page=${curNum + 1}"><i class="fa fa-angle-right"></i></a></li>
         </#if>
     </ul>
 </#if>
