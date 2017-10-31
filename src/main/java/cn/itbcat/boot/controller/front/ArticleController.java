@@ -42,7 +42,6 @@ public class ArticleController {
             data.put("article", article);
             List<String> commentIds = commentService.findAllCommentByArticleId(id);
             data.put("commentIds", commentIds.toString());
-            data.put("comments", article.getComments());
             data.put("length", commentIds.size());
             data.put("template", "article");
             return ITBC.SYSTEM_FRONT_TEMPLATE;

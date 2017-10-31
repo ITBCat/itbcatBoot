@@ -25,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -78,11 +79,6 @@ public class LoginController {
             Subject subject = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
-            Session session = subject.getSession();
-            if(null != userService.getUserByEmail(username))
-            session.setAttribute("currentUser",userService.getUserByEmail(username));
-            //设置会话的过期时间--ms,默认是30分钟，设置负数表示永不过期
-            session.setTimeout(-1001);
             return "redirect:/";
         } catch (AuthenticationException e) {
             dataModel.put("msg", e.getMessage());
@@ -113,8 +109,31 @@ public class LoginController {
     @RequestMapping(value = "/oauth/mail",method = RequestMethod.POST)
     @ResponseBody
     public Result oauthemail(HttpServletRequest request){
-
-
+        String id = request.getParameter("id");
+        String mail = request.getParameter("mail");
+        String name = request.getParameter("name");
+        String type = request.getParameter("type");
+        try {
+            User user = new User();
+            user.setUserId(ITBC.getId());
+            user.setUsername(name);
+            user.setCreateTime(new Date());
+            user.setIsAdmin(ITBC.NOT_ADMIN);
+            user.setDeptName("");
+            user.setMobile("");
+            user.setDeptId("");
+            user.setStatus(1);
+            userService.save(ITBC.MEMBER_ROLE_ID,user);
+            OAuthUser oAuthUser = new OAuthUser();
+            oAuthUser.setId(ITBC.getId());
+            oAuthUser.setoAuthId(id);
+            oAuthUser.setoAuthType(type);
+            oAuthUser.setUser(user);
+            oauthUserRepository.save(oAuthUser);
+            return new Result(ITBC.SUCCESS_CODE,user.getUserId(),"");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return new Result(ITBC.ERROR_CODE,null,"");
     }
 }

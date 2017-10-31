@@ -54,7 +54,7 @@
                             <input name="username" id="_oauth_id" type="text" value="${oAuthInfo.oAuthId}" hidden="hidden">
                             <i class="icon mail outline"></i>
                         </div>
-                        <button class="ui redli right labeled icon button" style="float: right;margin-top: 20em;margin-right: 2em;p">下一步 <i class="right chevron icon"></i></button>
+                        <button class="ui redli right labeled icon button" onclick="oauthMail()" style="float: right;margin-top: 20em;margin-right: 2em;p">下一步 <i class="right chevron icon"></i></button>
                     </div>
                 </div>
             </div>
@@ -65,6 +65,28 @@
 <script src="/static/dist/semantic.min.js"></script>
 <script src="/static/js/customjs/custom-validation.js"></script>
 <script>
+
+    function oauthMail() {
+        if($('#_oauth_mail').val()==''){
+            return;
+        }
+        var oAuthUser={
+            'mail': $('#_oauth_mail').val(),
+            'name': $('#_oauth_name').val(),
+            'type': $('#_oauth_type').val(),
+            'id': $('#_oauth_id').val()
+        }
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "/oauth/mail",//路径
+            dataType : 'json',
+            async: false,
+            data : oAuthUser,
+            success : function(result) {//返回数据根据结果进行相应的处理
+
+            }
+        });
+    }
 
 </script>
 </body>
