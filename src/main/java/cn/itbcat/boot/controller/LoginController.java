@@ -12,6 +12,7 @@ import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.SslUtils;
+import cn.itbcat.boot.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -69,6 +70,20 @@ public class LoginController {
             model.addAttribute("oAuthInfo", oAuthInfo);
             return "/module/front/info-steps";
         }
+        String userId = oAuthUser.getUser().getUserId();
+        User user = userService.get(userId);
+        if(user == null){
+            user.setUserId(oAuthUser.getUser().getUserId());
+            oAuthInfo.setUser(user);
+            model.addAttribute("oAuthInfo", oAuthInfo);
+            return "/module/front/info-steps";
+        }
+        if(null != user && StringUtils.isNotBlank(oAuthUser.getoAuthPas())){
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), oAuthUser.getoAuthPas());
+            subject.login(token);
+        }
+
         request.getSession().setAttribute("oauthUser", oAuthUser);
         return "redirect:/";
     }
@@ -122,6 +137,7 @@ public class LoginController {
             user.setDeptName("");
             user.setMobile("");
             user.setDeptId("");
+            user.setPassword(ITBC.DEFAULT_PASSWORD);
             user.setStatus(1);
             userService.save(ITBC.MEMBER_ROLE_ID,user);
             OAuthUser oAuthUser = new OAuthUser();

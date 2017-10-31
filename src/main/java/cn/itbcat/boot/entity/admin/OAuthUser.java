@@ -25,6 +25,8 @@ public class OAuthUser implements Serializable {
 
     private String oAuthId;
 
+    private String oAuthPas;
+
     public String getId() {
         return id;
     }
@@ -55,5 +57,13 @@ public class OAuthUser implements Serializable {
 
     public void setoAuthId(String oAuthId) {
         this.oAuthId = oAuthId;
+    }
+
+    public String getoAuthPas() {
+        return oAuthPas;
+    }
+
+    public void setoAuthPas(String oAuthPas) {
+        this.oAuthPas = oAuthPas;
     }
 }

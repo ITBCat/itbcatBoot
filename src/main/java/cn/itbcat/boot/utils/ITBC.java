@@ -115,6 +115,11 @@ public class ITBC {
     public static final String CHAT_FMESSAGES="messages";
 
     /**
+     * Defaut Pas
+     */
+    public static final String DEFAULT_PASSWORD="123456";
+
+    /**
      * 删除标记（0：正常；1：删除；2：审核）
      */
     public static final String DEL_FLAG_NORMAL="0";

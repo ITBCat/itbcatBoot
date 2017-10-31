@@ -70,6 +70,7 @@ public class ArticleService {
         return articleRepository.count();
     }
 
+    @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
     public List<Article> findAll() {
         Sort sort = new Sort(Sort.Direction.DESC,"id");
         List<Article> articles = articleRepository.findAll(sort);

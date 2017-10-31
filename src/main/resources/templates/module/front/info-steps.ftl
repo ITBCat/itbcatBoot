@@ -23,22 +23,22 @@
         <div class="ui grid center aligned">
             <div class="row" style="margin-top: 15%;">
                 <div class="sixteen wide tablet eleven wide computer column">
-                    <div class="ui three top attached steps">
-                        <div class="active step">
-                            <i class="mail icon"></i>
+                    <div class="ui three top attached ordered steps">
+                        <div id="_oneStep" class="active step">
+                            <i id="_oneStep_i" class="mail icon"></i>
                             <div class="content">
                                 <div class="title">邮箱</div>
                                 <div class="description">请务必填写正确的邮箱地址</div>
                             </div>
                         </div>
-                        <div class="step">
+                        <div id="_twoStep" class="disabled step">
                             <i class="payment icon"></i>
                             <div class="content">
-                                <div class="title">Billing</div>
-                                <div class="description">Enter billing information</div>
+                                <div class="title">密码</div>
+                                <div class="description">请填写您的密码</div>
                             </div>
                         </div>
-                        <div class="step">
+                        <div id="_treeStep" class="disabled step">
                             <i class="info icon"></i>
                             <div class="content">
                                 <div class="title">Confirm Order</div>
@@ -47,14 +47,42 @@
                         </div>
                     </div>
                     <div class="ui attached segment" style="height: 30em;">
-                        <div class="ui  large icon input" style="width:80%;margin-top: 10%;margin-right: -10em;">
-                            <input name="username" id="_oauth_mail" placeholder="请输入邮箱..."  type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
-                            <input name="username" id="_oauth_name" type="text" value="${oAuthInfo.user.username}" hidden="hidden">
-                            <input name="username" id="_oauth_type" type="text" value="${oAuthInfo.oAuthType}" hidden="hidden">
-                            <input name="username" id="_oauth_id" type="text" value="${oAuthInfo.oAuthId}" hidden="hidden">
-                            <i class="icon mail outline"></i>
+                        <div id="_oneStep_content">
+                            <div class="ui  large icon input" style="width:80%;margin-top: 10%;margin-right: -10em;">
+                                <input id="_oauth_mail" placeholder="请输入邮箱..."  type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                <#--<input id="_oauth_name" type="text" value="${oAuthInfo.user.username}" hidden="hidden">
+                                <input id="_oauth_type" type="text" value="${oAuthInfo.oAuthType}" hidden="hidden">
+                                <input id="_oauth_id" type="text" value="${oAuthInfo.oAuthId}" hidden="hidden">-->
+                                <i class="icon mail outline"></i>
+                            </div>
+                            <button class="ui redli right labeled icon button" onclick="oauthMail()" style="float: right;margin-top: 20em;margin-right: 2em;p">下一步 <i class="right chevron icon"></i></button>
                         </div>
-                        <button class="ui redli right labeled icon button" onclick="oauthMail()" style="float: right;margin-top: 20em;margin-right: 2em;p">下一步 <i class="right chevron icon"></i></button>
+                        <div id="_twoStep_content">
+                            <form class="ui form form13" style="margin-top: 3em;">
+                                <div class="field" >
+                                    <label style="float: left;margin-left: 0.5em;">
+                                        密码:
+                                    </label>
+                                    <div class="ui fluid icon input">
+                                        <input id="_oauth_pass" placeholder="请输入密码..." type="text" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                        <i class="icon key"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label style="float: left;margin-left: 0.5em;">
+                                        确认密码:
+                                    </label>
+                                    <div class="ui fluid icon input">
+                                        <input id="_oauth_pass_re" placeholder="请确认密码..." type="text" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                        <i class="icon key"></i>
+                                    </div>
+                                </div>
+                                <button class="ui redli right labeled icon button" onclick="oauthPass()" style="float: right;margin-top: 8em;margin-right: 2em;p">下一步 <i class="right chevron icon"></i></button>
+                            </form>
+                        </div>
+                        <div id="_threeStep_content">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,6 +93,14 @@
 <script src="/static/dist/semantic.min.js"></script>
 <script src="/static/js/customjs/custom-validation.js"></script>
 <script>
+
+    var userId;
+
+    $(function () {
+
+        $('#_oneStep_content').hide();
+        $('#_threeStep_content').hide();
+    })
 
     function oauthMail() {
         if($('#_oauth_mail').val()==''){
@@ -82,12 +118,23 @@
             dataType : 'json',
             async: false,
             data : oAuthUser,
-            success : function(result) {//返回数据根据结果进行相应的处理
+            success : function(result) {
+                //返回数据根据结果进行相应的处理
+                if(result.code==0){
+                    userId = result.data;
+                    $('#_oneStep').attr("class", "completed step");
+                    $('#_oneStep_i').hide();
+                    $('#_oneStep_content').hide();
+                    $('#_twoStep').attr("class", "active step");
+                    $('#_twoStep_content').show();
+                }
 
             }
         });
     }
-
+    function oauthPass() {
+        
+    }
 </script>
 </body>
 </html>
