@@ -62,7 +62,6 @@ public class ShiroConfig {
 	 */
 	@Bean(name="sessionManager")
 	public DefaultWebSessionManager defaultWebSessionManager() {
-		System.out.println("ShiroConfiguration.defaultWebSessionManager()");
 		DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
 		//sessionManager.setSessionDAO(new CustomSessionDAO());
 		sessionManager.setCacheManager(cacheManager());

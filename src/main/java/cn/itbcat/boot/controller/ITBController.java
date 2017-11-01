@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-public class ITBCController {
+public class ITBController {
 	@Autowired
 	protected HttpServletRequest request;
 

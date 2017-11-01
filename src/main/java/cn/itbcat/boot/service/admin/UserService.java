@@ -86,6 +86,34 @@ public class UserService {
         return token;
     }
 
+    @CacheEvict(value=ITBC.CACHE_NAME,key=CACHE_KEY)
+    public User save2(String roleId, User user) {
+        if(StringUtils.isNotBlank(roleId)){
+            try {
+                String userId = ITBC.getId();
+                user.setUserId(userId);
+                User currUser = ITBC.getCurrUser();
+                user.setCreateUserId(user.getUserId());
+                user.setCreateTime(new Date());
+                String pass = new Sha256Hash(user.getPassword(), MD5.encodeSHAString(ITBC.PRODUCT_NAME)).toHex().toString();
+                user.setPassword(pass);
+                user.setToken("");
+                user = userRepository.save(user);
+
+                UserRole userRole = new UserRole();
+                userRole.setId(ITBC.getId());
+                userRole.setRoleId(roleId);
+                userRole.setUserId(userId);
+                userRoleRepository.save(userRole);
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return user;
+    }
+
     public List<User> findAll() {
         return userRepository.findAll();
     }
