@@ -90,8 +90,6 @@ public class UserService {
     public User save2(String roleId, User user) {
         if(StringUtils.isNotBlank(roleId)){
             try {
-                String userId = ITBC.getId();
-                user.setUserId(userId);
                 User currUser = ITBC.getCurrUser();
                 user.setCreateUserId(user.getUserId());
                 user.setCreateTime(new Date());
@@ -103,7 +101,7 @@ public class UserService {
                 UserRole userRole = new UserRole();
                 userRole.setId(ITBC.getId());
                 userRole.setRoleId(roleId);
-                userRole.setUserId(userId);
+                userRole.setUserId(user.getUserId());
                 userRoleRepository.save(userRole);
 
             }catch (Exception e){

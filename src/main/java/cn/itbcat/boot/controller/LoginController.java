@@ -136,25 +136,31 @@ public class LoginController extends ITBController{
         String repassword = request.getParameter("repassword");
 
         User u = userService.getUserByEmail(username);
-        if (null != u) {
-            data.put("msg", "该用户已存在");
-            return "register";
-        }
 
-        if (org.apache.commons.lang3.StringUtils.isNotBlank(username) && org.apache.commons.lang3.StringUtils.isNotBlank(password) && org.apache.commons.lang3.StringUtils.isNotBlank(repassword)) {
+        if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password) && StringUtils.isNotBlank(repassword)) {
             if (!password.equals(repassword)) {
                 data.put("msg", "密码不一致");
-                return "register";
+                return "register-github";
             }
             User user = new User();
-            user.setEmail(username);
-            user.setUsername(oauthUserName);
-            user.setIsAdmin(ITBC.NOT_ADMIN);
-            user.setDeptName("");
-            user.setMobile("");
-            user.setStatus(1);
-            user.setPassword(password);
-            user = userService.save2(ITBC.MEMBER_ROLE_ID,user);
+
+            if(null == u){
+                user.setUserId(ITBC.getId());
+                user.setEmail(username);
+                user.setUsername(oauthUserName);
+                user.setIsAdmin(ITBC.NOT_ADMIN);
+                user.setDeptName("");
+                user.setMobile("");
+                user.setStatus(1);
+                user.setPassword(password);
+                user = userService.save2(ITBC.MEMBER_ROLE_ID,user);
+            }else{
+                u.setStatus(1);
+                u.setUsername(oauthUserName);
+                u.setPassword(password);
+                user = userService.save2(ITBC.MEMBER_ROLE_ID,u);
+
+            }
 
             OAuthUser authUser = new OAuthUser();
             authUser.setId(ITBC.getId());
