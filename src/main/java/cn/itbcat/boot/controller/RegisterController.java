@@ -74,12 +74,9 @@ public class RegisterController {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
-
         }
 
-        return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/admin";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/mail",method = RequestMethod.GET)

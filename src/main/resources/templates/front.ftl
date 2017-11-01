@@ -13,7 +13,7 @@
         <div class="pusher">
             <#include "front-header.ftl">
             <!--maincontent-->
-            <div class="mainWrap" style="background-color: #F7F7F7;">
+            <div class="mainWrap" style="background-color: #Ffffff;">
                 <#include "module/front/${template}.ftl">
             </div>
             <!--maincontent-->

@@ -4,6 +4,7 @@ package cn.itbcat.boot.controller;
 import cn.itbcat.boot.api.github.service.CustomOAuthService;
 import cn.itbcat.boot.api.github.service.OAuthServiceDeractor;
 import cn.itbcat.boot.api.github.service.OAuthServices;
+import cn.itbcat.boot.entity.admin.Email;
 import cn.itbcat.boot.entity.admin.OAuthUser;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.common.Result;
@@ -11,11 +12,13 @@ import cn.itbcat.boot.repository.admin.OauthUserRepository;
 import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
+import cn.itbcat.boot.utils.MD5;
 import cn.itbcat.boot.utils.SslUtils;
-import cn.itbcat.boot.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.scribe.model.Token;
@@ -33,7 +36,7 @@ import java.util.Map;
  * Created by 860117030 on 2017/9/11.
  */
 @Controller
-public class LoginController {
+public class LoginController extends ITBController{
 
     @Autowired
     private UserService userService;
@@ -68,7 +71,7 @@ public class LoginController {
                 oAuthInfo.getoAuthId());
         if(oAuthUser == null){
             model.addAttribute("oAuthInfo", oAuthInfo);
-            return "/module/front/info-steps";
+            return "/register-github";
         }
         String userId = oAuthUser.getUser().getUserId();
         User user = userService.get(userId);
@@ -76,15 +79,14 @@ public class LoginController {
             user.setUserId(oAuthUser.getUser().getUserId());
             oAuthInfo.setUser(user);
             model.addAttribute("oAuthInfo", oAuthInfo);
-            return "/module/front/info-steps";
+            return "/register-github";
         }
         if(null != user && StringUtils.isNotBlank(oAuthUser.getoAuthPas())){
             Subject subject = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), oAuthUser.getoAuthPas());
             subject.login(token);
         }
-
-        request.getSession().setAttribute("oauthUser", oAuthUser);
+        //request.getSession().setAttribute("oauthUser", oAuthUser);
         return "redirect:/";
     }
 
@@ -102,10 +104,11 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout() {
+    public String logout(Map<String,Object> dataModel) {
         Subject subject = SecurityUtils.getSubject();
         User user = ITBC.getCurrUser();
         subject.logout();
+        dataModel.put("oAuthServices", oAuthServices.getAllOAuthServices());
         return "redirect:/login";
     }
 
@@ -113,6 +116,7 @@ public class LoginController {
     public String lockMe(Map<String,Object> dataModel) {
         Subject subject = SecurityUtils.getSubject();
         User user = ITBC.getCurrUser();
+        dataModel.put("oAuthServices", oAuthServices.getAllOAuthServices());
         if(null == user){
             return "redirect:/login";
         }
@@ -121,35 +125,58 @@ public class LoginController {
         return "lockme";
     }
 
-    @RequestMapping(value = "/oauth/mail",method = RequestMethod.POST)
-    @ResponseBody
-    public Result oauthemail(HttpServletRequest request){
-        String id = request.getParameter("id");
-        String mail = request.getParameter("mail");
-        String name = request.getParameter("name");
-        String type = request.getParameter("type");
-        try {
+    @RequestMapping(value = "/oauth/register",method = RequestMethod.POST)
+    public String github(HttpServletRequest request,Map<String,Object> data) {
+
+        String oauthId = request.getParameter("oauthId");
+        String oauthType = request.getParameter("oauthType");
+        String oauthUserName = request.getParameter("oauthUserName");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
+
+        User u = userService.getUserByEmail(username);
+
+        if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password) && StringUtils.isNotBlank(repassword)) {
+            if (!password.equals(repassword)) {
+                data.put("msg", "密码不一致");
+                return "register-github";
+            }
             User user = new User();
-            user.setUserId(ITBC.getId());
-            user.setUsername(name);
-            user.setCreateTime(new Date());
-            user.setIsAdmin(ITBC.NOT_ADMIN);
-            user.setDeptName("");
-            user.setMobile("");
-            user.setDeptId("");
-            user.setPassword(ITBC.DEFAULT_PASSWORD);
-            user.setStatus(1);
-            userService.save(ITBC.MEMBER_ROLE_ID,user);
-            OAuthUser oAuthUser = new OAuthUser();
-            oAuthUser.setId(ITBC.getId());
-            oAuthUser.setoAuthId(id);
-            oAuthUser.setoAuthType(type);
-            oAuthUser.setUser(user);
-            oauthUserRepository.save(oAuthUser);
-            return new Result(ITBC.SUCCESS_CODE,user.getUserId(),"");
-        }catch (Exception e){
-            e.printStackTrace();
+
+            if(null == u){
+                user.setUserId(ITBC.getId());
+                user.setEmail(username);
+                user.setUsername(oauthUserName);
+                user.setIsAdmin(ITBC.NOT_ADMIN);
+                user.setDeptName("");
+                user.setMobile("");
+                user.setStatus(1);
+                user.setPassword(password);
+                user = userService.save2(ITBC.MEMBER_ROLE_ID,user);
+            }else{
+                u.setStatus(1);
+                u.setUsername(oauthUserName);
+                u.setPassword(password);
+                user = userService.save2(ITBC.MEMBER_ROLE_ID,u);
+
+            }
+
+            OAuthUser authUser = new OAuthUser();
+            authUser.setId(ITBC.getId());
+            authUser.setUser(user);
+            authUser.setoAuthId(oauthId);
+            authUser.setoAuthType(oauthType);
+            authUser.setoAuthPas(password);
+
+            authUser = oauthUserRepository.save(authUser);
+
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), authUser.getoAuthPas());
+            subject.login(token);
+
         }
-        return new Result(ITBC.ERROR_CODE,null,"");
+        return "redirect:/";
     }
+
 }
