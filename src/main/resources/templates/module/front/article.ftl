@@ -17,7 +17,7 @@
         <div class="item" style="border-left: 5px solid #BABABA;padding-top: 5px;padding-bottom: 5px;">
             <div class="ui two column middle aligned stackable grid" style="width: 100%;">
                 <div class="eleven wide column">
-                    <a class="ui avatar image" style="height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
+                    <a class="ui avatar image" style="background-color: white;height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
                     <#if article.anthor.avatar??>
                         <img style="height: 60px;width: 60px;" src="${ITBCNginx}/${article.anthor.avatar}" onerror="this.src='/static/img/avatar/people/Abraham.png'">
                     <#else >
@@ -69,9 +69,6 @@
         </div>
         <div class="four wide column" style="margin-top: 2em;">
             <div class="content" id="_toc">
-                <div class="ui header">
-                    TOC
-                </div>
                 <div class="markdown-body editormd-preview-container" id="custom-toc-container" style="padding: 0;"></div>
             </div>
         </div>

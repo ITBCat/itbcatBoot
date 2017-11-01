@@ -46,7 +46,7 @@
                         <a data-content="转发" data-variation="inverted">
                             <i class="retweet icon"></i>
                         </a>
-                        <#if true<#--item.isMine != isLogin-->>
+                        <#if item.isMine != isLogin>
                             <a onclick="Comment.add('${article.id}','${item.id}')" data-content="回复" data-variation="inverted">
                                 <i class="reply icon"></i>
                             </a>

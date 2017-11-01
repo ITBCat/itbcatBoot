@@ -13,6 +13,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
@@ -30,6 +31,8 @@ import java.util.Map;
 @ServletComponentScan
 //开启socket
 //@EnableWebSocket
+//开启定时器
+@EnableScheduling
 @SpringBootApplication
 public class Application {
 
