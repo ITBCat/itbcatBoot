@@ -5,7 +5,7 @@
 
 <!-- Mirrored from telatkaya.com/stagb/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Apr 2017 16:00:22 GMT -->
 <head>
-
+<meta property="wb:webmaster" content="f1b3b92f81cde856" />
 
 </head>
 <body>

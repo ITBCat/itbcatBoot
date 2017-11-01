@@ -37,4 +37,4 @@ spring boot 练习框架。
     }
 
 ```
-
+mvn package -DskipTests
