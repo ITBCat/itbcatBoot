@@ -14,7 +14,7 @@
     <meta name="keywords" content="html5, ,semantic,ui, library, framework, javascript,jquery,template,blog,stagb,template" />
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
     <link href="/static/css/main.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/static/i.png" />
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
 </head>
 <body>
     <div class="ui container" style="padding-top:10%">

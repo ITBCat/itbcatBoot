@@ -14,29 +14,23 @@ public class GithubApi extends DefaultApi20 {
 
     private final String githubState;
 
-    public GithubApi(String state) {
+    public GithubApi(String state){
         this.githubState = state;
     }
 
     @Override
     public String getAuthorizationUrl(OAuthConfig config) {
-        if (config.hasScope()) {
-            return String.format(SCOPED_AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()), githubState, OAuthEncoder.encode(config.getScope()));
-        } else {
+        if (config.hasScope()){
+            return String.format(SCOPED_AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()),
+                    githubState, OAuthEncoder.encode(config.getScope()));
+        }
+        else{
             return String.format(AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()), githubState);
         }
     }
 
     @Override
     public String getAccessTokenEndpoint() {
-        return String.format(ACCESS_TOKEN_URL,githubState);
+        return String.format(ACCESS_TOKEN_URL, githubState);
     }
-
-
-
-    @Override
-    public OAuthService createService(OAuthConfig config){
-        return new GithubOAuthService(this,config);
-    }
-
 }

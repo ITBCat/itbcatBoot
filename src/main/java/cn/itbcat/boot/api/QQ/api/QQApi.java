@@ -1,4 +1,4 @@
-package cn.itbcat.boot.api.github.api;
+package cn.itbcat.boot.api.QQ.api;
 
 import org.scribe.builder.api.DefaultApi20;
 import org.scribe.model.OAuthConfig;

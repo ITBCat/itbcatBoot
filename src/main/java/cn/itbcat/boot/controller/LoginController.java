@@ -1,25 +1,19 @@
 package cn.itbcat.boot.controller;
 
 
-import cn.itbcat.boot.api.github.service.CustomOAuthService;
-import cn.itbcat.boot.api.github.service.OAuthServiceDeractor;
+import cn.itbcat.boot.api.OAuthServiceDeractor;
 import cn.itbcat.boot.api.github.service.OAuthServices;
-import cn.itbcat.boot.entity.admin.Email;
 import cn.itbcat.boot.entity.admin.OAuthUser;
 import cn.itbcat.boot.entity.admin.User;
-import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.repository.admin.OauthUserRepository;
 import cn.itbcat.boot.repository.admin.UserRepository;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
-import cn.itbcat.boot.utils.MD5;
 import cn.itbcat.boot.utils.SslUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.scribe.model.Token;
 import org.scribe.model.Verifier;
@@ -29,7 +23,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -63,7 +56,7 @@ public class LoginController extends ITBController{
     public String claaback(@RequestParam(value = "code", required = true) String code,
                            @PathVariable(value = "type") String type,
                            HttpServletRequest request, Model model) throws Exception {
-        CustomOAuthService oAuthService = oAuthServices.getOAuthService(type);
+        OAuthServiceDeractor oAuthService = oAuthServices.getOAuthService(type);
         SslUtils.ignoreSsl();
         Token accessToken = oAuthService.getAccessToken(null, new Verifier(code));
         OAuthUser oAuthInfo = oAuthService.getOAuthUser(accessToken);

@@ -14,7 +14,7 @@
     <meta name="keywords" content="html5, ,semantic,ui, library, framework, javascript,jquery,template,blog,stagb,template" />
     <link href="/static/dist/semantic.min.css" rel="stylesheet" />
     <link href="/static/css/main.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/static/i.png" />
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
     <script src="/static/js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
@@ -74,11 +74,21 @@
                                     快捷登录
                                 </h5>
                             </div>
-                            <div class="ui center aligned segment">
+                            <div class="ui center aligned segment" style="height: 5em;">
                                 <#list oAuthServices as oauth>
                                     <#if oauth.oAuthType=='github'>
-                                        <a href="${oauth.authorizationUrl}">
-                                            <img class="ui centered mini wireframe image" src="/static/github.png">
+                                        <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 9.5em;">
+                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/github.png">
+                                        </a>
+                                    </#if>
+                                    <#if oauth.oAuthType=='qq'>
+                                        <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
+                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/qq.png">
+                                        </a>
+                                    </#if>
+                                    <#if oauth.oAuthType=='weibo'>
+                                        <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
+                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/weibo.png">
                                         </a>
                                     </#if>
                                 </#list>

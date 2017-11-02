@@ -1,5 +1,6 @@
 package cn.itbcat.boot.api.github.service;
 
+import cn.itbcat.boot.api.OAuthServiceDeractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,22 +9,20 @@ import java.util.Optional;
 
 @Service
 public class OAuthServices {
-    
-    @Autowired
-    List<CustomOAuthService> customOAuthServices;
 
-    public CustomOAuthService getOAuthService(String type) {
-        CustomOAuthService oAuthService = null;
-        for (CustomOAuthService customOAuthService : customOAuthServices) {
-            if (customOAuthService.getoAuthType().equals(type)) {
-                oAuthService = customOAuthService;
-                break;
-            }
+    @Autowired List<OAuthServiceDeractor> oAuthServiceDeractors;
+
+    public OAuthServiceDeractor getOAuthService(String type){
+        Optional<OAuthServiceDeractor> oAuthService = oAuthServiceDeractors.stream().filter(o -> o.getoAuthType().equals(type))
+                .findFirst();
+        if(oAuthService.isPresent()){
+            return oAuthService.get();
         }
-        return oAuthService;
+        return null;
     }
-    public List<CustomOAuthService> getAllOAuthServices() {
-        return customOAuthServices;
+
+    public List<OAuthServiceDeractor> getAllOAuthServices(){
+        return oAuthServiceDeractors;
     }
 
 }

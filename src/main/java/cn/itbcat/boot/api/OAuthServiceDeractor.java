@@ -1,4 +1,4 @@
-package cn.itbcat.boot.api.github.service;
+package cn.itbcat.boot.api;
 
 import cn.itbcat.boot.entity.admin.OAuthUser;
 import org.scribe.model.OAuthRequest;
