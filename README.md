@@ -38,3 +38,7 @@ spring boot 练习框架。
 
 ```
 mvn package -DskipTests
+
+### ES配置
+
+springboot的版本是1.5.8，对应的ES的版本是2.0.0
