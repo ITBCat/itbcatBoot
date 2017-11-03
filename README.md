@@ -42,3 +42,10 @@ mvn package -DskipTests
 ### ES配置
 
 springboot的版本是1.5.8，对应的ES的版本是2.0.0
+
+允许 elasticsearch-head 运行时的跨域：
+```
+# allow origin
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+```
