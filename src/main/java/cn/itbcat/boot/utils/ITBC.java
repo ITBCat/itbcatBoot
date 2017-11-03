@@ -137,7 +137,23 @@ public class ITBC {
      */
     public static final String SERVER_NAME_ADMIN = "/itbc_admin";
 
+    /**
+     * 分页
+     */
+    public static final Integer PAGE_NUM = 0;
+    public static final Integer PAGE_SIZE = 10;
 
+
+    /**
+     * REDIRECT_INDEX
+     */
+    public static final String REDIRECT_INDEX ="redirect:/f";
+
+    /**
+     * 搜索模式
+     */
+    public static final String SCORE_MODE_SUM = "sum"; // 权重分求和模式
+    public static final Float  MIN_SCORE = 10.0F;      // 由于无相关性的分值默认为 1 ，设置权重分最小值为 10
 
     /**
      * 生成ID
@@ -145,6 +161,14 @@ public class ITBC {
      */
     public static String getId(){
         return String.valueOf(System.currentTimeMillis());
+    }
+
+    /**
+     * 生成Long ID
+     * @return
+     */
+    public static Long getLongId(){
+        return Long.valueOf(System.currentTimeMillis());
     }
 
     /**

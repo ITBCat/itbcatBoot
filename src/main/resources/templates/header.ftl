@@ -68,6 +68,9 @@
             <a class="item labeled rightsidebar computer only">
                 <i class="ion-wrench large icon"></i>
             </a>
+            <a class="item labeled computer only" href="/">
+                <i class="home large icon"></i>
+            </a>
         </div>
     </div>
 </div>

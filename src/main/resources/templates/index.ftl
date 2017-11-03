@@ -67,15 +67,12 @@
             </div>
             <div class="content">
                 <@shiro.hasPermission name="admin:health:view">
-                    <a class="title item" href="/healths">
-                        <i class="ion-speedometer titleIcon icon"></i>
+                    <a class="item" href="/healths">
                         系统监控
                     </a>
                 </@shiro.hasPermission>
-
                 <@shiro.hasPermission name="admin:es:view">
-                    <a class="title item" target="_blank" onclick="javascript:window.location.href='http://localhost:9100'">
-                        <i class="ion-speedometer titleIcon icon"></i>
+                    <a class="item" target="_blank" onclick="javascript:window.location.href='http://localhost:9100'">
                         ES监控
                     </a>
                 </@shiro.hasPermission>

@@ -41,7 +41,7 @@
                                     邮箱或用户名:
                                 </label>
                                 <div class="ui fluid icon input">
-                                    <input name="username" id="u_name" value="549595297@qq.com" type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                    <input name="username" id="u_name" type="email" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
                                     <i class="icon mail outline"></i>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     密码:
                                 </label>
                                 <div class="ui fluid icon input">
-                                    <input name="password" id="u_pass" value="admin" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
+                                    <input name="password" id="u_pass" type="password" autocomplete="off" style="width:100%!important;min-width:100%;width:100%;">
                                     <i class="icon key"></i>
                                 </div>
                             </div>

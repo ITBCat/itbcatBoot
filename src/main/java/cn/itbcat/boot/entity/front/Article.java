@@ -1,8 +1,10 @@
 package cn.itbcat.boot.entity.front;
 
 import cn.itbcat.boot.entity.admin.User;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +13,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="itbc_article")
-public class Article {
+@Document(indexName="articleid",type="article",indexStoreType="fs",shards=5,replicas=1,refreshInterval="-1")
+public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

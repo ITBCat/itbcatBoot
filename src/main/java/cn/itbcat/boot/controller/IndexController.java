@@ -47,13 +47,10 @@ public class IndexController {
         }
 
     }
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = {"/","/f"},method = RequestMethod.GET)
     public String front(Map<String,Object> data){
-
         Random r1 = new Random();
-
         data.put("spanner",r1.nextBoolean());
-
         List<Article> articles = articleService.findAll();
         long count = articleService.count();
         data.put("articles",articles);

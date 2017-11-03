@@ -34,12 +34,12 @@ public class ArticleService {
     private UserRepository userRepository;
 
     @CacheEvict(value=ITBC.CACHE_NAME,key=CACHE_KEY)
-    public void save(Article article) {
+    public Article save(Article article) {
         User user = ITBC.getCurrUser();
         article.setId(ITBC.getId());
         article.setUserid(user.getUserId());
         article.setDate(new Date());
-        articleRepository.save(article);
+        return articleRepository.save(article);
     }
 
     @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_'+#articleId")

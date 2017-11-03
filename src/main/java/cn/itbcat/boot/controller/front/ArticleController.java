@@ -4,9 +4,11 @@ import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.front.Article;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.service.admin.UserService;
+import cn.itbcat.boot.service.front.ArticleSearchService;
 import cn.itbcat.boot.service.front.ArticleService;
 import cn.itbcat.boot.service.front.CommentService;
 import cn.itbcat.boot.utils.ITBC;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,25 +31,30 @@ public class ArticleController {
     private ArticleService articleService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private ArticleSearchService articleSearchService;
+
 
     @Autowired
     private UserService userService;
 
     @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
     private String article(Map<String,Object> data, @PathVariable String id){
-        Article article = articleService.get(id);
-        if(null != article) {
-            List<Comment> comments = commentService.findCommentByArticleId(id);
-            article.setComments(comments);
-            data.put("article", article);
-            List<String> commentIds = commentService.findAllCommentByArticleId(id);
-            data.put("commentIds", commentIds.toString());
-            data.put("length", commentIds.size());
-            data.put("template", "article");
-            return ITBC.SYSTEM_FRONT_TEMPLATE;
-        }else {
-            return "404";
-        }
+
+            Article article = articleService.get(id);
+            if (null != article) {
+                List<Comment> comments = commentService.findCommentByArticleId(id);
+                article.setComments(comments);
+                data.put("article", article);
+                List<String> commentIds = commentService.findAllCommentByArticleId(id);
+                data.put("commentIds", commentIds.toString());
+                data.put("length", commentIds.size());
+                data.put("template", "article");
+                return ITBC.SYSTEM_FRONT_TEMPLATE;
+            } else {
+                return "404";
+            }
+
     }
 
     @RequestMapping(value = "/put",method = RequestMethod.GET)
@@ -57,13 +64,16 @@ public class ArticleController {
 
     @RequestMapping(value = "/put",method = RequestMethod.POST)
     public String put(@ModelAttribute Article article, HttpServletRequest request){
-    try{
-        articleService.save(article);
-    }catch (Exception e){
-        e.printStackTrace();
+        if(StringUtils.isNotBlank(ITBC.getCurrUserId())) {
+            try{
+                articleSearchService.save(articleService.save(article));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return ITBC.REDIRECT_INDEX;
+        }else{
+            return "login";
+        }
     }
-        return "module/front/put";
-    }
-
 
 }

@@ -25,10 +25,73 @@
                 <i class="sound icon"></i>
                 &nbsp;ABOUT
             </a>
+            <style>
+                .searchresult{
+                    position:absolute;
+                    top:100%;
+                    left:0;
+                    -webkit-transform-origin:center top;
+                    transform-origin:center top;
+                    white-space:normal;
+                    background:#FFF;
+                    margin-top:-0.1em;
+                    margin-left: 1em;
+                    width:40em;
+                    border-radius:.28571429rem;
+                    box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+                    z-index:998;
+                }
+            </style>
+
             <div class="ui right aligned category search item">
                 <div class="ui icon input">
-                    <input type="text" placeholder="Search...">
-                    <i class="search link icon"></i>
+                    <input id="_search_input" name="q" type="text" placeholder="Search...">
+                    <i class="search icon input"></i>
+                </div>
+                <div class="searchresult">
+                    <table class="ui celled table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="ui image header" href="">
+                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <div class="content">
+                                            <h4 style="margin: 0;">帮助文档</h4>
+                                            <div class="sub header">
+                                                真理惟一可靠的标准就是永远自相符合
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="ui image header" href="">
+                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <div class="content">
+                                            <h4 style="margin: 0;">帮助文档</h4>
+                                            <div class="sub header">
+                                                真理惟一可靠的标准就是永远自相符合
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a class="ui image header" href="">
+                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <div class="content">
+                                                <h4 style="margin: 0;">帮助文档</h4>
+                                            <div class="sub header">
+                                                真理惟一可靠的标准就是永远自相符合
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -108,4 +171,27 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('input').bind('input propertychange', function() {
+        search($('#_search_input').val());
+    });
+    
+    function search(q) {
+        if(q != ''){
+            var search = {
+                'q':q
+            }
+            $.ajax({
+                type : "POST",  //提交方式
+                url : "${ITBCFront}/search",//路径
+                dataType : 'json',
+                async: false,
+                data : search,
+                success : function(result) {//返回数据根据结果进行相应的处理
+                    alert(JSON.stringify(result.data));
+                }
+            });
+        }
+    }
+</script>
 <!--navbar-->
