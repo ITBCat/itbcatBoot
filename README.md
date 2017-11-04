@@ -49,3 +49,5 @@ springboot的版本是1.5.8，对应的ES的版本是2.0.0
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
+
+https://wenku.baidu.com/view/c02f9b6424c52cc58bd63186bceb19e8b8f6ec0e.html
