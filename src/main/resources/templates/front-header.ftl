@@ -44,54 +44,11 @@
             </style>
 
             <div class="ui right aligned category search item">
-                <div class="ui icon input">
+                <div class="ui icon input" id="_search_result">
                     <input id="_search_input" name="q" type="text" placeholder="Search...">
                     <i class="search icon input"></i>
                 </div>
-                <div class="searchresult">
-                    <table class="ui celled table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a class="ui image header" href="">
-                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
-                                        <div class="content">
-                                            <h4 style="margin: 0;">帮助文档</h4>
-                                            <div class="sub header">
-                                                真理惟一可靠的标准就是永远自相符合
-                                            </div>
-                                        </div>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="ui image header" href="">
-                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
-                                        <div class="content">
-                                            <h4 style="margin: 0;">帮助文档</h4>
-                                            <div class="sub header">
-                                                真理惟一可靠的标准就是永远自相符合
-                                            </div>
-                                        </div>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="ui image header" href="">
-                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
-                                        <div class="content">
-                                                <h4 style="margin: 0;">帮助文档</h4>
-                                            <div class="sub header">
-                                                真理惟一可靠的标准就是永远自相符合
-                                            </div>
-                                        </div>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="searchresult" style="display: none;">
                 </div>
             </div>
         </div>
@@ -172,29 +129,45 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(function () {
-        $('.searchresult').hide();
-    })
     $('input').bind('input propertychange', function() {
-        search($('#_search_input').val());
-    });
-    
-    function search(q) {
-        if(q != ''){
-            var search = {
-                'q':q
-            }
-            $.ajax({
-                type : "POST",  //提交方式
-                url : "${ITBCFront}/search",//路径
-                dataType : 'json',
-                async: false,
-                data : search,
-                success : function(result) {//返回数据根据结果进行相应的处理
-                    alert(JSON.stringify(result.data));
-                }
-            });
+        var q = $('#_search_input').val();
+        if(q==''){
+            $(".searchresult").hide();
+        }else{
+            search(q);
         }
+    });
+    $(document).click(function () {
+        $(".searchresult").hide();
+    });
+    function search(q) {
+        var search = {
+            'q':q
+        }
+        $.ajax({
+            type : "POST",  //提交方式
+            url : "${ITBCFront}/search",//路径
+            dataType : 'json',
+            async: false,
+            data : search,
+            success : function(result) {//返回数据根据结果进行相应的处理
+                var html = '<table class="ui celled table"><tbody>';
+                    html +='<tr>'
+                              +'<td>'
+                                  +'<a class="ui image header" href="">'
+                                      +'<img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">'
+                                      +'<div class="content">'
+                                          +'<h4 style="margin: 0;">帮助文档</h4>'
+                                          +'<div class="sub header">真理惟一可靠的标准就是永远自相符合</div>'
+                                      +'</div>'
+                                  +'</a>'
+                              +'</td>'
+                            +'</tr>';
+                    html+='</tbody></table>';
+                $('.searchresult').html(html);
+                $('.searchresult').show();
+            }
+        });
     }
 </script>
 <!--navbar-->

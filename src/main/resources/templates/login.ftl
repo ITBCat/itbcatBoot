@@ -76,14 +76,14 @@
                             </div>
                             <div class="ui center aligned segment" style="height: 5em;">
                                 <#list oAuthServices as oauth>
-                                    <#if oauth.oAuthType=='github'>
+                                    <#if oauth.oAuthType=='qq'>
                                         <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 9.5em;">
-                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/github.png">
+                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/qq.png">
                                         </a>
                                     </#if>
-                                    <#if oauth.oAuthType=='qq'>
-                                        <a href="${oauth.authorizationUrl}" style="float: right;margin-left: 2em;">
-                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/qq.png">
+                                    <#if oauth.oAuthType=='github'>
+                                        <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
+                                            <img class="ui centered mini wireframe image" src="/static/img/oauth/github.png">
                                         </a>
                                     </#if>
                                     <#if oauth.oAuthType=='weibo'>
