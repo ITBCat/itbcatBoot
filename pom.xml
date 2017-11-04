@@ -142,6 +142,7 @@
             <artifactId>cas-client-core</artifactId>
             <version>3.2.1</version>
         </dependency>
+		<!--ES-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
