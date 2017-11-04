@@ -82,7 +82,7 @@
                                         </a>
                                     </#if>
                                     <#if oauth.oAuthType=='qq'>
-                                        <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
+                                        <a href="${oauth.authorizationUrl}" style="float: right;margin-left: 2em;">
                                             <img class="ui centered mini wireframe image" src="/static/img/oauth/qq.png">
                                         </a>
                                     </#if>

@@ -36,7 +36,7 @@
                     background:#FFF;
                     margin-top:-0.1em;
                     margin-left: 1em;
-                    width:40em;
+                    width:45.5em;
                     border-radius:.28571429rem;
                     box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
                     z-index:998;
@@ -54,7 +54,7 @@
                             <tr>
                                 <td>
                                     <a class="ui image header" href="">
-                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
                                         <div class="content">
                                             <h4 style="margin: 0;">帮助文档</h4>
                                             <div class="sub header">
@@ -67,7 +67,7 @@
                             <tr>
                                 <td>
                                     <a class="ui image header" href="">
-                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
                                         <div class="content">
                                             <h4 style="margin: 0;">帮助文档</h4>
                                             <div class="sub header">
@@ -80,7 +80,7 @@
                             <tr>
                                 <td>
                                     <a class="ui image header" href="">
-                                        <img src="${ITBCNginx}/${_user.avatar}" class="ui mini rounded image">
+                                        <img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">
                                         <div class="content">
                                                 <h4 style="margin: 0;">帮助文档</h4>
                                             <div class="sub header">
@@ -172,6 +172,9 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(function () {
+        $('.searchresult').hide();
+    })
     $('input').bind('input propertychange', function() {
         search($('#_search_input').val());
     });
