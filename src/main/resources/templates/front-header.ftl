@@ -25,23 +25,6 @@
                 <i class="sound icon"></i>
                 &nbsp;ABOUT
             </a>
-            <style>
-                .searchresult{
-                    position:absolute;
-                    top:100%;
-                    left:0;
-                    -webkit-transform-origin:center top;
-                    transform-origin:center top;
-                    white-space:normal;
-                    background:#FFF;
-                    margin-top:-0.1em;
-                    margin-left: 1em;
-                    width:45.5em;
-                    border-radius:.28571429rem;
-                    box-shadow:0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
-                    z-index:998;
-                }
-            </style>
 
             <div class="ui right aligned category search item">
                 <div class="ui icon input" id="_search_result">
@@ -152,6 +135,10 @@
             data : search,
             success : function(result) {//返回数据根据结果进行相应的处理
                 var html = '<table class="ui celled table"><tbody>';
+                if(result.data.search.length <= 0){
+                    return;
+                }
+                for (var i = 0;i<result.data.search.length;i++){
                     html +='<tr>'
                               +'<td>'
                                   +'<a class="ui image header" href="">'
@@ -164,6 +151,7 @@
                               +'</td>'
                             +'</tr>';
                     html+='</tbody></table>';
+                }
                 $('.searchresult').html(html);
                 $('.searchresult').show();
             }

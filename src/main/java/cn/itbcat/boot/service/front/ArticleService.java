@@ -72,8 +72,8 @@ public class ArticleService {
 
     @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
     public List<Article> findAll() {
-        Sort sort = new Sort(Sort.Direction.DESC,"id");
-        List<Article> articles = articleRepository.findAll(sort);
+        Sort sort = new Sort(Sort.Direction.DESC,"date");
+        List<Article> articles = articleRepository.findAll();
         for (Article article : articles){
             User user = userRepository.findOne(article.getUserid());
             article.setAnthor(user);

@@ -28,7 +28,7 @@ public class Article implements Serializable {
     @Column(name="title",nullable = false,length = 255)
     private String title;
 
-    @Column(name="data")
+    @Column(name="date")
     private Date date;
 
     @Column(name = "article_md",columnDefinition="text")

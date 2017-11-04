@@ -82,7 +82,7 @@
                 <#list articles as item>
                     <div class="ui divider"></div>
                     <div class="item">
-                        <a class="ui mini avatar image">
+                        <a class="ui mini avatar image" style="35px;height: 35px;">
                             <#if item.anthor.avatar??>
                                 <img style="35px;height: 35px;" src="${ITBCNginx}/${item.anthor.avatar}">
                             <#else >
