@@ -1,7 +1,12 @@
 package cn.itbcat.boot.utils;
 
 import cn.itbcat.boot.entity.admin.User;
+import com.vladsch.flexmark.ast.Node;
+import com.vladsch.flexmark.html.HtmlRenderer;
+import com.vladsch.flexmark.parser.Parser;
+import com.vladsch.flexmark.util.options.MutableDataSet;
 import org.apache.shiro.SecurityUtils;
+
 
 /**
  * 工具类
@@ -187,6 +192,17 @@ public class ITBC {
             return null;
         }
         return user.getUserId();
+    }
+    /**
+     * java markdown 解析器
+     */
+
+    public static String tranfer(String content){
+        MutableDataSet options = new MutableDataSet();
+        Parser parser = Parser.builder(options).build();
+        HtmlRenderer renderer = HtmlRenderer.builder(options).build();
+        Node document = parser.parse(content);
+        return renderer.render(document);
     }
 
 }

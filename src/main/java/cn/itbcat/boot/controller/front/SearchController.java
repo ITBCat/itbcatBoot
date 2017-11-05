@@ -6,6 +6,7 @@ import cn.itbcat.boot.service.front.ArticleSearchService;
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +32,8 @@ public class SearchController {
 
         String q = request.getParameter("q");
         if(StringUtils.isNotBlank(q)){
-            List<ArticleSearch> list = articleSearchService.search(q);
-            data.put("search",list);
+            Page <ArticleSearch> list = articleSearchService.searchArticle(q);
+            data.put("search",list.getContent());
         }
         return new Result(ITBC.SUCCESS_CODE,data,"");
     }

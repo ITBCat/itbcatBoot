@@ -9,6 +9,7 @@ import cn.itbcat.boot.repository.front.ArticleSearchRepository;
 import cn.itbcat.boot.utils.DateUtils;
 import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.StringUtils;
+import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
@@ -52,7 +53,6 @@ public class ArticleSearchService {
     }
 
     public List<ArticleSearch> search(String q) {
-
         List<ArticleSearch> list = articleSearchRepository.findByTitleLike(q);
 
         return list;
@@ -66,10 +66,8 @@ public class ArticleSearchService {
 
         // Function Score Query
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
-                .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("cityname", searchContent)),
-                        ScoreFunctionBuilders.weightFactorFunction(1000))
-                .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("description", searchContent)),
-                        ScoreFunctionBuilders.weightFactorFunction(100));
+                .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("title", searchContent)),
+                        ScoreFunctionBuilders.weightFactorFunction(1000));
 
         // 创建搜索 DSL 查询
         SearchQuery searchQuery = new NativeSearchQueryBuilder()
@@ -95,17 +93,15 @@ public class ArticleSearchService {
      * @param searchContent 搜索内容
      * @return
      */
-    private SearchQuery getCitySearchQuery(Integer pageNumber, Integer pageSize,String searchContent) {
+    private SearchQuery searchQuery(Integer pageNumber, Integer pageSize,String searchContent) {
         // 短语匹配到的搜索词，求和模式累加权重分
         // 权重分查询 https://www.elastic.co/guide/cn/elasticsearch/guide/current/function-score-query.html
         //   - 短语匹配 https://www.elastic.co/guide/cn/elasticsearch/guide/current/phrase-matching.html
         //   - 字段对应权重分设置，可以优化成 enum
         //   - 由于无相关性的分值默认为 1 ，设置权重分最小值为 10
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
-                .add(QueryBuilders.matchPhraseQuery("name", searchContent),
+                .add(QueryBuilders.matchPhraseQuery("title", searchContent),
                         ScoreFunctionBuilders.weightFactorFunction(1000))
-                .add(QueryBuilders.matchPhraseQuery("description", searchContent),
-                        ScoreFunctionBuilders.weightFactorFunction(500))
                 .scoreMode(ITBC.SCORE_MODE_SUM).setMinScore(ITBC.MIN_SCORE);
 
         // 分页参数
@@ -115,4 +111,9 @@ public class ArticleSearchService {
                 .withQuery(functionScoreQueryBuilder).build();
     }
 
+    public Page<ArticleSearch> searchArticle(String q) {
+
+        return articleSearchRepository.search(searchQuery(1,10,q));
+
+    }
 }

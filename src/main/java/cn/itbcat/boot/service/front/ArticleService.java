@@ -82,7 +82,7 @@ public class ArticleService {
             if(length > 450){
                 length = 450;
             }
-            article.setDesc(StringUtils.abbr(article.getHtml(),length));
+            article.setDesc(ITBC.tranfer(StringUtils.abbr(article.getHtml(),length)));
         }
         return articles;
     }
