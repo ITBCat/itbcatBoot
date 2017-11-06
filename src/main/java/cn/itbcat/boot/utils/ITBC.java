@@ -76,6 +76,11 @@ public class ITBC {
     public static final String TEMPLATE="template";
 
     /**
+     * profile key
+     */
+    public static final String PROFILER="profiler";
+
+    /**
      * ITBCFront
      */
     public static final String ITBC_FRONT="ITBCFront";

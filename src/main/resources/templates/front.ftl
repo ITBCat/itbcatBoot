@@ -13,7 +13,7 @@
         <div class="pusher">
             <#include "front-header.ftl">
             <!--maincontent-->
-            <div class="mainWrap" style="background-color: #Ffffff;">
+            <div class="mainWrap <#if template == 'profile'>profilepage</#if>" style="background-color: #Ffffff;">
                 <#include "module/front/${template}.ftl">
             </div>
             <!--maincontent-->

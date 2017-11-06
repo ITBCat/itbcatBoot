@@ -91,7 +91,7 @@
 
                         </a>
                         <div class="content">
-                            <a class="header">${item.anthor.username}</a>
+                            <a class="header" href="${ITBCFront}/profile/${item.anthor.userId}">${item.anthor.username}</a>
                             <div class="meta">
                                 <a>${item.ago}</a>
                             </div>

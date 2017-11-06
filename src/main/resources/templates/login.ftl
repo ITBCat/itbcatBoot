@@ -81,11 +81,15 @@
                                             <img class="ui centered mini wireframe image" src="/static/img/oauth/qq.png">
                                         </a>
                                     </#if>
+                                </#list>
+                                <#list oAuthServices as oauth>
                                     <#if oauth.oAuthType=='github'>
                                         <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
                                             <img class="ui centered mini wireframe image" src="/static/img/oauth/github.png">
                                         </a>
                                     </#if>
+                                </#list>
+                                <#list oAuthServices as oauth>
                                     <#if oauth.oAuthType=='weibo'>
                                         <a href="${oauth.authorizationUrl}" style="float: left;margin-left: 2em;">
                                             <img class="ui centered mini wireframe image" src="/static/img/oauth/weibo.png">

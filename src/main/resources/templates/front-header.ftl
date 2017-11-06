@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="ui language floating dropdown link item" id="languages">
-                <i class="world icon"></i>
+                <i class="world large icon"></i>
                 <#if lang??>
                     <#if lang == 'zh_CN'>
                         <div class="text">简体中文</div>
@@ -109,10 +109,11 @@
                 <#else >
                     <img id="_avatar_heard" class="ui mini rounded image" style="height: 35px;width: 35px;" src="/static/i.png" alt="label-image" />
                 </#if>
-                <div class="menu">
-                    <a class="item" href="mail.html">Inbox</a>
+                <div class="menu" style="padding-top: 5px;">
+                    <a class="item" href="${ITBCFront}/profile/${_user.userId}">个人主页</a>
+                    <div class="ui divider"></div>
                     <a class="item" href="${ITBCFront}/chat">IChat</a>
-                    <a class="item" href="${ITBCFront}/settings">个人信息</a>
+                    <a class="item" href="${ITBCFront}/settings">设置</a>
                     <div class="ui divider"></div>
                     <a class="item">Need Help?</a>
                     <a class="item" href="/logout">注销</a>

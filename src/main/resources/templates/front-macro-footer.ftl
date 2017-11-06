@@ -9,12 +9,11 @@
 <script src="/static/js/main.js"></script>
 <script src="/static/js/customjs/custom-tooltip.js"></script>
 <script>
-    $(document)
-            .ready(function() {
-                $('.navwrap').visibility({
-                    type: 'fixed'
-                });
-            });
+    $(document).ready(function() {
+        $('.navwrap').visibility({
+            type: 'fixed'
+        });
+    });
 
     $('.ui.menu a.item').on('click', function () {
         $(this).addClass('active').siblings().removeClass('active');

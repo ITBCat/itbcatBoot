@@ -17,7 +17,7 @@
         <div class="item" style="border-left: 5px solid #BABABA;padding-top: 5px;padding-bottom: 5px;">
             <div class="ui two column middle aligned stackable grid" style="width: 100%;">
                 <div class="eleven wide column">
-                    <a class="ui avatar image" style="background-color: white;height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
+                    <a class="ui avatar image" href="${ITBCFront}/profile/${article.anthor.userId}" style="background-color: white;height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
                     <#if article.anthor.avatar??>
                         <img style="height: 60px;width: 60px;" src="${ITBCNginx}/${article.anthor.avatar}" onerror="this.src='/static/img/avatar/people/Abraham.png'">
                     <#else >
@@ -25,7 +25,7 @@
                     </#if>
                     </a>
                     <div class="content" style="float: left;margin-left: 1em;">
-                        <a class="header">
+                        <a class="header" href="${ITBCFront}/profile/${article.anthor.userId}">
                         ${article.anthor.username}
                         </a>
                         <div class="meta">

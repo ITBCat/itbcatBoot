@@ -2,11 +2,11 @@
     <!--Site Content-->
     <div class="sixteen wide tablet two wide computer column">
         <div class="ui vertical secondary pointing fluid tabular menu">
-            <a class="item active" data-tab="avatar">
-                头像
+            <a class="item active" data-tab="profile">
+                基本信息
             </a>
-            <a class="item" data-tab="profile">
-                Profile
+            <a class="item" data-tab="avatar">
+                头像
             </a>
             <a class="item" data-tab="settings">
                 Account Settings
@@ -24,30 +24,7 @@
     </div>
     <div class="sixteen wide tablet fourteen wide computer column">
         <div class="ui segment" style="height: 80%;">
-            <div class="ui tab active" data-tab="avatar" style="margin-top: 12%;">
-                <div class="ui tow column middle aligned stackable grid">
-                    <div class="row">
-                        <div class="fourteen wide column">
-                            <div class="ui images">
-                                <#if _user?? && _user.avatar??>
-                                    <img id="_mini" class="ui mini rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 35px;height: 35px;">
-                                    <img id="_small" class="ui small rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 150px;height: 150px;">
-                                    <img id="_medium" class="ui medium rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 300px;height: 300px;">
-                                </#if>
-                            </div>
-                        </div>
-                        <div class="two wide column">
-                            <div class="center aligned column">
-                                <span class="ui green large button btn-file">
-                                    <span id="buttonLabel">上传头像</span>
-                                    <input id="_avatar" type="file" accept="image/*" name="avatar" onchange="changeImg(event)" class="ui green large button"/>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ui tab" data-tab="profile">
+            <div class="ui tab active" data-tab="profile">
                 <form class="ui form">
                     <h3 class="ui header">
                         Profile Settings
@@ -96,9 +73,32 @@
                             <label>I agree to the terms and conditions</label>
                         </div>
                     </div>
-                    <div class="ui blue submit button">Update</div>
+                    <div class="ui blue submit button" style="float: right;">Update</div>
                     <div class="ui error message"></div>
                 </form>
+            </div>
+            <div class="ui tab" data-tab="avatar" style="margin-top: 12%;">
+                <div class="ui tow column middle aligned stackable grid">
+                    <div class="row">
+                        <div class="fourteen wide column">
+                            <div class="ui images">
+                            <#if _user?? && _user.avatar??>
+                                <img id="_mini" class="ui mini rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 35px;height: 35px;">
+                                <img id="_small" class="ui small rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 150px;height: 150px;">
+                                <img id="_medium" class="ui medium rounded image" src="${ITBCNginx}/${_user.avatar}" onerror="this.src='/static/i.png'" style="margin-left: 15em;width: 300px;height: 300px;">
+                            </#if>
+                            </div>
+                        </div>
+                        <div class="two wide column">
+                            <div class="center aligned column">
+                                <span class="ui green large button btn-file">
+                                    <span id="buttonLabel">上传头像</span>
+                                    <input id="_avatar" type="file" accept="image/*" name="avatar" onchange="changeImg(event)" class="ui green large button"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="ui tab" data-tab="settings">
                 <form class="ui form">

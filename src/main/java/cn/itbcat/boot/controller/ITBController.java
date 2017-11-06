@@ -39,7 +39,7 @@ public class ITBController {
 	private String ITBCNginx;
 
 	@Autowired
-	private UserService userService;
+	protected UserService userService;
 
 	@InitBinder
     protected void initBinder(WebDataBinder webDataBinder) {
