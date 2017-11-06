@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.socket.Chat;
 import cn.itbcat.boot.service.admin.UserService;
@@ -23,7 +24,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = ITBC.SERVER_NAME_FRONT)
-public class ChatController {
+public class ChatController extends ITBController {
 
     @Autowired
     private FriendService friendService;
@@ -34,6 +35,7 @@ public class ChatController {
 
     @RequestMapping(value = "/chat",method = RequestMethod.GET)
     public String chat(HttpServletRequest request, Map<String, Object> data){
+        data.putAll(dataModel());
         String receiveId = request.getParameter("rid");
         List<Chat> chats = null;
         if(StringUtils.isNotBlank(receiveId)){

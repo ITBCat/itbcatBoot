@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.front.Article;
 import cn.itbcat.boot.entity.front.Comment;
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_FRONT)
-public class ArticleController {
+public class ArticleController extends ITBController {
 
     @Autowired
     private ArticleService articleService;
@@ -40,25 +41,26 @@ public class ArticleController {
 
     @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
     private String article(Map<String,Object> data, @PathVariable String id){
-
-            Article article = articleService.get(id);
-            if (null != article) {
-                List<Comment> comments = commentService.findCommentByArticleId(id);
-                article.setComments(comments);
-                data.put("article", article);
-                List<String> commentIds = commentService.findAllCommentByArticleId(id);
-                data.put("commentIds", commentIds.toString());
-                data.put("length", commentIds.size());
-                data.put("template", "article");
-                return ITBC.SYSTEM_FRONT_TEMPLATE;
-            } else {
-                return "404";
-            }
+        data.putAll(dataModel());
+        Article article = articleService.get(id);
+        if (null != article) {
+            List<Comment> comments = commentService.findCommentByArticleId(id);
+            article.setComments(comments);
+            data.put("article", article);
+            List<String> commentIds = commentService.findAllCommentByArticleId(id);
+            data.put("commentIds", commentIds.toString());
+            data.put("length", commentIds.size());
+            data.put("template", "article");
+            return ITBC.SYSTEM_FRONT_TEMPLATE;
+        } else {
+            return "404";
+        }
 
     }
 
     @RequestMapping(value = "/put",method = RequestMethod.GET)
     public String toPut(Map<String,Object> data){
+        data.putAll(dataModel());
         return "module/front/put";
     }
 

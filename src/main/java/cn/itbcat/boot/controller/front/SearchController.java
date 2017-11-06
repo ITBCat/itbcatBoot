@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.ArticleSearch;
 import cn.itbcat.boot.service.front.ArticleSearchService;
@@ -21,7 +22,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_FRONT)
-public class SearchController {
+public class SearchController extends ITBController {
 
     @Autowired
     private ArticleSearchService articleSearchService;
@@ -29,7 +30,6 @@ public class SearchController {
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     @ResponseBody
     public Result search(HttpServletRequest request, Map<String,Object> data){
-
         String q = request.getParameter("q");
         if(StringUtils.isNotBlank(q)){
             List<ArticleSearch> list = articleSearchService.search(q);

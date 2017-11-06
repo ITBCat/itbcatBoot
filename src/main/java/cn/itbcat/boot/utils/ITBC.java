@@ -94,6 +94,11 @@ public class ITBC {
      * IS_Login
      */
     public static final String IS_LOGIN="isLogin";
+
+    /**
+     * IS_Login
+     */
+    public static final String LANGUAGE="lang";
     /**
      * _user
      */

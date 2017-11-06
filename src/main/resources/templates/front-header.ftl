@@ -7,7 +7,7 @@
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon" href="/">
                 <i class="home icon"></i>
-                &nbsp;首页
+                &nbsp;<@spring.message 'front.menu.index'/>
             </a>
             <a class="item">
                 <i class="coffee icon"></i>
@@ -39,7 +39,7 @@
         <div class="right menu colhidden four wide column">
         <#if isLogin>
             <div class="ui dropdown item" style="height: 54px;margin-top: -14px;">
-                <i class="bell big icon"></i>
+                <i class="bell large icon"></i>
                 <div class="menu">
                     <div class="header">
                         People You Might Know
@@ -67,11 +67,21 @@
                     </div>
                 </div>
             </div>
-            <div class="ui dropdown item" tabindex="0">
-                语言 <i class="dropdown icon"></i>
-                <div class="menu transition hidden" tabindex="-1">
-                    <a class="item" href="/changeSessionLanauage?lang=en"><i class="united kingdom flag"></i>English</a>
-                    <a class="item" href="/changeSessionLanauage?lang=zh"><i class="china flag"></i>简体中文</a>
+            <div class="ui language floating dropdown link item" id="languages">
+                <i class="world icon"></i>
+                <div class="text">简体中文</div>
+                <div class="menu">
+                    <div class="header">搜索语言</div>
+                    <div class="ui icon search input">
+                        <i class="search icon"></i>
+                        <input type="text" placeholder="搜索语言">
+                    </div>
+                    <div class="scrolling menu">
+                        <a class="item" href="/changeSessionLanauage?lang=en" data-percent="100" data-value="en" data-text="英语" data-english="English"><span class="description">English</span> English </a>
+
+                        <a class="item" href="/changeSessionLanauage?lang=zh" data-percent="34" data-value="zh" data-text="简体中文" data-english="Chinese"><span class="description">简体中文</span> Chinese </a>
+
+                    </div>
                 </div>
             </div>
             <@shiro.hasPermission name="admin:admin:view">
@@ -144,14 +154,14 @@
                     $(".searchresult").css({height:"50em",overflow:"auto"});
                 }
                 for (var i = 0;i<result.data.search.length;i++){
-                    var src=ITBC.ITBCNginx+'/'+result.data.search[i].avatar;
+                    var src = ITBC.ITBCNginx+'/'+result.data.search[i].avatar;
+                    var href = '${ITBCFront}'+'/article/'+result.data.search[i].articleId;
                     html +='<tr>'
                               +'<td>'
-                                  +'<a class="ui image header" href="">'
+                                  +'<a class="ui image header" href="'+href+'">'
                                       +'<img src="'+src+'" class="ui mini rounded image">'
                                       +'<div class="content">'
                                           +'<h4 style="margin: 0;">'+result.data.search[i].title+'</h4>'
-                                          +'<div class="sub header">'+result.data.search[i].md+'</div>'
                                       +'</div>'
                                   +'</a>'
                               +'</td>'

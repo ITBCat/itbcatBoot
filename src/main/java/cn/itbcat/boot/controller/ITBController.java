@@ -1,9 +1,14 @@
 package cn.itbcat.boot.controller;
 
+import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.DateEditor;
+import cn.itbcat.boot.utils.ITBC;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -15,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ITBController {
 	@Autowired
@@ -22,6 +29,10 @@ public class ITBController {
 
 	@Autowired
 	protected HttpServletResponse response;
+
+
+	@Value("${itbc.server.nginx.ipaddress}")
+	private String ITBCNginx;
 
 	@Autowired
 	private UserService userService;
@@ -118,5 +129,29 @@ public class ITBController {
     	PageRequest pageRequest = new PageRequest(page, size, sort);
     	return pageRequest;
     }
+
+    protected Map<String,Object> dataModel(){
+
+    	Map<String,Object> data = new HashMap<String,Object>();
+		User user = null;
+		if(StringUtils.isNotBlank(ITBC.getCurrUserId())){
+			user = userService.get(ITBC.getCurrUserId());
+		}
+
+		boolean flag = false;
+		if(null!=user){
+			flag = true;
+			String _userString = JSON.toJSONString(user);
+			JSONObject _user = JSONObject.parseObject(_userString);
+			data.put(ITBC._USER,_user);
+			data.put(ITBC.JSON_USER,_userString);
+		}
+		data.put(ITBC.ITBC_FRONT,ITBC.SERVER_NAME_FRONT);
+		data.put(ITBC.ITBC_ADMIN,ITBC.SERVER_NAME_ADMIN);
+		data.put(ITBC.ITBC_NGINX,ITBCNginx);
+		data.put(ITBC.IS_LOGIN,flag);
+
+    	return data;
+	}
 
 }

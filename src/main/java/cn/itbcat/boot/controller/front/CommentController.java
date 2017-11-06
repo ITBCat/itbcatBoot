@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.entity.admin.User;
@@ -25,7 +26,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_FRONT+"/comment")
-public class CommentController {
+public class CommentController extends ITBController {
 
     @Autowired
     private CommentService commentService;

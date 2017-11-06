@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.front;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.service.admin.UserService;
@@ -23,7 +24,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_FRONT)
-public class SettingController {
+public class SettingController extends ITBController {
 
     @Value("${itbc.server.upload.dir}")
     private String upload;
@@ -33,6 +34,7 @@ public class SettingController {
 
     @RequestMapping(value = "/settings",method = RequestMethod.GET)
     public String setting(Map<String,Object> data){
+        data.putAll(dataModel());
         data.put(ITBC.TEMPLATE,"settings");
         return ITBC.SYSTEM_FRONT_TEMPLATE;
     }

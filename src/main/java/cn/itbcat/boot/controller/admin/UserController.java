@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.admin;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.Role;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.UserService;
@@ -22,7 +23,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_ADMIN+"/user")
-public class UserController {
+public class UserController extends ITBController{
 
     @Autowired
     private UserService userService;
@@ -30,6 +31,8 @@ public class UserController {
     @RequiresPermissions("admin:user:view")
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String toUser(@PathVariable String template, Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
+
         dataModel.put("template",template);
 
         dataModel.put("users",userService.findAll());
@@ -59,6 +62,8 @@ public class UserController {
     @RequiresPermissions("admin:user:edit")
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
     public String toEdit(@PathVariable String template,HttpServletRequest request,Map<String,Object> dataModel){
+
+        dataModel.putAll(dataModel());
 
         String userId = request.getParameter("userId");
         if(StringUtils.isNotBlank(userId)){

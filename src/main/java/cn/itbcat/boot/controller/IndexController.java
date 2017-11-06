@@ -28,7 +28,7 @@ import java.util.Random;
  * Created by 860117030 on 2017/9/5.
  */
 @Controller
-public class IndexController {
+public class IndexController extends ITBController {
 
     @Autowired
     private ArticleService articleService;
@@ -38,6 +38,7 @@ public class IndexController {
 
     @RequestMapping(value = ITBC.SERVER_NAME_ADMIN+"/admin",method = RequestMethod.GET)
     public String index(Map<String, Object> dataModel){
+        dataModel.putAll(dataModel());
         User user = ITBC.getCurrUser();
         if(null != user && ITBC.SUPER_ADMIN.equals(user.getIsAdmin())){
             return "redirect:"+ITBC.SERVER_NAME_ADMIN+"/healths";
@@ -50,6 +51,7 @@ public class IndexController {
     @RequestMapping(value = {"/","/f"},method = RequestMethod.GET)
     public String front(Map<String,Object> data){
         Random r1 = new Random();
+        data.putAll(dataModel());
         data.put("spanner",r1.nextBoolean());
         List<Article> articles = articleService.findAll();
         long count = articleService.count();

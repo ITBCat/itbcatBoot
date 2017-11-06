@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.admin;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.Role;
 import cn.itbcat.boot.service.admin.RoleService;
 import cn.itbcat.boot.utils.ITBC;
@@ -21,7 +22,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_ADMIN+"/role")
-public class RoleController {
+public class RoleController extends ITBController{
 
     @Autowired
     private RoleService roleService;
@@ -37,6 +38,7 @@ public class RoleController {
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:role:view")
     public String goToRole(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
+        dataModel.putAll(dataModel);
         dataModel.put("template",template);
         dataModel.put("roles",roleService.findAll());
         return ITBC.SYSTEM_ADMIN_TEMPLATE;
@@ -54,6 +56,7 @@ public class RoleController {
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:role:view")
     public String toEdit(@PathVariable String template,HttpServletRequest request,Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
         String roleId = request.getParameter("roleId");
         dataModel.put("template",template);
         if(StringUtils.isNotBlank(roleId)){

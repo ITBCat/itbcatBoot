@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.admin;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.Dept;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.DeptService;
@@ -20,7 +21,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(ITBC.SERVER_NAME_ADMIN+"/dept")
-public class DeptController {
+public class DeptController extends ITBController {
 
     @Autowired
     private DeptService deptService;
@@ -29,12 +30,12 @@ public class DeptController {
      * @param template
      * @param request
      * @param response
-     * @param dataModel 返回的数据
      * @return
      */
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:dept:view")
-    public String goToDept(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
+    public String goToDept(@PathVariable String template, HttpServletRequest request, HttpServletResponse response,Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
         dataModel.put("template",template);
         String parentId = request.getParameter("parentId");
         dataModel.put("depts",deptService.findDeptByParentId(parentId));
@@ -92,6 +93,7 @@ public class DeptController {
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:dept:edit")
     public String toEdit(@PathVariable String template, HttpServletRequest request,Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
         dataModel.put("dept",deptService.get(request.getParameter("deptId")));
         dataModel.put("template",template);
         return ITBC.SYSTEM_ADMIN_TEMPLATE;

@@ -9,6 +9,7 @@ import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +34,11 @@ public class ArticleService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * 保存
+     * @param article
+     * @return
+     */
     @CacheEvict(value=ITBC.CACHE_NAME,key=CACHE_KEY)
     public Article save(Article article) {
         User user = ITBC.getCurrUser();
@@ -42,6 +48,11 @@ public class ArticleService {
         return articleRepository.save(article);
     }
 
+    /**
+     * 查询
+     * @param articleId
+     * @return
+     */
     @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_'+#articleId")
     public Article get(String articleId) {
         Article article = articleRepository.findOne(articleId);
@@ -70,10 +81,10 @@ public class ArticleService {
         return articleRepository.count();
     }
 
-    @Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
+    //@Cacheable(value=ITBC.CACHE_NAME,key="'CACHE_ARTICLE_LIST'")
     public List<Article> findAll() {
         Sort sort = new Sort(Sort.Direction.DESC,"date");
-        List<Article> articles = articleRepository.findAll();
+        List<Article> articles = articleRepository.findAll(sort);
         for (Article article : articles){
             User user = userRepository.findOne(article.getUserid());
             article.setAnthor(user);
@@ -85,5 +96,27 @@ public class ArticleService {
             article.setDesc(ITBC.tranfer(StringUtils.abbr(article.getHtml(),length)));
         }
         return articles;
+    }
+
+    /**
+     * 更新
+     * @param article
+     * @return
+     */
+    @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_ARTICLE_'+#article.getId()")
+    public Article update(Article article){
+
+        return null;
+    }
+
+    /**
+     * 删除
+     * @param articleId
+     * @return
+     */
+    @CacheEvict(value = ITBC.CACHE_NAME,key = "'CACHE_ARTICLE_'+#articleId")
+    public Article delete(String articleId){
+
+        return null;
     }
 }

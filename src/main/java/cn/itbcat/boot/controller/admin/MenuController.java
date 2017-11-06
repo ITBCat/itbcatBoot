@@ -1,5 +1,6 @@
 package cn.itbcat.boot.controller.admin;
 
+import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.Menu;
 import cn.itbcat.boot.entity.admin.User;
 import cn.itbcat.boot.service.admin.MenuService;
@@ -20,7 +21,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = ITBC.SERVER_NAME_ADMIN+"/menu")
-public class MenuController {
+public class MenuController extends ITBController{
 
     @Autowired
     private MenuService menuService;
@@ -36,6 +37,7 @@ public class MenuController {
     @RequiresPermissions("admin:menu:view")
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     public String goToMenu(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
         dataModel.put("template",template);
         String parentId = request.getParameter("parentId");
         dataModel.put("menus",getMenuList(parentId));
@@ -63,6 +65,7 @@ public class MenuController {
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     @RequiresPermissions("admin:menu:add")
     public String save(@ModelAttribute Menu menu,Map<String,Object> dataModel){
+        dataModel.putAll(dataModel());
         dataModel.put("template","menu");
         if(null == menu){
             dataModel.put("msg","保存菜单出错啦~");
@@ -101,6 +104,7 @@ public class MenuController {
     @RequestMapping(value = "/edit/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:menu:edit")
     public String toEdit(@PathVariable String template,Map<String,Object> dataModel,HttpServletRequest request){
+        dataModel.putAll(dataModel());
         String menuId = request.getParameter("menuId");
         dataModel.put("template",template);
         dataModel.put("menus",getMenuList(null));
