@@ -15,13 +15,17 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME;
 
 public class ITBController {
 	@Autowired
@@ -150,7 +154,8 @@ public class ITBController {
 		data.put(ITBC.ITBC_ADMIN,ITBC.SERVER_NAME_ADMIN);
 		data.put(ITBC.ITBC_NGINX,ITBCNginx);
 		data.put(ITBC.IS_LOGIN,flag);
-
+		HttpSession session=request.getSession();
+		data.put(ITBC.LANGUAGE,session.getAttribute(LOCALE_SESSION_ATTRIBUTE_NAME));
     	return data;
 	}
 

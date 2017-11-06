@@ -69,7 +69,15 @@
             </div>
             <div class="ui language floating dropdown link item" id="languages">
                 <i class="world icon"></i>
-                <div class="text">简体中文</div>
+                <#if lang??>
+                    <#if lang == 'zh_CN'>
+                        <div class="text">简体中文</div>
+                    <#elseif lang == 'en_US'>
+                        <div class="text">English</div>
+                    </#if>
+                <#else>
+                    <div class="text">简体中文</div>
+                </#if>
                 <div class="menu">
                     <div class="header">搜索语言</div>
                     <div class="ui icon search input">
