@@ -28,10 +28,10 @@
 
             <div class="ui right aligned category search item">
                 <div class="ui icon input" id="_search_result">
-                    <input id="_search_input" name="q" type="text" placeholder="Search...">
+                    <input id="_search_input" name="q" autocomplete="off" type="text" placeholder="Search...">
                     <i class="search icon input"></i>
                 </div>
-                <div class="searchresult" style="display: none;">
+                <div class="searchresult" style="display: none;overflow-x:hidden;">
                 </div>
             </div>
         </div>
@@ -113,6 +113,8 @@
 </div>
 <script type="text/javascript">
     $('input').bind('input propertychange', function() {
+        $('.searchresult').html('');
+        $('.searchresult').hide();
         var q = $('#_search_input').val();
         if(q==''){
             $(".searchresult").hide();
@@ -138,20 +140,24 @@
                 if(result.data.search.length <= 0){
                     return;
                 }
+                if(result.data.search.length>=25){
+                    $(".searchresult").css({height:"50em",overflow:"auto"});
+                }
                 for (var i = 0;i<result.data.search.length;i++){
+                    var src=ITBC.ITBCNginx+'/'+result.data.search[i].avatar;
                     html +='<tr>'
                               +'<td>'
                                   +'<a class="ui image header" href="">'
-                                      +'<img src="/static/img/avatar/animals/cat_128px.png" class="ui mini rounded image">'
+                                      +'<img src="'+src+'" class="ui mini rounded image">'
                                       +'<div class="content">'
-                                          +'<h4 style="margin: 0;">帮助文档</h4>'
-                                          +'<div class="sub header">真理惟一可靠的标准就是永远自相符合</div>'
+                                          +'<h4 style="margin: 0;">'+result.data.search[i].title+'</h4>'
+                                          +'<div class="sub header">'+result.data.search[i].md+'</div>'
                                       +'</div>'
                                   +'</a>'
                               +'</td>'
                             +'</tr>';
-                    html+='</tbody></table>';
                 }
+                html+='</tbody></table>';
                 $('.searchresult').html(html);
                 $('.searchresult').show();
             }

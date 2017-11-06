@@ -27,6 +27,8 @@ public class ArticleSearch implements Serializable {
 
     private String avatar;
 
+    private String desc;
+
     private Date date;
 
 
@@ -97,5 +99,13 @@ public class ArticleSearch implements Serializable {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

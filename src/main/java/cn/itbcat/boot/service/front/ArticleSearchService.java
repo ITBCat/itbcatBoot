@@ -11,6 +11,7 @@ import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.StringUtils;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.WildcardQueryBuilder;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,13 +49,17 @@ public class ArticleSearchService {
         articleSearch.setMd(article.getMd());
         articleSearch.setTitle(article.getTitle());
         articleSearch.setUserid(user.getUserId());
+        int length = article.getMd().length();
+        if(length > 450){
+            length = 450;
+        }
+        articleSearch.setDesc(ITBC.tranfer(StringUtils.abbr(article.getMd(),length)));
         articleSearch.setDate(new Date());
         articleSearchRepository.save(articleSearch);
     }
 
     public List<ArticleSearch> search(String q) {
-        List<ArticleSearch> list = articleSearchRepository.findByTitleLike(q);
-
+        List<ArticleSearch> list = articleSearchRepository.findByTitleLike("*"+q+"*");
         return list;
     }
 
@@ -66,7 +71,7 @@ public class ArticleSearchService {
 
         // Function Score Query
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
-                .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("title", searchContent)),
+                .add(QueryBuilders.fuzzyQuery("title", searchContent),
                         ScoreFunctionBuilders.weightFactorFunction(1000));
 
         // 创建搜索 DSL 查询
@@ -74,8 +79,10 @@ public class ArticleSearchService {
                 .withPageable(pageable)
                 .withQuery(functionScoreQueryBuilder).build();
 
+        WildcardQueryBuilder queryBuilder = QueryBuilders.wildcardQuery("title",
+                "f");
 
-        Page<ArticleSearch> searchPageResults = articleSearchRepository.search(searchQuery);
+        Page<ArticleSearch> searchPageResults = articleSearchRepository.search(queryBuilder,pageable);
         return searchPageResults.getContent();
     }
 
@@ -113,7 +120,7 @@ public class ArticleSearchService {
 
     public Page<ArticleSearch> searchArticle(String q) {
 
-        return articleSearchRepository.search(searchQuery(1,10,q));
+        return articleSearchRepository.search(searchQuery(0,10,q));
 
     }
 }

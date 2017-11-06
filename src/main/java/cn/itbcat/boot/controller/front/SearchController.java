@@ -32,8 +32,8 @@ public class SearchController {
 
         String q = request.getParameter("q");
         if(StringUtils.isNotBlank(q)){
-            Page <ArticleSearch> list = articleSearchService.searchArticle(q);
-            data.put("search",list.getContent());
+            List<ArticleSearch> list = articleSearchService.search(q);
+            data.put("search",list);
         }
         return new Result(ITBC.SUCCESS_CODE,data,"");
     }
