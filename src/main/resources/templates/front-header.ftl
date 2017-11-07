@@ -1,8 +1,8 @@
 <!--navbar-->
 <div class="navwrap" style="width: 100%;">
     <div class="ui menu icon borderless four column grid" style="width: 100%;height: 54px;" data-color="inverted white">
-        <div class="three wide column" style="margin-top: -1em;">
-            <a href="/"><img src="/static/i.svg" alt=""></a>
+        <div class="three wide column" style="margin-top: -1.5em;z-index: 99999;">
+            <a href="/"><img src="/static/lion.png"  alt=""></a>
         </div>
         <div class="ui secondary stackable menu eight wide column" style="font-size: larger;font-weight: bold;" >
             <a class="active item icon" href="/">

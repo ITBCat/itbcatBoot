@@ -38,7 +38,7 @@
                         <div class="field">
                             <label>性别</label>
                             <div class="ui selection dropdown" tabindex="0">
-                                <input name="gender" type="hidden">
+                                <input name="gender" <#if _user.gender??>value="${_user.gender}"</#if> type="hidden">
                                 <div class="default text">选择你的性别</div>
                                 <i class="dropdown icon"></i>
                                 <div class="menu" tabindex="-1">
@@ -52,7 +52,7 @@
                     <div class="two fields">
                         <div class="field">
                             <label>个人简介</label>
-                            <input placeholder="填写你的个人简介" name="profiles" type="text">
+                            <input placeholder="填写你的个人简介" <#if _user.profiles??>value="${_user.profiles}"</#if> name="profiles" type="text">
                         </div>
                         <div class="field">
                             <label>个人网站</label>
@@ -60,7 +60,7 @@
                                 <div class="ui label">
                                     http://
                                 </div>
-                                <input type="text" placeholder="你的网址">
+                                <input type="text" <#if _user.website??>value="${_user.website}"</#if> name="website" placeholder="你的网址">
                             </div>
                         </div>
                     </div>
@@ -78,20 +78,20 @@
                             <option value="7">其他</option>
                         </select>
                             <i class="dropdown icon"></i>
-                            <input name="tags" type="hidden">
+                            <input name="tags" <#if _user.tags??>value="${_user.tags}"</#if> type="hidden">
                             <div class="default text">选择自我标签</div>
                             <div class="menu" tabindex="-1">
-                                <div class="item" data-value="0">宅男腐女</div>
-                                <div class="item" data-value="1">程序猿</div>
-                                <div class="item" data-value="2">艺术家</div>
-                                <div class="item" data-value="3">运动员</div>
-                                <div class="item" data-value="4">设计师</div>
-                                <div class="item" data-value="5">作家</div>
-                                <div class="item" data-value="6">其他</div>
+                                <div class="item" data-value="1">宅男腐女</div>
+                                <div class="item" data-value="2">程序猿</div>
+                                <div class="item" data-value="3">艺术家</div>
+                                <div class="item" data-value="4">运动员</div>
+                                <div class="item" data-value="5">设计师</div>
+                                <div class="item" data-value="6">作家</div>
+                                <div class="item" data-value="7">其他</div>
                             </div>
                         </div>
                     </div>
-                    <div class="ui green submit button" style="float: right;">保存</div>
+                    <button class="ui green submit button" type="submit" style="float: right;">保存</button>
                     <div class="ui error message"></div>
                 </form>
             </div>
@@ -259,6 +259,14 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(function () {
+        <#if msg??>
+            var type = '${msg.type}';
+            var msg = '${msg.message}';
+        notify(type,'基本信息',msg,'/static/img/message/'+type+'.png');
+        </#if>
+
+    })
     function changeImg(e){
         upload();
         /*for (var i = 0; i < e.target.files.length; i++) {

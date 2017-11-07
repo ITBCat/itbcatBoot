@@ -11,6 +11,7 @@
 <link href="/static/plugins/lobibox/css/lobibox.css" rel="stylesheet" />
 <!--jquery-->
 <script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/plugins/axios/axios.min.js"></script>
 <!--jquery-->
 <style>
     .ui.footer.segment {

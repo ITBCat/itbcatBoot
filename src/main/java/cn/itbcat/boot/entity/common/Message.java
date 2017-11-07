@@ -1,5 +1,7 @@
 package cn.itbcat.boot.entity.common;
 
+import cn.itbcat.boot.utils.ITBC;
+
 /**
  * Created by 860117030 on 2017/11/7.
  */
@@ -11,7 +13,7 @@ public class Message {
      */
     private String type;
 
-    private String msg;
+    private String message;
 
     public String getType() {
         return type;
@@ -21,18 +23,19 @@ public class Message {
         this.type = type;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public Message() {
     }
-    public Message(String type, String msg) {
+    public Message(String type, String message) {
         this.type = type;
-        this.msg = msg;
+        this.message = message;
     }
+
 }

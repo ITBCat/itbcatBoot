@@ -40,11 +40,19 @@ public class SettingController extends ITBController {
     @RequestMapping(value = "/settings/{userId}",method = RequestMethod.POST)
     public String profiles(@PathVariable String userId,@ModelAttribute User user,Map<String,Object> data){
         data.putAll(dataModel());
+        data.put(ITBC.TEMPLATE,"settings");
         if (!ITBC.getCurrUserId().equals(userId)){
-            return "";
+            data.put(ITBC.MESSAGE,new Message("error","只能修改自己的信息哦"));
+            return ITBC.SYSTEM_FRONT_TEMPLATE;
         }
         User u = userService.get(userId);
-        return "";
+        u.setUsername(user.getUsername());
+        u.setGender(user.getGender());
+        u.setProfiles(user.getProfiles());
+        u.setWebsite(user.getWebsite());
+        u.setTags(user.getTags());
+        userService.updateAvatar(u);
+        return redirect(ITBC.SERVER_NAME_FRONT+"/settings");
     }
 
 

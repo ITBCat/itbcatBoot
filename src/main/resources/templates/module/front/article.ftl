@@ -17,14 +17,14 @@
         <div class="item" style="border-left: 5px solid #BABABA;padding-top: 5px;padding-bottom: 5px;">
             <div class="ui two column middle aligned stackable grid" style="width: 100%;">
                 <div class="eleven wide column">
-                    <a class="ui avatar image" href="${ITBCFront}/profile/${article.anthor.userId}" style="background-color: white;height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 10px;">
+                    <a class="ui avatar image" href="${ITBCFront}/profile/${article.anthor.userId}" style="background-color: white;height: 65px;width: 65px; float: left;margin-left: 1em;margin-top: 12px;">
                     <#if article.anthor.avatar??>
                         <img style="height: 60px;width: 60px;" src="${ITBCNginx}/${article.anthor.avatar}" onerror="this.src='/static/img/avatar/people/Abraham.png'">
                     <#else >
                         <img  style="height: 60px;width: 60px;" src="/static/img/avatar/people/Abraham.png">
                     </#if>
                     </a>
-                    <div class="content" style="float: left;margin-left: 1em;">
+                    <div class="content" style="float: left;margin-left: 1em;margin-top: 10px;">
                         <a class="header" href="${ITBCFront}/profile/${article.anthor.userId}">
                         ${article.anthor.username}
                         </a>
@@ -36,7 +36,9 @@
 
                         </div>
                         <div class="meta">
-                            真理惟一可靠的标准就是永远自相符合。
+                        <#if article.anthor.profiles??>
+                                ${article.anthor.profiles}
+                            </#if>
                         </div>
                     </div>
                 </div>

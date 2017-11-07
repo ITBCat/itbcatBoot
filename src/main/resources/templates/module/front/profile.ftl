@@ -12,9 +12,16 @@
                             <i class="like icon"></i>
                             ${profiler.username}
                         </div>
+                    <#if profiler.website??>
                         <div class="meta">
-                            Teacher, <i class="icon map marker"></i> London U.K.
+                        <a href="http://${profiler.website}" target="_blank">http://${profiler.website}</a>
                         </div>
+                    </#if>
+                    <#if profiler.profiles??>
+                        <div class="meta">
+                            ${profiler.profiles}
+                        </div>
+                    </#if>
                     </div>
                 </div>
             </div>
@@ -37,7 +44,7 @@
                     <i class="instagram icon"></i>
                 </button>
                 <div class="ui divider"></div>
-                <button class="ui inverted black button follow">Follow</button>
+                <button class="ui inverted black button follow" id="_follow" onclick="Follow.follow('${profiler.userId}')">关注</button>
             </div>
         </div>
     </div>
@@ -367,3 +374,35 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var Follow = {
+        /**
+         * 关注
+         * @param userId 关注人
+         * @param followerId 被关注人
+         */
+        follow:function (followerId) {
+            if(!user){
+                window.location.href='/login';
+                return;
+            }
+            axios.post(ITBC.serverName+'/follow', {
+                followerId: followerId
+            }).then(function (response) {
+                console.log(response)
+                if(response.data.code == 0){
+                    $('#_follow').attr('class','ui green button follow');
+                    $('#_follow').html('<i class="checkmark icon"></i> 已关注');
+                    console.log("关注成功")
+                }else{
+                    if(response.data.message.message=='not login'){
+                        window.location.href='/login';
+                    }
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+
+</script>

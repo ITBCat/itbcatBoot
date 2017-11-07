@@ -110,6 +110,11 @@ public class ITBC {
     public static final String _USER="_user";
 
     /**
+     * message key
+     */
+    public static final String MESSAGE="msg";
+
+    /**
      * J_user
      */
     public static final String JSON_USER="_J_user";
