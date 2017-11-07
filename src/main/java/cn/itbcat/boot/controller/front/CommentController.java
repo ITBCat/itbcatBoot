@@ -1,6 +1,7 @@
 package cn.itbcat.boot.controller.front;
 
 import cn.itbcat.boot.controller.ITBController;
+import cn.itbcat.boot.entity.common.Message;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.entity.admin.User;
@@ -60,11 +61,13 @@ public class CommentController extends ITBController {
     @ResponseBody
     @RequiresPermissions("user:login:comment-user")
     public Result user(@RequestParam(value = "commentId") String commentId){
-        if(StringUtils.isBlank(commentId))return new Result(ITBC.ERROR_CODE,null,"commentId is null");
+        if(StringUtils.isBlank(commentId))return new Result(ITBC.ERROR_CODE,null,new Message("warning","commentId is null"));
         Comment comment = commentService.get(commentId);
         User user = userService.get(comment.getUserId());
-        if(null == user)return new Result(ITBC.ERROR_CODE,null,"user is not found");
-        return new Result(ITBC.SUCCESS_CODE,user,"success");
+        if(null == user){
+            return new Result(ITBC.ERROR_CODE,null,new Message("warning","user is not found"));
+        }
+        return new Result(ITBC.SUCCESS_CODE,user,new Message("success",""));
     }
 
 }

@@ -2,7 +2,6 @@ package cn.itbcat.boot.config.shiro;
 
 import cn.itbcat.boot.utils.ITBC;
 import org.apache.shiro.cache.CacheManager;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -117,8 +116,9 @@ public class ShiroConfig {
 		filterMap.put("/lock", "anon");
 		filterMap.put("/mail/**", "anon");
 		filterMap.put("/itbc/**", "anon");
-		filterMap.put("/swagger-ui.html", "anon");
+		filterMap.put("/swagger-ui.html/**", "anon");
 		filterMap.put("/swagger-resources/**", "anon");
+		filterMap.put("/webjars/**", "anon");
 		filterMap.put("/register", "anon");
 		filterMap.put("/upload", "anon");
 		filterMap.put("/admin/nopermissions", "anon");

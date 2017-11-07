@@ -25,55 +25,73 @@
     <div class="sixteen wide tablet fourteen wide computer column">
         <div class="ui segment" style="height: 80%;">
             <div class="ui tab active" data-tab="profile">
-                <form class="ui form">
+                <form class="ui form" action="${ITBCFront}/settings/${_user.userId}" method="post">
                     <h3 class="ui header">
-                        Profile Settings
+                        基本信息
                     </h3>
                     <div class="ui hidden divider"></div>
                     <div class="two fields">
                         <div class="field">
-                            <label>Name</label>
-                            <input placeholder="First Name" name="name" type="text">
+                            <label>昵称</label>
+                            <input placeholder="填写你的昵称" <#if _user.username??>value="${_user.username}"</#if> name="username" type="text">
                         </div>
                         <div class="field">
-                            <label>Gender</label>
-                            <div class="ui dropdown fluid selection" tabindex="0"><select name="gender">
-                                <option value="">Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select><i class="dropdown icon"></i><div class="default text">Gender</div><div class="menu" tabindex="-1"><div class="item" data-value="male">Male</div><div class="item" data-value="female">Female</div></div></div>
+                            <label>性别</label>
+                            <div class="ui selection dropdown" tabindex="0">
+                                <input name="gender" type="hidden">
+                                <div class="default text">选择你的性别</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu" tabindex="-1">
+                                    <div class="item" data-value="0">帅哥</div>
+                                    <div class="item" data-value="1">美女</div>
+                                    <div class="item" data-value="2">保密</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="two fields">
                         <div class="field">
-                            <label>Username</label>
-                            <input placeholder="Username" name="username" type="text">
+                            <label>个人简介</label>
+                            <input placeholder="填写你的个人简介" name="profiles" type="text">
                         </div>
                         <div class="field">
-                            <label>Password</label>
-                            <input type="password" name="password">
+                            <label>个人网站</label>
+                            <div class="ui labeled input fluid">
+                                <div class="ui label">
+                                    http://
+                                </div>
+                                <input type="text" placeholder="你的网址">
+                            </div>
                         </div>
                     </div>
                     <div class="field">
-                        <label>Skills</label>
-                        <div class="ui dropdown fluid selection multiple" tabindex="0"><select name="skills" multiple="">
-                            <option value="">Select Skills</option>
-                            <option value="css">CSS</option>
-                            <option value="html">HTML</option>
-                            <option value="javascript">Javascript</option>
-                            <option value="design">Graphic Design</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="mech">Mechanical Engineering</option>
-                            <option value="repair">Kitchen Repair</option>
-                        </select><i class="dropdown icon"></i><div class="default text">Select Skills</div><div class="menu" tabindex="-1"><div class="item" data-value="css">CSS</div><div class="item" data-value="html">HTML</div><div class="item" data-value="javascript">Javascript</div><div class="item" data-value="design">Graphic Design</div><div class="item" data-value="plumbing">Plumbing</div><div class="item" data-value="mech">Mechanical Engineering</div><div class="item" data-value="repair">Kitchen Repair</div></div></div>
-                    </div>
-                    <div class="inline field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="terms">
-                            <label>I agree to the terms and conditions</label>
+                        <label>自我标签</label>
+                        <div class="ui dropdown fluid selection multiple" tabindex="0">
+                            <select name="自我标签" multiple="">
+                            <option value=""></option>
+                            <option value="1">宅男腐女</option>
+                            <option value="2">程序猿</option>
+                            <option value="3">艺术家</option>
+                            <option value="4">运动员</option>
+                            <option value="5">设计师</option>
+                            <option value="6">作家</option>
+                            <option value="7">其他</option>
+                        </select>
+                            <i class="dropdown icon"></i>
+                            <input name="tags" type="hidden">
+                            <div class="default text">选择自我标签</div>
+                            <div class="menu" tabindex="-1">
+                                <div class="item" data-value="0">宅男腐女</div>
+                                <div class="item" data-value="1">程序猿</div>
+                                <div class="item" data-value="2">艺术家</div>
+                                <div class="item" data-value="3">运动员</div>
+                                <div class="item" data-value="4">设计师</div>
+                                <div class="item" data-value="5">作家</div>
+                                <div class="item" data-value="6">其他</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="ui blue submit button" style="float: right;">Update</div>
+                    <div class="ui green submit button" style="float: right;">保存</div>
                     <div class="ui error message"></div>
                 </form>
             </div>

@@ -2,6 +2,7 @@ package cn.itbcat.boot.controller.front;
 
 import cn.itbcat.boot.controller.ITBController;
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.entity.common.Message;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.service.admin.UserService;
 import cn.itbcat.boot.utils.ITBC;
@@ -9,10 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -39,11 +37,22 @@ public class SettingController extends ITBController {
         return ITBC.SYSTEM_FRONT_TEMPLATE;
     }
 
+    @RequestMapping(value = "/settings/{userId}",method = RequestMethod.POST)
+    public String profiles(@PathVariable String userId,@ModelAttribute User user,Map<String,Object> data){
+        data.putAll(dataModel());
+        if (!ITBC.getCurrUserId().equals(userId)){
+            return "";
+        }
+        User u = userService.get(userId);
+        return "";
+    }
+
+
     @RequestMapping(value = "/settings/avatar",method = RequestMethod.POST)
     @ResponseBody
     public Result upload(@RequestParam(value = "avatar") MultipartFile file){
         if (file.isEmpty()) {
-            return new Result(ITBC.ERROR_CODE,null,"文件不能为空");
+            return new Result(ITBC.ERROR_CODE,null,new Message("warning","文件不能为空"));
         }
         // 获取文件名
         String fileName = file.getOriginalFilename();
@@ -71,13 +80,13 @@ public class SettingController extends ITBController {
             User user = userService.get(ITBC.getCurrUserId());
             user.setAvatar(fileName);
             userService.updateAvatar(user);
-            return new Result(ITBC.SUCCESS_CODE,fileName,"success");
+            return new Result(ITBC.SUCCESS_CODE,fileName,new Message());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
 
         }
-        return new Result(ITBC.ERROR_CODE,null,"文件上传失败");
+        return new Result(ITBC.ERROR_CODE,null,new Message("warning","文件上传失败"));
     }
 }

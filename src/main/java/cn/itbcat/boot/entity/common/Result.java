@@ -1,7 +1,5 @@
 package cn.itbcat.boot.entity.common;
 
-import java.util.Map;
-
 /**
  * Created by 860117030 on 2017/10/19.
  */
@@ -22,7 +20,7 @@ public class Result {
     /**
      * 信息
      */
-    private String message;
+    private Message message;
 
     public String getCode() {
         return code;
@@ -40,15 +38,15 @@ public class Result {
         this.data = data;
     }
 
-    public String getMessage() {
+    public Message getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Message message) {
         this.message = message;
     }
 
-    public Result(String code, Object data, String message) {
+    public Result(String code, Object data, Message message) {
         this.code = code;
         this.data = data;
         this.message = message;

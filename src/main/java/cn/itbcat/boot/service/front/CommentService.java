@@ -1,6 +1,7 @@
 package cn.itbcat.boot.service.front;
 
 import cn.itbcat.boot.entity.admin.User;
+import cn.itbcat.boot.entity.common.Message;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.Comment;
 import cn.itbcat.boot.repository.admin.UserRepository;
@@ -32,12 +33,12 @@ public class CommentService {
             if(null != it){
                 User user = userRepository.findOne(comment.getUserId());
                 it.setAnthro(user);
-                return new Result(ITBC.SUCCESS_CODE,it,"success");
+                return new Result(ITBC.SUCCESS_CODE,it,new Message());
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-        return new Result(ITBC.ERROR_CODE,null,"error");
+        return new Result(ITBC.ERROR_CODE,null,new Message("error",""));
     }
 
     public List<Comment> findCommentByArticleId(String id) {

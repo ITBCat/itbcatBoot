@@ -1,6 +1,7 @@
 package cn.itbcat.boot.controller.front;
 
 import cn.itbcat.boot.controller.ITBController;
+import cn.itbcat.boot.entity.common.Message;
 import cn.itbcat.boot.entity.common.Result;
 import cn.itbcat.boot.entity.front.ArticleSearch;
 import cn.itbcat.boot.service.front.ArticleSearchService;
@@ -35,7 +36,7 @@ public class SearchController extends ITBController {
             List<ArticleSearch> list = articleSearchService.search(q);
             data.put("search",list);
         }
-        return new Result(ITBC.SUCCESS_CODE,data,"");
+        return new Result(ITBC.SUCCESS_CODE,data,new Message());
     }
 
 }

@@ -60,7 +60,30 @@ public class User implements Serializable {
 	 */
 	private Integer status;
 
+	/**
+	 * 是否是超级管理员
+	 */
 	private String isAdmin;
+
+	/**
+	 * 性别 0：男 1：女
+	 */
+	private String gender;
+
+	/**
+	 * 个人简介
+	 */
+	private String profiles;
+
+	/**
+	 * 个人网站
+	 */
+	private String website;
+
+	/**
+	 * 自我标签
+	 */
+	private String tags;
 
 	/**
 	 * 用户状态
@@ -292,5 +315,37 @@ public class User implements Serializable {
 
 	public String getCreateUserId() {
 		return createUserId;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getProfiles() {
+		return profiles;
+	}
+
+	public void setProfiles(String profiles) {
+		this.profiles = profiles;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 }
