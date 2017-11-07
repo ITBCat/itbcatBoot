@@ -1,19 +1,14 @@
 package cn.itbcat.boot.repository.front;
 
-import cn.itbcat.boot.entity.front.Follow;
+import cn.itbcat.boot.entity.front.Fans;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-
 /**
- * Created by 860117030 on 2017/11/7.
+ * Created by Seven on 2017/11/7.
  */
 @Repository
 @Transactional
-public interface FollowRepository extends JpaRepository<Follow,String> {
-
-    List<Follow> findFollowByUserId(String currUserId);
+public interface FansRepository extends JpaRepository<Fans,String> {
 }

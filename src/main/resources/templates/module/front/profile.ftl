@@ -44,7 +44,7 @@
                     <i class="instagram icon"></i>
                 </button>
                 <div class="ui divider"></div>
-                <button class="ui inverted black button follow" id="_follow" onclick="Follow.follow('${profiler.userId}')">关注</button>
+                <button class="ui <#if isFollowing>green right labeled icon<#else>inverted black</#if> button follow" id="_follow" onclick="Follow.follow('${profiler.userId}')"><#if isFollowing>已关注 <i class="checkmark icon"></i><#else >关注</#if></button>
             </div>
         </div>
     </div>
@@ -386,13 +386,13 @@
                 window.location.href='/login';
                 return;
             }
-            axios.post(ITBC.serverName+'/follow', {
-                followerId: followerId
-            }).then(function (response) {
+            var params = new URLSearchParams();
+            params.append('followerId',followerId);
+            axios.post(ITBC.serverName+'/follow',params).then(function (response) {
                 console.log(response)
                 if(response.data.code == 0){
-                    $('#_follow').attr('class','ui green button follow');
-                    $('#_follow').html('<i class="checkmark icon"></i> 已关注');
+                    $('#_follow').attr('class','ui green right labeled icon button follow');
+                    $('#_follow').html('已关注 <i class="checkmark icon"></i>');
                     console.log("关注成功")
                 }else{
                     if(response.data.message.message=='not login'){

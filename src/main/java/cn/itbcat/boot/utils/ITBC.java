@@ -76,6 +76,11 @@ public class ITBC {
     public static final String TEMPLATE="template";
 
     /**
+     * template name
+     */
+    public static final String IS_FOLLOWING="isFollowing";
+
+    /**
      * profile key
      */
     public static final String PROFILER="profiler";
