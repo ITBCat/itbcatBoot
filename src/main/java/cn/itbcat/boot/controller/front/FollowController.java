@@ -9,8 +9,10 @@ import cn.itbcat.boot.utils.ITBC;
 import cn.itbcat.boot.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,15 +29,14 @@ public class FollowController extends ITBController{
 
     /**
      *
-     * @param request
+     * @param followerId
      * userId 发起关注的人
      * followerId 被关注的人
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/follow",method = RequestMethod.POST)
-    private Result follow(HttpServletRequest request){
-        String followerId=request.getParameter("followerId");
+    private Result follow(@RequestParam(value = "followerId") String followerId){
         if(StringUtils.isBlank(ITBC.getCurrUserId())){
             return new Result(ITBC.ERROR_CODE,null,new Message("error","not login"));
         }
@@ -46,5 +47,20 @@ public class FollowController extends ITBController{
             }
         }
         return new Result(ITBC.ERROR_CODE,null,new Message());
+    }
+
+    /**
+     * 取关
+     * @param followerId
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/unfollow",method = RequestMethod.POST)
+    private Result unfollow(@RequestParam(value = "followerId") String followerId){
+        if(StringUtils.isNotBlank(followerId)){
+            followService.delete(followerId);
+            return new Result(ITBC.SUCCESS_CODE,null,null);
+        }
+        return new Result(ITBC.ERROR_CODE,null,null);
     }
 }

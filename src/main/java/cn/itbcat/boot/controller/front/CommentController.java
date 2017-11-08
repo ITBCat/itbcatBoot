@@ -61,7 +61,9 @@ public class CommentController extends ITBController {
     @ResponseBody
     @RequiresPermissions("user:login:comment-user")
     public Result user(@RequestParam(value = "commentId") String commentId){
-        if(StringUtils.isBlank(commentId))return new Result(ITBC.ERROR_CODE,null,new Message("warning","commentId is null"));
+        if(StringUtils.isBlank(commentId)){
+            return new Result(ITBC.ERROR_CODE,null,new Message("warning","commentId is null"));
+        }
         Comment comment = commentService.get(commentId);
         User user = userService.get(comment.getUserId());
         if(null == user){

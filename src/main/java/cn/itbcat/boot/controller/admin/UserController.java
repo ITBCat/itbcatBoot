@@ -83,7 +83,7 @@ public class UserController extends ITBController{
         String roleId = request.getParameter("roleId");
 
         try {
-            if(ITBC.ROLE_ADMIN.equals(roleId)){
+            if(!ITBC.ROLE_ADMIN.equals(roleId)){
                 user.setIsAdmin(ITBC.NOT_ADMIN);
             }else {
                 user.setIsAdmin(ITBC.IS_ADMIN);

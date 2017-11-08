@@ -38,7 +38,7 @@ public class RoleController extends ITBController{
     @RequestMapping(value = "/{template}",method = RequestMethod.GET)
     @RequiresPermissions("admin:role:view")
     public String goToRole(@PathVariable String template, HttpServletRequest request, HttpServletResponse response, Map<String,Object> dataModel){
-        dataModel.putAll(dataModel);
+        dataModel.putAll(dataModel());
         dataModel.put("template",template);
         dataModel.put("roles",roleService.findAll());
         return ITBC.SYSTEM_ADMIN_TEMPLATE;

@@ -5,7 +5,7 @@
 <script src="/static/plugins/nicescrool/jquery.nicescroll.min.js"></script>
 
 <script data-pace-options='{ "ajax": false }' src="/static/plugins/pacejs/pace.js"></script>
-<script src="/static/plugins/lobibox/js/notifications.js"></script>
+
 <script src="/static/js/main.js"></script>
 <script src="/static/js/customjs/custom-tooltip.js"></script>
 <script>
@@ -52,19 +52,4 @@
         });
     }
 
-    function notify(type,title,msg,img) {
-        Lobibox.notify(type, {
-            size: 'normal',
-            rounded: false,
-            delayIndicator: true,
-            msg: msg,
-            icon: true,
-            title: title,
-            showClass: 'fadeInDown',
-            hideClass: 'zoomOut',
-            sound: false,
-            img: img,
-            delay: 5000
-        });
-    }
 </script>

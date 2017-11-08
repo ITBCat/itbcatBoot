@@ -119,4 +119,13 @@ public class ArticleService {
 
         return null;
     }
+
+    public Integer countByUserid(String userId) {
+
+        return articleRepository.countByUserid(userId);
+    }
+
+    public List<Article> findByUserid(String userId) {
+        return articleRepository.findByUserid(userId);
+    }
 }

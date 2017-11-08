@@ -31,9 +31,6 @@ public class ITBController {
 	@Autowired
 	protected HttpServletRequest request;
 
-	@Autowired
-	protected HttpServletResponse response;
-
 
 	@Value("${itbc.server.nginx.ipaddress}")
 	private String ITBCNginx;
@@ -41,11 +38,7 @@ public class ITBController {
 	@Autowired
 	protected UserService userService;
 
-	@InitBinder
-    protected void initBinder(WebDataBinder webDataBinder) {
-        webDataBinder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
-        webDataBinder.registerCustomEditor(Date.class, new DateEditor(true));
-    }
+
 
 	/**
      * 带参重定向
@@ -73,66 +66,6 @@ public class ITBController {
         return null;
     }
 
-    /**
-     * 获取分页请求
-     * @return
-     */
-    protected PageRequest getPageRequest(){
-    	int page = 1;
-    	int size = 10;
-    	Sort sort = null;
-    	try {
-    		String sortName = request.getParameter("sortName");
-    		String sortOrder = request.getParameter("sortOrder");
-    		if(StringUtils.isNoneBlank(sortName) && StringUtils.isNoneBlank(sortOrder)){
-    			if(sortOrder.equalsIgnoreCase("desc")){
-    				sort = new Sort(Direction.DESC, sortName);
-    			}else{
-    				sort = new Sort(Direction.ASC, sortName);
-    			}
-    		}
-    		if(!org.springframework.util.StringUtils.isEmpty(request.getParameter("pageNumber"))){
-				page = Integer.parseInt(request.getParameter("pageNumber")) - 1;
-				size = Integer.parseInt(request.getParameter("pageSize"));
-			}
-
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    	PageRequest pageRequest = new PageRequest(page, size, sort);
-    	return pageRequest;
-    }
-
-    /**
-     * 获取分页请求
-     * @param sort 排序条件
-     * @return
-     */
-    protected PageRequest getPageRequest(Sort sort){
-    	int page = 0;
-    	int size = 10;
-    	try {
-    		if (null==sort) {
-				String sortName = request.getParameter("sortName");
-				String sortOrder = request.getParameter("sortOrder");
-				if (StringUtils.isNoneBlank(sortName) && StringUtils.isNoneBlank(sortOrder)) {
-					if (sortOrder.equalsIgnoreCase("desc")) {
-						sort.and(new Sort(Direction.DESC, sortName));
-					} else {
-						sort.and(new Sort(Direction.ASC, sortName));
-					}
-				}
-			}
-			if(!org.springframework.util.StringUtils.isEmpty(request.getParameter("pageNumber"))){
-				page = Integer.parseInt(request.getParameter("pageNumber")) - 1;
-				size = Integer.parseInt(request.getParameter("pageSize"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    	PageRequest pageRequest = new PageRequest(page, size, sort);
-    	return pageRequest;
-    }
 
     protected Map<String,Object> dataModel(){
 
@@ -146,9 +79,18 @@ public class ITBController {
 		if(null!=user){
 			flag = true;
 			String _userString = JSON.toJSONString(user);
-			JSONObject _user = JSONObject.parseObject(_userString);
+
+			JSONObject _user = new JSONObject();
+			_user.put("userId",user.getUserId());
+			_user.put("username",user.getUsername());
+			_user.put("email",user.getEmail());
+			_user.put("mobile",user.getMobile());
+			_user.put("avatar",user.getAvatar());
+			_user.put("profiles",user.getProfiles());
+			_user.put("website",user.getWebsite());
+			_user.put("gender",user.getGender());
 			data.put(ITBC._USER,_user);
-			data.put(ITBC.JSON_USER,_userString);
+			data.put(ITBC.JSON_USER,_user.toJSONString());
 		}
 		data.put(ITBC.ITBC_FRONT,ITBC.SERVER_NAME_FRONT);
 		data.put(ITBC.ITBC_ADMIN,ITBC.SERVER_NAME_ADMIN);

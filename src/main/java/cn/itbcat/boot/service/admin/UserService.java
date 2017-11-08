@@ -129,16 +129,23 @@ public class UserService {
     @CachePut(value = ITBC.CACHE_NAME,key = "'CACHE_USER_'+#user.getUserId()")
     public User update(String roleId, User user) {
         try {
+            User u = get(user.getUserId());
             userRoleRepository.deleteByUserId(user.getUserId());
             UserRole userRole = new UserRole();
             userRole.setId(ITBC.getId());
             userRole.setRoleId(roleId);
             userRole.setUserId(user.getUserId());
             userRoleRepository.save(userRole);
-            user.setCreateTime(new Date());
+            u.setEmail(user.getEmail());
+            u.setUsername(user.getUsername());
+            u.setMobile(user.getMobile());
+            u.setStatus(user.getStatus());
+            u.setDeptId(user.getDeptId());
+            u.setDeptName(user.getDeptName());
+            u.setCreateTime(new Date());
             User currUser = ITBC.getCurrUser();
-            user.setCreateUserId(user.getUserId());
-            return userRepository.save(user);
+            u.setCreateUserId(user.getUserId());
+            return userRepository.save(u);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 <div class="ui equal width left aligned padded grid stackable" style="background-color: #F1F4F5;">
     <div class="sixteen wide tablet sixteen wide computer column profileheader row no-padding">
-        <div class="column  left floated">
+        <div class="column left floated" style="margin-left: 23%;">
             <div class="ui items">
                 <div class="item">
                     <a class="ui small circular image">
@@ -13,14 +13,16 @@
                             ${profiler.username}
                         </div>
                     <#if profiler.website??>
-                        <div class="meta">
-                        <a href="http://${profiler.website}" target="_blank">http://${profiler.website}</a>
-                        </div>
+                        <#if profiler.website != 'http://'>
+                            <div class="meta">
+                            <a href="http://${profiler.website}" target="_blank">http://${profiler.website}</a>
+                            </div>
+                        </#if>
                     </#if>
                     <#if profiler.profiles??>
-                        <div class="meta">
-                            ${profiler.profiles}
-                        </div>
+                         <div class="meta">
+                             ${profiler.profiles}
+                         </div>
                     </#if>
                     </div>
                 </div>
@@ -28,23 +30,28 @@
         </div>
         <div class="column hiddenui">
             <div class="description right aligned">
-                <button class="ui circular facebook icon button">
+                <a class="ui circular facebook icon button" data-content="facebook" data-variation="inverted">
                     <i class="facebook icon"></i>
-                </button>
-                <button class="ui circular twitter icon button">
+                </a>
+                <a class="ui circular twitter icon button" data-content="twitter" data-variation="inverted">
                     <i class="twitter icon"></i>
-                </button>
-                <button class="ui circular linkedin icon button">
+                </a>
+                <a class="ui circular linkedin icon button" data-content="linkedin" data-variation="inverted">
                     <i class="linkedin icon"></i>
-                </button>
-                <button class="ui circular google plus icon button">
+                </a>
+                <a class="ui circular google plus icon button" data-content="google" data-variation="inverted">
                     <i class="google plus icon"></i>
-                </button>
-                <button class="ui circular instagram icon button">
+                </a>
+                <a class="ui circular instagram icon button" data-content="instagram" data-variation="inverted">
                     <i class="instagram icon"></i>
-                </button>
+                </a>
                 <div class="ui divider"></div>
-                <button class="ui <#if isFollowing>green right labeled icon<#else>inverted black</#if> button follow" id="_follow" onclick="Follow.follow('${profiler.userId}')"><#if isFollowing>已关注 <i class="checkmark icon"></i><#else >关注</#if></button>
+            <#if isFollowing>
+                <button class="ui green right labeled icon button follow" id="_unfollow" onclick="Follow.unfollow('${profiler.userId}')">已关注 <i class="checkmark icon"></i></button>
+            <#else>
+                <button class="ui inverted black button follow" id="_follow" onclick="Follow.follow('${profiler.userId}')">关注</button>
+            </#if>
+                <button class="ui inverted black button follow" id="" onclick="Common.addFriend('${profiler.userId}')">添加好友</button>
             </div>
         </div>
     </div>
@@ -57,30 +64,72 @@
             <a class="item">
                 <div class="ui mini statistic">
                     <div class="value">
-                        1.6k
+                        <#if profiler.articleCnt lt 1000>
+                            ${profiler.articleCnt}
+                        <#else >
+                            ${profile.article / 1000} k
+                        </#if>
                     </div>
                     <div class="label">
-                        Followers
+                        篇文章
                     </div>
                 </div>
             </a>
             <a class="item">
                 <div class="ui mini statistic">
                     <div class="value">
-                        102
+                        <#if profiler.followCnt lt 1000>
+                            ${profiler.followCnt}
+                        <#else >
+                            ${profile.followCnt / 1000} k
+                        </#if>
                     </div>
                     <div class="label">
-                        Following
+                        关注
                     </div>
                 </div>
             </a>
             <a class="item">
                 <div class="ui mini statistic">
                     <div class="value">
-                        206
+                    1.3 k
                     </div>
                     <div class="label">
-                        Activities
+                        个赞
+                    </div>
+                </div>
+            </a>
+            <a class="item">
+                <div class="ui mini statistic">
+                    <div class="value">
+                    690
+                    </div>
+                    <div class="label">
+                        条评论
+                    </div>
+                </div>
+            </a>
+            <a class="item">
+                <div class="ui  mini statistic">
+                    <div class="value">
+                    150
+                    </div>
+                    <div class="label">
+                        收藏
+                    </div>
+                </div>
+            </a>
+            <a class="item">
+                <div class="ui mini statistic">
+                    <div class="value">
+                    <#if profiler.fansCnt lt 1000>
+                    ${profiler.fansCnt}
+                    <#else >
+                    ${profile.fansCnt / 1000} k
+                    </#if>
+                    </div>
+                    <div class="label">
+                        粉丝
                     </div>
                 </div>
             </a>
@@ -309,65 +358,38 @@
         <div class="sixteen wide tablet six wide computer column">
             <div class="ui segments">
                 <div class="ui segment">
-                    <h3 class="ui header">Follow Suggestions</h3>
+                    <h3 class="ui header">${profiler.username}&nbsp;关注的人</h3>
                 </div>
                 <div class="ui segment">
                     <div class="ui items">
-
-                        <div class="item">
-                            <div class="ui tiny rounded image">
-                                <img src="/static/img/avatar/people/Abraham.png" alt="label-image" />
-                                <i class="circle mini green icon avt" data-content="Online" data-variation="inverted greenli"></i>
-                            </div>
-                            <div class="content">
-                                <a class="header" href="#">Gwen Randolph</a>
-                                <div class="meta">
-                                    <span class="cinema">Irure ex aute dolor minim sit. Enim eiusmod cillum incididunt fugiat</span>
+                        <#list profiler.follows as item>
+                            <div class="item">
+                                <div class="ui tiny rounded image">
+                                    <#if item.avatar??>
+                                        <img src="${ITBCNginx}/${item.avatar}" onerror="this.src='/static/img/avatar/animals/beer_128.png'" alt="label-image" />
+                                    <#else >
+                                        <img src="/static/img/avatar/animals/bat_128px.png" alt="label-image" />
+                                    </#if>
+                                    <#if item.chatStatus == 'NotOnline'>
+                                        <i class="circle mini red icon avt" data-content="offline" data-variation="inverted redli"></i>
+                                    <#elseif item.chatStatus == 'Online'>
+                                        <i class="circle mini green icon avt" data-content="Online" data-variation="inverted greenli"></i>
+                                    <#else >
+                                        <i class="circle mini yellow icon avt" data-content="hide" data-variation="inverted yellowli"></i>
+                                    </#if>
                                 </div>
-                                <div class="description">
-                                    <p></p>
-                                </div>
-                                <div class="extra">
-                                    <button class="ui greenli inverted tiny button follow">Follow</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ui rounded tiny image">
-                                <img src="/static/img/avatar/people/carol.png" alt="label-image" />
-                                <i class="circle mini green icon avt" data-content="Online" data-variation="inverted greenli"></i>
-                            </div>
-                            <div class="content">
-                                <a class="header">Ashley Ross</a>
-                                <div class="meta">
-                                    <span class="cinema">Ea nostrud adipisicing ut et sint culpa et ut esse minim Lorem ex voluptate ex</span>
-                                </div>
-                                <div class="description">
-                                    <p></p>
-                                </div>
-                                <div class="extra">
-                                    <button class="ui greenli inverted tiny button follow">Follow</button>
+                                <div class="content">
+                                    <a class="header" href="#">${item.username}</a>
+                                    <div class="meta">
+                                        <span class="cinema">${item.profiles}</span>
+                                    </div>
+                                    <div class="extra">
+                                        <button class="ui inverted greenli tiny button follow" onclick="Follow.follow('${item.userId}')">关注</button>
+                                        <button id="_addFriend" class="ui inverted yellowli tiny button follow" onclick="Common.addFriend('${item.userId}')">添加好友</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="ui rounded tiny image">
-                                <img src="/static/img/avatar/people/Daryl.png" alt="label-image" />
-                                <i class="circle mini red icon avt" data-content="Offline" data-variation="inverted redli"></i>
-                            </div>
-                            <div class="content">
-                                <a class="header">Trina Marquez</a>
-                                <div class="meta">
-                                    <span class="cinema">Excepteur ut elit dolor officia consequat do duis cillum culpa pariatur</span>
-                                </div>
-                                <div class="description">
-                                    <p></p>
-                                </div>
-                                <div class="extra">
-                                    <button class="ui greenli inverted tiny button follow">Follow</button>
-                                </div>
-                            </div>
-                        </div>
+                        </#list>
                     </div>
                 </div>
             </div>
@@ -375,6 +397,7 @@
     </div>
 </div>
 <script type="text/javascript">
+
     var Follow = {
         /**
          * 关注
@@ -386,6 +409,10 @@
                 window.location.href='/login';
                 return;
             }
+            if(user.userId == followerId){
+                Common.notify('warning','这是一个小小的警告哦','自己不可以Follow自己[允悲][允悲][允悲]','/static/img/message/warning.png');
+                return;
+            }
             var params = new URLSearchParams();
             params.append('followerId',followerId);
             axios.post(ITBC.serverName+'/follow',params).then(function (response) {
@@ -394,6 +421,28 @@
                     $('#_follow').attr('class','ui green right labeled icon button follow');
                     $('#_follow').html('已关注 <i class="checkmark icon"></i>');
                     console.log("关注成功")
+                }else{
+                    if(response.data.message.message=='not login'){
+                        window.location.href='/login';
+                    }
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        unfollow:function (followerId) {
+            if(!user){
+                window.location.href='/login';
+                return;
+            }
+            var params = new URLSearchParams();
+            params.append('followerId',followerId);
+            axios.post(ITBC.serverName+'/unfollow',params).then(function (response) {
+                console.log(response)
+                if(response.data.code == 0){
+                    $('#_unfollow').attr('class','ui inverted black button follow');
+                    $('#_unfollow').html('关注');
+                    console.log("取关成功")
                 }else{
                     if(response.data.message.message=='not login'){
                         window.location.href='/login';

@@ -18,4 +18,7 @@ import java.util.List;
 @Transactional
 public interface ArticleRepository extends JpaRepository<Article,String>,CrudRepository<Article,String> {
 
+    Integer countByUserid(String userId);
+
+    List<Article> findByUserid(String userId);
 }

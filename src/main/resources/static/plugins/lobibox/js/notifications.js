@@ -176,7 +176,7 @@ var Lobibox = Lobibox || {};
                 $notify.addClass('without-icon');
             }
             // Create body, append title and message in body and append body in notification
-            $msg = $('<div class="lobibox-notify-msg">' + me.$options.msg + '</div>');
+            $msg = $('<div class="lobibox-notify-msg" style="margin-top: 0.5em;">' + me.$options.msg + '</div>');
 
             if (me.$options.messageHeight !== false){
                 $msg.css('max-height', me.$options.messageHeight);

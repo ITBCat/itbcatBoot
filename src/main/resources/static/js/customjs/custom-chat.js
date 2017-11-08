@@ -171,7 +171,7 @@ var websocketTool = {
             if (message.sendType == "LEAVE") {
                 that.socket.close();
                 that.checkSocket.close();
-                notify('warning','警告','被他人挤下线','/static/i.png');
+                Common.notify('warning','警告','被他人挤下线','/static/img/message/warning.png');
                 that.onlineStatus = 0;
                 that.notOnlineEvent();
             } else {

@@ -50,4 +50,8 @@ public class FriendService {
         }
         return friends;
     }
+
+    public Friend save(Friend friend) {
+        return friendRepository.save(friend);
+    }
 }

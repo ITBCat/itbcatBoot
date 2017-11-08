@@ -26,7 +26,7 @@
                     <form  id="formid" class="ui form segment form14" action="${ITBCAdmin}/role/save" method="post">
                         <div class="field">
                             <label>角色名称</label>
-                            <input name="roleName" type="text" placeholder="请填写部门名称...">
+                            <input name="roleName" type="text" placeholder="请填写角色名称...">
                         </div>
                         <div class="field">
                             <label>所属部门</label>

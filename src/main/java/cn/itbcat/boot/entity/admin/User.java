@@ -1,12 +1,12 @@
 package cn.itbcat.boot.entity.admin;
 
 
+import cn.itbcat.boot.entity.front.Article;
+import cn.itbcat.boot.entity.front.Fans;
+import cn.itbcat.boot.entity.front.Follow;
 import cn.itbcat.boot.entity.socket.UserStatus;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -92,35 +92,6 @@ public class User implements Serializable {
 	private UserStatus chatStatus;
 
 	private Date leaveTime;
-
-	public Date getLeaveTime() {
-		return leaveTime;
-	}
-
-	public void setLeaveTime(Date leaveTime) {
-		this.leaveTime = leaveTime;
-	}
-
-	public UserStatus getChatStatus() {
-		return chatStatus;
-	}
-
-	public void setChatStatus(UserStatus userStatus) {
-		this.chatStatus = userStatus;
-		if(UserStatus.NotOnline.equals(userStatus)){
-			this.leaveTime = new Date();
-		}
-	}
-
-
-	public String getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(String isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
 	/**
 	 * 创建者ID
 	 */
@@ -149,6 +120,62 @@ public class User implements Serializable {
 
 	@Column(name= "token")
 	private String token;
+	/**
+	 * 我关注的人总数
+	 */
+	@Transient
+	private Integer followCnt;
+
+	/**
+	 * 关注人列表
+	 */
+	@Transient
+	private List<User> follows;
+
+	/**
+	 * 粉丝总数
+	 */
+	@Transient
+	private Integer fansCnt;
+
+	/**
+	 * 粉丝列表
+	 */
+	@Transient
+	private List<User> fans;
+
+	@Transient
+	private Integer articleCnt;
+
+	@Transient
+	private List<Article> articles;
+
+	public Date getLeaveTime() {
+		return leaveTime;
+	}
+
+	public void setLeaveTime(Date leaveTime) {
+		this.leaveTime = leaveTime;
+	}
+
+	public UserStatus getChatStatus() {
+		return chatStatus;
+	}
+
+	public void setChatStatus(UserStatus userStatus) {
+		this.chatStatus = userStatus;
+		if(UserStatus.NotOnline.equals(userStatus)){
+			this.leaveTime = new Date();
+		}
+	}
+
+	public String getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(String isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 
 	public String getDelFlag() {
 		return delFlag;
@@ -347,5 +374,53 @@ public class User implements Serializable {
 
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+
+	public Integer getFollowCnt() {
+		return followCnt;
+	}
+
+	public void setFollowCnt(Integer followCnt) {
+		this.followCnt = followCnt;
+	}
+
+	public List<User> getFollows() {
+		return follows;
+	}
+
+	public void setFollows(List<User> follows) {
+		this.follows = follows;
+	}
+
+	public Integer getFansCnt() {
+		return fansCnt;
+	}
+
+	public void setFansCnt(Integer fansCnt) {
+		this.fansCnt = fansCnt;
+	}
+
+	public List<User> getFans() {
+		return fans;
+	}
+
+	public void setFans(List<User> fans) {
+		this.fans = fans;
+	}
+
+	public Integer getArticleCnt() {
+		return articleCnt;
+	}
+
+	public void setArticleCnt(Integer articleCnt) {
+		this.articleCnt = articleCnt;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
 	}
 }

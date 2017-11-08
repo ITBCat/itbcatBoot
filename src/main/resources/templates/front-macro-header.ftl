@@ -12,6 +12,8 @@
 <!--jquery-->
 <script src="/static/js/jquery-2.1.4.min.js"></script>
 <script src="/static/plugins/axios/axios.min.js"></script>
+<script src="/static/plugins/lobibox/js/notifications.js"></script>
+<script src="/static/js/common/common.js"></script>
 <!--jquery-->
 <style>
     .ui.footer.segment {

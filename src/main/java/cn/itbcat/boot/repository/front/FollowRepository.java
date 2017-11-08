@@ -16,4 +16,8 @@ import java.util.List;
 public interface FollowRepository extends JpaRepository<Follow,String> {
 
     List<Follow> findFollowByUserId(String currUserId);
+
+    Integer countByUserId(String userId);
+
+    void deleteByUserIdAndFollowId(String currUserId, String followerId);
 }

@@ -23,7 +23,12 @@
         <#list article.comments as item>
             <div class="comment" style="width: 1100px;">
                 <a class="avatar" style="height: 38.56px;">
-                    <img style="height: 35px;width: 35px;" src="${ITBCNginx}/${item.anthro.avatar}" onerror="this.src='/static/i.png'">
+                    <#if item.anthro.avatar??>
+                        <img style="height: 35px;width: 35px;" src="${ITBCNginx}/${item.anthro.avatar}" onerror="this.src='/static/i.png'">
+                    <#else >
+                        <img style="height: 35px;width: 35px;" src="/static/img/avatar/animals/shark_128px.png" onerror="this.src='/static/i.png'">
+                    </#if>
+
                 </a>
                 <div class="ui fluid content">
                     <a class="author">${item.anthro.username}</a>
